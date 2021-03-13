@@ -13,20 +13,18 @@ Cet article est le premier d'une série abordant les concepts derrière GraalVM.
 
 <!--more-->
 
----
+<hr class="hr-text" data-content="Plan">
 
-1. Qu'est-ce qu'un microservice ?
+1. [Qu'est-ce qu'un microservice ?](#quest-ce-quun-microservice-)
+1. [Qu'est-ce que Java ?](#quest-ce-que-java-)
+	1. [Le fonctionnement de la JVM](#le-fonctionnement-de-la-jvm)
+		1. [L'interprétation](#linterprétation)
+		1. [Le compilateur Just-In-Time (JIT)](#le-compilateur-just-in-time-jit)
+		1. [L'empreinte mémoire](#lempreinte-mémoire)
+	1. [Le fonctionnement des Frameworks Java](#le-fonctionnement-des-frameworks-java)
+1. [On fait comment à présent ?](#on-fait-comment-à-présent-)
 
-1. Qu'est-ce que Java ?
-	1. Le fonctionnement de la JVM
-		1. L'interprétation
-		1. Le compilateur Just-In-Time (JIT)
-		1. L'empreinte mémoire
-	1. Le fonctionnement des Frameworks Java
-
-1. On fait comment à présent ?
-
----
+<hr class="hr-text" data-content="Microservices">
 
 ## Qu'est-ce qu'un microservice ?
 
@@ -40,10 +38,13 @@ Il ajoute les notions de :
 
 > `FaaS` va encore plus loin en ajoutant &laquo; *serverless* &raquo; (sans se soucier du déploiement) et &laquo; *sans état* &raquo; ( programmation fonctionnelle, x -> f(x) )
 
+<hr class="hr-text" data-content="Java">
 
 ## Qu'est-ce que Java ?
 
 ### Le fonctionnement de la JVM
+
+<hr class="hr-text" data-content="Interpréteur">
 
 #### L'interprétation
 
@@ -58,6 +59,7 @@ Il ajoute les notions de :
 > 
 > * Le bytecode est recherché, vérifié puis interprété par la JVM qui elle-même s'exécute sur le processeur.
 
+<hr class="hr-text" data-content="Compilateur JIT">
 
 #### Le compilateur Just-In-Time (JIT)
 
@@ -78,6 +80,7 @@ Il ajoute les notions de :
 > * Il faut donc un temps de chauffe, &laquo; ***warm-up*** &raquo;, à une application Java pour être pleinement fonctionnelle.
 > * C'est un réel problème pour un microservice qui doit pouvoir être déployé et fonctionnel très rapidement.
 
+<hr class="hr-text" data-content="Mémoire">
 
 #### L'empreinte mémoire
 
@@ -97,6 +100,7 @@ Il est divisé en 2 parties : le &laquo; ***Young Generation*** &raquo; qui cont
 > * Pour une application de 10Mo, la JVM occupe souvent une taille de 100Mo.
 > * Là encore, c'est un problème pour un microservice qui doit avoir une empreinte mémoire la plus petite possible.
 
+<hr class="hr-text" data-content="Frameworks">
 
 ### Le fonctionnement des Frameworks Java
 
@@ -114,9 +118,9 @@ Ce sont pourtant des frameworks très utilisés par les développeurs et, en ré
 
 > * Les frameworks Java amplifient les problèmes de temps de démarrage et de consommation mémoire de la JVM.
 
----
+<hr class="hr-text" data-content="Conclusion">
 
-## On fait quoi à présent ?
+## On fait comment à présent ?
 
 On oublie Java ? On se met tous au C++ ??
 
