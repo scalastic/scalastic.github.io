@@ -1,16 +1,15 @@
 # Site web de la société Scalastic
 
-![](https://github.com/scalastic/scalastic.github.io/blob/master/assets/img/scalastic.png?raw=true)
-![](https://github.com/artemsheludko/flexible-jekyll/blob/master/assets/img/promo-img.jpg?raw=true)
+![](https://github.com/scalastic/scalastic.github.io/blob/main/assets/img/scalastic.png?raw=true)
 
 ## Fabriqué avec Jekyll et GitHub Pages
 
-* Plus d'infos , par ici ![Site Officiel de Jekyll](https://jekyllrb.com)
-* Et par là ![GitHub Pages](https://pages.github.com/)
+* Plus d'infos , par ici [Site Officiel de Jekyll](https://jekyllrb.com)
+* Et par là [GitHub Pages](https://pages.github.com/)
 
 ## Et un beau thème
 
-* Qui provient de là ![Flexible Jekyll](https://github.com/artemsheludko/flexible-jekyll)
+* Qui provient de là [Flexible Jekyll](https://github.com/artemsheludko/flexible-jekyll)
 
 ## Contenu du site web sous licence Creative Commons 
 
