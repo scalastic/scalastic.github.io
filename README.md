@@ -1,6 +1,6 @@
-# Site web de la société Scalastic
+# Code source du site web de la société Scalastic
 
-![](https://github.com/scalastic/scalastic.github.io/blob/main/assets/img/scalastic.png?raw=true)
+<a href="https://www.scalastic.io">![](https://github.com/scalastic/scalastic.github.io/blob/main/assets/img/scalastic.png?raw=true)</a>
 
 ## Fabriqué avec Jekyll et GitHub Pages
 
