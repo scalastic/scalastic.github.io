@@ -89,3 +89,13 @@
     }
   }
 }
+
+.page-footer-comment {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  padding: 10px 10px;
+  margin: 50px 50px;
+  border: 3px solid $dark-gray;
+  border-radius: 5px;
+}

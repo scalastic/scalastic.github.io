@@ -6,9 +6,12 @@ description: Avec l'arrivée des architectures microservices, les développeurs 
 img: java-like-rusty-container.jpg # Add image post (optional)
 fig-caption: Photo de a-herzog trouvée sur Flickr (Licence Attribution 2.0 Générique - CC BY 2.0) # Add figcaption (optional)
 tags: [Java, Microservices]
+excerpt_separator: <!--more-->
 ---
 
 Cet article est le premier d'une série abordant les concepts derrière GraalVM. Il permet de bien se rendre compte des lacunes de Java et de sa JVM HotSpot dans le monde des containers et notamment des microservices.
+
+<!--more-->
 
 ---
 
