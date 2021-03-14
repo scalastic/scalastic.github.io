@@ -21,24 +21,22 @@ layout: default
       <h3 class="contact-title">Contactez-moi</h3>
       <ul>
         {% if site.social-twitter %}
-          <li><a href="https://twitter.com/{{ site.social-twitter }}" target="_blank"><i class="fa fa-twitter" aria-hidden="true"></i></a></li>
-        {% endif %}
-        {% if site.social-facebook %}
-          <li><a href="https://facebook.com/{{ site.social-facebook }}" target="_blank"><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
+          <li><a href="https://twitter.com/{{ site.social-twitter }}" target="_blank"><i class="fab fa-twitter-square"></i></a></li>
         {% endif %}
         {% if site.social-github %}
-          <li class="github"><a href="http://github.com/{{site.social-github}}" target="_blank"><i class="fa fa-github"></i></a></li>
+          <li class="github"><a href="http://github.com/{{site.social-github}}" target="_blank"><i class="fab fa-github-square"></i></a></li>
         {% endif %}
         {% if site.social-linkedin %}
-          <li class="linkedin"><a href="https://in.linkedin.com/in/{{site.social-linkedin}}" target="_blank"><i class="fa fa-linkedin"></i></a></li>
+          <li class="linkedin"><a href="https://in.linkedin.com/in/{{site.social-linkedin}}" target="_blank"><i class="fab fa-linkedin"></i></a></li>
         {% endif %}
         {% if site.social-email %}
-          <li class="email"><a href="mailto:{{site.social-email}}"><i class="fa fa-envelope-o"></i></a></li>
+          <li class="email"><a href="mailto:{{site.social-email}}"><i class="fas fa-envelope-square"></i></a></li>
         {% endif %}
       </ul>
     </section> <!-- End Section Contact -->
     <div class="copyright">
       <p>{{site.time | date: '%Y'}} &copy; {{site.author}} pour {{site.company}} </p>
+      <p>Contenu sous licence <a href="https://creativecommons.org/licenses/by/4.0/"><i class="fab fa-creative-commons"></i> BY 4.0</a> à l'exception d'indication contraire<p>
     </div>
   </footer> <!-- End Footer -->
 </aside> <!-- End Sidebar -->

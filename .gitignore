@@ -1,7 +1,8 @@
-_site/
+# _site/ # send generated files as premonition plugins is not installed on GitHub Pages 
 .jekyll-metadata/
 .jekyll-cache/
 .sass-cache/
+archive-posts/
 yarn.lock
 Gemfile.lock
 package-lock.json
