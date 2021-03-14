@@ -1,10 +1,10 @@
 ---
 layout: post
-title: Java et les microservices ?
+title: Java et les microservices
 date: 2021-03-13 15:21:20 +0200
 description: Avec l'arrivée des architectures microservices, les développeurs Java sont en droit d'avoir peur pour leurs applications. Temps de démarrage, consommation mémoire de la JVM, a priori, rien de bon pour implémenter une application à base de microservices...
 img: java-like-rusty-container.jpg # Add image post (optional)
-fig-caption: Photo de a-herzog trouvée sur Flickr (Licence Attribution 2.0 Générique - CC BY 2.0) # Add figcaption (optional)
+fig-caption: Photo de <a href="https://flickr.com/photos/a-herzog">in hiatus</a> sur <a href="https://flic.kr/p/MnuQ9X">Flickr</a> # Add figcaption (optional)
 tags: [Java, Microservices]
 excerpt_separator: <!--more-->
 ---
@@ -15,6 +15,8 @@ Cet article est le premier d'une série abordant les concepts derrière GraalVM.
 
 <hr class="hr-text" data-content="Plan">
 
+1er article de la série
+
 1. [Qu'est-ce qu'un microservice ?](#quest-ce-quun-microservice-)
 1. [Qu'est-ce que Java ?](#quest-ce-que-java-)
 	1. [Le fonctionnement de la JVM](#le-fonctionnement-de-la-jvm)
@@ -23,6 +25,8 @@ Cet article est le premier d'une série abordant les concepts derrière GraalVM.
 		1. [L'empreinte mémoire](#lempreinte-mémoire)
 	1. [Le fonctionnement des Frameworks Java](#le-fonctionnement-des-frameworks-java)
 1. [On fait comment à présent ?](#on-fait-comment-à-présent-)
+
+Article suivant : [GraalVM, le futur des applications microservices en Java]({{site.baseurl}}/graalvm-le-futur-des-applications-microservices-en-java/)
 
 <hr class="hr-text" data-content="Microservices">
 

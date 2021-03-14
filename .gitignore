@@ -1,4 +1,4 @@
-# _site/ # send generated files as premonition plugins is not installed on GitHub Pages 
+_site/
 .jekyll-metadata/
 .jekyll-cache/
 .sass-cache/
