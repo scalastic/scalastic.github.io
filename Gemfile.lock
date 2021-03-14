@@ -88,7 +88,7 @@ PLATFORMS
   x86_64-darwin-20
 
 DEPENDENCIES
-  jekyll
+  jekyll (= 4.2.0)
   jekyll-paginate
   jekyll-sitemap
   jemoji
