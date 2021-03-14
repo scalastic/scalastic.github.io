@@ -36,6 +36,7 @@ Il ajoute les notions de :
 * **élastique** (facilement scalable) donc nécessite un déploiement rapide, un service léger, dans le cloud,...
 * **automatisation** du processus de build et de déploiement, équipe dédiée et réduite, tests automatisés pour déployer rapidement une nouvelle version,...
 
+> info ""
 > `FaaS` va encore plus loin en ajoutant &laquo; *serverless* &raquo; (sans se soucier du déploiement) et &laquo; *sans état* &raquo; ( programmation fonctionnelle, x -> f(x) )
 
 <hr class="hr-text" data-content="Java">
@@ -55,6 +56,7 @@ Il ajoute les notions de :
 3. La JVM **recherche** le fichier .class dans les packages .jar, **vérifie** le fichier .class puis le charge
 4. Une fois que le bytecode est chargé, la JVM peut l'exécuter (**le semi-interpréter**)
 
+> warning ""
 > Exécuter du bytecode a donc un coût :
 > 
 > * Le bytecode est recherché, vérifié puis interprété par la JVM qui elle-même s'exécute sur le processeur.
@@ -67,16 +69,20 @@ Il ajoute les notions de :
 
 1. Lors de l'exécution d'une méthode Java, le compilateur `C1` de JIT (just-in-time, à la volée) va la compiler en code natif et le `Profiler` va commencer à recueillir des informations sur son utilisation.
 
+	> info ""
 	> C1 est un compilateur léger et rapide mais il ne produit pas du code natif optimisé.
 
 1. Losrque le profiler détecte une méthode très utilisée, &laquo; ***Hot*** &raquo;, le compilateur `C2` va se servir des informations du Profiler pour produire un code natif, **agressif**,  optimisé et très bien adapté au contexte d'utilisation.
 
+	> info ""
 	> C2 est un compilateur lourd et lent mais il produit un code natif très bien optimisé et très rapide.
 	
+	> note "" 
 	> Il y a en réalité un cycle entre la compilation C1 et C2. Le compilateur C2 va souvent recompiler des morceaux de bytecode avec de nouvelles informations provenant du profiler pour produire un binaire toujours plus optimal.
 
 1. Au bout d'un certain temps, lorsque de nombreux morceaux de bytecode auront été compilés par le compilateur C2, l'application Java fonctionnera très rapidement.
 
+> warning ""
 > * Il faut donc un temps de chauffe, &laquo; ***warm-up*** &raquo;, à une application Java pour être pleinement fonctionnelle.
 > * C'est un réel problème pour un microservice qui doit pouvoir être déployé et fonctionnel très rapidement.
 
@@ -97,6 +103,7 @@ Il est divisé en 2 parties : le &laquo; ***Young Generation*** &raquo; qui cont
 
 1. Le &laquo; ***Metaspace*** &raquo; (anciennement &laquo;*PermGen*&raquo;) contient les métadonnées des classes (le bytecode des méthodes, les symboles, les &laquo;constant pools&raquo;, les annotations...).
 
+>  warning ""
 > * Pour une application de 10Mo, la JVM occupe souvent une taille de 100Mo.
 > * Là encore, c'est un problème pour un microservice qui doit avoir une empreinte mémoire la plus petite possible.
 
@@ -116,6 +123,7 @@ Lorsqu'une application Java, contenant ces frameworks, démarre, voici ce qui se
 
 Ce sont pourtant des frameworks très utilisés par les développeurs et, en réalité, très bien adaptés aux applications monolithiques.
 
+> warning ""
 > * Les frameworks Java amplifient les problèmes de temps de démarrage et de consommation mémoire de la JVM.
 
 <hr class="hr-text" data-content="Conclusion">
@@ -128,4 +136,9 @@ Rien de tout cela bien sûr. La réponse dans un prochain article présentant Gr
 
 Cheers...
 
-
+> info "Et maintenant"
+> * Vous avez aimé cet article ? Dites-le ci-dessous afin que le blog gagne en visibilité.
+> * Vous avez une question ? Posez-la en commentaire, je m'efforcerai d'y répondre dans les plus bref délais !!
+> 
+> Merci à vous !
+>

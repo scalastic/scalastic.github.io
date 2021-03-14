@@ -31,6 +31,7 @@ plugins:
   - jekyll-sitemap
   - jekyll-paginate
   - jemoji
+  - premonition
 
 paginate: 4
 paginate_path: "/page/:num"
