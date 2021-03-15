@@ -32,16 +32,16 @@ Article suivant : [GraalVM, le futur des applications microservices en Java]({{s
 
 ## Qu'est-ce qu'un microservice ?
 
-Le prolongement (l'aboutissement ?) du concept de `SOA` (Architecture Orientée Service) avec l'avênement du cloud.
+On peut, pour les plus vieux d'entre nous, considérer les microservices comme le prolongement du concept de `SOA` (Architecture Orientée Service) avec l'avènement du cloud.
 
-Il ajoute les notions de :
+Le `microservice` peut se caractériser comme étant :
 
-* service conçu pour remplir **1 seule fonction** (par exemple, la gestion des utilisateurs)
-* **élastique** (facilement scalable) donc nécessite un déploiement rapide, un service léger, dans le cloud,...
-* **automatisation** du processus de build et de déploiement, équipe dédiée et réduite, tests automatisés pour déployer rapidement une nouvelle version,...
+* Un service conçu pour **gérer une seule fonctionnalité** (par exemple, la gestion des utilisateurs)
+* **Elastique**, c'est à dire facilement scalable. Ceci implique un déploiement rapide, un service léger, tout cela, dans le cloud.
+* **Automatisé**, du processus de build au déploiement. Généralement, il est maintenu par une équipe dédiée et réduite, avec des tests automatisés pour déployer rapidement une nouvelle version.
 
-> info ""
-> `FaaS` va encore plus loin en ajoutant &laquo; *serverless* &raquo; (sans se soucier du déploiement) et &laquo; *sans état* &raquo; ( programmation fonctionnelle, x -> f(x) )
+> note "Microservice vs FaaS"
+> `FaaS`, pour Functions-as-a-Service, va un peu plus loin dans ce concept, en ajoutant les notions de &laquo; *serverless* &raquo; (l'infrastructure nécessaire au service est de la responsabilité du fournisseur) et &laquo; *sans état* &raquo; (cher à la programmation fonctionnelle, x -> f(x), toujours !)
 
 <hr class="hr-text" data-content="Java">
 
