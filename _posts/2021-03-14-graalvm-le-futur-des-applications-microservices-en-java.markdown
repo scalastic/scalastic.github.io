@@ -111,7 +111,7 @@ On est en droit de se demander à présent, en quoi cela change la donne pour Ja
 Certes, il nous fallait passer par cette présentation théorique mais déjà, on peut appréhender tout le potentiel d'une telle refonte :
 * Un nouveau compilateur, plus efficace,
 * La possibilité de compiler son application directement en code natif,
-* L'intégration de multiples langages à son application Java,...
+* La capacité d'intégrer de multiples langages à son application Java,...
 
 Reste à voir en pratique le résultat. C'est ce que nous ferons dans un prochain article.
 
@@ -119,7 +119,7 @@ Cheers...
 
 > info "Et maintenant"
 > * Vous avez aimé cet article ? Dites-le ci-dessous afin que le blog gagne en visibilité.
-> * Vous avez une question ? Posez-la en commentaire, je m'efforcerai d'y répondre dans les plus bref délais !!
+> * Vous avez une question ? Posez-la en commentaire, je m'efforcerai d'y répondre dans les plus brefs délais !!
 > 
 > Merci à vous !
 >

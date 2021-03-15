@@ -6,7 +6,6 @@ description: Avec l'arrivée des architectures microservices, les développeurs 
 img: java-like-rusty-container.jpg # Add image post (optional)
 fig-caption: Photo de <a href="https://flickr.com/photos/a-herzog">in hiatus</a> sur <a href="https://flic.kr/p/MnuQ9X">Flickr</a> # Add figcaption (optional)
 tags: [Java, Microservices]
-excerpt_separator: <!--more-->
 ---
 
 Cet article est le premier d'une série abordant les concepts derrière GraalVM. Il permet de bien se rendre compte des lacunes de Java et de sa JVM HotSpot dans le monde des conteneurs et notamment des microservices.
@@ -34,11 +33,11 @@ Article suivant : [GraalVM, le futur des applications microservices en Java]({{s
 
 On peut, pour les plus vieux d'entre nous, considérer les microservices comme le prolongement du concept de `SOA` (Architecture Orientée Service) avec l'avènement du cloud.
 
-Le `microservice` peut se caractériser comme étant :
+Un `microservice` peut se caractériser comme étant :
 
 * Un service conçu pour **gérer une seule fonctionnalité** (par exemple, la gestion des utilisateurs)
-* **Elastique**, c'est à dire facilement scalable. Ceci implique un déploiement rapide, un service léger, tout cela, dans le cloud.
-* **Automatisé**, du processus de build au déploiement. Généralement, il est maintenu par une équipe dédiée et réduite, avec des tests automatisés pour déployer rapidement une nouvelle version.
+* **Elastique**, c'est à dire facilement scalable. Ceci implique un déploiement rapide, un service léger, tout cela, dans un conteneur, voire dans le Cloud.
+* **Automatisé**, du processus de build jusqu'au déploiement. Généralement, il est maintenu par une équipe dédiée et réduite, avec des tests automatisés pour déployer rapidement une nouvelle version.
 
 > note "Microservice vs FaaS"
 > `FaaS`, pour Functions-as-a-Service, va un peu plus loin dans ce concept, en ajoutant les notions de &laquo; *serverless* &raquo; (l'infrastructure nécessaire au service est de la responsabilité du fournisseur) et &laquo; *sans état* &raquo; (cher à la programmation fonctionnelle, x -> f(x), toujours !)
@@ -155,7 +154,7 @@ Cheers...
 
 > info "Et maintenant"
 > * Vous avez aimé cet article ? Dites-le ci-dessous afin que le blog gagne en visibilité.
-> * Vous avez une question ? Posez-la en commentaire, je m'efforcerai d'y répondre dans les plus bref délais !!
+> * Vous avez une question ? Posez-la en commentaire, je m'efforcerai d'y répondre dans les plus brefs délais !!
 > 
 > Merci à vous !
 >

@@ -1,4 +1,4 @@
-title: Bonjour, je suis Jean-Jérôme Lévy
+title: Jean-Jérôme Lévy, consultant DevOps freelance
 description: > # this means to ignore newlines until "baseurl:"
   Je suis aussi un consultant freelance en DevOps et Cloud.
 permalink: ':title/'
@@ -35,6 +35,7 @@ plugins:
 
 paginate: 4
 paginate_path: "/page/:num"
+excerpt_separator: <!--more-->
 
 sass:
   sass_dir: _sass
