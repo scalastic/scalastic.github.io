@@ -9,7 +9,7 @@ tags: [Java, Microservices]
 excerpt_separator: <!--more-->
 ---
 
-Cet article est le premier d'une série abordant les concepts derrière GraalVM. Il permet de bien se rendre compte des lacunes de Java et de sa JVM HotSpot dans le monde des containers et notamment des microservices.
+Cet article est le premier d'une série abordant les concepts derrière GraalVM. Il permet de bien se rendre compte des lacunes de Java et de sa JVM HotSpot dans le monde des conteneurs et notamment des microservices.
 
 <!--more-->
 
@@ -71,24 +71,24 @@ Il ajoute les notions de :
 
 ![Le compilateur JIT]({{site.baseurl}}/assets/img/jvm-jit.png)
 
-1. Lors de l'exécution d'une méthode Java, le compilateur `C1` de JIT (just-in-time, à la volée) va la compiler en code natif et le `Profiler` va commencer à recueillir des informations sur son utilisation.
+1.&nbsp;&nbsp;Lors de l'exécution d'une méthode Java, le compilateur `C1` de JIT (just-in-time, à la volée) va la compiler en code natif et le `Profiler` va commencer à recueillir des informations sur son utilisation.
 
-	> info ""
-	> C1 est un compilateur léger et rapide mais il ne produit pas du code natif optimisé.
+> info ""
+> C1 est un compilateur léger et rapide mais il ne produit pas du code natif optimisé.
 
-1. Losrque le profiler détecte une méthode très utilisée, &laquo; ***Hot*** &raquo;, le compilateur `C2` va se servir des informations du Profiler pour produire un code natif, **agressif**,  optimisé et très bien adapté au contexte d'utilisation.
+2.&nbsp;&nbsp;Losrque le profiler détecte une méthode très utilisée, &laquo; ***Hot*** &raquo;, le compilateur `C2` va se servir des informations du Profiler pour produire un code natif, **agressif**,  optimisé et très bien adapté au contexte d'utilisation.
 
-	> info ""
-	> C2 est un compilateur lourd et lent mais il produit un code natif très bien optimisé et très rapide.
-	
-	> note "" 
-	> Il y a en réalité un cycle entre la compilation C1 et C2. Le compilateur C2 va souvent recompiler des morceaux de bytecode avec de nouvelles informations provenant du profiler pour produire un binaire toujours plus optimal.
+> info ""
+> C2 est un compilateur lourd et lent mais il produit un code natif très bien optimisé et très rapide.
 
-1. Au bout d'un certain temps, lorsque de nombreux morceaux de bytecode auront été compilés par le compilateur C2, l'application Java fonctionnera très rapidement.
+> note "" 
+> Il y a en réalité un cycle entre la compilation C1 et C2. Le compilateur C2 va souvent recompiler des morceaux de bytecode avec de nouvelles informations provenant du profiler pour produire un binaire toujours plus optimal.
+
+3.&nbsp;&nbsp;Au bout d'un certain temps, lorsque de nombreux morceaux de bytecode auront été compilés par le compilateur C2, l'application Java fonctionnera très rapidement.
 
 > warning ""
-> * Il faut donc un temps de chauffe, &laquo; ***warm-up*** &raquo;, à une application Java pour être pleinement fonctionnelle.
-> * C'est un réel problème pour un microservice qui doit pouvoir être déployé et fonctionnel très rapidement.
+> * Il faut donc un temps de chauffe, &laquo; ***warm-up*** &raquo;, à une application Java pour être pleinement réactive.
+> * C'est un réel problème pour un microservice qui doit pouvoir être déployé et opérationnel très rapidement.
 
 <hr class="hr-text" data-content="Mémoire">
 
@@ -96,6 +96,10 @@ Il ajoute les notions de :
 
 ##### Architecture générale de la JVM 
 ![Architecture mémoire d'une JVM]({{site.baseurl}}/assets/img/jvm-architecture.png)
+
+Lorsque l'on regarde l'architecture générale d'une JVM, on ne peut que constater qu'il y a beaucoup de composants. On voit aussi que son espace mémoire est compartimenté.
+
+Concentrons-nous sur 2 d'entre eux.
 
 ##### Détail de 2 espaces mémoires
 ![Focus sur des espaces mémoires de la JVM]({{site.baseurl}}/assets/img/jvm-memory.png)
@@ -115,15 +119,16 @@ Il est divisé en 2 parties : le &laquo; ***Young Generation*** &raquo; qui cont
 
 ### Le fonctionnement des Frameworks Java
 
-Prenons le cas de Spring et Hibernate comme exemple puisque ce sont, là, 2 frameworks les plus couramment utilisés dans les applications Java.
+Il est, à present, usuel d'embarquer plusieurs frameworks dans une application Java afin de simplifier certains aspects techniques ou bien d'organiser ses couches applicatives.
 
-Lorsqu'une application Java, contenant ces frameworks, démarre, voici ce qui se passe :
+Prenons le cas de 2 frameworks, sans doute, les plus utilisés dans le monde Java : **Spring** et **Hibernate**.
 
-* Lecture et parsing des fichiers de configuration,
-* Scanne complet des classes pour récupérer les métadonnées (annotations, accesseurs,...),
-*  Création d'un métamodèle,
-*  Préparation de la réflexion,
-*  Création des proxies (beaucoup de proxies !),...
+Voici ce qu'une application Java qui utilise ces frameworks, va exécuter à son démarrage :
+1. Lecture et parsing des fichiers de configuration,
+1. Scanne complet des classes pour récupérer les métadonnées (annotations, accesseurs,...),
+1. Création d'un métamodèle,
+1. Préparation de la réflexion,
+1. Création des proxies (beaucoup de proxies !),...
 
 Ce sont pourtant des frameworks très utilisés par les développeurs et, en réalité, très bien adaptés aux applications monolithiques.
 
@@ -134,7 +139,15 @@ Ce sont pourtant des frameworks très utilisés par les développeurs et, en ré
 
 ## On fait comment à présent ?
 
-On oublie Java ? On se met tous au C++ ??
+> info "Pour résumer"
+> Nous avons vu les problèmes de Java :
+> * Consommation importante de la mémoire
+> * Nécessité d'un temps de chauffe au démarrage
+> * Optimisation du code natif au fil de l'eau
+
+A priori, tout ce qui n'a pas lieu d'être dans un microservice.
+
+Alors, que fait-on à présent ? On oublie Java et on se met tous au C++ ??
 
 Rien de tout cela bien sûr. La réponse dans un prochain article présentant GraalVM. Et vous allez voir que ça déménage !
 

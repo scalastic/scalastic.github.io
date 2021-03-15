@@ -79,7 +79,7 @@ Deux JVMs peuvent être intégrées à GraalVM en tant que Machine Virtuelle :
 #### 4. Les Runtimes
 
 * Ils permettent d'exécuter les langages autres que ceux pris en charge par les JVMs (la JVM HotSpot comme la SubstrateVM).
-* Les runtimes `node.js` (ECMAScript compliant) et `llvm` font parties de l'installation standard.
+* Les runtimes `node.js` (ECMAScript compliant) et `llvm` font partie de l'installation standard.
 * Les autres runtimes doivent être installés explicitement : l'interpréteur Python 3.7, celui de Ruby 2.6.5 ou encore de GNU R 3.6.1.
 
 <hr class="hr-text" data-content="Résumé">
@@ -109,8 +109,8 @@ Deux JVMs peuvent être intégrées à GraalVM en tant que Machine Virtuelle :
 On est en droit de se demander à présent, en quoi cela change la donne pour Java et les microservices. 
 
 Certes, il nous fallait passer par cette présentation théorique mais déjà, on peut appréhender tout le potentiel d'une telle refonte :
-* un nouveau compilateur plus facile à mettre à jour et plus agressif,
-* La possibilité de compiler son application en natif,
+* Un nouveau compilateur, plus efficace,
+* La possibilité de compiler son application directement en code natif,
 * L'intégration de multiples langages à son application Java,...
 
 Reste à voir en pratique le résultat. C'est ce que nous ferons dans un prochain article.
