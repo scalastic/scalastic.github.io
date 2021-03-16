@@ -32,6 +32,7 @@ layout: main
         </div>
       </div>
       <div class="page-recomm">
+        <h3>Articles connexes</h3>
         {% assign maxRelated = 4 %}
         {% assign minCommonTags =  1 %}
         {% assign maxRelatedCounter = 0 %}
@@ -48,7 +49,6 @@ layout: main
             {% endif %}
           {% endfor %}
           {% if sameTagCount >= minCommonTags %}
-            <h3>Articles connexes</h3>
             <a href="{{ site.baseurl }}{{ post.url }}">
               <div class="recomm">
                 <h5>{{ post.title }}</h5>
