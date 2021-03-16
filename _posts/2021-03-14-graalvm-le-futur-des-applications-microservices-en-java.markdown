@@ -2,7 +2,7 @@
 layout: post
 title: GraalVM, le futur des applications microservices en Java
 date: 2021-03-14 12:53:00 +0200
-description: Temps de démarrage et consommation mémoire de la JVM ne font pas de Java le candidat idéal pour développer des microserices. Mais GraalVM pourrait bien changer la donne...
+description: Temps de démarrage et consommation mémoire de la JVM ne font pas de Java le candidat idéal pour développer des microservices. Mais GraalVM pourrait bien changer la donne...
 img: graalvm-brand-new-containers.jpg # Add image post (optional)
 fig-caption: Photo de <a href="https://unsplash.com/@ant0ine?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Antoine Petitteville</a> sur <a href="https://unsplash.com/s/photos/containers?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Unsplash</a> # Add figcaption (optional)
 tags: [Java, GraalVM, Microservices]
