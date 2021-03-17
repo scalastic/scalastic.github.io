@@ -1,7 +1,7 @@
 ---
 layout: post
 title: SDKMAN! ou comment gérer simplement différentes versions d'un SDK
-date: 2021-03-16 11:44:00 +0200
+date: 2021-03-16 11:44:00 +2
 description: Faire cohabiter plusieurs versions de JDK peut vite devenir à un calvaire si l'on s'y prend sans un outil adapté. C'est donc le moment d'installer SDKMAN!.
 img: sdkman-post.jpg
 fig-caption: Photo de <a href="https://unsplash.com/@vikramstudio46?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">vikram sundaramoorthy</a> sur <a href="https://unsplash.com/s/photos/superman?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Unsplash</a>

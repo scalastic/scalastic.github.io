@@ -7,7 +7,7 @@ yarn.lock
 Gemfile.lock
 package-lock.json
 node_modules/
-_posts/2017*.markdown
+_posts/DRAFT*
 
 ### macOS ###
 .DS_Store

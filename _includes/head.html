@@ -27,6 +27,9 @@
     <meta content="{{ page.date | date_to_xmlschema }}" property="article:published_time">
     <meta content="{{ site.url }}/about/" property="article:author">
   {% endif %}
+  {% if page.last_modified_at %}
+    <meta content="{{ page.last_modified_at | date_to_xmlschema }}" property="article:modified_time">
+  {% endif %}
   {% if page.img %}
     <meta content="{{ site.url }}{{ site.baseurl }}/assets/img/{{ page.img }}" property="og:image">
   {% else %}
