@@ -40,24 +40,20 @@ Vous pouvez retrouver sur la [page officielle de SDKMAN!](https://sdkman.io/inst
 Dans mon cas, j'ai suivi la procédure par défaut :
 
 1. Ouvrez un terminal et lancez la commande suivante :
-	```bash
-	% curl -s "https://get.sdkman.io" | bash
-	```
+	{% highlight zsh %}% curl -s "https://get.sdkman.io" | bash{% endhighlight %}
 
 
 1. Ouvrez un nouveau terminal et exécutez :
-	```bash
-	source "~/.sdkman/bin/sdkman-init.sh"
-	```
+	{% highlight zsh %}% source "~/.sdkman/bin/sdkman-init.sh"{% endhighlight %}
 
 That's it! 
 
 L'outil s'installe sous `$HOME/.sdkman` et ajoute les lignes de config. dans les fichiers `.bashrc`, `.bash_profile` et `.zshrc` si vous avez aussi ZSH.
- ```
- #THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
+ {% highlight zsh %}
+#THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
 export SDKMAN_DIR="/Users/jeanjerome/.sdkman"
 [[ -s "/Users/jeanjerome/.sdkman/bin/sdkman-init.sh" ]] && source "/Users/jeanjerome/.sdkman/bin/sdkman-init.sh"
-```
+{% endhighlight %}
 
 Toutes les installations de vos SDKs se feront désormais sous le répertoire de SDKMAN `~/.sdkman`.
 
@@ -78,9 +74,7 @@ Il faut donc déjà choisir le SDK (candidate) à installer.
 #### Candidate
 
 Pour voir la liste des SDK/candidate, lancez la commande suivante :
-```bash
-% sdk list
-```
+{% highlight zsh %}% sdk list {% endhighlight %}
 
 > note "Note"
 > Tapez `q` pour sortir de la liste
@@ -102,13 +96,11 @@ Vous voyez qu'il est possible d'installer pas mal de chose. Pour en citer quelqu
 Bon, le candidat qui nous interresse, c'est `Java`. Voyons à présent ses versions disponibles.
 
 Interrogeons SDKMAN :
-```bash
-% sdk list java
-```
+{% highlight zsh %}% sdk list java{% endhighlight %}
 
 Voici la liste que j'obtiens :
 
-```
+{% highlight output %}
 ================================================================================
 Available Java Versions
 ================================================================================
@@ -153,7 +145,7 @@ Available Java Versions
  TravaOpenJDK  |     | 11.0.9       | trava   |            | 11.0.9-trava        
                |     | 8.0.232      | trava   |            | 8.0.232-trava       
 ================================================================================
-```
+{% endhighlight %}
 
 ### Installation réelle du JDK
 
@@ -161,14 +153,11 @@ Faites vos jeux... moi, c'est fait ! Comme je travaille sur le build de code Jav
 
 Pour l'installer, je lance la commande :
 
-```bash
-% sdk install java 21.0.0.2.r11-grl
-```
+{% highlight zsh %} % sdk install java 21.0.0.2.r11-grl{% endhighlight %}
 
 Ce qui me donne en sortie, le processus d'installation
 
-```bash
-
+{% highlight output %}
 Downloading: java 21.0.0.2.r11-grl
 
 In progress...
@@ -185,17 +174,17 @@ Installing: java 21.0.0.2.r11-grl
 Done installing!
 
 Setting java 21.0.0.2.r11-grl as default.
-%
-```
+{% endhighlight %}
 
 Done! Non, pas encore... J'ai besoin d'autres JDKs pour effectuer des comparaisons. D'ailleurs, c'est bien pour cela que nous avons installé cet outil.
 
 Pour ma part, j'en installe deux autres :
 
-```bash
+{% highlight zsh %}
 % sdk install java 11.0.10.j9-adpt
 % sdk install java 11.0.2-open
-```
+{% endhighlight %}
+
 <hr class="hr-text" data-content="Choix du JDK">
 
 ## Sélection d'un JDK
@@ -203,96 +192,97 @@ Pour ma part, j'en installe deux autres :
 Voyons à présent comment sélectionner une version de Java.
 
 
-1. Affichons la version en cours
+### Affichons la version en cours
 
-	1. Avec SDKMAN
+Voyons ce que nous dit la commande `sdk` :
 
-		```bash
-		% sdk current java
-		Using java version 21.0.0.2.r11-grl
-		```
+{% highlight zsh %}
+% sdk current java
+Using java version 21.0.0.2.r11-grl
+{% endhighlight %}
 
-	1. Avec Java
+Et voyons ce que nous dit `java` :
 
-		```bash
-		% java --version               
-		openjdk 11.0.10 2021-01-19
-		OpenJDK Runtime Environment GraalVM CE 21.0.0.2 (build 11.0.10+8-jvmci-21.0-b06)
-		OpenJDK 64-Bit Server VM GraalVM CE 21.0.0.2 (build 11.0.10+8-jvmci-21.0-b06, mixed mode, sharing)
-		```
+{% highlight zsh %}
+% java --version               
+openjdk 11.0.10 2021-01-19
+OpenJDK Runtime Environment GraalVM CE 21.0.0.2 (build 11.0.10+8-jvmci-21.0-b06)
+OpenJDK 64-Bit Server VM GraalVM CE 21.0.0.2 (build 11.0.10+8-jvmci-21.0-b06, mixed mode, sharing)
+{% endhighlight %}
 
-2. Affichons les versions installées
 
-	```bash
-	% sdk list java
-	================================================================================
-	Available Java Versions
-	================================================================================
-	 Vendor        | Use | Version      | Dist    | Status     | Identifier
-	--------------------------------------------------------------------------------
-	 AdoptOpenJDK  |     | 15.0.2.j9    | adpt    |            | 15.0.2.j9-adpt      
-	               |     | 15.0.2.hs    | adpt    |            | 15.0.2.hs-adpt      
-	               |     | 11.0.10.j9   | adpt    | installed  | 11.0.10.j9-adpt     
-	               |     | 11.0.10.hs   | adpt    |            | 11.0.10.hs-adpt     
-	               |     | 8.0.282.j9   | adpt    |            | 8.0.282.j9-adpt     
-	               |     | 8.0.282.hs   | adpt    |            | 8.0.282.hs-adpt     
-	 Amazon        |     | 15.0.2.7.1   | amzn    |            | 15.0.2.7.1-amzn     
-	               |     | 11.0.10.9.1  | amzn    |            | 11.0.10.9.1-amzn    
-	               |     | 8.282.08.1   | amzn    |            | 8.282.08.1-amzn     
-	 Azul Zulu     |     | 15.0.2       | zulu    |            | 15.0.2-zulu         
-	               |     | 15.0.2.fx    | zulu    |            | 15.0.2.fx-zulu      
-	               |     | 11.0.10      | zulu    |            | 11.0.10-zulu        
-	               |     | 11.0.10.fx   | zulu    |            | 11.0.10.fx-zulu     
-	               |     | 8.0.282      | zulu    |            | 8.0.282-zulu        
-	               |     | 8.0.282.fx   | zulu    |            | 8.0.282.fx-zulu     
-	 BellSoft      |     | 15.0.2.fx    | librca  |            | 15.0.2.fx-librca    
-	               |     | 15.0.2       | librca  |            | 15.0.2-librca       
-	               |     | 11.0.10.fx   | librca  |            | 11.0.10.fx-librca   
-	               |     | 11.0.10      | librca  |            | 11.0.10-librca      
-	               |     | 8.0.282.fx   | librca  |            | 8.0.282.fx-librca   
-	               |     | 8.0.282      | librca  |            | 8.0.282-librca      
-	 GraalVM       | >>> | 21.0.0.2.r11 | grl     | installed  | 21.0.0.2.r11-grl    
-	               |     | 21.0.0.2.r8  | grl     |            | 21.0.0.2.r8-grl     
-	               |     | 20.3.1.2.r11 | grl     |            | 20.3.1.2.r11-grl    
-	               |     | 20.3.1.2.r8  | grl     |            | 20.3.1.2.r8-grl     
-	               |     | 19.3.5.r11   | grl     |            | 19.3.5.r11-grl      
-	               |     | 19.3.5.r8    | grl     |            | 19.3.5.r8-grl       
-	 Java.net      |     | 17.ea.13     | open    |            | 17.ea.13-open       
-	               |     | 17.ea.4.lm   | open    |            | 17.ea.4.lm-open     
-	               |     | 17.ea.2.pma  | open    |            | 17.ea.2.pma-open    
-	               |     | 17.ea.2.lm   | open    |            | 17.ea.2.lm-open     
-	               |     | 16.ea.36     | open    |            | 16.ea.36-open       
-	               |     | 15.0.2       | open    |            | 15.0.2-open         
-	               |     | 11.0.2       | open    | installed  | 11.0.2-open         
-	 SAP           |     | 15.0.2       | sapmchn |            | 15.0.2-sapmchn      
-	               |     | 11.0.10      | sapmchn |            | 11.0.10-sapmchn     
-	 TravaOpenJDK  |     | 11.0.9       | trava   |            | 11.0.9-trava        
-	               |     | 8.0.232      | trava   |            | 8.0.232-trava       
-	================================================================================
-	Use the Identifier for installation:
+### Affichons les versions installées
 
-	    $ sdk install java 11.0.3.hs-adpt
-	================================================================================
-	```
+{% highlight output %}
+% sdk list java
+================================================================================
+Available Java Versions
+================================================================================
+ Vendor        | Use | Version      | Dist    | Status     | Identifier
+--------------------------------------------------------------------------------
+ AdoptOpenJDK  |     | 15.0.2.j9    | adpt    |            | 15.0.2.j9-adpt      
+               |     | 15.0.2.hs    | adpt    |            | 15.0.2.hs-adpt      
+               |     | 11.0.10.j9   | adpt    | installed  | 11.0.10.j9-adpt     
+               |     | 11.0.10.hs   | adpt    |            | 11.0.10.hs-adpt     
+               |     | 8.0.282.j9   | adpt    |            | 8.0.282.j9-adpt     
+               |     | 8.0.282.hs   | adpt    |            | 8.0.282.hs-adpt     
+ Amazon        |     | 15.0.2.7.1   | amzn    |            | 15.0.2.7.1-amzn     
+               |     | 11.0.10.9.1  | amzn    |            | 11.0.10.9.1-amzn    
+               |     | 8.282.08.1   | amzn    |            | 8.282.08.1-amzn     
+ Azul Zulu     |     | 15.0.2       | zulu    |            | 15.0.2-zulu         
+               |     | 15.0.2.fx    | zulu    |            | 15.0.2.fx-zulu      
+               |     | 11.0.10      | zulu    |            | 11.0.10-zulu        
+               |     | 11.0.10.fx   | zulu    |            | 11.0.10.fx-zulu     
+               |     | 8.0.282      | zulu    |            | 8.0.282-zulu        
+               |     | 8.0.282.fx   | zulu    |            | 8.0.282.fx-zulu     
+ BellSoft      |     | 15.0.2.fx    | librca  |            | 15.0.2.fx-librca    
+               |     | 15.0.2       | librca  |            | 15.0.2-librca       
+               |     | 11.0.10.fx   | librca  |            | 11.0.10.fx-librca   
+               |     | 11.0.10      | librca  |            | 11.0.10-librca      
+               |     | 8.0.282.fx   | librca  |            | 8.0.282.fx-librca   
+               |     | 8.0.282      | librca  |            | 8.0.282-librca      
+ GraalVM       | >>> | 21.0.0.2.r11 | grl     | installed  | 21.0.0.2.r11-grl    
+               |     | 21.0.0.2.r8  | grl     |            | 21.0.0.2.r8-grl     
+               |     | 20.3.1.2.r11 | grl     |            | 20.3.1.2.r11-grl    
+               |     | 20.3.1.2.r8  | grl     |            | 20.3.1.2.r8-grl     
+               |     | 19.3.5.r11   | grl     |            | 19.3.5.r11-grl      
+               |     | 19.3.5.r8    | grl     |            | 19.3.5.r8-grl       
+ Java.net      |     | 17.ea.13     | open    |            | 17.ea.13-open       
+               |     | 17.ea.4.lm   | open    |            | 17.ea.4.lm-open     
+               |     | 17.ea.2.pma  | open    |            | 17.ea.2.pma-open    
+               |     | 17.ea.2.lm   | open    |            | 17.ea.2.lm-open     
+               |     | 16.ea.36     | open    |            | 16.ea.36-open       
+               |     | 15.0.2       | open    |            | 15.0.2-open         
+               |     | 11.0.2       | open    | installed  | 11.0.2-open         
+ SAP           |     | 15.0.2       | sapmchn |            | 15.0.2-sapmchn      
+               |     | 11.0.10      | sapmchn |            | 11.0.10-sapmchn     
+ TravaOpenJDK  |     | 11.0.9       | trava   |            | 11.0.9-trava        
+               |     | 8.0.232      | trava   |            | 8.0.232-trava       
+================================================================================
+Use the Identifier for installation:
 
-3. Changeons de version
+    $ sdk install java 11.0.3.hs-adpt
+================================================================================
+{% endhighlight %}
 
-	```bash
-	% sdk use java 11.0.10.j9-adpt
-	Using java version 11.0.10.j9-adpt in this shell.
-	```
+### Changeons de version
 
-	Puis vérifions avec Java
+{% highlight zsh %}
+% sdk use java 11.0.10.j9-adpt
+Using java version 11.0.10.j9-adpt in this shell.
+{% endhighlight %}
 
-	```bash
-	% java --version 
-	openjdk 11.0.10 2021-01-19
-	OpenJDK Runtime Environment AdoptOpenJDK (build 11.0.10+9)
-	Eclipse OpenJ9 VM AdoptOpenJDK (build openj9-0.24.0, JRE 11 Mac OS X amd64-64-Bit Compressed References 20210120_897 (JIT enabled, AOT enabled)
-	OpenJ9   - 345e1b09e
-	OMR      - 741e94ea8
-	JCL      - 0a86953833 based on jdk-11.0.10+9)
-	```
+Puis vérifions avec Java
+
+{% highlight zsh %}
+% java --version
+openjdk 11.0.10 2021-01-19
+OpenJDK Runtime Environment AdoptOpenJDK (build 11.0.10+9)
+Eclipse OpenJ9 VM AdoptOpenJDK (build openj9-0.24.0, JRE 11 Mac OS X amd64-64-Bit Compressed References 20210120_897 (JIT enabled, AOT enabled)
+OpenJ9   - 345e1b09e
+OMR      - 741e94ea8
+JCL      - 0a86953833 based on jdk-11.0.10+9)
+{% endhighlight %}
 
 Et voilà...
 
@@ -313,11 +303,3 @@ Cheers...
 > 
 > Merci à vous !
 >
-
-
-
-
-
-
-
-

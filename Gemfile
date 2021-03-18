@@ -7,7 +7,7 @@ group :jekyll_plugins do
   gem 'jekyll-paginate'
   gem 'jemoji'
   gem 'premonition', '~> 4.0'
-  gem "jekyll-last-modified-at"
+  gem 'jekyll-last-modified-at'
 end
 
 gem 'webrick', '~> 1.7'

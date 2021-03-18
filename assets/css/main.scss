@@ -4,7 +4,8 @@
 
 // Imports
 @import 'normalize';
-@import 'syntax';
+// @import 'syntax';
+@import 'highlight';
 @import 'variables';
 
 *, *::after, *::before {
@@ -123,12 +124,12 @@ table tfoot td {
 }
 
 ::-moz-selection {
-  background: rgba(38, 57, 89, 0.8);
+  background: rgba(209, 193, 177, 0.8);
   color: $white;
 }
 
 ::selection {
-  background: rgba(38, 57, 89, 0.8);
+  background: rgba(209, 193, 177, 0.8);
   color: $white;
 }
 

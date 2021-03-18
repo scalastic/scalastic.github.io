@@ -24,6 +24,10 @@ discus-identifier: scalastic # add your discus identifier
 
 # Build Settings
 markdown: kramdown
+kramdown:
+  syntax_highlighter: rouge
+highlighter: rouge
+
 plugins:
   - jekyll-sitemap
   - jekyll-paginate
@@ -33,6 +37,7 @@ plugins:
 
 paginate: 4
 paginate_path: "/page/:num"
+page_excerpts: true
 excerpt_separator: <!--more-->
 timezone: Europe/Paris
 last-modified-at:
