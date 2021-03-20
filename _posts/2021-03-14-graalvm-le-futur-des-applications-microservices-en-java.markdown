@@ -37,7 +37,7 @@ Article précédent : [Java et les microservices]({{site.baseurl}}/java-et-les-m
 
 * C'est une **nouvelle génération** de VM, **polyglotte**, c'est à dire qu'elle supporte de nombreux langages, même ceux qui ne génèrent pas de bytecode. A terme, elle pourrait remplacer l'actuelle VM HotSpot.
 
-* Plus de détails sur [https://www.graalvm.org/](https://www.graalvm.org/)
+* Plus de détails sur [https://www.graalvm.org/](https://www.graalvm.org/){:target="_blank"}
 
 > info "En quelques mots"
 > La VM **GraalVM** est couplée à un nouveau compilateur, `Graal`, écrit entièrement en Java (ce qui permet une compilation cyclique) :
