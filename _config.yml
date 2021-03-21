@@ -34,6 +34,7 @@ plugins:
   - jemoji
   - premonition
   - jekyll-last-modified-at
+  - jekyll-figure
 
 paginate: 4
 paginate_path: "/page/:num"

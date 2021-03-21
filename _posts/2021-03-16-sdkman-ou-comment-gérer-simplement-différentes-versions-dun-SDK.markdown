@@ -17,10 +17,8 @@ Reste ensuite la fastidieuse tâche de réinstaller tous les outils nécesaires 
 
 <hr class="hr-text" data-content="Plan">
 
-1. [SDKMAN, l'outil qu'il te faut !](#sdkman-loutil-quil-te-faut-)
-1. [Installation de SDKMAN](#installation-de-sdkman)
-1. [Installation d'un JDK](#installation-dun-jdk)
-1. [Sélection d'un JDK](#sélection-dun-jdk)
+* TOC
+{:toc}
 
 <hr class="hr-text" data-content="SDKMAN!">
 

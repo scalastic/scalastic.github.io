@@ -21,7 +21,7 @@ permalink: /tags/
     {% for post in site.tags[this_word] %}{% if post.title != null %}
     <div class="tag-list">
         <span><a href="{{ site.baseurl }}{{ post.url }}">{{ post.title }}</a></span>
-        <small><span>| {{ post.date | date_to_string }}</span></small>
+        <small><span>| {{ post.date | french_date }}</span></small>
     </div>
     {% endif %}{% endfor %}
   {% endfor %}

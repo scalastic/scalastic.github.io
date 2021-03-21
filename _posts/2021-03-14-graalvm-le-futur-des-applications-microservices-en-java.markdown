@@ -19,16 +19,16 @@ Article précédent : [Java et les microservices]({{site.baseurl}}/java-et-les-m
 
 2ème article de la série
 
-1. [GraalVM, une nouvelle génération de machine virtuelle](#graalvm-une-nouvelle-génération-de-machine-virtuelle)
-	1. [Qu'est-ce que c'est ?](#quest-ce-que-cest-)
-	1. [L'architecture de GraalVM](#larchitecture-de-graalvm)
-1. [Et alors ?](#et-alors-)
+* TOC
+{:toc}
 
 <hr class="hr-text" data-content="Nouvelle VM">
 
 ## GraalVM, une nouvelle génération de machine virtuelle
 
+{% figure caption:"L'écosystème de GraalVM" class:"article" %}
 ![Ecosystème de GraalVM]({{site.baseurl}}/assets/img/graalvm-ecosystem.png)
+{% endfigure %}
 
 ### Qu'est-ce que c'est ?
 
@@ -48,7 +48,9 @@ Article précédent : [Java et les microservices]({{site.baseurl}}/java-et-les-m
 
 ### L'architecture de GraalVM
 
+{% figure caption:"Les composants de GraalVM" class:"article" %}
 ![Les composants de GraalVM]({{site.baseurl}}/assets/img/graalvm-components.png)
+{% endfigure %}
 
 
 #### 1. Le compilateur Graal

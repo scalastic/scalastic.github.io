@@ -17,14 +17,8 @@ Cet article est le premier d'une série abordant les concepts derrière GraalVM.
 
 1er article de la série
 
-1. [Qu'est-ce qu'un microservice ?](#quest-ce-quun-microservice-)
-1. [Qu'est-ce que Java ?](#quest-ce-que-java-)
-	1. [Le fonctionnement de la JVM](#le-fonctionnement-de-la-jvm)
-		1. [L'interprétation](#linterprétation)
-		1. [Le compilateur Just-In-Time (JIT)](#le-compilateur-just-in-time-jit)
-		1. [L'empreinte mémoire](#lempreinte-mémoire)
-	1. [Le fonctionnement des Frameworks Java](#le-fonctionnement-des-frameworks-java)
-1. [On fait comment à présent ?](#on-fait-comment-à-présent-)
+* TOC
+{:toc}
 
 Article suivant : [GraalVM, le futur des applications microservices en Java]({{site.baseurl}}/graalvm-le-futur-des-applications-microservices-en-java/)
 
@@ -53,7 +47,9 @@ Un `microservice` peut se caractériser comme étant :
 
 #### L'interprétation
 
+{% figure caption:"Les étapes de l'interprétation du Bytecode par la JVM" class:"article" %}
 ![Exécution de la JVM]({{site.baseurl}}/assets/img/jvm-execution.png)
+{% endfigure %}
 
 1. La JVM est un exécutable qui lit du bytecode puis l'interprète.
 2. Le bytecode est dans des packages .jar sous forme de fichiers .class
@@ -69,7 +65,9 @@ Un `microservice` peut se caractériser comme étant :
 
 #### Le compilateur Just-In-Time (JIT)
 
+{% figure caption:"Les étapes de l'optimisation JIT du Bytecode par la JVM" class:"article" %}
 ![Le compilateur JIT]({{site.baseurl}}/assets/img/jvm-jit.png)
+{% endfigure %}
 
 1.&nbsp;&nbsp;Lors de l'exécution d'une méthode Java, le compilateur `C1` de JIT (just-in-time, à la volée) va la compiler en code natif et le `Profiler` va commencer à recueillir des informations sur son utilisation.
 
@@ -95,14 +93,21 @@ Un `microservice` peut se caractériser comme étant :
 #### L'empreinte mémoire
 
 ##### Architecture générale de la JVM 
+
+{% figure caption:"Les différentes couches mises en jeu par une JVM" class:"article" %}
 ![Architecture mémoire d'une JVM]({{site.baseurl}}/assets/img/jvm-architecture.png)
+{% endfigure %}
+
 
 Lorsque l'on regarde l'architecture générale d'une JVM, on ne peut que constater qu'il y a beaucoup de composants. On voit aussi que son espace mémoire est compartimenté.
 
 Concentrons-nous sur 2 d'entre eux.
 
 ##### Détail de 2 espaces mémoires
+
+{% figure caption:"Détails de 2 espaces mémoires de la JVM" class:"article" %}
 ![Focus sur des espaces mémoires de la JVM]({{site.baseurl}}/assets/img/jvm-memory.png)
+{% endfigure %}
 
 La JVM alloue de la mémoire pour l'application mais aussi pour ses propres métadonnées et son fonctionnement :
 
