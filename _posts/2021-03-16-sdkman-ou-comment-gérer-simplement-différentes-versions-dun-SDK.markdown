@@ -34,7 +34,7 @@ Parmi les avantages indéniables de l'outil, je citerais :
 
 ## Installation de SDKMAN
 
-Vous pouvez retrouver sur la [page officielle de SDKMAN!](https://sdkman.io/install){:target="_blank"}, la procédure à suivre.
+Vous pouvez retrouver sur la [page officielle de SDKMAN!](https://sdkman.io/install){:target="_blank" rel="noopener noreferrer nofollow"}, la procédure à suivre.
 Dans mon cas, j'ai suivi la procédure par défaut :
 
 1. Ouvrez un terminal et lancez la commande suivante :
@@ -289,7 +289,7 @@ Et voilà...
 
 ## Pour aller plus loin
 
-Vous trouverez à cette adresse [https://sdkman.io/usage](https://sdkman.io/usage){:target="_blank"}, d'autres commandes qui pourraient vous être utiles notamment la commande `env` [https://sdkman.io/usage#env](https://sdkman.io/usage#env){:target="_blank"}.
+Vous trouverez à cette adresse [https://sdkman.io/usage](https://sdkman.io/usage){:target="_blank" rel="noopener noreferrer nofollow"}, d'autres commandes qui pourraient vous être utiles notamment la commande `env` [https://sdkman.io/usage#env](https://sdkman.io/usage#env){:target="_blank" rel="noopener noreferrer nofollow"}.
 
 A vous de jouer à présent.
 
