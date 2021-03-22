@@ -38,7 +38,6 @@ plugins:
 paginate: 4
 paginate_path: "/page/:num"
 page_excerpts: true
-excerpt_separator: <!--more-->
 timezone: Europe/Paris
 last-modified-at:
     date-format: '%d-%b-%y'
