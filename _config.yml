@@ -1,6 +1,5 @@
 title: Jean-Jérôme Lévy, consultant DevOps freelance
-description: > # this means to ignore newlines until "baseurl:"
-  Je suis aussi un consultant freelance en DevOps et Cloud.
+description: Je suis consultant freelance en DevOps 🚀 et Cloud ☁️
 permalink: ':title/'
 baseurl: "" # the subpath of your site, e.g. /blog
 url: "https://www.scalastic.io" # the base hostname & protocol for your site, e.g. http://example.com

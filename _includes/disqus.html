@@ -1,3 +1,4 @@
+{% if page.comments != false%}
 <section class="comment-area">
   <div class="comment-wrapper">
     {% if site.discus-identifier %}
@@ -14,3 +15,4 @@
     {% endif %}
   </div>
 </section> <!-- End Comment Area -->
+{% endif %}

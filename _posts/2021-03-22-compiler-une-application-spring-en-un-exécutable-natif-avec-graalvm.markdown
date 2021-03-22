@@ -261,7 +261,7 @@ On constate que ce processus produit 3 images Docker :
 - **demo_spring_native:0.0.1-SNAPSHOT** : L'application en code natif encapsulée dans un runner de base `distroless`.
 
 > note "Pour aller plus loin"
-> - Les images issues du Buildpack datent de 1980, du 1er Janvier 1980 exactement ! C'est tout à fait voulu et [l'explication se trouve ici](https://medium.com/buildpacks/time-travel-with-pack-e0efd8bf05db){:target="_blank" rel="noopener noreferrer nofollow"}
+> - Les images issues du Buildpack datent de 1980, du 1er Janvier 1980 exactement ! C'est tout à fait voulu et l'explication se trouve là : [Time Travel with Pack](https://medium.com/buildpacks/time-travel-with-pack-e0efd8bf05db){:target="_blank" rel="noopener noreferrer nofollow"}
 > - Les stacks [Distroless](https://github.com/GoogleContainerTools/distroless){:target="_blank" rel="noopener noreferrer nofollow"} sont des images minimalistes, développées par Google et qui améliorent la sécurité et la taille des conteneurs en diminuant la surface des attaques et le nombre de composants qu'elles intègrent. 
 > - La notion de [Runner et Builder](https://paketo.io/docs/stacks/#what-is-a-stack){:target="_blank" rel="noopener noreferrer nofollow"} dans les Buildpacks.
 
