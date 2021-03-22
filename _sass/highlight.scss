@@ -14,12 +14,15 @@ figure.highlight {
         border-radius: 5px;
         margin: 22.5px 15px;
         padding: 8px 12px;
-        overflow-x: auto;
-
+        display: flex;
+  flex-wrap: nowrap;
+  overflow-x: auto;
         code {
             background: $background;
             display: block;
             line-height: 1.5;
+            text-rendering: optimizeSpeed;
+            flex: 0 0 auto;
             /* Use a counter to generate the line numbers */
             counter-reset: code;
             
