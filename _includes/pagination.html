@@ -1,31 +1,3 @@
-<!-- div class="pagination">
-
-    <ul>
-      <li>
-        {% if paginator.previous_page %}
-          {% if paginator.previous_page == 1 %}
-          <a class="newer-posts" href="{{ site.baseurl }}/"><i class="fas fa-arrow-circle-left" aria-hidden="true"></i></a>
-          {% else %}
-          <a class="newer-posts" href="{{ site.baseurl }}/page/{{ paginator.previous_page }}/"><i class="fas fa-arrow-circle-left" aria-hidden="true"></i></a>
-          {% endif %}
-        {% endif %}
-      </li>
-      {% for num_page in (1..paginator.total_pages) %}
-        <li>
-          <span class="page-number">{{ num_page }}</span>
-        </li>
-      {% endfor %}
-      <li>
-        {% if paginator.next_page %}
-        <a class="older-posts" href="{{ site.baseurl }}/page/{{ paginator.next_page }}/"><i class="fas fa-arrow-circle-right" aria-hidden="true"></i></a>
-        {% else %}
-        <a class="older-posts disable" href=""><i class="fas fa-arrow-circle-right" aria-hidden="true"></i></a>
-        {% endif %}
-      </li>
-    </ul>
-
-</div -->
-
 <!-- pagination -->
 {% if paginator.total_pages > 1 %}
 <div class="pagination">
