@@ -1,6 +1,8 @@
 ---
 layout: post
 title: Compiler une application Spring en un exécutable natif avec GraalVM
+redirects:
+- /compiler-une-application-spring-en-un-exécutable-natif-avec-graalvm/
 date: 2021-03-22 01:10:00 +2
 description: Tuto pour compiler une application ✨Spring✨ en code natif avec ✨GraalVM✨ - Détails avec explications à chaque étapes.
 img: spring-native-graalvm-post.jpg

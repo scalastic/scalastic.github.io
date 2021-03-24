@@ -50,6 +50,9 @@ plugins:
   - jekyll-last-modified-at
   - jekyll-figure
 
+# Activate page redirection when change
+redirects: yes
+
 paginate: 4
 paginate_path: "/page/:num"
 page_excerpts: true
