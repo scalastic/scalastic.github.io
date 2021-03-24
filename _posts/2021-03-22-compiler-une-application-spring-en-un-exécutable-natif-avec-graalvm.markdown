@@ -183,7 +183,7 @@ public class DemoSpringNativeController {
 {% endhighlight %}
 
 {% figure caption:"Le projet et son Controller dans IntelliJ IDEA" class:"article" %}
-![IntelliJ IDEA projet démo]({{site.baseurl}}/assets/img/spring-initializr-demo-intellij.png)
+![IntelliJ IDEA projet démo]({{site.baseurl}}/assets/img/spring-initializr-demo-intellij.jpg)
 {% endfigure %}
 
 <hr class="hr-text" data-content="Compilation">

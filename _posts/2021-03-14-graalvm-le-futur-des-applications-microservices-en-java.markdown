@@ -49,7 +49,7 @@ Article précédent : [Java et les microservices]({{site.baseurl}}/java-et-les-m
 ### L'architecture de GraalVM
 
 {% figure caption:"Les composants de GraalVM" class:"article" %}
-![Les composants de GraalVM]({{site.baseurl}}/assets/img/graalvm-components.png)
+![Les composants de GraalVM]({{site.baseurl}}/assets/img/graalvm-components.jpg)
 {% endfigure %}
 
 

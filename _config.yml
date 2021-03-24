@@ -3,7 +3,7 @@ description: Je suis consultant freelance en DevOps 🚀 et Cloud ☁️
 permalink: ':title/'
 baseurl: "" # the subpath of your site, e.g. /blog
 url: "https://www.scalastic.io" # the base hostname & protocol for your site, e.g. http://example.com
-site-twitter: #if your site has a twitter account, enter it here
+logo: /assets/img/logo-scalastic.png
 
 # Company Settings
 company: Scalastic
@@ -18,6 +18,20 @@ social-github: jeanjerome # add your Github handle
 social-linkedin: jean-jerome-levy # add your Linkedin handle
 social-email: contact@scalastic.io # add your Email address
 
+# Social SEO
+social:
+  name: Jean-Jerome Levy
+  links:
+    - https://www.linkedin.com/in/jean-jerome-levy
+    - https://github.com/jeanjerome
+    - https://github.com/scalastic
+
+webmaster_verifications:
+  google: kt9V77LN_e6lPj1sb3RTOiZDGqNyfoHBchbh1oDgftQ
+  yandex: 586e50fdf1e71514
+
+locale: fr_FR
+
 # Disqus
 discus-identifier: scalastic # add your discus identifier
 
@@ -28,6 +42,7 @@ kramdown:
 highlighter: rouge
 
 plugins:
+  - jekyll-seo-tag
   - jekyll-sitemap
   - jekyll-paginate
   - jemoji

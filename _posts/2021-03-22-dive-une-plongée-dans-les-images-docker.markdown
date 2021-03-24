@@ -2,10 +2,10 @@
 layout: post
 title: Dive, une plongée dans les images Docker
 date: 2021-03-22 15:0:00 +2
-description: Dive, un outil pour voir à l'intérieur d'une image Docker. Il permet d'explorer une image docker, le contenu des couches et de découvrir les moyens de réduire la taille de votre image Docker / OCI.  
-img: dive-image-docker.jpg
+description: Comment voir facilement ce que contient une image Docker ? Dive est un outil qui permet d'explorer les répertoires et fichiers d'une image docker, les modifications apportées dans chaque couche de l'image et des informations pour réduire la taille de votre image.
+img: dive-image-docker.jpg 
 fig-caption: Photo de <a href="https://unsplash.com/@jamesthornton95?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">James Thornton</a> sur <a href="https://unsplash.com//s/photos/diving?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Unsplash</a>
-tags: [Docker, Continuous Integration, Tool]
+tags: [Docker,Continuous-Integration,Tool]
 ---
 
 La construction d'images Docker est devenue monnaie courante dans le monde des SI. Cependant et malgré l'utilisation d'images de référence, nos images Docker dans leur repository sont comme des boites noires dont personne ne sait trop de quoi elles sont vraiment constituées. Pire encore, dans un processus continu DevOps, aucun métrique ne permet de mesurer le niveau d'optimisation de notre image de conteneur.
