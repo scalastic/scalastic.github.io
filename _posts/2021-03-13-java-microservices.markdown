@@ -157,15 +157,7 @@ Alors, que fait-on à présent ? On oublie Java et on se met tous au C++ ??
 
 Rien de tout cela bien sûr. La réponse dans l'article suivant présentant GraalVM. Et vous allez voir que ça déménage !
 
-<div class="article-navigation">
-  <div class="prev">
-    &nbsp;
-  </div>
-  <div class="next">
-    <a class="article-nav article-nav-next" href="/graalvm-microservices-java/">Article Suivant <i class="fas fa-angle-double-right"></i></a>
-    <h4 class="article-nav-title"><a href="/graalvm-microservices-java/">GraalVM, le futur des applications microservices en Java</a></h4>
-  </div>
-</div>
+{% post_pagination ||/graalvm-microservices-java/|GraalVM, le futur des applications microservices en Java %}
 
 Cheers...
 

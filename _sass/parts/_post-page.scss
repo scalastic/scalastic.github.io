@@ -53,14 +53,36 @@
   justify-content: space-between;
   margin-top: 50px;
   margin-bottom: 50px;
-
-  & .prev {
-    width: 45%;
+  margin-bottom: 20px;
+  line-height: 15px;
+  h4 {
+    font-size: 14px;
   }
-  & .next {
+
+  a.prev {
+    width: 45%;
+    text-decoration: none;
+    margin-left: 5px;
+    transition: all .25s ease;
+    &:hover {
+      opacity: 0.8;
+      margin-left: 0px;
+    }
+  }
+
+  a.next {
+    width: 45%;
     text-align: right;
     margin-left: auto;
+    text-decoration: none;
+    margin-right: 5px;
+    transition: all .25s ease;
+    &:hover {
+      opacity: 0.8;
+      margin-right: 0px;
+    }
   }
+
   .article-nav {
     display: inline-block;
     margin-bottom: 5px;
@@ -69,32 +91,14 @@
     text-transform: uppercase;
     color: #4A4B51;
   }
-  .article-nav-title {
+
+  h4.article-nav-title {
+    color: #3e64ff;
     margin-bottom: 20px;
     line-height: 25px;
-    h4 {
-      font-size: 20px;
-    }
+    font-size: 14px;
+    text-transform: none;
   }
-  a.article-nav-prev {
-    text-decoration: none;
-    margin-left: 5px;
-    transition:all .25s ease
-  }
-  a.article-nav-prev:hover {
-    opacity: 0.8;
-    margin-left: 0px;
-  }
-  a.article-nav-next {
-    text-decoration: none;
-    margin-right: 5px;
-    transition:all .25s ease
-  }
-  a.article-nav-next:hover {
-    opacity: 0.8;
-    margin-right: 0px;
-  }
-
 }
 
 .page-cover-image {
