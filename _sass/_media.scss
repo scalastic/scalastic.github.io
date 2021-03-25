@@ -88,4 +88,14 @@
       }
     }
   }
+  .article-navigation {
+    flex-wrap: wrap;
+    margin-bottom: 25px;
+    .prev, .next {
+      width: 35%;
+    }
+    .next {
+      text-align: left;
+    }
+  }
 }

@@ -17,10 +17,6 @@ Cet article est le deuxième d'une série abordant les concepts introduits dans 
 
 <hr class="hr-text" data-content="Plan">
 
-Article précédent : [Java et les microservices]({{site.baseurl}}/java-et-les-microservices/)
-
-2ème article de la série
-
 * TOC
 {:toc}
 
@@ -117,7 +113,18 @@ Certes, il nous fallait passer par cette présentation théorique mais déjà, o
 * La possibilité de compiler son application directement en code natif,
 * La capacité d'intégrer de multiples langages à son application Java,...
 
-Reste à voir en pratique le résultat. C'est ce que nous ferons dans un prochain article.
+Reste à voir en pratique le résultat. C'est ce que nous ferons dans l'article suivant.
+
+<div class="article-navigation">
+  <div class="prev">
+    <a class="article-nav article-nav-prev" href="/java-microservices/"><i class="fas fa-angle-double-left"></i> Article Précédent</a>
+    <h4 class="article-nav-title"><a href="/java-microservices/">Java et les microservices</a></h4>
+  </div>
+  <div class="next">
+    <a class="article-nav article-nav-next" href="/spring-natif-graalvm/">Article Suivant <i class="fas fa-angle-double-right"></i></a>
+    <h4 class="article-nav-title"><a href="/spring-natif-graalvm/">Compiler une application Spring en natif avec GraalVM</a></h4>
+  </div>
+</div>
 
 Cheers...
 

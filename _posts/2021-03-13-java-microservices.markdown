@@ -4,25 +4,23 @@ title: Java et les microservices
 redirects:
 - /java-et-les-microservices/
 date: 2021-03-13 15:21:20 +0200
-description: Avec l'arrivée des architectures microservices, les développeurs Java sont en droit d'avoir peur pour leurs applications. Temps de démarrage, consommation mémoire de la JVM, a priori, rien de bon pour implémenter une application à base de microservices...
+description: "Java et les microservices : temps de démarrage, temps de chauffe, consommation mémoire de la JVM... Faisons un état des lieux."
 img: java-like-rusty-container.jpg # Add image post (optional)
 fig-caption: Photo by <a href="https://unsplash.com/@darkcut?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Robert MODOUX</a> on <a href="https://unsplash.com/s/photos/container-rusty?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Unsplash</a>
   
 tags: [Java, Microservices]
 ---
 
-Cet article est le premier d'une série abordant les concepts derrière GraalVM. Il permet de bien se rendre compte des lacunes de Java et de sa JVM HotSpot dans le monde des conteneurs et notamment des microservices.
+Cet article est le premier d'une série abordant les concepts de la nouvelle machine virtuelle GraalVM. 
+
+Nous allons aborder ici des notions de bases sur les microservices, sur Java et sa JVM HotSpot. Cela nous donnera une première idée sur l'adéquation de Java au monde des conteneurs et notammement des microservices.
 
 <!--more-->
 
 <hr class="hr-text" data-content="Plan">
 
-1er article de la série
-
 * TOC
 {:toc}
-
-Article suivant : [GraalVM, le futur des applications microservices en Java]({{site.baseurl}}/graalvm-le-futur-des-applications-microservices-en-java/)
 
 <hr class="hr-text" data-content="Microservices">
 
@@ -43,14 +41,15 @@ Un `microservice` peut se caractériser comme étant :
 
 ## Qu'est-ce que Java ?
 
-### Le fonctionnement de la JVM
+Tout le monde connait Java ! Un langage interprété par une JVM et portable sur différents systèmes. Révisons tout de même quelques notions sur son fonctionnement interne pour bien en saisir la portée.
 
+### Le fonctionnement de la JVM
 <hr class="hr-text" data-content="Interpréteur">
 
 #### L'interprétation
 
 {% figure caption:"Les étapes de l'interprétation du Bytecode par la JVM" class:"article" %}
-![Exécution de la JVM]({{site.baseurl}}/assets/img/jvm-execution.png)
+![Les étapes de l'interprétation du Bytecode par la JVM]({{site.baseurl}}/assets/img/jvm-execution.png)
 {% endfigure %}
 
 1. La JVM est un exécutable qui lit du bytecode puis l'interprète.
@@ -68,7 +67,7 @@ Un `microservice` peut se caractériser comme étant :
 #### Le compilateur Just-In-Time (JIT)
 
 {% figure caption:"Les étapes de l'optimisation JIT du Bytecode par la JVM" class:"article" %}
-![Le compilateur JIT]({{site.baseurl}}/assets/img/jvm-jit.png)
+![Les étapes de l'optimisation JIT du Bytecode par la JVM]({{site.baseurl}}/assets/img/jvm-jit.png)
 {% endfigure %}
 
 1.&nbsp;&nbsp;Lors de l'exécution d'une méthode Java, le compilateur `C1` de JIT (just-in-time, à la volée) va la compiler en code natif et le `Profiler` va commencer à recueillir des informations sur son utilisation.
@@ -96,8 +95,8 @@ Un `microservice` peut se caractériser comme étant :
 
 ##### Architecture générale de la JVM 
 
-{% figure caption:"Les différentes couches mises en jeu par une JVM" class:"article" %}
-![Architecture mémoire d'une JVM]({{site.baseurl}}/assets/img/jvm-architecture.png)
+{% figure caption:"Les différentes couches mises en jeu dans une JVM" class:"article" %}
+![Les différentes couches mises en jeu dans une JVM]({{site.baseurl}}/assets/img/jvm-architecture.png)
 {% endfigure %}
 
 
@@ -108,7 +107,7 @@ Concentrons-nous sur 2 d'entre eux.
 ##### Détail de 2 espaces mémoires
 
 {% figure caption:"Détails de 2 espaces mémoires de la JVM" class:"article" %}
-![Focus sur des espaces mémoires de la JVM]({{site.baseurl}}/assets/img/jvm-memory.png)
+![Détails de 2 espaces mémoires de la JVM]({{site.baseurl}}/assets/img/jvm-memory.png)
 {% endfigure %}
 
 La JVM alloue de la mémoire pour l'application mais aussi pour ses propres métadonnées et son fonctionnement :
@@ -152,11 +151,21 @@ Ce sont pourtant des frameworks très utilisés par les développeurs et, en ré
 > * Nécessité d'un temps de chauffe au démarrage
 > * Optimisation du code natif au fil de l'eau
 
-A priori, tout ce qui n'a pas lieu d'être dans un microservice.
+A priori, tout ce qu'il ne faut pas pour un microservice.
 
 Alors, que fait-on à présent ? On oublie Java et on se met tous au C++ ??
 
-Rien de tout cela bien sûr. La réponse dans un prochain article présentant GraalVM. Et vous allez voir que ça déménage !
+Rien de tout cela bien sûr. La réponse dans l'article suivant présentant GraalVM. Et vous allez voir que ça déménage !
+
+<div class="article-navigation">
+  <div class="prev">
+    &nbsp;
+  </div>
+  <div class="next">
+    <a class="article-nav article-nav-next" href="/graalvm-microservices-java/">Article Suivant <i class="fas fa-angle-double-right"></i></a>
+    <h4 class="article-nav-title"><a href="/graalvm-microservices-java/">GraalVM, le futur des applications microservices en Java</a></h4>
+  </div>
+</div>
 
 Cheers...
 

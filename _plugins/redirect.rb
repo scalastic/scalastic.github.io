@@ -10,7 +10,7 @@
 
     # only process redirects if it's set in the config file
     def generate(site)    
-      generate_redirects(site) if (site.config['redirects'])    
+      generate_redirects(site) if (site.config['redirects'])
     end
 
     # find all posts with a redirect property and create a new page for each entry    

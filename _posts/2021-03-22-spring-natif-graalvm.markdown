@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Compiler une application Spring en un exécutable natif avec GraalVM
+title: Compiler une application Spring en natif avec GraalVM
 redirects:
 - /compiler-une-application-spring-en-un-exécutable-natif-avec-graalvm/
 date: 2021-03-22 01:10:00 +2
@@ -331,6 +331,16 @@ Points intéressants, cela engendre de nouvelles utilisations :
 Spring Native sera, à terme, intégré dans **Spring Boot 3** et **Spring Framework 6**, le but étant de spécifier uniquement dans le build Maven ou Graddle, la cible attendue (native ou autre). Le travail restant consiste à optimiser la taille du code natif générée, prendre en compte plus d'APIs Spring et améliorer l'exécution des tests dans l'image native (JUnit 5,...)
 
 A suivre de près donc !
+
+<div class="article-navigation">
+  <div class="prev">
+    <a class="article-nav article-nav-prev" href="/graalvm-microservices-java/"><i class="fas fa-angle-double-left"></i> Article Précédent</a>
+    <h4 class="article-nav-title"><a href="/graalvm-microservices-java/">GraalVM, le futur des applications microservices en Java</a></h4>
+  </div>
+  <div class="next">
+   &nbsp;
+  </div>
+</div>
 
 Cheers...
 
