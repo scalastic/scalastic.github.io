@@ -5,18 +5,15 @@ redirects:
 - /sdkman-ou-comment-gérer-simplement-différentes-versions-dun-SDK/
 - /sdkman-plusieurs-JDK/
 date: 2021-03-16 11:44:00 +2
-description: Faire cohabiter plusieurs versions de JDK peut vite devenir à un calvaire si l'on s'y prend sans un outil adapté. C'est donc le moment d'installer SDKMAN!.
+description: Apprendre à installer et utiliser plusieurs versions de Java avec SDKMAN. Procédure pas à pas pour MacOS, Windows et Linux.
 img: sdkman-post.jpg
 fig-caption: Photo de <a href="https://unsplash.com/@vikramstudio46?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">vikram sundaramoorthy</a> sur <a href="https://unsplash.com/s/photos/superman?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Unsplash</a>
 tags: [Sdkman, Java, GraalVM, MacOS, Tool]
-excerpt_separator: <!--more-->
 ---
 
-Possesseur d'un Mac, il m'arrive, à l'occasion de la sortie d'une nouvelle version de MacOS (lorsqu'elle est stable), de tout effacer sur mon ordi, de repartir de zéro et faire un fameux `clean install`.
+Possesseur d'un Mac, il m'arrive, à l'occasion de la sortie d'une nouvelle version de MacOS (lorsqu'elle est stable), de tout effacer sur mon ordi, de repartir de zéro et faire un fameux `clean install`. Reste ensuite la fastidieuse tâche de réinstaller tous les outils nécesaires à mon travail. 
 
-Reste ensuite la fastidieuse tâche de réinstaller tous les outils nécesaires à mon travail. C'est l'occasion de vous présenter SDKMAN!, un utilitaire qui va vous permettre de faire cohabiter plusieurs versions de JDKs sur votre ordi... et pas seulement !
-
-<!--more-->
+C'est l'occasion de vous présenter SDKMAN, un utilitaire qui va vous permettre de faire cohabiter plusieurs versions de JDKs sur votre ordi... et pas seulement !
 
 <hr class="hr-text" data-content="Plan">
 
