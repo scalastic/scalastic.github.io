@@ -27,7 +27,7 @@ layout: main
         </div>
         <div class="page-tag">
           {% for tag in page.tags %}
-            <a href="{{site.baseurl}}/tags#{{tag}}" class="tag">&#35; {{ tag }}</a>
+            <a href="{{site.baseurl}}/tags#{{tag}}" class="tag" rel="tag">&#35; {{ tag }}</a>
           {% endfor %}
         </div>
       </div>
