@@ -6,7 +6,7 @@ redirects:
 date: 2021-03-22 15:0:00 +2
 description: Comment voir facilement ce que contient une image Docker ? Dive est un outil qui permet d'explorer les répertoires et fichiers d'une image docker, les modifications apportées dans chaque couche de l'image et des informations pour réduire la taille de votre image.
 img: dive-image-docker.jpg 
-fig-caption: Photo de <a href="https://unsplash.com/@jamesthornton95?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">James Thornton</a> sur <a href="https://unsplash.com//s/photos/diving?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Unsplash</a>
+fig-caption: Photo de <a href="https://unsplash.com/@jamesthornton95?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">James Thornton</a> sur <a href="https://unsplash.com/s/photos/diving?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Unsplash</a>
 tags: [Docker,Continuous-Integration,Tool]
 ---
 

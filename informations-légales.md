@@ -4,8 +4,7 @@ title: Informations légales
 date: 2021-03-01 00:00:00 +0200
 description: Mentions légales du site www.scalastic.io
 img: informations-legales.jpg
-fig-caption: Photo de <a href="https://unsplash.com/@nahakiole?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Robin Glauser</a> sur <a href="https://unsplash.com//collections/8291752/tr-01-01?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Unsplash</a>
-tags: [Scalastic, site web]
+fig-caption: Photo de <a href="https://unsplash.com/@nahakiole?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Robin Glauser</a> sur <a href="https://unsplash.com/collections/8291752/tr-01-01?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Unsplash</a>
 comments: false
 ---
 
