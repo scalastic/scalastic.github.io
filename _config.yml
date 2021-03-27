@@ -2,7 +2,7 @@ title: Scalastic DevOps
 description: Je suis consultant freelance en DevOps 🚀 et Cloud ☁️
 permalink: ':title/'
 baseurl: "" # the subpath of your site, e.g. /blog
-url: "https://www.scalastic.io" # the base hostname & protocol for your site, e.g. http://example.com
+url: "https://scalastic.io" # the base hostname & protocol for your site, e.g. http://example.com
 logo: /assets/img/logo-scalastic.png
 
 # Company Settings

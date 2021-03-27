@@ -2,7 +2,7 @@
 
 # Code source du site web de la société Scalastic
 
-<a href="https://www.scalastic.io">![](https://github.com/scalastic/scalastic.github.io/blob/main/assets/img/scalastic.png?raw=true)</a>
+<a href="{{ site.url }}">![](https://github.com/scalastic/scalastic.github.io/blob/main/assets/img/scalastic.png?raw=true)</a>
 
 ## Fabriqué avec Jekyll
 
