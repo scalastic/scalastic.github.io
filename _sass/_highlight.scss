@@ -15,8 +15,8 @@ figure.highlight {
         margin: 22.5px 15px;
         padding: 8px 12px;
         display: flex;
-  flex-wrap: nowrap;
-  overflow-x: auto;
+        flex-wrap: nowrap;
+        overflow-x: auto;
         code {
             background: $background;
             display: block;
@@ -28,7 +28,8 @@ figure.highlight {
             
             /* Display language name */
             &[data-lang]::before {
-                content: attr(data-lang);
+                font-family: "Font Awesome 5 Free";
+                content: "\f121" " " attr(data-lang);
                 position: absolute;
                 right: 34px;
                 top: -10px;
@@ -41,8 +42,29 @@ figure.highlight {
                 border-bottom-right-radius: 5px;
                 min-width: 40px;
                 text-align: center;
-                color: grey;
+                color: #f8f8f2;
+                font-weight: 600;
                 background: $background;
+                &[data-lang="java"] {
+                  font-family: "Font Awesome 5 Brands";
+                  content: "\f4e4" " Java";
+                }
+                &[data-lang="zsh"] {
+                  font-family: "Font Awesome 5 Free";
+                  content: "%_ Zsh";
+                }
+                &[data-lang="bash"] {
+                  font-family: "Font Awesome 5 Free";
+                  content: "$_ Bash";
+                }
+                &[data-lang="maven"] {
+                  font-family: "Font Awesome 5 Free";
+                  content: "\f56b" " Maven";
+                }
+                &[data-lang="docker"] {
+                  font-family: "Font Awesome 5 Brands";
+                  content: "\f395" " Docker";
+                }
             }
 
             div {
