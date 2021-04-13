@@ -8,7 +8,7 @@ date: 2021-03-16 11:44:00 +2
 description: Apprendre à installer et utiliser plusieurs versions de Java avec SDKMAN. Procédure pas à pas pour MacOS, Windows et Linux.
 img: sdkman-post.jpg
 fig-caption: Photo de <a href="https://unsplash.com/@vikramstudio46?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">vikram sundaramoorthy</a> sur <a href="https://unsplash.com/s/photos/superman?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Unsplash</a>
-tags: [Sdkman, Java, GraalVM, MacOS, Tool]
+tags: [Sdkman, Java, GraalVM, macOS, Tool]
 ---
 
 Possesseur d'un Mac, il m'arrive, à l'occasion de la sortie d'une nouvelle version de MacOS (lorsqu'elle est stable), de tout effacer sur mon ordi, de repartir de zéro et faire un fameux `clean install`. Reste ensuite la fastidieuse tâche de réinstaller tous les outils nécesaires à mon travail. 
