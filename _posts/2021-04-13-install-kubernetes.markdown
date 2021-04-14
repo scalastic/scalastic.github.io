@@ -122,7 +122,7 @@ Just push the ***skip*** button to bypass authentication.
 
 ## Metrics Server
 
-`Metrics-Server` is used to crop metrics from k8s components and exposes them to k8s API. The official repository is [https://github.com/kubernetes-sigs/metrics-server](https://github.com/kubernetes-sigs/metrics-server){:target="_blank" rel="noopener noreferrer nofollow"}
+**Metrics-Server** is used to crop metrics from k8s components and exposes them to k8s API. The official repository is [https://github.com/kubernetes-sigs/metrics-server](https://github.com/kubernetes-sigs/metrics-server){:target="_blank" rel="noopener noreferrer nofollow"}
 
 **Metrics Server** serves the goals of core metrics pipelines: CPU and RAM. It's a cluster level component which 
 periodically scrapes metrics from all Kubernetes nodes served by Kubelet. When installed, **Dashboard** displays automatically this metrics.
@@ -148,7 +148,7 @@ You can try the ***Pods*** section, this is my favorite!
 
 ## Kube State Metrics
 
-Unlike **Metrics Server**, `Kube State Metrics` is focused on generating numerous metrics from Kubernetes' object state 
+Unlike **Metrics Server**, **Kube State Metrics** is focused on generating numerous metrics from Kubernetes' object state 
 (e.g. metrics based on deployments, replica sets, pods, etc.). For this, it holds an entire snapshot of Kubernetes state in memory
 and generates new metrics based off of it.
 
