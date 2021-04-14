@@ -51,7 +51,6 @@ plugins:
   - premonition
   - jekyll-last-modified-at
   - jekyll-figure
-  - html-proofer
 
 # Activate page redirection when change
 redirects: yes
@@ -66,11 +65,5 @@ last-modified-at:
 sass:
   sass_dir: _sass
   style: compressed
-
-html_proofer:
-  check_favicon: true
-  check_html: true
-  http_status_ignore: [999]
-  check_opengraph: true
 
 exclude: ["node_modules", "gulpfile.js", "package.json", "yarn.lock", "archive-posts"]
