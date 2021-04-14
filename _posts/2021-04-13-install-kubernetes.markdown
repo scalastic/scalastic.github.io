@@ -14,7 +14,7 @@ Sometimes it may be useful for development to have an effective monitoring tools
 
 And that's when you get into trouble.
 
-In this article I'm going to show you how to succesfully install a Kubernetes platfom on your local machine particulary on macOS.
+In this article I'm going to show you how to succesfully install a complete Kubernetes platform on your local machine particulary on macOS.
 
 
 > info "Source code"
@@ -30,14 +30,14 @@ In this article I'm going to show you how to succesfully install a Kubernetes pl
 
 ## Notice
 
-- This procedure is intended to work on `macOS` but should work on any other host. However I was not able to test it. 
+- This procedure is intended to work on **macOS** but should work on any other host. However I was not able to test it. 
 - Things are more tying up with the Kubernetes distribution (**Docker Desktop**) than the OS itself.
 
 <hr class="hr-text" data-content="Kubernetes">
 
 ## Kubernetes
 
-- We'll be using `Docker Desktop` which comes with a ready-to-use Kubernetes cluster.
+- We'll be using **Docker Desktop** which comes with a ready-to-use Kubernetes cluster.
 
 	1. Download the installer at [https://www.docker.com/products/docker-desktop](https://www.docker.com/products/docker-desktop){:target="_blank" rel="noopener noreferrer nofollow"} and follow the instructions.
 
@@ -74,7 +74,7 @@ In this article I'm going to show you how to succesfully install a Kubernetes pl
 
 ## Dashboard
 
-`Dashboard` is a web UI of k8s API and provides an easy way to visualize and debug things. You can find more about **Dashboard** at [https://github.com/kubernetes/dashboard](https://github.com/kubernetes/dashboard){:target="_blank" rel="noopener noreferrer nofollow"}
+**Dashboard** is a web UI of k8s API and provides an easy way to visualize and debug things. You can find more about **Dashboard** at [https://github.com/kubernetes/dashboard](https://github.com/kubernetes/dashboard){:target="_blank" rel="noopener noreferrer nofollow"}
   
 
 By default, **Dashboard** is protected by a token, and each time you'll access it, you'll be asked to provide one. It could 
@@ -112,7 +112,7 @@ You'll see this login page at first:
 ![Dashboard Login Screen]({{site.baseurl}}/assets/img/dashboard-first-access.jpg)
 {% endfigure %}
 
-Just push the `skip` button to bypass authentication.
+Just push the ***skip*** button to bypass authentication.
 
 {% figure caption:"Dashboard main page" class:"article" %}
 ![Dashboard index page]({{site.baseurl}}/assets/img/dashboard-index.jpg)
