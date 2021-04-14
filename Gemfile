@@ -10,7 +10,6 @@ group :jekyll_plugins do
   gem 'premonition', '~> 4.0'
   gem 'jekyll-last-modified-at'
   gem 'jekyll-figure'
-  gem 'html-proofer'
 end
 
 gem 'webrick', '~> 1.7'
