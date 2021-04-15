@@ -124,8 +124,8 @@ Just push the ***skip*** button to bypass authentication.
 
 **Metrics-Server** is used to crop metrics from k8s components and exposes them to k8s API. The official repository is [https://github.com/kubernetes-sigs/metrics-server](https://github.com/kubernetes-sigs/metrics-server){:target="_blank" rel="noopener noreferrer nofollow"}
 
-**Metrics Server** serves the goals of core metrics pipelines: CPU and RAM. It's a cluster level component which 
-periodically scrapes metrics from all Kubernetes nodes served by Kubelet. When installed, **Dashboard** displays automatically this metrics.
+**Metrics Server** serves the goals of core metrics pipelines: CPU and RAM. The important thing is that ***Horizontal Pod Autoscaler*** uses this API to collect metrics. It's a cluster level component which 
+periodically scrapes metrics from all Kubernetes nodes served by Kubelet. When installed, **Dashboard** displays automatically this metrics too.
 
 > info "Note"
 > To allow **Metrics Server** to collect its data over https, the original script has been modified to accept insecure TLS connections by adding `- --kubelet-insecure-tls` at [line 133](https://github.com/scalastic/local-k8s-installation/blob/7b0857d64475a1b4c0d1f3680f8d48f076211de8/k8s/metrics-server-components-v0.4.2.yaml#L133){:target="_blank" rel="noopener noreferrer nofollow"}.
