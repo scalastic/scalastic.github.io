@@ -21,7 +21,7 @@ In this article I'm going to show you how to succesfully install a complete Kube
 > All scripts are kept in [https://github.com/scalastic/local-k8s-installation](https://github.com/scalastic/local-k8s-installation){:target="_blank" rel="noopener noreferrer nofollow"}
 
 
-<hr class="hr-text" data-content="Table of contents">
+<hr class="hr-text" data-content="Contents">
 
 * TOC
 {:toc}
