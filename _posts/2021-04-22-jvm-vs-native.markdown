@@ -57,8 +57,8 @@ In order to implement this solution, we'll need:
 
 Well, it's not a big deal and this already exists:
 
-- ***Spring Boot*** and ***Micrometer*** enable metrics exposure of Java applications
-- Python code instrumented with ***prometheus_client*** library can expose metrics to Prometheus
+- ***Spring Boot*** and ***Micrometer*** enable metrics exposure of Java applications (watch the [HasherHandler.java](https://github.com/scalastic/hotspot-vs-native/blob/main/hasher-java/src/main/java/io/scalastic/jvmvsnative/hasher/HasherHandler.java){:target="_blank" rel="noopener noreferrer nofollow"} code as example)
+- Python code instrumented with ***prometheus_client*** library can expose metrics to Prometheus (see the [worker.py](https://github.com/scalastic/hotspot-vs-native/blob/main/worker/worker.py){:target="_blank" rel="noopener noreferrer nofollow"} example)
 - I explained and scripted a complete Kubernetes stack installation in a previous article: [Locally install Kubernetes, Prometheus, and Grafana](https://scalastic.io/install-kubernetes/)
 - ***Spring Boot Native*** can build either natively or in Bytecode any Java app
 
