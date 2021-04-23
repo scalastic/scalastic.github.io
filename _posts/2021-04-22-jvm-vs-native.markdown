@@ -75,7 +75,7 @@ Well, it's not a big deal and this already exists:
 
 ![Application Architecture]({{site.baseurl}}/assets/img/application-architecture.jpg)
 
-The application is composed of 5 microservices :
+The application is composed of 4 microservices :
 - `worker` the algorithm orchestrator [***Python***] which gets `1` a random number, `2` hash it, and `3` increment a counter in redis database.
 - `rng` the random number generator [***Spring Boot***]
 - `hasher` the hasher processor [***Spring Boot***]
@@ -197,14 +197,11 @@ Remember the application architecture :
 2. We want our microservices to communicate each others in the Kubernetes cluster. That's the job of 
    [Service](https://kubernetes.io/docs/concepts/services-networking/){:target="_blank" rel="noopener noreferrer nofollow"} resource.
 
-3. We'd like to access the web UI from outside the cluster: a [NodePort](https://kubernetes.io/docs/concepts/services-networking/service/#nodeport){:target="_blank" rel="noopener noreferrer nofollow"} type Service with
-    resource would be sufficient.
-
-4. The Redis database does not need to be reached from the outside, but only from the inside: that's already done by 
+3. The Redis database does not need to be reached from the outside, but only from the inside: that's already done by 
    [ClusterIP](https://kubernetes.io/docs/concepts/services-networking/service/){:target="_blank" rel="noopener noreferrer nofollow"} which is the default Service type in 
    Kubernetes.
 
-5. We also want to monitor the application's metrics on Grafana via Prometheus: [found these good detailed explanations](https://developer.ibm.com/technologies/containers/tutorials/monitoring-kubernetes-prometheus/){:target="_blank" rel="noopener noreferrer nofollow"}
+4. We also want to monitor the application's metrics on Grafana via Prometheus: [found these good detailed explanations](https://developer.ibm.com/technologies/containers/tutorials/monitoring-kubernetes-prometheus/){:target="_blank" rel="noopener noreferrer nofollow"}
 
 Have a look at the `_kube/k8s-app-jvm.yml` extract showing the Hasher Java microservice resources' configuration:
 
