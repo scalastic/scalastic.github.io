@@ -12,7 +12,7 @@ locale: en_US
 
 
 When it comes to comparing JVM-HotSpot and GraalVM-native executions, 
-it is often hard to decide on application's architecture and technology to test and even what to measure.
+it is often hard to decide on the application's architecture and technology to test and even what to measure.
 
 Recently I came across an interesting training course about [containers and orchestration](https://github.com/jpetazzo/container.training){:target="_blank" rel="noopener noreferrer nofollow"} 
 written by Jérôme Petazzoni. He uses a bunch of interacting Python and Ruby apps encapsulated in Docker containers. They act as 
@@ -20,11 +20,11 @@ a microservices mesh and measuring the number of completed cycles per second pro
 system effectiveness. Being able to play with the number of running containers would be also a good illustration of what 
 actually happens.
 
-Actively following `Spring Native` developments, I therefore decided to port his demonstration application into Java using
+Actively following `Spring Native` developments, I therefore decided to port his demonstration application in Java using
 the latest development versions of `Spring Boot` and reactive programming `WebFlux`.
 
 > info "Source code"
-> All sources are kept in <https://github.com/scalastic/hotspot-vs-native>{:target="_blank" rel="noopener noreferrer nofollow"}
+> All sources are kept at <https://github.com/scalastic/hotspot-vs-native>{:target="_blank" rel="noopener noreferrer nofollow"}
 
 <hr class="hr-text" data-content="Contents">
 
@@ -55,17 +55,17 @@ In order to implement this solution, we'll need:
 - **Metrics** coming from our microservices
 - **Bytecode** and **native** built Java apps
 
-Well it's not a big deal and this already exists:
+Well, it's not a big deal and this already exists:
 
 - ***Spring Boot*** and ***Micrometer*** enable metrics exposure of Java applications
-- Python code instrumented with ***prometheus_client*** library can expose metrics to prometheus
+- Python code instrumented with ***prometheus_client*** library can expose metrics to Prometheus
 - I explained and scripted a complete Kubernetes stack installation in a previous article: [Locally install Kubernetes, Prometheus, and Grafana](https://scalastic.io/install-kubernetes/)
 - ***Spring Boot Native*** can build either natively or in Bytecode any Java app
 
 > info "Spring Versions" 
 > 
-> We'll be using the latest development versions of Spring Experimental stack as it's continuously fix bugs and 
-> improve performances. However, you have to keep in mind this is still a Beta version and does not represent a final step:
+> We'll be using the latest development versions of Spring Experimental stack as it's continuously fixing bugs and 
+> improving performances. However, you have to keep in mind this is still a Beta version and does not represent a final step:
 > - Spring Boot `2.5.0-RC1`
 > - Spring Native `0.10.0-SNAPSHOT`
 
@@ -90,7 +90,7 @@ one built as ***JVM-based*** image and the other one as ***native*** one.
 
 > note "Optional"
 > 
-> I've pulled this stuf into a public registry on Docker Hub so you don't even need to worry about these builds.
+> I've pulled this stuff into a public registry on Docker Hub so you don't even need to worry about these builds.
 
 ### Requirements
 
@@ -102,10 +102,10 @@ However, if you wish to **build** the app, you will need to install :
 ### The easy way
 
 > warning "Note"
-> - It should work on **linux** and **macOS** based systems - *and on **Windows** with some small modifications*
+> - It should work on **Linux** and **macOS** based systems - *and on **Windows** with some small modifications*
 > - It will take time....... 10-20 min depending on your internet connection and processor! That's the price to compile to native code.
 
-To do so, execute this script at the project root:
+To do so, execute this script in the project root:
 {% highlight Bash %}
 ./build_docker_images.sh
 {% endhighlight %}
@@ -115,7 +115,7 @@ To do so, execute this script at the project root:
 
 > info "Info"
 > 
-> These are the script's commands syntax - just to reproduce.
+> These are the command script - just to reproduce.
 
 
 - For a **non-java** app, execute:
@@ -141,7 +141,7 @@ mvn spring-boot:build-image
 
 ### No build at all
 
-You can pull pre-built images from Docker Hub by entering:
+You can pull pre-build images from Docker Hub by entering:
 
 {% highlight Bash %}
 docker pull jeanjerome/rng-jvm:1.0.0
@@ -185,7 +185,7 @@ Let's have a look at how to set up these microservices into our kubernetes clust
 
 Remember the application architecture :
 - It will be deployed in a dedicated namespace `demo`
-- Monitoring tool are located in the `monitoring` namespace
+- Monitoring tools are located in the `monitoring` namespace
 
 ![Kubernetes Architecture]({{site.baseurl}}/assets/img/kubernetes-architecture.jpg)
 
@@ -197,10 +197,10 @@ Remember the application architecture :
 2. We want our microservices to communicate each others in the Kubernetes cluster. That's the job of 
    [Service](https://kubernetes.io/docs/concepts/services-networking/){:target="_blank" rel="noopener noreferrer nofollow"} resource.
 
-3. We'd like to access the web UI from outside the cluster: a Service typed with
-   [NodePort](https://kubernetes.io/docs/concepts/services-networking/service/#nodeport){:target="_blank" rel="noopener noreferrer nofollow"} resource would be sufficient.
+3. We'd like to access the web UI from outside the cluster: a [NodePort](https://kubernetes.io/docs/concepts/services-networking/service/#nodeport){:target="_blank" rel="noopener noreferrer nofollow"} type Service with
+    resource would be sufficient.
 
-4. The Redis database does not need to be reached from the outside but only from the inside: that's already done by 
+4. The Redis database does not need to be reached from the outside, but only from the inside: that's already done by 
    [ClusterIP](https://kubernetes.io/docs/concepts/services-networking/service/){:target="_blank" rel="noopener noreferrer nofollow"} which is the default Service type in 
    Kubernetes.
 
@@ -287,11 +287,11 @@ You should see an empty dashboard as follows:
 ![Empty Demo Grafana dashboard]({{site.baseurl}}/assets/img/grafana-demo-empty.png)
 
 
-### Description of the ***Demo Dashboard***
+### Description of the Demo Dashboard
 
 ![Description of the Demo Grafana dashboard]({{site.baseurl}}/assets/img/grafana-demo-description.png)
 
-The ***Grafana Demo Dashboard*** is composed of 3 rows (labeled from `A` to `C`), one for each microservice's pods 
+The ***Grafana Demo Dashboard*** is composed of 3 rows (labeled from `A` to `C`), one for each microservice 
 (Worker, Random Number Generator -RNG- and Hasher) and monitored metrics (numbered `1` to `4`).
 
 - In cells #1, `number of running pods` and `process speed` (functionally speaking) are represented.
@@ -304,7 +304,7 @@ microservices `RNG` and `Hasher` are displayed.
 
 ## Start the app
 
-In this first step, all microservices' replicas are configured with 1 pod, and the Java-based microservices run on JVM.
+In this first step, all microservices' replicas are configured with 1 pod, and the Java-based microservices run on the JVM.
 All of this will also be created in a specific `demo` namespace.
 
 - To start app's microservices, apply this configuration to the cluster:
@@ -331,7 +331,7 @@ service/worker created
 
 > note "Results"
 > 
-> - The speed metric located in the first cell of the first row give us a base measure of our application effectiveness: 
+> - The speed metric, located in the first cell of the first row give us a base measure of our application effectiveness: 
 > `3.20` cycles/sec.
 > 
 > - Depending on your Kubernetes cluster's resources, you could get another result.
@@ -369,9 +369,9 @@ Which returns:
 deployment.apps/worker scaled
 {% endhighlight %}
 
-### Impact on application
+### Impact on the application
 
-- Let's have a look on Grafana dashboard:
+- Let's have a look at Grafana dashboard:
 
 ![Grafana dashboard 2 workers]({{site.baseurl}}/assets/img/grafana-demo-2-workers.png)
 
@@ -392,7 +392,7 @@ kubectl scale deployment worker --replicas=10 -n demo
 
 > note "Results"
 > 
-> The process speed grows up but does not reach exactly 10 times more: latency of the 2 microservices, rng and hasher, has slightly increases.
+> The process speed grows up, but does not reach exactly 10 times more: latency of the 2 microservices, rng and hasher, has slightly increased.
 
 -  Let's increase `hasher` and `rng` pods' number: 
 
@@ -408,7 +408,7 @@ kubectl scale deployment hasher rng --replicas=5 -n demo
 
 > note "Results"
 > 
-> For this 2 microservices, increasing the pods' number reduces their latency, but its remain a little above their initial values:
+> For this 2 microservices, increasing the pods' number reduces their latency, but it remains a little above their initial values:
 > another factor is influencing the app (?)
 
 ### Switch to native built app
@@ -470,15 +470,15 @@ service "worker" deleted
 
 We have learned how to instrument a local station in order to collect metrics and measure impacts of Kubernetes configuration.
 
-However, we do not achieve the expected results in the context of native application. One explanation could be a lack of the Spring Beta version: Spring Native has just moved to `0.10.0-SNAPSHOT` and it's precisely the version where performance improvements are planed. I will get in touch with Spring Boot's team to ask for their opinion.
+However, we do not achieve the expected results in the context of native applications. One explanation could be a lack of the Spring Beta version: Spring Native has just moved to `0.10.0-SNAPSHOT` and it's precisely the version where performance improvements are planned. I will get in touch with Spring Boot's team to ask for their opinion.
 
 <hr class="hr-text" data-content="What to do next?">
 
 ## What next?
 
-### What is missing for a more realistic evaluation
+### What is missing for a more realistic evaluation?
 
-- Kubernetes' configuration should always include resources limit (and also request) that has not been done in this demo.
+- Kubernetes' configuration should always include resource limit (and also request) that has not been done in this demo.
 - I could have used [Horizontal Pod Autoscaler](https://kubernetes.io/docs/tasks/run-application/horizontal-pod-autoscale/){:target="_blank" rel="noopener noreferrer nofollow"}
   (HPA) and even better HPA on custom metrics (see [this post](https://itnext.io/horizontal-pod-autoscale-with-custom-metrics-8cb13e9d475){:target="_blank" rel="noopener noreferrer nofollow"} 
   for more details). I wish I found some Automatic Scaler that regulate all pods in an application to maximize a specific 
