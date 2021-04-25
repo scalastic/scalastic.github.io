@@ -1,8 +1,5 @@
 ---
----
 layout: post
-redirects:
- - /jvm-vs-native/
 title: JVM vs Native - An effective comparison of performances
 date: 2021-04-22 21:00:00 +0200
 description: How to effectively compare JVM versus Native applications - A complete guide built from Java Spring Boot, Spring Native, WebFlux, Docker, Kubernetes, Prometheus and Grafana
