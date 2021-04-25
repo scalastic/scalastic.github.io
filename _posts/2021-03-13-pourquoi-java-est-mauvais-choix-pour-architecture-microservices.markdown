@@ -1,10 +1,8 @@
 ---
 layout: post
-title: Java et les microservices
-redirects:
-- /java-et-les-microservices/
+title: Pourquoi Java est un mauvais choix pour une architecture microservices ?
 date: 2021-03-13 15:21:20 +0200
-description: "Java et les microservices : temps de démarrage, temps de chauffe, consommation mémoire de la JVM... Faisons un état des lieux."
+description: "Java et les microservices : temps de démarrage, temps de chauffe, consommation mémoire de la JVM... Voyons en quoi le langage Java n'est pas fait pour les architectures microservices"
 img: java-like-rusty-container.jpg # Add image post (optional)
 fig-caption: Photo by <a href="https://unsplash.com/@darkcut?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Robert MODOUX</a> on <a href="https://unsplash.com/s/photos/container-rusty?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Unsplash</a>
   
@@ -157,7 +155,7 @@ Alors, que fait-on à présent ? On oublie Java et on se met tous au C++ ??
 
 Rien de tout cela bien sûr. La réponse dans l'article suivant présentant GraalVM. Et vous allez voir que ça déménage !
 
-{% post_pagination ||/graalvm-microservices-java/|GraalVM, le futur des applications microservices en Java %}
+{% post_pagination ||/graalvm-avenir-des-architectures-microservices-java/|GraalVM, le futur des applications microservices en Java %}
 
 Cheers...
 
