@@ -1,8 +1,10 @@
 ---
 layout: post
 title: Compiler une application Spring en natif avec GraalVM
+redirects:
+- /compiler-une-application-spring-en-un-exécutable-natif-avec-graalvm/
 date: 2021-03-22 01:10:00 +2
-description: Tuto pour compiler une application ✨Spring✨ en code natif avec ✨GraalVM✨ - Détails avec explications étapes par étapes.
+description: Tuto pour compiler une application ✨Spring✨ en code natif avec ✨GraalVM✨ - Détails avec explications à chaque étapes.
 img: spring-native-graalvm-post.jpg
 fig-caption: Photo de <a href="https://unsplash.com/@helloimnik?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Hello I'm Nik 🪴</a> sur <a href="https://unsplash.com/s/photos/rocket?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Unsplash</a>
 tags: [Spring-Native, GraalVM, Spring, Docker, Tutoriel]
@@ -330,7 +332,7 @@ Spring Native sera, à terme, intégré dans **Spring Boot 3** et **Spring Frame
 
 A suivre de près donc !
 
-{% post_pagination /graalvm-avenir-des-architectures-microservices-java/|GraalVM, l'avenir des architectures microservices en Java|| %}
+{% post_pagination /graalvm-microservices-java/|GraalVM, le futur des applications microservices en Java|| %}
 
 Cheers...
 
