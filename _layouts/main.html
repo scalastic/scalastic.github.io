@@ -16,7 +16,7 @@ layout: default
       <p>{{site.data.i18n.about-company}}</p>
       {% for tongue in site.languages %}
       {% if tongue != site.active_lang %}
-      <a {% static_href %}href="{% if tongue == site.default_lang %}{{site.baseurl}}{{page.url}}{% else %}{{site.baseurl}}/{{ tongue }}{{page.url}}{% endif %}"{% endstatic_href %}><img class="flag" src="{{site.baseurl}}/assets/img/{{site.data.i18n.transl-flag}}"> {{ site.data.i18n.transl-version }}</a>
+      <a {% static_href %}href="{% if tongue == site.default_lang %}{{site.baseurl}}{{page.url}}{% else %}{{site.baseurl}}/{{ tongue }}{{page.url}}{% endif %}"{% endstatic_href %}>{{ site.data.i18n.transl-version }}</a>
       {% endif %}
       {% endfor %}
     </div>
