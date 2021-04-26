@@ -12,13 +12,18 @@ layout: default
         <a href="{{site.baseurl}}/"><img src="{{site.baseurl}}/assets/img/{% if site.author-img %}{{site.author-img}}{% endif %}" alt="{{site.author}}"></a>
       </div>
       <div class="author-name">{{site.author}}</div>
-      <p>{{site.about-author}}</p>
-      <p>{{site.about-company}}</p>
+      <p>{{site.data.i18n.about-author}}</p>
+      <p>{{site.data.i18n.about-company}}</p>
+      {% for tongue in site.languages %}
+      {% if tongue != site.active_lang %}
+      <a {% static_href %}href="{% if tongue == site.default_lang %}{{site.baseurl}}{{page.url}}{% else %}{{site.baseurl}}/{{ tongue }}{{page.url}}{% endif %}"{% endstatic_href %}><img class="flag" src="{{site.baseurl}}/assets/img/{{site.data.i18n.transl-flag}}"> {{ site.data.i18n.transl-version }}</a>
+      {% endif %}
+      {% endfor %}
     </div>
   </header>
   <footer>
     <section class="contact">
-      <h3 class="contact-title">Contactez-moi</h3>
+      <h3 class="contact-title">{{site.data.i18n.contact-me}}</h3>
       <ul>
         {% if site.social-twitter %}
           <li><a href="https://twitter.com/{{ site.social-twitter }}" target="_blank" rel="noopener noreferrer nofollow"><i class="fab fa-twitter-square"></i></a></li>
@@ -42,7 +47,7 @@ layout: default
       </ul>
     </section>
     <section class="copyright">
-      <p>{{site.time | date: '%Y'}} <a href="https://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank" rel="licence noopener noreferrer nofollow"><i class="fab fa-creative-commons"></i><i class="fab fa-creative-commons-by"></i><i class="fab fa-creative-commons-nc-eu"></i><i class="fab fa-creative-commons-nd"></i></a> {{site.author}} pour {{site.company}} sauf indication contraire</p>
+      <p>{{site.time | date: '%Y'}} <a href="https://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank" rel="licence noopener noreferrer nofollow"><i class="fab fa-creative-commons"></i><i class="fab fa-creative-commons-by"></i><i class="fab fa-creative-commons-nc-eu"></i><i class="fab fa-creative-commons-nd"></i></a> {{ site.data.i18n.copyrigth }}</p>
     </section>
   </footer> 
 </aside>

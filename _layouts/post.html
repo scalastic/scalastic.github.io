@@ -19,7 +19,7 @@ layout: main
         <h1 class="page-title">{{page.title}}</h1>
         <div class="page-metadata">
           <ul>
-            <li><i class="far fa-calendar-alt"></i> {{ page.date | french_date }}</li>
+            <li><i class="far fa-calendar-alt"></i> {{ page.date | i18n_date: site.active_lang }}</li>
             <li><i class="far fa-clock"></i> {% capture words %}{{ page.content | number_of_words }}{% endcapture %}{% unless words contains "-" %}{{ words | plus: 250 | divided_by: 250 | append: " minutes" }}{% endunless %}</li>
             <li><i class="fas fa-tags"></i>
               {% for tag in page.tags %}
@@ -42,7 +42,7 @@ layout: main
         </div>
       </div>
       <div class="page-recomm">
-        <h3>Articles connexes</h3>
+        <h3>{{ site.data.i18n.related-article }}</h3>
         {% include similar_post.html %}
       </div>
       {% include disqus.html %}

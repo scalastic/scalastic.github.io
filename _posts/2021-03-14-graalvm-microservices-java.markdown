@@ -8,7 +8,8 @@ description: Temps de démarrage et consommation mémoire de la JVM ne font pas 
 img: graalvm-brand-new-containers.jpg # Add image post (optional)
 fig-caption: Photo de <a href="https://unsplash.com/@ant0ine?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Antoine Petitteville</a> sur <a href="https://unsplash.com/s/photos/containers?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Unsplash</a> # Add figcaption (optional)
 tags: [Java, GraalVM, Microservices]
-excerpt_separator: <!--more-->
+lang: fr
+permalink: /graalvm-microservices-java/
 ---
 
 Cet article est le deuxième d'une série abordant les concepts introduits dans GraalVM et en quoi ils changent la donne pour utilser Java en tant que langage de programmation dans les architectures microservices.

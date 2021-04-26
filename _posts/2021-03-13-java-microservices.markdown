@@ -7,8 +7,9 @@ date: 2021-03-13 15:21:20 +0200
 description: "Java et les microservices : temps de démarrage, temps de chauffe, consommation mémoire de la JVM... Faisons un état des lieux."
 img: java-like-rusty-container.jpg # Add image post (optional)
 fig-caption: Photo by <a href="https://unsplash.com/@darkcut?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Robert MODOUX</a> on <a href="https://unsplash.com/s/photos/container-rusty?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Unsplash</a>
-  
 tags: [Java, Microservices]
+lang: fr
+permalink: /java-microservices/
 ---
 
 Cet article est le premier d'une série abordant les concepts de la nouvelle machine virtuelle GraalVM. 

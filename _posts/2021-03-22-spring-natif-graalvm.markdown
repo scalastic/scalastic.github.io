@@ -8,7 +8,8 @@ description: Tuto pour compiler une application ✨Spring✨ en code natif avec 
 img: spring-native-graalvm-post.jpg
 fig-caption: Photo de <a href="https://unsplash.com/@helloimnik?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Hello I'm Nik 🪴</a> sur <a href="https://unsplash.com/s/photos/rocket?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Unsplash</a>
 tags: [Spring-Native, GraalVM, Spring, Docker, Tutoriel]
-excerpt_separator: <!--more-->
+lang: fr
+permalink: /spring-natif-graalvm/
 ---
 
 Avec la sortie cette semaine de Spring Native Beta en version 0.9.0, il est intéressant de faire un état des lieux de la compilation d'applications `Spring` en exécutables natifs à l'aide de `GraalVM` et de son mode `native-image`.
