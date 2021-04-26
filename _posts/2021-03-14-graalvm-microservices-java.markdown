@@ -1,8 +1,10 @@
 ---
 layout: post
-title: GraalVM, l'avenir des architectures microservices en Java
+title: GraalVM, le futur des applications microservices en Java
+redirects:
+- /graalvm-le-futur-des-applications-microservices-en-java/
 date: 2021-03-14 12:53:00 +0200
-description: Temps de démarrage et consommation mémoire de la JVM ne font pas de Java le candidat idéal pour développer des microservices. Mais heureusement GraalVM pourrait bien changer la donne...
+description: Temps de démarrage et consommation mémoire de la JVM ne font pas de Java le candidat idéal pour développer des microservices. Mais GraalVM pourrait bien changer la donne...
 img: graalvm-brand-new-containers.jpg # Add image post (optional)
 fig-caption: Photo de <a href="https://unsplash.com/@ant0ine?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Antoine Petitteville</a> sur <a href="https://unsplash.com/s/photos/containers?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Unsplash</a> # Add figcaption (optional)
 tags: [Java, GraalVM, Microservices]
@@ -113,7 +115,7 @@ Certes, il nous fallait passer par cette présentation théorique mais déjà, o
 
 Reste à voir en pratique le résultat. C'est ce que nous ferons dans l'article suivant.
 
-{% post_pagination /pourquoi-java-est-mauvais-choix-pour-architecture-microservices/|Pourquoi Java est un mauvais choix pour une architecture microservices|/compiler-une-application-spring-en-natif-avec-graalvm/|Compiler une application Spring en natif avec GraalVM %}
+{% post_pagination /java-microservices/|Java et les microservices|/spring-natif-graalvm/|Compiler une application Spring en natif avec GraalVM %}
 
 Cheers...
 
