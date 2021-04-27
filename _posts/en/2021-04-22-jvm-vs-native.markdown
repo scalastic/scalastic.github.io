@@ -59,7 +59,7 @@ Well, it's not a big deal and this already exists:
 
 - ***Spring Boot*** and ***Micrometer*** enable metrics exposure of Java applications (watch the [HasherHandler.java](https://github.com/scalastic/hotspot-vs-native/blob/main/hasher-java/src/main/java/io/scalastic/jvmvsnative/hasher/HasherHandler.java){:target="_blank" rel="noopener noreferrer nofollow"} code as example)
 - Python code instrumented with ***prometheus_client*** library can expose metrics to Prometheus (see the [worker.py](https://github.com/scalastic/hotspot-vs-native/blob/main/worker/worker.py){:target="_blank" rel="noopener noreferrer nofollow"} example)
-- I explained and scripted a complete Kubernetes stack installation in a previous article: [Locally install Kubernetes, Prometheus, and Grafana](https://scalastic.io/install-kubernetes/)
+- I explained and scripted a complete Kubernetes stack installation in a previous article: [Locally install Kubernetes, Prometheus, and Grafana]({{site.baseurl}}/install-kubernetes-prometheus-grafana/)
 - ***Spring Boot Native*** can build either natively or in Bytecode any Java app
 
 > info "Spring Versions" 
@@ -275,7 +275,7 @@ spec:
 
 - Connect to your Grafana interface 
   > info ""
-  > If you've followed my previous article [Locally install Kubernetes, Prometheus, and Grafana](https://scalastic.io/install-kubernetes/) you can reach Grafana at [http://localhost:3000/](http://localhost:3000/)
+  > If you've followed my previous article [Locally install Kubernetes, Prometheus, and Grafana]({{site.baseurl}}/install-kubernetes-prometheus-grafana/) you can reach Grafana at [http://localhost:3000/](http://localhost:3000/)
 - Import the dashboard from the JSON definition `_grafana/demo-dashboard.json` from this repo
 - Display the dashboard
 

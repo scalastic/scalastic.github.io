@@ -57,9 +57,9 @@ Pour mettre en œuvre cette solution, nous aurons besoin :
 
 Eh bien, ce n’est pas grand-chose et cela existe déjà:
 
-- ***Spring Boot*** et **Micrometer*** permettent l’exposition aux métriques des applications Java (regardez le [HasherHandler.java] (https://github.com/scalastic/hotspot-vs-native/blob/main/hasher-java/src/main/java/io/scalastic/jvmvsnative/hasher/HasherHandler.java){:target="_blank" rel="noopener noreferrer nofollow"} code comme exemple)
+- ***Spring Boot*** et **Micrometer*** permettent l’exposition aux métriques des applications Java (regardez le [HasherHandler.java](https://github.com/scalastic/hotspot-vs-native/blob/main/hasher-java/src/main/java/io/scalastic/jvmvsnative/hasher/HasherHandler.java){:target="_blank" rel="noopener noreferrer nofollow"} code comme exemple)
 - Le code Python instrumenté avec la bibliothèque **prometheus_client*** peut exposer les métriques à Prometheus (voir [worker.py](https://github.com/scalastic/hotspot-vs-native/blob/main/worker/worker.py){:target="_blank" rel="noopener noreferrer nofollow"} exemple)
-- J’ai expliqué et scénarisé une installation complète de pile Kubernetes dans un article précédent : [Installer localement Kubernetes, Prometheus et Grafana] (https://scalastic.io/install-kubernetes/)
+- J’ai expliqué et scénarisé une installation complète de pile Kubernetes dans un article précédent : [Installer localement Kubernetes, Prometheus et Grafana]({{site.baseurl}}/install-kubernetes-prometheus-grafana/)
 - ***Spring Boot Native*** peut construire en natif ou en Bytecode toute application Java
 
 > info "Versions de Spring" 
@@ -273,7 +273,7 @@ spec:
 
 - Connectez-vous à votre interface Grafana 
 > info ""
-> Si vous avez suivi mon article précédent [Installer localement Kubernetes, Prometheus et Grafana](https://scalastic.io/install-kubernetes/), vous pouvez vous connecter à Grafana à l'adresse [http://localhost:3000/](http://localhost:3000/)
+> Si vous avez suivi mon article précédent [Installer localement Kubernetes, Prometheus et Grafana]({{site.baseurl}}/install-kubernetes-prometheus-grafana/), vous pouvez vous connecter à Grafana à l'adresse [http://localhost:3000/](http://localhost:3000/)
 - Importer le tableau de bord à partir de la définition JSON `_grafana/demo-dashboard.json’ à partir de ce repo
 - Afficher le tableau de bord
 
@@ -493,8 +493,8 @@ Eh bien, c’est votre tour de jouer avec des applications natives maintenant!
 Cheers...
 
 > info "Et maintenant"
-> * Cet article vous a plu? N’hésitez pas à le dire à Disqus pour que le site augmente sa visibilité
-> * Vous avez une question? Posez-la, et je vous reviendrai dès que possible
+> * Cet article vous a plu? N’hésitez pas à le dire à Disqus pour que le site progresse en visibilité
+> * Vous avez une question? Posez-la et je vous répondrai dès que possible
 > 
 > Merci!
 >
