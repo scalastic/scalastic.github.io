@@ -40,7 +40,6 @@ highlighter: rouge
 
 plugins:
   - jekyll-seo-tag
-  - jekyll-sitemap
   - jekyll-paginate
   - jemoji
   - premonition
