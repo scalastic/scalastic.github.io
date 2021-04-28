@@ -544,11 +544,11 @@ Je vais ouvrir un ticket auprès de l’équipe de Spring Boot pour leur demande
 
 Voici quelques liens pour une lecture plus approfondie :
 
-- Formation de Jérôme Patazzoni sur les conteneurs : <https://github.com/jpetazzo/container.training>{:target="_blank" rel="noopener noreferrer nofollow"}
-- Kubernetes Concepts : <https://kubernetes.io/docs/concepts/>{:target="_blank" rel="noopener noreferrer nofollow"}
+- La formation de Jérôme Patazzoni sur les conteneurs : <https://github.com/jpetazzo/container.training>{:target="_blank" rel="noopener noreferrer nofollow"}
+- Les concepts dans Kubernetes : <https://kubernetes.io/docs/concepts/>{:target="_blank" rel="noopener noreferrer nofollow"}
 - Surveillance de vos applications dans Kubernetes avec Prometheus et Spring Boot : <https://developer.ibm.com/technologies/containers/tutorials/monitoring-kubernetes-prometheus/>{:target="_blank" rel="noopener noreferrer nofollow"}
-- Client Prometheus Python : <https://github.com/prometheus/client_python>{:target="_blank" rel="noopener noreferrer nofollow"}
-- Mesures Prometheus personnalisées pour les applications exécutées dans Kubernetes : <https://zhimin-wen.medium.com/custom-prometheus-metrics-for-apps-running-in-kubernetes-498d69ada7aa>{:target="_blank" rel="noopener noreferrer nofollow"}
+- Le client Prometheus pour Python : <https://github.com/prometheus/client_python>{:target="_blank" rel="noopener noreferrer nofollow"}
+- Les métriques Prometheus personnalisées pour les applications exécutées dans Kubernetes : <https://zhimin-wen.medium.com/custom-prometheus-metrics-for-apps-running-in-kubernetes-498d69ada7aa>{:target="_blank" rel="noopener noreferrer nofollow"}
 
 
 Et bien, voilà, c’est à votre tour de jouer avec les applications natives à présent !
