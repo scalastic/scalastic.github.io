@@ -1,27 +1,26 @@
 ---
 layout: post
-title: JVM vs Native - Une comparaison efficace des performances
+title: JVM vs Native - Une réelle comparaison des performances
 date: 2021-04-22 21:00:00 +0200
-description: Comment comparer efficacement l'exécution d'une application sous JVM et en native - Un guide complet construit à partir de Java Spring Boot, Spring Native, WebFlux, Docker, Kubernetes, Prometheus et Grafana
+description: Comment réellement comparer l'exécution d'une application Java entre ses versions JVM et native - Un guide complet construit à partir de Java Spring Boot, Spring Native, WebFlux, Docker, Kubernetes, Prometheus et Grafana
 img: jvm-vs-native.jpg
 fig-caption: Photo de <a href="https://unsplash.com/@jtylernix?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Tyler Nix</a> sur <a href="https://unsplash.com/s/photos/surf?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Unsplash</a>
 tags: [Spring-Boot, Spring-Native, Spring-WebFlux, GraalVM, Docker, Kubernetes, Prometheus, Grafana, Micoservices]
 lang: fr
 permalink: /jvm-vs-native/
+status: finished
 ---
 
 
-Quand il s’agit de comparer les exécutions natives de JVM-HotSpot et GraalVM, 
-il est souvent difficile de décider de l’architecture et de la technologie de l’application à tester et même de ce qu’il faut mesurer.
+Pour comparer l'exécution d'une application Java entre ses versions Bytecode (JVM) et native (GraalVM), il faut, tout d'abord, décider de son architecture et des framewoks à utiliser. Dans un deuxième temps, il faut aussi se demander ce que l'on va mesurer.
 
-Récemment, je suis tombé sur un cours de formation intéressant sur [containers and orchestration](https://github.com/jpetazzo/container.training){:target="_blank" rel="noopener noreferrer nofollow"} 
-écrit par Jérôme Petazzoni. Il utilise un tas d’applications Python et Ruby en interaction encapsulées dans des conteneurs Docker. Ils agissent comme 
-un maillage de microservices et la mesure du nombre de cycles terminés par seconde fournit une bonne estimation de la 
-efficacité du système. Le fait de pouvoir jouer avec le nombre de conteneurs 
-se produit réellement.
+Récemment, je suis tombé sur un cours très intéressant, [containers and orchestration](https://github.com/jpetazzo/container.training){:target="_blank" rel="noopener noreferrer nofollow"}, de Jérôme Petazzoni. Il utilise différentes applications Python et Ruby qui entrent en interaction au moyen de conteneurs Docker. Ils agissent comme un maillage de microservices. L'efficacité du système est mesuré en fonction du nombre de traitements exécutés par seconde. 
 
-En suivant activement les développements `Spring Native`, j’ai donc décidé de porter son application de démonstration en Java en utilisant
-les dernières versions de développement de `Spring Boot` et de la programmation réactive `WebFlux`.
+Cela m'a semblé un bon exemple pour servir de base à ce comparatif en :
+- Transposant le code en langage Java sous les frameworks Spring Boot / WebFlux et en utilisant Spring Native pour le build en Bytecode ou en natif,
+- Jouant sur le nombre de conteneurs afin de faire varier la charge du système.
+
+Voyons cela en détails.
 
 > info "Code source"
 > Toutes les sources sont conservées sur <https://github.com/scalastic/hotspot-vs-native>{:target="_blank" rel="noopener noreferrer nofollow"}
@@ -33,68 +32,57 @@ les dernières versions de développement de `Spring Boot` et de la programmatio
 
 <hr class="hr-text" data-content="Demonstration">
 
-## La démo
+## Exigences
 
-### Objectif
+Pour mettre en œuvre cette solution, nous aurons besoin de :
+1. Un cluster **Kubernetes** pour exécuter nos conteneurs,
+1. Différentes **mesures des traitements** provenant des microservices
+1. **Prometheus** et **Grafana** pour récolter et afficher ces mesures,
+1. Une application Java compilable en **Bytecode** et en **natif**
 
-L’objectif principal de cette démonstration est de modifier la configuration des ressources des microservices et de voir comment elle affecte le
-exécution de l’application.
+Et bien, ce n’est pas grand-chose et cela existe déjà :
 
-Quels sont nos leviers d’action?
-- Tout d’abord, nous pourrions facilement jouer avec le **nombre de conteneurs** exécutant chaque
-microservice.
-- Deuxièmement, les microservices basés sur Java sont construits sur deux types qui peuvent être facilement commutés : **Basé sur la JVM** et **Natif**.
+* Dans un article précédent, j'explique comment installer une stack complète Kubernetes, Prometheus et Grafana - [Installez Kubernetes, Prometheus et Grafana en local]({{site.baseurl}}/install-kubernetes-prometheus-grafana/),
+* En intégrant **Micrometer** à une application Java **Spring Boot**, il est possible d'exposer les mesures de ses services - [HasherHandler.java](https://github.com/scalastic/hotspot-vs-native/blob/main/hasher-java/src/main/java/io/scalastic/jvmvsnative/hasher/){:target="_blank" rel="noopener noreferrer nofollow"},
+* Pour une application Python, la bibliothèque **prometheus_client** permet aussi d'exposer des mesures - [worker.py](https://github.com/scalastic/hotspot-vs-native/blob/main/worker/worker.py){:target="_blank" rel="noopener noreferrer nofollow"},
+* En configurant le POM Maven avec la dépendance `org.springframework.experimental:spring-native`, il est possible de compiler l'application aussi bien en Bytecode ou qu'en natif.
 
-Alors on y va.
 
-### Exigences
-
-Pour mettre en œuvre cette solution, nous aurons besoin :
-- Un groupe **Kubernetes**
-- **Prometheus**, **Grafana**
-- **Métriques** provenant de nos microservices
-- **Bytecode** et **native** pour les applications Java
-
-Eh bien, ce n’est pas grand-chose et cela existe déjà:
-
-- ***Spring Boot*** et **Micrometer*** permettent l’exposition aux métriques des applications Java (regardez le [HasherHandler.java](https://github.com/scalastic/hotspot-vs-native/blob/main/hasher-java/src/main/java/io/scalastic/jvmvsnative/hasher/HasherHandler.java){:target="_blank" rel="noopener noreferrer nofollow"} code comme exemple)
-- Le code Python instrumenté avec la bibliothèque **prometheus_client*** peut exposer les métriques à Prometheus (voir [worker.py](https://github.com/scalastic/hotspot-vs-native/blob/main/worker/worker.py){:target="_blank" rel="noopener noreferrer nofollow"} exemple)
-- J’ai expliqué et scénarisé une installation complète de pile Kubernetes dans un article précédent : [Installer localement Kubernetes, Prometheus et Grafana]({{site.baseurl}}/install-kubernetes-prometheus-grafana/)
-- ***Spring Boot Native*** peut construire en natif ou en Bytecode toute application Java
-
-> info "Versions de Spring" 
+> info "Version de Spring" 
 > 
-> Nous utiliserons les dernières versions de développement de Spring Experimental stack car il corrige continuellement les bogues et 
-> améliorer les performances. Cependant, vous devez garder à l’esprit qu’il s’agit toujours d’une version Beta et ne représente pas une dernière étape :
-> - Ressort 2.5.0-RC1
-> - Spring Native `0.10.0-SNAPSHOT’
+> Ce sont les dernières versions en date de **Spring Experimental** qui seront utilisées pour développer nos microservices Java. En effet, elles corrigent et améliorent continuellement les bogues et les performances du build natif. Mais il faut bien garder à l'esprit qu’il s’agit de versions en Bêta :
+> - Spring `2.5.0-RC1`
+> - Spring Native `0.10.0-SNAPSHOT`
+>
+
 
 <hr class="hr-text" data-content="Architecture de l'application">
 
 ## Architecture d’application
 
+Voyons de quoi est faite l'application:
+
 ![Application Architecture]({{site.baseurl}}/assets/img/application-architecture.jpg)
 
 L’application est composée de 4 microservices :
-- « worker » l’orchestrateur d’algorithmes [***Python***] qui obtient « 1 » un nombre aléatoire, « 2 » le hacher et « 3 » incrémenter un compteur dans la base de données redis.
-- « rng » le générateur de nombres aléatoires [***Spring Boot***]
-- « hasher » le processeur de hachage [***Spring Boot***]
-- « redis » la base de données enregistrant chaque cycle d’exécution complet
+1. `worker` : l’orchestrateur d’algorithmes [***Python***] qui obtient `1` un nombre aléatoire, `2` le hacher et `3` incrémenter un compteur dans la base de données redis,
+2. `rng` : le générateur de nombres aléatoires [***Java***],
+3. `hasher` : le processeur de hachage [***Java***],
+4. `redis` : la base de données qui enregistre un compteur de cycles de traitements.
 
 <hr class="hr-text" data-content="Build">
 
 ## Build de l'appli
 
-Le but de ces compilations est de produire une image Docker pour chaque microservice. Pour les compilations basées sur Java, il y aura deux images : 
-une image ***JVM** et l’autre **native****.
+Le but de la compilation est de produire une image Docker par microservice. Pour les microservices Java, il y aura deux images, la première en ***Bytecode***, la seconde en **natif***.
 
 > note "Facultatif"
 > 
-> J’ai mis ces informations dans un registre public sur Docker Hub pour que vous n’ayez même pas à vous soucier de ces constructions.
+> J’ai mis ces images dans un registre public sur [Docker Hub](https://hub.docker.com/orgs/scalastic), vous pouvez donc passer cet étape de build.
 
-### Exigences
+### Exigences pour le build
 
-Toutefois, si vous souhaitez **créer** l’application, vous devrez installer :
+Toutefois, si vous souhaitez créer ces images Docker, vous devrez installer :
 - [GraalVM 21.1.0 basé sur Java 11](https://www.graalvm.org/docs/getting-started/#install-graalvm){:target="_blank" rel="noopener noreferrer nofollow"}
 - [GraalVM Native Images](https://www.graalvm.org/docs/getting-started/#native-images){:target="_blank" rel="noopener noreferrer nofollow"}
 - [Docker](https://www.docker.com/products/docker-desktop){:target="_blank" rel="noopener noreferrer nofollow"}
@@ -102,46 +90,42 @@ Toutefois, si vous souhaitez **créer** l’application, vous devrez installer :
 ### La façon facile
 
 > warning "Note"
-> - Il devrait fonctionner sur les systèmes basés sur **Linux** et **macOS** - *et sur **Windows** avec quelques petites modifications*
-> - Cela prendra du temps....... 10-20 min en fonction de votre connexion internet et de votre processeur ! C’est le prix à payer pour compiler du code natif.
+> - Il devrait fonctionner sur des systèmes basés sur **Linux** et **macOS** - *et sur **Windows** avec quelques petites modifications
+> - Cela va prendre du temps....... 10-20 min en fonction de votre connexion internet et de votre processeur ! C’est le prix à payer pour compiler du code natif.
 
-Pour ce faire, exécutez ce script dans la racine du projet :
+Pour ce faire, exécutez ce script, à la racine du projet :
 {% highlight Bash %}
 ./build_docker_images.sh
 {% endhighlight %}
 
 
-### L'autre façon
-
-> info "Info"
-> 
-> Ce sont les commandes contenues dans le script - juste pour synthétiser.
+### Résumé des commandes exécutées
 
 
-- Pour une application **non-java**, exécuter :
+- Pour une application **non-java** :
 
 {% highlight Bash %}
-docker build -t app_docker_tag> . /app_dir>
+docker build -t <app_docker_tag> ./<app_dir>
 {% endhighlight %}
 
 - Pour une image **basée sur la JVM** :
 
 {% highlight Bash %}
-cd app_dir>
+cd <app_dir>
 mvn clean package
-docker build -t app_docker_tag> .
+docker build -t <app_docker_tag> .
 {% endhighlight %}
 
 - Pour une image **native Java** :
 
 {% highlight Bash %}
-cd app_dir>
+cd <app_dir>
 mvn spring-boot:build-image
 {% endhighlight %}
 
-### Sans construction du tout
+### A partir de Docker Hub
 
-Vous pouvez extraire des images pré-compilées de Docker Hub en saisissant :
+Vous pouvez rapatrier les images à partir de Docker Hub en saisissant :
 
 {% highlight Bash %}
 docker pull jeanjerome/rng-jvm:1.0.0
@@ -151,15 +135,15 @@ docker pull jeanjerome/rng-native:1.0.0
 docker pull jeanjerome/hasher-native:1.0.0
 {% endhighlight %}
 
-### Répertorier vos images locales
+### Vérification
 
-Une fois les étapes ci-dessus appliquées,lister vos images locales :
+Pour lister vos images locales, entrez :
 
 {% highlight Bash %}
 images docker
 {% endhighlight %}
 
-Vous devriez voir ces images dans votre registre local:
+Vous devriez voir au moins ces images dans votre registre local:
 {% highlight Bash %}
 REPOSITORY                TAG        IMAGE ID       CREATED             SIZE
 rng-jvm                   1.0.0      f4bfdacdd2a1   4 minutes ago       242MB
@@ -172,37 +156,45 @@ rng-native                1.0.0      68e484d391f3   41 years ago        82.2MB
 > info "Note"
 > 
 > La date de création des images natives semblent erronées. Ce n’est pas le cas, l’explication est ici : 
-> [Time Travel with Pack] (https://medium.com/buildpacks/time-travel-with-pack-e0efd8bf05db){:target="_blank" rel="noopener noreferrer nofollow"}
+> [Time Travel with Pack](https://medium.com/buildpacks/time-travel-with-pack-e0efd8bf05db){:target="_blank" rel="noopener noreferrer nofollow"}
 
-<hr class="hr-text" data-content="Configuration Kubernetes">
+<hr class="hr-text" data-content="Kubernetes">
 
-## Configurer Kubernetes
+## Configuration de Kubernetes
 
-Tout d’abord, nous devons définir la configuration Kubernetes de notre application et configurer Grafana pour surveiller précisement les métriques.
+Tout d'abord, nous devons définir la configuration kubernetes de notre application et indiquer à Prometheus où trouver les métriques.
 
 ### Architecture de la stack Kubernetes
 
-Voyons comment installer ces microservices dans notre cluster kubernetes.
-
-Pour rappel :
-- L’architecture de l’application est déployée dans un espace de nom dédié, « demo »
-- Les outils de suivi se trouvent dans l’espace de nom « monitoring ».
+Voyons comment installer ces microservices dans notre cluster kubernetes :
+- L’architecture de l’application est déployée dans un espace de nom dédié, `demo`,
+- Les outils de suivi se trouvent dans un autre espace de nom appelé `monitoring`.
 
 ![Kubernetes Architecture]({{site.baseurl}}/assets/img/kubernetes-architecture.jpg)
 
-1. Nous voulons gérer le nombre de ~~conteneurs~~ - pods dans ce cas - par microservice. Nous pourrions vouloir 
-augmenter automatiquement ce nombre en fonction des métriques. Nous aimerions également changer l’image du pod, en passant d’une image pour JVM à une image native sans avoir besoin de tout redéployer... Une telle ressource Kubernetes 
-existe déjà : [Deployment](https://kubernetes.io/docs/concepts/workloads/controllers/deployment/){:target="_blank" rel="noopener noreferrer nofollow"}
+1. Nous voulons gérer le nombre de ~~conteneurs~~ - pods dans ce cas - pour chaque microservice,
+1. Nous souhaitons également pouvoir changer l’image du pod (Bytecode ou natif) sans avoir besoin de tout redéployer.
 
-2. Nous voulons que nos microservices communiquent entre eux dans le cluster Kubernetes. C’est le travail de 
-[Service](https://kubernetes.io/docs/concepts/services-networking/){:target="_blank" rel="noopener noreferrer nofollow"} ressource.
+    => Une telle ressource Kubernetes existe déjà, [Deployment](https://kubernetes.io/docs/concepts/workloads/controllers/deployment/){:target="_blank" rel="noopener noreferrer nofollow"}
 
-3. La base de données Redis n’a pas besoin d’être accessible de l’extérieur, mais seulement de l’intérieur : c’est déjà fait par le [ClusterIP](https://kubernetes.io/docs/concepts/services-networking/service/){:target="_blank" rel="noopener noreferrer nofollow"} qui est le type de service par défaut dans Kubernetes.
 
-4. Nous voulons également surveiller les métriques de l’application sur Grafana via Prometheus : [un bon descriptif détaillé](https://developer.ibm.com/technologies/containers/tutorials/monitoring-kubernetes-prometheus/){:target="_blank" rel="noopener noreferrer nofollow"}
+1. Nous avons besoin que nos microservices communiquent entre eux dans le cluster Kubernetes.
 
-Jetez un coup d’œil à l’extrait _kube/k8s-app-jvm.yml qui montre la configuration des ressources du microservice Java de Hasher :
+    => C’est le travail de la ressource [Service](https://kubernetes.io/docs/concepts/services-networking/){:target="_blank" rel="noopener noreferrer nofollow"}.
 
+
+1. La base de données Redis n'a pas besoin d’être accessible de l’extérieur mais seulement de l’intérieur du cluster.
+
+    => C’est déjà le cas car, par défaut, les Services Kubernetes sont de type [ClusterIP](https://kubernetes.io/docs/concepts/services-networking/service/){:target="_blank" rel="noopener noreferrer nofollow"}.
+
+
+1. Nous voulons que les métriques de l’application soient collectés par Prometheus.
+
+    => Voici [comment le configurer](https://developer.ibm.com/technologies/containers/tutorials/monitorin]g-kubernetes-prometheus/){:target="_blank" rel="noopener noreferrer nofollow"}
+
+
+
+Jetez un coup d’œil à la configuration du microservice Hasher ci-dessous:
 <details>
 <summary>Extrait de _kube/k8s-app-jvm.yml</summary>
 
@@ -269,15 +261,84 @@ spec:
 
 <hr class="hr-text" data-content="Grafana">
 
-## Configurer le dashboard Grafana
+## Configuration de Grafana
 
-- Connectez-vous à votre interface Grafana 
+Pour afficher les metriques récoltés par Prometheus, Grafana a besoin de :
+1. Une source de données vers Prometheus,
+1. Un tableau de bord décrivant les métriques à afficher et sous quelle forme.
+
 > info ""
-> Si vous avez suivi mon article précédent [Installer localement Kubernetes, Prometheus et Grafana]({{site.baseurl}}/install-kubernetes-prometheus-grafana/), vous pouvez vous connecter à Grafana à l'adresse [http://localhost:3000/](http://localhost:3000/)
-- Importer le tableau de bord à partir de la définition JSON `_grafana/demo-dashboard.json’ à partir de ce repo
-- Afficher le tableau de bord
+> Si vous avez suivi mon article précédent [Installer localement Kubernetes, Prometheus et Grafana]({{site.baseurl}}/install-kubernetes-prometheus-grafana/), la source de données est déjà configurée et vous pouvez passer l'étape suivante. L'interface de Grafana est alors accessible à [http://localhost:3000/](http://localhost:3000/)
 
-Vous devriez voir un tableau de bord vide comme suit :
+### Configuration de la source de données
+
+Grafana utilise des fichiers au format YAML pour configurer une source de données. On peut le définir grâce à la ressources Kubernetes ConfigMap:
+
+{% highlight yaml %}
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: monitoring
+---
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: grafana-datasources
+  namespace: monitoring
+data:
+  prometheus.yaml: |-
+    {
+        "apiVersion": 1,
+        "datasources": [
+            {
+               "access":"proxy",
+                "editable": true,
+                "name": "prometheus",
+                "orgId": 1,
+                "type": "prometheus",
+                "url": "http://prometheus-service.monitoring.svc:8080",
+                "version": 1
+            }
+        ]
+    }
+{% endhighlight %}
+
+Reste à passer cette ressource à Grafana dans la définition de son Deployment:
+
+{% highlight yaml %}
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: grafana
+  namespace: monitoring
+spec:
+  replicas: 1
+  template:
+    spec:
+      containers:
+        - image: grafana/grafana:latest
+          name: grafana
+.../...
+          volumeMounts:
+            - mountPath: /etc/grafana/provisioning/datasources
+              name: grafana-datasources
+              readOnly: false
+      volumes:
+        - name: grafana
+          emptyDir: {}
+        - name: grafana-datasources
+          configMap:
+            defaultMode: 420
+            name: grafana-datasources
+{% endhighlight %}
+
+### Configuration du tableau de bord
+
+1. Connectez-vous à l'interface web de Grafana,
+1. Importer le tableau de bord pré-défini [demo-dashboard.json](https://raw.githubusercontent.com/scalastic/hotspot-vs-native/main/_grafana/demo-dashboard.json),
+1. Afficher le tableau de bord.
+
+Vous devriez alors voir un tableau de bord vide comme celui-ci :
 
 ![Tableau de bord Demo Grafana vide]({{site.baseurl}}/assets/img/grafana-demo-empty.png)
 
@@ -286,27 +347,29 @@ Vous devriez voir un tableau de bord vide comme suit :
 
 ![Description du tableau de bord Demo Grafana]({{site.baseurl}}/assets/img/grafana-demo-description.png)
 
-Le tableau de bord de démonstration **** de Grafana est composé de trois lignes (étiquetées de « A » à « C »), une pour chaque microservice. 
-(Worker, Random Number Generator -RNG- and Hasher) ainsi que des métriques (numérotées de « 1 » à « 4 »).
+* Les lignes du tableau (étiquetées de A à C) représentent les 3 microservices, respectivement, Worker, Random Number Generator -RNG- and Hasher.
 
-- La colonne 1 représente le nombre de pods en cours d’exécution et la « vitesse de traitement » (fonctionnellement parlant) sont représentés.
-- La colonne 2 indique, tout d'abord, sur la ligne A, « l'historique de la vitesse de traitement » et dans les cases B et C, la « latence des requêtes » des microservices « RNG » et « Hasher » sous-jacents.
-- Les cellules 3 affichent la consommation de CPU des « pods ».
-- Les cellules 4 surveillent la consommation de RAM des « pods ».
+* Les colonnes (numérotées de 1 à 4) représentent différents métriques:
+  - Dans la colonne 1, on peut voir le nombre de pods en cours d’exécution ainsi que la vitesse des traitements
+  - Dans la colonne 2 est affiché l'historique des vitesses de traitement, pour chaque microservice,
+  - Dans la colonne 3 s'affiche la consommation de CPU de chaque pod,
+  - Dans la colonne 4, la consommation de RAM de chaque pod.
 
 <hr class="hr-text" data-content="Démarrage">
 
-## Démarrer l’application
+## Démarrage de l’application
 
-Dans cette première étape, toutes les Replicas de microservices sont configurées avec 1 pod, et les microservices basés sur Java s’exécutent dans une JVM.
-Tout cela sera également créé dans un espace de noms « demo ».
+Une configuration Kubernetes a été créée avec des Replicas de 1 pod pour chaque microservice et des images Java compilées en Bytecode.
 
-- Pour démarrer les microservices de l’application, appliquer cette configuration au cluster :
+- Pour démarrer l’application dans Kubernetes, entrez :
+
 {% highlight Bash %}
 kubectl apply -f _kube/k8s-app-jvm.yml
 {% endhighlight %}
 
-Vous devriez voir :
+
+- Vous devriez voir en sortie :
+
 {% highlight Bash %}
 namespace/demo created
 deployment.apps/hasher created
@@ -325,22 +388,21 @@ service/worker created
 
 > note "Résultat"
 > 
-> - La métrique de vitesse, située dans la première cellule de la première ligne, nous donne une mesure de base de l’efficacité de notre application : 
-> '3,20' cycles/s.
-> 
-> - Suivant les ressources de votre cluster Kubernetes, vous pouvez obtenir un autre résultat.
+> - La vitesse de traitement observée, située dans la cellule A1, nous donne une mesure de base de l’efficacité de notre application : `3,20` cycles/s.
+> - En fonction des ressources allouées à votre espace, vous pouvez obtenir un résultat différent.
 
 <hr class="hr-text" data-content="Playing">
 
-## Jouer avec la configuration de Kubernetes
+## Modification de la configuration de Kubernetes
 
 ### Aperçu
 
-- Voyons déroulement du déploiement en saisissant :
+- Voyons la situation actuelle du déploiement en entrant :
 {% highlight Bash %}
 kubectl get deployment -n demo
 {% endhighlight %}
 
+- Ce qui devrait envoyer :
 {% highlight Bash %}
 NAME     READY   UP-TO-DATE   AVAILABLE   AGE
 hasher   1/1     1            1           13m
@@ -349,20 +411,21 @@ rng      1/1     1            1           13m
 worker   1/1     1            1           13m
 {% endhighlight %}
 
-### Augmenter le nombre de cosses
+### Augmentez le nombre de pods
 
-- Faire passer le module « worker » à « 2 » : 
+- Pour augmenter les pods du `worker` à `2` : 
 
 {% highlight Bash %}
 kubectl scale deployment worker --replicas=2 -n demo
 {% endhighlight %}
 
-Ce qui revient :
+- Ce qui renvoie :
+
 {% highlight Bash %}
-déploiement.apps/worker à l’échelle
+deployment.apps/worker scaled
 {% endhighlight %}
 
-### Incidence sur la demande
+### Incidence sur l'application
 
 - Jetons un coup d’œil au tableau de bord de Grafana :
 
@@ -370,12 +433,12 @@ déploiement.apps/worker à l’échelle
 
 > note "Résultats"
 > 
-> Vous remarquerez que le processus de demande augmente de « 2 ».
+> Vous remarquez que la vitesse de l'application est multipliée par `x2`.
 
 
-### Augmentez encore le nombre de cosses
+### Augmentez encore le nombre de pods
 
-- Essayons de passer à 10 travailleurs :
+- Passons à 10 workers :
 
 {% highlight Bash %}
 kubectl scale deployment worker --replicas=10 -n demo
@@ -385,65 +448,62 @@ kubectl scale deployment worker --replicas=10 -n demo
 
 > note "Résultats"
 > 
-> La vitesse du processus augmente, mais n’atteint pas exactement 10 fois plus : la latence des 2 microservices, rng et hasher, a légèrement augmenté.
+> La vitesse du processus augmente, mais n’atteint pas exactement 10 fois plus : la latence des 2 microservices, rng et hasher, qui a légèrement augmenté, explique cela.
 
-- Augmentons le nombre de « hachoirs » et de « gousses » : 
+- Augmentons le nombre de pods pour `hasher` et `rng` : 
 
-{% highlight Bash %}
-kubectl scale deployment hasher rng --replicas=4 -n demo
-{% endhighlight %}
-![Tableau de bord Grafana 4 RNGs & Hashers]({{site.baseurl}}/assets/img/grafana-demo-4-rng-hasher.png)
-
-Ou plus encore :
 {% highlight Bash %}
 kubectl scale deployment hasher rng --replicas=5 -n demo
 {% endhighlight %}
 
+![Tableau de bord Grafana 4 RNGs & Hashers]({{site.baseurl}}/assets/img/grafana-demo-4-rng-hasher.png)
+
 > note "Résultats"
 > 
-> Pour ces 2 microservices, l’augmentation du nombre de pods réduit leur latence, mais reste un peu au-dessus de leurs valeurs initiales :
-> un autre facteur influe sur l’application (?)
+> - L’augmentation du nombre de pods de `hasher` et `rng` a réduit leur latence, mais elle reste tout de même un peu plus élevée qu'au début,
+> - Un autre facteur est limitant mais nous ne voyons pas lequel dans les données affichées.
 
-### Passer à l’application native
+### Déployons la version native de l’application
 
-- Remplacer les images basées sur jvm par des images natives en mettant à jour les déploiements avec le déploiement :
+- Remplacez l'image actuelle des pods par leur version native en mettant à jour leur Deployment :
 {% highlight Bash %}
 kubectl set image deployment/hasher hasher=hasher-native:1.0.0 -n demo
 kubectl set image deployment/rng rng=rng-native:1.0.0 -n demo
 {% endhighlight %}
 
-- Surveiller le déploiement :
+- Surveillez le déploiement :
 {% highlight Bash %}
-Déploiement du déploiement kubectl/hasher -n demo
+kubectl rollout status deployment/hasher -n demo
 {% endhighlight %}
-- Et le tableau de bord Grafana :
+
+- Et ouvrez le tableau de bord Grafana :
 
 ![Grafana dashboard native RNGs & Hashers]({{site.baseurl}}/assets/img/grafana_demo_native_rng_hasher.png)
 
 > note "Résultats"
 >
-> **À propos de la latence**
-> - Aucun changement pour la réactivité des microservices : bien sûr, le code est trop simple pour bénéficier d’une construction native.
+> **La latence**
+> - Aucun changement dans la réactivité des microservices: sans doute, le code est trop simple pour bénéficier d'un build native.
 > 
-> **À propos de l’utilisation de l’UC**
-> - L’utilisation du CPU basé sur la JVM a tendance à diminuer avec le temps. Ceci est dû au compilateur HotSpot 'C2' qui produit très
-> le code natif optimisé à long terme.
+> **L’utilisation de l’UC**
+> - Avec le Bytecode, l’utilisation du CPU avait tendance à diminuer avec le temps. Cela était dû à l'action du compilateur HotSpot `C2` qui produit un code natif de plus en plus optimisé avec le temps.
 > - En revanche, l’utilisation du processeur natif est faible dès le départ.
 > 
-> **À propos de l’utilisation de la RAM**
-> - Étonnamment les applications natives utilisent plus de mémoire que celles basées sur JVM : Je ne peux pas expliquer que réduire l’empreinte de
-> les applications Java natives est l’un des avantages revendiqués par la communauté.
-> - Est-ce à cause du Spring Native encore en version Beta, ou d’une fuite de mémoire dans l’implémentation ?
+> **L’utilisation de la RAM**
+> - Étonnamment, les applications natives utilisent plus de mémoire que celles en Bytecode : c'est d'autant plus étonnant que la réduction de l'empreinte mémoire est l'un des avantages cités par la communauté.
+> - Est-ce à cause des versions Bêta employées dans cette démo ou bien une fuite de mémoire dans l’implémentation ?
 
 <hr class="hr-text" data-content="Nettoyage">
 
-## Nettoyer tout
+## Supprimons tout
 
-Pour supprimer simplement l’application et tous ses microservices, saisissez :
+- Pour supprimer simplement l’application et tous ses microservices, saisissez :
 {% highlight Bash %}
 kubectl delete -f _kube/k8s-app-jvm.yml 
 {% endhighlight %}
-qui supprimera toutes les configurations Kubernetes créées précédemment :
+
+- qui supprimera toutes les configurations Kubernetes créées précédemment :
+
 {% highlight Bash %}
 namespace "demo" deleted
 deployment.apps "hasher" deleted
@@ -460,21 +520,24 @@ service "worker" deleted
 
 ## Conclusion
 
-Nous avons appris comment mesurer une station locale afin de recueillir des mesures et de mesurer les impacts de la configuration de Kubernetes.
+Nous avons appris à installer une stack Kubernetes complète afin de pouvoir mesurer les métriques d'une application.
 
-Cependant, nous n’obtenons pas les résultats escomptés dans le contexte des applications natives. Une explication pourrait être un manque de la version Spring Beta : Spring Native vient de passer à la version 0.10.0-SNAPSHOT et c’est précisément la version où des améliorations de performance sont prévues. Je vais contacter l’équipe de Spring Boot pour leur demander leur avis.
+Cependant, nous n’obtenons pas les résultats escomptés dans le contexte des applications natives. Une explication pourrait être un manque de la version Spring Beta : Spring Native vient de passer à la version 0.10.0-SNAPSHOT et c’est précisément la version où des améliorations de performance sont prévues. 
+
+Je vais ouvrir un ticket auprès de l’équipe de Spring Boot pour leur demander leur analyse.
 
 <hr class="hr-text" data-content="Que faire ensuite ?">
 
-## Quelle est la prochaine étape?
+## Quelle est la prochaine étape ?
 
-### Qu’est-ce qui manque pour une évaluation plus réaliste?
+### Qu’est-ce qui manque pour une évaluation plus réaliste ?
 
-- La configuration de Kubernetes doit toujours inclure une limite de ressources (et aussi une requête) qui n’a pas été effectuée dans cette démo.
-- J’aurais pu utiliser [Horizontal Pod Autoscaler](https://kubernetes.io/docs/tasks/run-application/horizontal-pod-autoscale/){:target="_blank" rel="noopener noreferrer nofollow"}
-  (HPA) et encore mieux HPA sur les métriques personnalisées (voir [ce post](https://itnext.io/horizontal-pod-autoscale-with-custom-metrics-8cb13e9d475){:target="_blank" rel="noopener noreferrer nofollow"} 
-  pour plus de détails). Je souhaite que j’ai trouvé quelques Scaler automatique qui règlementent toutes les gousses dans une application pour maximiser un 
-  métrique mais rien à propos d’une telle chose... Avez-vous déjà entendu quelque chose comme ça?
+- La configuration de Kubernetes doit toujours inclure une limite de ressources ce qui n’a pas été effectué dans cette démo.
+- J’aurais pu utiliser des [Horizontal Pod Autoscaler](https://kubernetes.io/docs/tasks/run-application/horizontal-pod-autoscale/){:target="_blank" rel="noopener noreferrer nofollow"} (HPA) et encore mieux des HPA avec des métriques personnalisées (lisez [ce post](https://itnext.io/horizontal-pod-autoscale-with-custom-metrics-8cb13e9d475){:target="_blank" rel="noopener noreferrer nofollow"} pour plus de détails). 
+
+> info "Question"
+> - J'aurais aimé trouver quelque chose sur des Scaler qui s'auto-régulent et capables de maximiser un métriques mais rien à propos d’une telle chose...
+> - Avez-vous déjà entendu parler de quelque chose du même genre ?
   
 
 ### Liens utiles
@@ -488,13 +551,13 @@ Voici quelques liens pour une lecture plus approfondie :
 - Mesures Prometheus personnalisées pour les applications exécutées dans Kubernetes : <https://zhimin-wen.medium.com/custom-prometheus-metrics-for-apps-running-in-kubernetes-498d69ada7aa>{:target="_blank" rel="noopener noreferrer nofollow"}
 
 
-Eh bien, c’est votre tour de jouer avec des applications natives maintenant!
+Et bien, voilà, c’est à votre tour de jouer avec les applications natives à présent !
 
 Cheers...
 
 > info "Et maintenant"
-> * Cet article vous a plu? N’hésitez pas à le dire à Disqus pour que le site progresse en visibilité
-> * Vous avez une question? Posez-la et je vous répondrai dès que possible
+> * Cet article vous a plu ? N’hésitez pas à le dire à Disqus pour que le site progresse en visibilité
+> * Vous avez une question ? Posez-la et je vous répondrai dès que possible
 > 
 > Merci!
 >
