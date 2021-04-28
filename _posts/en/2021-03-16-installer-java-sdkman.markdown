@@ -1,85 +1,82 @@
 ---
 layout: post
-title: Installer Java avec SDKMAN
-redirects:
-- /sdkman-ou-comment-gérer-simplement-différentes-versions-dun-SDK/
-- /sdkman-plusieurs-JDK/
+title: Install Java with SDKMAN
 date: 2021-03-16 11:44:00 +2
-description: Apprendre à installer et utiliser plusieurs versions de Java avec SDKMAN. Procédure pas à pas pour MacOS, Windows et Linux.
+description: Learn to install and use several versions of Java with SDKMAN. Walkthrough for MacOS, Windows and Linux.
 img: sdkman-post.jpg
-fig-caption: Photo de <a href="https://unsplash.com/@vikramstudio46?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">vikram sundaramoorthy</a> sur <a href="https://unsplash.com/s/photos/superman?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Unsplash</a>
+fig-caption: Photo by <a href="https://unsplash.com/@vikramstudio46?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">vikram sundaramoorthy</a> on <a href="https://unsplash.com/s/photos/superman?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Unsplash</a>
 tags: [Sdkman, Java, GraalVM, macOS, Tool]
-lang: fr
+lang: en
 permalink: /installer-java-sdkman/
 ---
 
-Possesseur d'un Mac, il m'arrive, à l'occasion de la sortie d'une nouvelle version de macOS (lorsqu'elle est stable), de tout effacer sur mon ordi, de repartir de zéro et faire un fameux `clean install`. Reste ensuite la fastidieuse tâche de réinstaller tous les outils nécesaires à mon travail. 
+Owner of a Mac, it happens to me, on the occasion of the release of a new version of macOS (when it is stable), to erase everything on my computer, to start from scratch and to do a famous `clean install`. Then comes the tedious task of reinstalling all the tools necessary for my work.
 
-C'est l'occasion de vous présenter SDKMAN, un utilitaire qui va vous permettre de faire cohabiter plusieurs versions de JDKs sur votre ordi... et pas seulement !
+This is the opportunity to present SDKMAN, a utility that will allow you to combine several versions of JDKs on your computer ... and not only!
 
-<hr class="hr-text" data-content="Plan">
+<hr class="hr-text" data-content="Content">
 
 * TOC
 {:toc}
 
 <hr class="hr-text" data-content="SDKMAN!">
 
-## SDKMAN, l'outil qu'il te faut !
+## SDKMAN, the tool you need!
 
-Parmi les avantages indéniables de l'outil, je citerais :
+Among the undeniable advantages of the tool, I would cite:
 
-- Une installation simple de vos JDKs
-- La facilité pour changer de version de JDK
-- La possibilité de définir un SDK par défaut dans un répertoire / projet
+- Simple installation of your JDKs
+- The ease of changing JDK version
+- The ability to define a default SDK in a directory/project
 
 <hr class="hr-text" data-content="Installation">
 
-## Installation de SDKMAN
+## Installing SDKMAN
 
-Vous pouvez retrouver sur la [page officielle de SDKMAN!](https://sdkman.io/install){:target="_blank" rel="noopener noreferrer nofollow"}, la procédure à suivre.
-Dans mon cas, j'ai suivi la procédure par défaut :
+You can find on the [official SDKMAN page!](Https://sdkman.io/install){:target="_blank" rel="noopener noreferrer nofollow"}, the procedure to follow.
+In my case, I followed the default procedure:
 
-1. Ouvrez un terminal et lancez la commande suivante :
+1. Open a terminal and run the following command:
 	{% highlight zsh %}% curl -s "https://get.sdkman.io" | bash{% endhighlight %}
 
 
-1. Ouvrez un nouveau terminal et exécutez :
-	{% highlight zsh %}% source "~/.sdkman/bin/sdkman-init.sh"{% endhighlight %}
+1. Open a new terminal and run:
+   {% highlight zsh %}% source "~/.sdkman/bin/sdkman-init.sh"{% endhighlight %}
 
-That's it! 
+That's it!
 
-L'outil s'installe sous `$HOME/.sdkman` et ajoute les lignes de config. dans les fichiers `.bashrc`, `.bash_profile` et `.zshrc` si vous avez aussi ZSH.
- {% highlight zsh %}
+The tool installs under `$ HOME / .sdkman` and adds the config lines. in the `.bashrc`, `.bash_profile` and `.zshrc` files if you also have ZSH.
+{% highlight zsh %}
 #THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
 export SDKMAN_DIR="/Users/jeanjerome/.sdkman"
 [[ -s "/Users/jeanjerome/.sdkman/bin/sdkman-init.sh" ]] && source "/Users/jeanjerome/.sdkman/bin/sdkman-init.sh"
 {% endhighlight %}
 
-Toutes les installations de vos SDKs se feront désormais sous le répertoire de SDKMAN `~/.sdkman`.
+All the installations of your SDKs will now be done under the SDKMAN directory `~ / .sdkman`.
 
 <hr class="hr-text" data-content="JDK">
 
-## Installation d'un JDK
+## Installing a JDK
 
-C'est le moment d'installer votre premier JDK. Le choix est important ! Non pas pour votre ordi car, avec cet outil, il n'y verra que du feu. Non, le choix est important pour vous et vous vous demandez sûrement par quel JDK commencer...
+Now is the time to install your first JDK. The choice is important! Not for your computer because, with this tool, it will only see fire. No, the choice is important to you and you are probably wondering which JDK to start with ...
 
-Prenez le temps de réfléchir et voyons déjà quelques commandes de SDKMAN.
+Take some time to think about it and let's see some SDKMAN commands already.
 
 ### Candidate vs Version
 
-Comme son nom l'indique, SDKMAN permet d'installer des SDKs... et Java n'est qu'un des `candidate`s potentiels.
+As the name suggests, SDKMAN allows you to install SDKs ... and Java is just one of the potential candidates.
 
-Il faut donc déjà choisir le SDK (candidate) à installer.
+You must therefore already choose the SDK (candidate) to install.
 
 #### Candidate
 
-Pour voir la liste des SDK/candidate, lancez la commande suivante :
+To see the list of SDKs/candidate, run the following command:
 {% highlight zsh %}% sdk list {% endhighlight %}
 
 > note "Note"
-> Tapez `q` pour sortir de la liste
+> Type `q` to exit the list
 
-Vous voyez qu'il est possible d'installer pas mal de chose. Pour en citer quelques uns :
+You see that it is possible to install a lot of things. To name a few:
 - Gradle
 - Groovy
 - Java
@@ -93,12 +90,12 @@ Vous voyez qu'il est possible d'installer pas mal de chose. Pour en citer quelqu
 
 #### Version
 
-Bon, le candidat qui nous interresse, c'est `Java`. Voyons à présent ses versions disponibles.
+Well, the candidate we are interested in is `Java`. Now let's take a look at its available versions.
 
-Interrogeons SDKMAN :
+Let's ask SDKMAN:
 {% highlight zsh %}% sdk list java{% endhighlight %}
 
-Voici la liste que j'obtiens :
+Here is the list I get:
 
 {% highlight output %}
 ================================================================================
@@ -147,15 +144,15 @@ Available Java Versions
 ================================================================================
 {% endhighlight %}
 
-### Installation réelle du JDK
+### Actual installation of the JDK
 
-Faites vos jeux... moi, c'est fait ! Comme je travaille sur le build de code Java en code natif en ce moment, je choisis `GraalVM` en version `11` et je sélectionne son identifier `21.0.0.2.r11-grl`. A vous de jouer.
+Place your bets ... me, it's done! As I am working on the build of Java code in native code at the moment, I choose `GraalVM` in version` 11` and I select its identifier `21.0.0.2.r11-grl`. It's your turn.
 
-Pour l'installer, je lance la commande :
+To install it, I run the command:
 
 {% highlight zsh %} % sdk install java 21.0.0.2.r11-grl{% endhighlight %}
 
-Ce qui me donne en sortie, le processus d'installation
+Which gives me the output, the installation process
 
 {% highlight output %}
 Downloading: java 21.0.0.2.r11-grl
@@ -176,32 +173,32 @@ Done installing!
 Setting java 21.0.0.2.r11-grl as default.
 {% endhighlight %}
 
-Done! Non, pas encore... J'ai besoin d'autres JDKs pour effectuer des comparaisons. D'ailleurs, c'est bien pour cela que nous avons installé cet outil.
+Done! No, not yet ... I need more JDKs for comparison. Moreover, this is why we installed this tool.
 
-Pour ma part, j'en installe deux autres :
+For my part, I install two others:
 
 {% highlight zsh %}
 % sdk install java 11.0.10.j9-adpt
 % sdk install java 11.0.2-open
 {% endhighlight %}
 
-<hr class="hr-text" data-content="Choix du JDK">
+<hr class="hr-text" data-content="JDK choice">
 
-## Sélection d'un JDK
+## Select a JDK
 
-Voyons à présent comment sélectionner une version de Java.
+Now let's see how to select a version of Java.
 
 
-### Affichons la version en cours
+### Let's display the current version
 
-Voyons ce que nous dit la commande `sdk` :
+Let's see what the `sdk` command tells us:
 
 {% highlight zsh %}
 % sdk current java
 Using java version 21.0.0.2.r11-grl
 {% endhighlight %}
 
-Et voyons ce que nous dit `java` :
+And let's see what `java` tells us:
 
 {% highlight zsh %}
 % java --version               
@@ -211,7 +208,7 @@ OpenJDK 64-Bit Server VM GraalVM CE 21.0.0.2 (build 11.0.10+8-jvmci-21.0-b06, mi
 {% endhighlight %}
 
 
-### Affichons les versions installées
+### Let's display the installed versions
 
 {% highlight output %}
 % sdk list java
@@ -265,14 +262,14 @@ Use the Identifier for installation:
 ================================================================================
 {% endhighlight %}
 
-### Changeons de version
+### Let's change version
 
 {% highlight zsh %}
 % sdk use java 11.0.10.j9-adpt
 Using java version 11.0.10.j9-adpt in this shell.
 {% endhighlight %}
 
-Puis vérifions avec Java
+Then let's check with Java
 
 {% highlight zsh %}
 % java --version
@@ -284,22 +281,22 @@ OMR      - 741e94ea8
 JCL      - 0a86953833 based on jdk-11.0.10+9)
 {% endhighlight %}
 
-Et voilà...
+And There you go...
 
 
 <hr class="hr-text" data-content="Conclusion">
 
-## Pour aller plus loin
+## For further
 
-Vous trouverez à cette adresse [https://sdkman.io/usage](https://sdkman.io/usage){:target="_blank" rel="noopener noreferrer nofollow"}, d'autres commandes qui pourraient vous être utiles notamment la commande `env` [https://sdkman.io/usage#env](https://sdkman.io/usage#env){:target="_blank" rel="noopener noreferrer nofollow"}.
+You will find at this address [https://sdkman.io/usage](https://sdkman.io/usage){:target="_blank" rel="noopener noreferrer nofollow"}, other commands that you might be useful, in particular the `env` command [https://sdkman.io/usage#env](https://sdkman.io/usage#env){:target="_blank" rel="noopener noreferrer nofollow"}.
 
-A vous de jouer à présent.
+Now it's your turn.
 
-Cheers...
+Cheers ...
 
-> info "Et maintenant"
-> * Vous avez aimé cet article ? Dites-le ci-dessous afin que le blog gagne en visibilité.
-> * Vous avez une question ? Posez-la en commentaire, je m'efforcerai d'y répondre dans les plus brefs délais !!
-> 
-> Merci à vous !
+> info "And now"
+> * Did you like this article? Say it below so that the blog gains visibility.
+> * Do you have a question? Leave it in comment, I will do my best to answer it as soon as possible !!
+>
+> Thanks to you!
 >

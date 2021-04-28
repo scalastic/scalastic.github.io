@@ -116,7 +116,7 @@ Certes, il nous fallait passer par cette présentation théorique mais déjà, o
 
 Reste à voir en pratique le résultat. C'est ce que nous ferons dans l'article suivant.
 
-{% post_pagination /java-microservices/|Java et les microservices|/spring-natif-graalvm/|Compiler une application Spring en natif avec GraalVM %}
+{{ "/java-microservices/|Java et les microservices|/spring-natif-graalvm/|Compiler une application Spring en natif avec GraalVM" | pagination: site.data.i18n.article-previous, site.data.i18n.article-next }}
 
 Cheers...
 

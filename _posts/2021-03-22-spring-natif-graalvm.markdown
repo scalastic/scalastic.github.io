@@ -1,23 +1,19 @@
 ---
 layout: post
 title: Compiler une application Spring en natif avec GraalVM
-redirects:
-- /compiler-une-application-spring-en-un-exécutable-natif-avec-graalvm/
 date: 2021-03-22 01:10:00 +2
-description: Tuto pour compiler une application ✨Spring✨ en code natif avec ✨GraalVM✨ - Détails avec explications à chaque étapes.
+description: Tuto pour compiler une application ✨Spring✨ en code natif avec ✨GraalVM✨ - Détails avec explications à chaque étape.
 img: spring-native-graalvm-post.jpg
 fig-caption: Photo de <a href="https://unsplash.com/@helloimnik?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Hello I'm Nik 🪴</a> sur <a href="https://unsplash.com/s/photos/rocket?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Unsplash</a>
-tags: [Spring-Native, GraalVM, Spring, Docker, Tutoriel]
+tags: [Spring-Native, GraalVM, Spring, Docker, Tutorial]
 lang: fr
 permalink: /spring-natif-graalvm/
 ---
 
 Avec la sortie cette semaine de Spring Native Beta en version 0.9.0, il est intéressant de faire un état des lieux de la compilation d'applications `Spring` en exécutables natifs à l'aide de `GraalVM` et de son mode `native-image`.
 
-<!--more-->
-
 L'exécution d'une application en code natif a, en effet, de nombreux intérêts comparée à celle en Bytecode dans une JVM :
-- Le démarrage est instantanné
+- Le démarrage est instantané
 - La performance est optimale dès le démarrage
 - La consommation de la mémoire est fortement réduite
 
@@ -205,7 +201,7 @@ Il existe deux façons de compiler une application Spring en code natif :
 
 ### Utilisation du Buildpack Spring Boot
 
-Cette procédure permet d'obtenir un conteneur Docker qui contient l'application compilée en code natif. Il est léger et peut être déployé directement dans une orchestrateur de conteneurs.
+Cette procédure permet d'obtenir un conteneur Docker qui contient l'application compilée en code natif. Il est léger et peut être déployé directement dans un orchestrateur de conteneurs.
 
 #### Pré-requis
 
@@ -261,10 +257,10 @@ demo_spring_native         0.0.1-SNAPSHOT   a423116a12a8   41 years ago   81.9MB
 On constate que ce processus produit 3 images Docker :
 - **paketobuildpacks/run:tiny-cnb** : Le `runner` basé sur `distroless` bionic + glibc + openssl + CA certs pour exécuter une application en code natif. C'est le conteneur de base servant à encapsuler une application en code natif.
 - **paketobuildpacks/builder:tiny** : Le `builder` basé sur une stack `distroless` ubuntu:bionic + openssl + CA certs + compilers + shell utilities. C'est un Buildpack servant à compiler la plupart des applications en Go et les applications Java en code natif avec GraalVM.
-- **demo_spring_native:0.0.1-SNAPSHOT** : L'application en code natif encapsulée dans un runner de base `distroless`.
+- **demo_spring_native:0.0.1-SNAPSHOT** : L'application, en code natif, encapsulée dans un runner de base `distroless`.
 
 > note "Pour aller plus loin"
-> - Les images issues du Buildpack datent de 1980, du 1er Janvier 1980 exactement ! C'est tout à fait voulu et l'explication se trouve là : [Time Travel with Pack](https://medium.com/buildpacks/time-travel-with-pack-e0efd8bf05db){:target="_blank" rel="noopener noreferrer nofollow"}
+> - Les images issues du Buildpack datent de 1980, du 1er janvier 1980 exactement ! C'est tout à fait voulu et l'explication se trouve là : [Time Travel with Pack](https://medium.com/buildpacks/time-travel-with-pack-e0efd8bf05db){:target="_blank" rel="noopener noreferrer nofollow"}
 > - Les stacks [Distroless](https://github.com/GoogleContainerTools/distroless){:target="_blank" rel="noopener noreferrer nofollow"} sont des images minimalistes, développées par Google et qui améliorent la sécurité et la taille des conteneurs en diminuant la surface des attaques et le nombre de composants qu'elles intègrent. 
 > - La notion de [Runner et Builder](https://paketo.io/docs/stacks/#what-is-a-stack){:target="_blank" rel="noopener noreferrer nofollow"} dans les Buildpacks.
 
@@ -312,7 +308,7 @@ Hello!
 
 Ca marche ! Magnifique !!
 
-> info "Caractérisques du Buildpacks"
+> info "Caractéristiques du Buildpacks"
 > - La compilation dure 3 min (avec les images Docker et les artefacts Maven en local)
 > - L'application démarre en 0.06 s
 > - L'image Docker contenant l'application Spring et l'OS, fait une taille de 82 Mo
@@ -322,12 +318,12 @@ Ca marche ! Magnifique !!
 ## Conclusion
 
 - La version **Spring Native 0.9.0** nous a permis de compiler facilement une application Spring en mode natif.
-- Comme attendu, les bénéfices du mode natif sont un démarrage instantanée et une taille de conteneur fortement réduite.
+- Comme attendu, les bénéfices du mode natif sont un démarrage instantané et une taille de conteneur fortement réduite.
 
 Points intéressants, cela engendre de nouvelles utilisations :
-- la gestion du **High Availability** peut se faire avec une seule instance, le démarrage d'une seconde étant instantannée.
-- le démarrage instantanné permet aussi à une application web d'être serverless, sans avoir besoin d'être redéveloppée.
-- Avec Knative (un redisign de Kubernetes qui démarre des conteneurs serverless), GraalVM Native est une solution très bien adaptée.
+- la gestion du **High Availability** peut se faire avec une seule instance, le démarrage d'une seconde étant instantanée.
+- le démarrage instantané permet aussi à une application web d'être serverless, sans avoir besoin d'être redéveloppée.
+- Avec Knative (un redesign de Kubernetes qui démarre des conteneurs serverless), GraalVM Native est une solution très bien adaptée.
 
 Spring Native sera, à terme, intégré dans **Spring Boot 3** et **Spring Framework 6**, le but étant de spécifier uniquement dans le build Maven ou Graddle, la cible attendue (native ou autre). Le travail restant consiste à optimiser la taille du code natif générée, prendre en compte plus d'APIs Spring et améliorer l'exécution des tests dans l'image native (JUnit 5,...)
 
