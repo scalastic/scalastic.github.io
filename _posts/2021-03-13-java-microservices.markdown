@@ -1,8 +1,6 @@
 ---
 layout: post
 title: Java et les microservices
-redirects:
-- /java-et-les-microservices/
 date: 2021-03-13 15:21:20 +0200
 description: "Java et les microservices : temps de démarrage, temps de chauffe, consommation mémoire de la JVM... Faisons un état des lieux."
 img: java-like-rusty-container.jpg # Add image post (optional)

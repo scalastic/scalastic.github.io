@@ -1,9 +1,6 @@
 ---
 layout: post
 title: Installer Java avec SDKMAN
-redirects:
-- /sdkman-ou-comment-gérer-simplement-différentes-versions-dun-SDK/
-- /sdkman-plusieurs-JDK/
 date: 2021-03-16 11:44:00 +2
 description: Apprendre à installer et utiliser plusieurs versions de Java avec SDKMAN. Procédure pas à pas pour MacOS, Windows et Linux.
 img: sdkman-post.jpg
