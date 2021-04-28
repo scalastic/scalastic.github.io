@@ -10,7 +10,7 @@ lang: en
 permalink: /spring-natif-graalvm/
 ---
 
-With the release this week of Spring Native Beta in version 0.9.0, it is interesting to take stock of the compilation of `Spring` applications into native executables using` GraalVM` and its `native mode. -image`.
+With the release this week of Spring Native Beta in version 0.9.0, it is interesting to take stock of the compilation of `Spring` applications into native executables using `GraalVM` and its `native mode. -image`.
 
 The execution of an application in native code has, indeed, many advantages compared to that in Bytecode in a JVM:
 - The start is instantaneous
@@ -30,7 +30,7 @@ The version of Spring Native is, however, in Beta which means that not all Sprin
 
 First, you will need to install [GraalVM](https://www.graalvm.org/){:target="_blank" rel="noopener noreferrer nofollow"} and then its native code compiler `native-image` :
 
-- For MacOS and Linux, it is recommended to install its JDKs with [SDKMAN](https://sdkman.io/){:target="_blank" rel="noopener noreferrer nofollow"}. Nothing complicated: refer to [doc. official](https://sdkman.io/install) {: target = "_blank" rel = "noopener noreferrer nofollow"} or find a previous article on this tool 👍 [SDKMAN! or how to simply manage different versions of an SDK](/sdkman-or-how-to-simply-manage-different-versions-of-SDK/)
+- For MacOS and Linux, it is recommended to install its JDKs with [SDKMAN](https://sdkman.io/){:target="_blank" rel="noopener noreferrer nofollow"}. Nothing complicated: refer to [doc. official](https://sdkman.io/install){:target="_blank" rel="noopener noreferrer nofollow"} or find a previous article on this tool [Install Java with SDKMAN](/installer-java-sdkman/)
 
 - For our friends on Windows, refer directly to the [Installation on Windows Platforms](https://www.graalvm.org/docs/getting-started/windows/){:target="_blank" rel="noopener noreferrer nofollow"}
 

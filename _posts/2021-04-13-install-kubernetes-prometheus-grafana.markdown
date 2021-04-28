@@ -8,6 +8,7 @@ fig-caption: Photo de <a href="https://unsplash.com/@safesolvent?utm_source=unsp
 tags: [Kubernetes, Docker, Prometheus, Grafana, macOS]
 lang: fr
 permalink: /install-kubernetes-prometheus-grafana/
+status: finished
 ---
 
 Parfois, il peut être utile pour les développeurs d’avoir des outils de monitoring efficaces, installés sur son cluster local Kubernetes. Le choix évident serait d’aller vers Prometheus et Grafana, deux outils très reconnus.
@@ -30,7 +31,7 @@ Dans cet article, je vais vous montrer comment installer avec succès une plate-
 ## Notice
 
 - Cette procédure est destinée à fonctionner sur **macOS** mais devrait aussi fonctionner sur n’importe quel autre hôte. Cependant, je n’ai pas été en mesure de le tester. 
-- Les choses sont plus liées à la distribution Kubernetes (**Docker Desktop**) qu'à l’OS lui-même.
+- Les problématiques sont plus liées à la distribution Kubernetes (**Docker Desktop**) qu'à l’OS lui-même.
 
 <hr class="hr-text" data-content="Kubernetes">
 

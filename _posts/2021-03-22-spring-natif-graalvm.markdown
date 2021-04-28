@@ -30,7 +30,7 @@ La version de Spring Native est, toutefois, en Beta ce qui signifie que tous les
 
 Tout d'abord, vous devrez installer [GraalVM](https://www.graalvm.org/){:target="_blank" rel="noopener noreferrer nofollow"} et ensuite son compilateur en code natif `native-image` :
 
-- Pour MacOS et Linux, il est recommandé d'installer ses JDKs avec [SDKMAN](https://sdkman.io/){:target="_blank" rel="noopener noreferrer nofollow"}. Rien de compliqué : référez-vous à la [doc. officielle](https://sdkman.io/install){:target="_blank" rel="noopener noreferrer nofollow"} ou bien retrouvez un précédent article sur cet outil 👍 [SDKMAN! ou comment gérer simplement différentes versions d'un SDK](/sdkman-ou-comment-gérer-simplement-différentes-versions-dun-SDK/)
+- Pour MacOS et Linux, il est recommandé d'installer ses JDKs avec [SDKMAN](https://sdkman.io/){:target="_blank" rel="noopener noreferrer nofollow"}. Rien de compliqué : référez-vous à la [doc. officielle](https://sdkman.io/install){:target="_blank" rel="noopener noreferrer nofollow"} ou bien retrouvez un précédent article sur cet outil [Installer Java avec SDKMAN](/installer-java-sdkman/)
 
 - Pour nos amis sur Windows, reportez-vous directement à la page [Installation on Windows Platforms](https://www.graalvm.org/docs/getting-started/windows/){:target="_blank" rel="noopener noreferrer nofollow"}
 

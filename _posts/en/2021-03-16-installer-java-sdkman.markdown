@@ -146,7 +146,7 @@ Available Java Versions
 
 ### Actual installation of the JDK
 
-Place your bets ... me, it's done! As I am working on the build of Java code in native code at the moment, I choose `GraalVM` in version` 11` and I select its identifier `21.0.0.2.r11-grl`. It's your turn.
+Place your bets ... me, it's done! As I am working on the build of Java code in native code at the moment, I choose `GraalVM` in version `11` and I select its identifier `21.0.0.2.r11-grl`. It's your turn.
 
 To install it, I run the command:
 

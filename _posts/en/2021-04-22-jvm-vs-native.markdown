@@ -460,7 +460,7 @@ kubectl scale deployment hasher rng --replicas=5 -n demo
 
 > note "Results"
 > 
-> - The increase in the number of `hasher` and` rng` pods has reduced their latency, but it is still a little higher than at the beginning,
+> - The increase in the number of `hasher` and `rng` pods has reduced their latency, but it is still a little higher than at the beginning,
 > - Another factor is limiting but we do not see which one in the displayed data.
 
 ### Let's deploy the native version of the application
