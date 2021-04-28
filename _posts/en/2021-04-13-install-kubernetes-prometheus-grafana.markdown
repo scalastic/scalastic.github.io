@@ -7,10 +7,11 @@ img: install-kubernetes.jpg
 fig-caption: Photo by <a href="https://unsplash.com/@safesolvent?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Martin Reisch</a> on <a href="https://unsplash.com/s/photos/square-pattern?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Unsplash</a>
 tags: [Kubernetes, Docker, Prometheus, Grafana, macOS]
 lang: en
-locale: en_US
+permalink: /install-kubernetes-prometheus-grafana/
+status: finished
 ---
 
-Sometimes it may be useful for development to have an effective monitoring toolset installed beside your Kubernetes cluster. The obvious choice would be to go to Prometheus and Grafana, two tools highly recognized.
+Sometimes it may be useful for developers to have an effective monitoring toolset installed beside your Kubernetes cluster. The obvious choice would be to go to Prometheus and Grafana, two tools highly recognized.
 
 And that's when you get into trouble.
 

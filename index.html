@@ -1,5 +1,8 @@
 ---
 layout: main
+sitemap:
+  changefreq: 'weekly'
+  priority: '0.5'
 ---
 {% for post in paginator.posts %}
 <article class="post">
@@ -10,8 +13,8 @@ layout: main
   <div class="post-content">
     <h2 class="post-title"><a href="{{post.url | prepend: site.baseurl}}">{{post.title}}</a></h2>
     <p>{{ post.content | strip_html | truncatewords: 15 }}</p>
-    <span class="post-date">{{post.date | french_date}}&nbsp;&nbsp;&nbsp;—&nbsp;</span>
-    <span class="post-words">{% capture words %}{{ post.content | number_of_words }}{% endcapture %}{% unless words contains "-" %}{{ words | plus: 250 | divided_by: 250 | append: " minutes de lecture" }}{% endunless %}</span>
+    <span class="post-date">{{ post.date | i18n_date: site.active_lang }}&nbsp;&nbsp;&nbsp;—&nbsp;</span>
+    <span class="post-words">{% capture words %}{{ post.content | number_of_words }}{% endcapture %}{% unless words contains "-" %}{{ words | plus: 250 | divided_by: 250 | append: site.data.i18n.read-duration }}{% endunless %}</span>
   </div>
 </article>
 {% endfor %}

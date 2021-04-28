@@ -1,5 +1,4 @@
 title: Scalastic DevOps
-description: Je suis consultant freelance en DevOps 🚀 et Cloud ☁️
 permalink: ':title/'
 baseurl: "" # the subpath of your site, e.g. /blog
 url: "https://scalastic.io" # the base hostname & protocol for your site, e.g. http://example.com
@@ -8,12 +7,10 @@ logo: /assets/img/logo-scalastic.png
 # Company Settings
 company: Scalastic
 company-img: scalastic.png
-about-company: J'officie au sein de la société Scalastic.
 
 # Author Settings
 author: Jean-Jérôme Lévy # add your name
 author-img: jean-jerome-levy.jpg # add your photo
-about-author: Bonjour,<br> Je suis un consultant freelance DevOps spécialisé dans le CI/CD, Docker/Kubernetes et le Cloud. # add description
 social-github: jeanjerome # add your Github handle
 social-linkedin: jean-jerome-levy # add your Linkedin handle
 social-email: contact@scalastic.io # add your Email address
@@ -32,8 +29,6 @@ webmaster_verifications:
 
 analytics: UA-63884203-1
 
-locale: fr-FR
-
 # Disqus
 discus-identifier: scalastic # add your discus identifier
 
@@ -45,12 +40,12 @@ highlighter: rouge
 
 plugins:
   - jekyll-seo-tag
-  - jekyll-sitemap
   - jekyll-paginate
   - jemoji
   - premonition
   - jekyll-last-modified-at
   - jekyll-figure
+  - jekyll-polyglot
 
 # Activate page redirection when change
 redirects: yes
@@ -64,6 +59,13 @@ last-modified-at:
 
 sass:
   sass_dir: _sass
+  sourcemap: never
   style: compressed
 
 exclude: ["node_modules", "gulpfile.js", "package.json", "yarn.lock", "archive-posts"]
+
+#Polyglot
+languages: ["fr", "en"]
+default_lang: "fr"
+exclude_from_localization: ["assets", "css", "fonts", "img"]
+parallel_localization: true
