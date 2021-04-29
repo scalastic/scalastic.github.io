@@ -1,5 +1,8 @@
 about-author: "Bonjour,<br> Je suis un consultant freelance DevOps spécialisé dans le CI/CD, Docker/Kubernetes et le Cloud."
+author-desc: "Je suis consultant freelance DevOps spécialisé dans le CI/CD, Docker/Kubernetes et le Cloud"
+author-job: "Consultant DevOps"
 about-company: "J'officie au sein de la société Scalastic."
+company-desc: "Une société spécialisée dans le DevOps et le Cloud"
 read-duration: " minutes de lecture"
 contact-me: "Contactez-moi"
 transl-version: "🇬🇧 🇺🇸 English version"

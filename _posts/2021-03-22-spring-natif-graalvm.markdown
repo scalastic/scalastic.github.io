@@ -329,7 +329,7 @@ Spring Native sera, à terme, intégré dans **Spring Boot 3** et **Spring Frame
 
 A suivre de près donc !
 
-{% post_pagination /graalvm-microservices-java/|GraalVM, le futur des applications microservices en Java|| %}
+{{ "/graalvm-microservices-java/|GraalVM, le futur des applications microservices en Java||" | pagination: site.data.i18n.article-previous, site.data.i18n.article-next }}
 
 Cheers...
 

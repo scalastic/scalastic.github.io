@@ -1,0 +1,59 @@
+<meta property="og:type" content="website" /> 
+<meta name="author" content="Jean-Jerome Levy" />
+
+<script type="application/ld+json">
+{
+  "@context": "http://schema.org",
+  "@type": "WebSite",
+  "url": "{{ site.url }}{{ site.baseurl }}{% if site.active_lang != site.default_lang %}/{{ site.active_lang }}{% endif %}/",
+  "headline": "{{ site.title }}",
+  "about": "{{ site.data.i18n.company-desc }}",
+  "image": [
+    "{{ site.url }}{{ site.baseurl }}{{ site.logo }}"
+  ],
+  "isAccessibleForFree": "True",
+  "isPartOf": {
+      "@type": ["CreativeWork", "Product", "WebSite"],
+      "name": "Scalastic",
+      "productID": "scalastic.io"
+  },
+  "discussionUrl": "https://www.linkedin.com/in/jean-jerome-levy",
+  "author": {
+    "@type": "Person",
+    "name": "Jean-Jerome Levy",
+    "description": "{{ site.data.i18n.author-desc }}",
+    "sameAs":[
+      "https://www.linkedin.com/in/jean-jerome-levy",
+      "https://github.com/jeanjerome",
+      "https://github.com/scalastic",
+      "https://hub.docker.com/u/jeanjerome"
+    ]
+  },
+  "editor": {
+      "@type": "Person",
+      "name": "Jean-Jerome Levy",
+      "description": "{{ site.data.i18n.author-desc }}",
+      "sameAs":[
+        "https://www.linkedin.com/in/jean-jerome-levy",
+        "https://github.com/jeanjerome",
+        "https://github.com/scalastic",
+        "https://hub.docker.com/u/jeanjerome"
+      ]
+  },
+  "inLanguage": "{% if site.active_lang == site.default_lang %}fr-FR{% else %}en-US{% endif %}",
+  "license": "https://creativecommons.org/licenses/by-nc-nd/4.0/",
+  "additionalType": "CreativeWork",
+  "alternateName": "Scalastic",
+  "publisher": {
+    "@type": "Organization",
+    "name": "Scalastic",
+    "description": "{{ site.data.i18n.company-desc }}",
+    "url": "{{ site.url }}",
+    "sameAs": [ "https://github.com/scalastic" ],
+    "logo": {
+      "@type": "ImageObject",
+      "url": "{{ site.url }}{{ site.baseurl }}{{ site.logo }}"
+    }
+  }
+}
+</script>

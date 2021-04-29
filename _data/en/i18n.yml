@@ -1,5 +1,8 @@
 about-author: "Hello,<br> I am an independent DevOps consultant specializing in CI / CD, Docker / Kubernetes and Cloud."
+author-desc: "I am an independent DevOps consultant specializing in CI/CD, Docker/Kubernetes and Cloud"
+author-job: "DevOps Consultant"
 about-company: "I officiate in the company Scalastic."
+company-desc: "A company specializing in DevOps and Cloud"
 read-duration: " minutes to read"
 contact-me: "Contact me"
 transl-version: "🇫🇷 Version française"

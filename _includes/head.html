@@ -1,42 +1,88 @@
 <head>
-  <meta charset="utf-8">
-  <meta http-equiv="Content-Language" content="{{ site.active_lang }}">
-  <title>{% if page.title %}{{ page.title }}{% else %}{{ site.data.i18n.site-description }}{% endif %} | {{ site.title }}</title>
-  {% seo title=false %}
+  <meta name="generator" content="Jekyll 🎩" />
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
 
-  <!-- I18N Header -->
-  {% I18n_Headers %}
-  <!-- End I18N Header -->
+  <meta http-equiv="Content-Language" content="{{ site.active_lang }}" />
+  <meta property="og:locale" content="{% if site.active_lang == site.default_lang %}fr_FR{% else %}en_US{% endif %}" />
+  <meta name="language" content="{{ site.active_lang }}" />
 
-  <meta name="twitter:description" content="{% if page.description %}{{ page.description }}{% else %}{{ site.data.i18n.site-description }}{% endif %}">
-  {% if page.last_modified_at %}
-  <meta property="article:modified_time" content="{{ page.last_modified_at | date_to_xmlschema }}">
-  {% endif %}
+  <title itemprop="name">{% if page.title %}{{ page.title }}{% else %}{{ site.data.i18n.site-description }}{% endif %} | {{ site.title }}</title>
+  <meta property="og:title" content="{% if page.title %}{{ page.title }}{% else %}{{ site.data.i18n.site-description }}{% endif %}" />
+  <meta name="twitter:title" content="{% if page.title %}{{ page.title }}{% else %}{{ site.data.i18n.site-description }}{% endif %}" />
+  <meta itemprop="name" content="{% if page.title %}{{ page.title }}{% else %}{{ site.data.i18n.site-description }}{% endif %}" />
+  <meta name="application-name" content="{% if page.title %}{{ page.title }}{% else %}{{ site.data.i18n.site-description }}{% endif %}" />
+
+  <meta name="description" content="{% if page.description %}{{ page.description }}{% else %}{{ site.data.i18n.site-description }}{% endif %}"/>
+  <meta itemprop="description" content="{% if page.description %}{{ page.description }}{% else %}{{ site.data.i18n.site-description }}{% endif %}" />
+  <meta property="og:description" content="{% if page.description %}{{ page.description }}{% else %}{{ site.data.i18n.site-description }}{% endif %}"/>
+  <meta name="twitter:description" content="{% if page.description %}{{ page.description }}{% else %}{{ site.data.i18n.site-description }}{% endif %}" />
+
+  <link rel="canonical" href="{{ site.url }}{{ site.baseurl }}{% if site.active_lang != site.default_lang %}/{{ site.active_lang }}{% endif %}{{ page.url | replace:'index.html','' }}" itemprop="url" />
+  <meta name="url" content="{{ site.url }}{{ site.baseurl }}{% if site.active_lang != site.default_lang %}/{{ site.active_lang }}{% endif %}{{ page.url | replace:'index.html','' }}" />
+  <meta property="og:url" content="{{ site.url }}{{ site.baseurl }}{% if site.active_lang != site.default_lang %}/{{ site.active_lang }}{% endif %}{{ page.url | replace:'index.html','' }}" />
+  <meta name="twitter:url" content="{{ site.url }}{{ site.baseurl }}{% if site.active_lang != site.default_lang %}/{{ site.active_lang }}{% endif %}{{ page.url | replace:'index.html','' }}" /> 
+  <link rel="alternate" hreflang="fr" href="{{ site.url }}{{ site.baseurl }}{{ page.url | replace:'index.html','' }}"/>
+  <link rel="alternate" hreflang="en" href="{{ site.url }}{{ site.baseurl }}/en{{ page.url | replace:'index.html','' }}"/>
+
   {% if page.img %}
-  <meta property="og:image" content="{{ site.url }}{{ site.baseurl }}/assets/img/{{ page.img }}">
+  <meta itemprop="image" content="{{ site.url }}{{ site.baseurl }}/assets/img/{{ page.img }}" />
+  <meta property="og:image" content="{{ site.url }}{{ site.baseurl }}/assets/img/{{ page.img }}" /> 
+  <meta name="twitter:image" content="{{ site.url }}{{ site.baseurl }}/assets/img/{{ page.img }}" />
+  <meta name="twitter:image:src" content="{{ site.url }}{{ site.baseurl }}/assets/img/{{ page.img }}" /> 
   {% else %}
-  <meta property="og:image" content="{{ site.url }}{{ site.baseurl }}/assets/img/logo-scalastic.png">
+  <meta itemprop="image" content="{{ site.url }}{{ site.baseurl }}/assets/img/logo-scalastic.png" />
+  <meta property="og:image" content="{{ site.url }}{{ site.baseurl }}/assets/img/logo-scalastic.png" /> 
+  <meta name="twitter:image" content="{{ site.url }}{{ site.baseurl }}/assets/img/logo-scalastic.png" />
+  <meta name="twitter:image:src" content="{{ site.url }}{{ site.baseurl }}/assets/img/logo-scalastic.png" /> 
   {% endif %}
-  {% if page.categories %}
-  {% for category in page.categories limit:1 %}
-  <meta property="article:section" content="{{ category }}">
-  {% endfor %}
+
+  <meta name="twitter:card" content="summary" />
+  <meta property="og:site_name" content="{{ site.title }}" />
+  <meta name="author" content="Jean-Jerome Levy" />
+  <link rel="sitemap" type="application/xml" title="Sitemap" href="https://scalastic.io/sitemap.xml" /> 
+
+  <!-- @TODO : link pagination-->
+  <!-- link rel="next" href="https://scalastic.io/en/page/2" / -->
+  
+  {% if page.title %}
+    {% if page.jsonld %}
+      {% include {{page.jsonld}}.html %}
+    {% else %}
+      {% include jsonld_post.html %}
+    {% endif %}
+  {% else %}
+    {% include jsonld_home.html %}
   {% endif %}
-  {% if page.tags %}
-  {% for tag in page.tags %}
-  <meta property="article:tag" content="{{ tag }}">
-  {% endfor %}
-  {% endif %}
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
-  <link rel="icon" type="image/ico" href="{{ "/assets/img/favicon/favicon.ico" | prepend: site.baseurl }}">
-  <link rel="apple-touch-icon-precomposed" href="{{ "/assets/img/favicon/apple-touch-icon.png" | prepend: site.baseurl }}">
-  <link rel="apple-touch-icon-precomposed" sizes="72x72" href="{{ "/assets/img/favicon/apple-touch-icon-72x72.png" | prepend: site.baseurl }}">
-  <link rel="apple-touch-icon-precomposed" sizes="144x144" href="{{ "/assets/img/favicon/apple-touch-icon-144x144.png" | prepend: site.baseurl }}">
+  <link rel="shortcut icon" href="{{ '/assets/img/favicon/favicon.ico' | prepend: site.baseurl }}" />
+  <link rel="icon" type="image/x-icon" sizes="16x16 32x32" href="{{ '/assets/img/favicon/favicon.ico' | prepend: site.baseurl }}" />
+  <link rel="apple-touch-icon" href="{{ '/assets/img/favicon/apple-touch-icon.png' | prepend: site.baseurl }}" />
+  <link rel="apple-touch-icon" sizes="72x72" href="{{ '/assets/img/favicon/apple-touch-icon-72x72.png' | prepend: site.baseurl }}" />
+  <link rel="apple-touch-icon" sizes="144x144" href="{{ '/assets/img/favicon/apple-touch-icon-144x144.png' | prepend: site.baseurl }}" />
+  <link rel="{{ '/assets/img/favicon/apple-touch-icon.png' | prepend: site.baseurl }}"" />
+  <link rel="icon" sizes="72x72" href="{{ '/assets/img/favicon/apple-touch-icon-72x72.png' | prepend: site.baseurl }}" />
+  <link rel="icon" sizes="144x144" href="{{ '/assets/img/favicon/apple-touch-icon-144x144.png' | prepend: site.baseurl }}" />
+  
+  <meta name="robots" content="index,follow" /> 
+  <meta name="googlebot" content="index,follow" />
 
-  <link href="https://fonts.googleapis.com/css?family=PT+Serif:400,700|Lato:300,400,700&display=swap" rel="stylesheet">
+  <meta name="theme-color" content="#141414" /> 
+  <meta name="msapplication-TileColor" content="#141414" />
 
-  <link rel="stylesheet" href="{{ "/assets/fonts/fontawesome/css/all.min.css" | prepend: site.baseurl }}">
-  <link rel="stylesheet" href="{{ "/assets/css/main.css" | prepend: site.baseurl }}">
+  <meta name="imagemode" content="force" />
+  <meta name="coverage" content="Worldwide" /> 
+  <meta name="distribution" content="Global" />
+  <meta name="HandheldFriendly" content="True" /> 
+  <meta name="msapplication-tap-highlight" content="no" />
+  <meta name="apple-mobile-web-app-title" content="{{ site.title }}" /> 
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+  <meta name="apple-touch-fullscreen" content="yes" /> 
+
+  <link href="https://fonts.googleapis.com/css?family=PT+Serif:400,700|Lato:300,400,700&display=swap" rel="stylesheet" />
+
+  <link rel="stylesheet" href="{{ "/assets/fonts/fontawesome/css/all.min.css" | prepend: site.baseurl }}" />
+  <link rel="stylesheet" href="{{ "/assets/css/main.css" | prepend: site.baseurl }}" />
 </head>

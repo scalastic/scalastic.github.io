@@ -530,13 +530,13 @@ Je vais ouvrir un ticket auprès de l’équipe de Spring Boot pour leur demande
 
 ## Quelle est la prochaine étape ?
 
-### Qu’est-ce qui manque pour une évaluation plus réaliste ?
+### Qu’est-ce qui manque pour une évaluation encore plus réaliste ?
 
 - La configuration de Kubernetes doit toujours inclure une limite de ressources ce qui n’a pas été effectué dans cette démo.
 - J’aurais pu utiliser des [Horizontal Pod Autoscaler](https://kubernetes.io/docs/tasks/run-application/horizontal-pod-autoscale/){:target="_blank" rel="noopener noreferrer nofollow"} (HPA) et encore mieux des HPA avec des métriques personnalisées (lisez [ce post](https://itnext.io/horizontal-pod-autoscale-with-custom-metrics-8cb13e9d475){:target="_blank" rel="noopener noreferrer nofollow"} pour plus de détails). 
 
 > info "Question"
-> - J'aurais aimé trouver quelque chose sur des Scaler qui s'auto-régulent et capables de maximiser un métriques mais rien à propos d’une telle chose...
+> - J'aurais aimé trouver quelque chose sur des Scalers qui s'auto-régulent et capables de maximiser une métrique mais rien à propos d’une telle chose...
 > - Avez-vous déjà entendu parler de quelque chose du même genre ?
   
 
