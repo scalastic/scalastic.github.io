@@ -9,7 +9,7 @@ company: Scalastic
 company-img: scalastic.png
 
 # Author Settings
-author: Jean-Jérôme Lévy # add your name
+author: Jean-Jerome Levy # add your name
 author-img: jean-jerome-levy.jpg # add your photo
 social-github: jeanjerome # add your Github handle
 social-linkedin: jean-jerome-levy # add your Linkedin handle
@@ -39,13 +39,13 @@ kramdown:
 highlighter: rouge
 
 plugins:
+  - jekyll-polyglot
   - jekyll-seo-tag
   - jekyll-paginate
   - jemoji
   - premonition
   - jekyll-last-modified-at
   - jekyll-figure
-  - jekyll-polyglot
 
 # Activate page redirection when change
 redirects: yes
