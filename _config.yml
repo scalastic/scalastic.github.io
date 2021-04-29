@@ -67,5 +67,5 @@ exclude: ["node_modules", "gulpfile.js", "package.json", "yarn.lock", "archive-p
 #Polyglot
 languages: ["fr", "en"]
 default_lang: "fr"
-exclude_from_localization: ["assets", "css", "fonts", "img"]
+exclude_from_localization: ["assets", "css", "fonts", "img", "js"]
 parallel_localization: true

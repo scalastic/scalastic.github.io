@@ -1,12 +1,15 @@
 <!DOCTYPE html>
 <html lang="{{ page.lang | default: site.active_lang | default: 'fr' }}">
 {% include head.html %}
-<body>
+  <body>
 
-  <div class="wrapper">
-    {{ content }}
-  </div>
-  
-  {% include analytics.html %}
-</body>
+    <div class="wrapper">
+      {{ content }}
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/cookieconsent@3/build/cookieconsent.min.js" data-cfasync="false"></script>
+    {% include analytics.html %}
+    <script src="{{ site.baseurl }}/assets/js/cookie-consent.js"></script>
+
+  </body>
 </html>
