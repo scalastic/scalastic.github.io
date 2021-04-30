@@ -16,7 +16,7 @@ window.cookieconsent.initialise({
   "type": "opt-in",
   "content": {
     "message": "{{ site.data.i18n.cookie-consent }}",
-    "href": "{{ site.url }}/privacy/"
+    "href": "{{ site.url }}/en/privacy/"
   },
   onInitialise: function (status) {
     var type = this.options.type;
