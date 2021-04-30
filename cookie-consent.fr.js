@@ -1,7 +1,11 @@
+---
+lang: fr
+permalink: /cookie-consent.js
+---
 window.cookieconsent.initialise({
   "palette": {
     "popup": {
-      "background": "#000",
+      "background": "#515151",
       "text": "#0f0"
     },
     "button": {
@@ -11,8 +15,8 @@ window.cookieconsent.initialise({
   "theme": "edgeless",
   "type": "opt-in",
   "content": {
-    "message": "This website uses cookies to ensure you get the best experience here.",
-    "href": "https://scalastic.io/privacy/"
+    "message": "{{ site.data.i18n.cookie-consent }}",
+    "href": "{{ site.url }}/privacy/"
   },
   onInitialise: function (status) {
     var type = this.options.type;

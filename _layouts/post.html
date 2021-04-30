@@ -41,10 +41,7 @@ layout: main
           {% endfor %}
         </div>
       </div>
-      <div class="page-recomm">
-        <h3>{{ site.data.i18n.related-article }}</h3>
-        {% include related_post.html %}
-      </div>
+      {% include related_post.html %}
       {% include disqus.html %}
     </div> <!-- End Wrap Content -->
   </div> <!-- End Page Content -->

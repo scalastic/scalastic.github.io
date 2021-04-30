@@ -1,7 +1,7 @@
 title: Scalastic DevOps
 permalink: ':title/'
 baseurl: "" # the subpath of your site, e.g. /blog
-url: "https://scalastic.io" # the base hostname & protocol for your site, e.g. http://example.com
+url: "http://127.0.0.1:4000" #"https://scalastic.io" # the base hostname & protocol for your site, e.g. http://example.com
 logo: /assets/img/logo-scalastic.png
 
 # Company Settings
@@ -67,5 +67,5 @@ exclude: ["node_modules", "gulpfile.js", "package.json", "yarn.lock", "archive-p
 #Polyglot
 languages: ["fr", "en"]
 default_lang: "fr"
-exclude_from_localization: ["assets", "css", "fonts", "img", "js"]
+exclude_from_localization: ["assets", "css", "fonts", "img"]
 parallel_localization: true

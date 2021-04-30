@@ -1,3 +1,4 @@
+
 {% assign maxRelated = 4 %}
 {% assign minCommonTags =  1 %}
 {% assign maxRelatedCounter = 0 %}
@@ -14,6 +15,10 @@
     {% endif %}
   {% endfor %}
   {% if sameTagCount >= minCommonTags %}
+    {% if maxRelatedCounter == 0 %}
+    <div class="page-recomm">
+    <h3>{{ site.data.i18n.related-article }}</h3>
+    {% endif %}
     <a class="recomm" href="{{ site.baseurl }}{{ post.url }}">
       <div class="recomm">
         <h5>{{ post.title }}</h5>
@@ -22,6 +27,7 @@
     </a>
     {% assign maxRelatedCounter = maxRelatedCounter | plus: 1 %}
     {% if maxRelatedCounter >= maxRelated %}
+    </div>
       {% break %}
     {% endif %}
   {% endif %}
