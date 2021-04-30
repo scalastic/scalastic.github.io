@@ -1,7 +1,7 @@
 title: Scalastic DevOps
 permalink: ':title/'
 baseurl: "" # the subpath of your site, e.g. /blog
-url: https://scalastic.io" # the base hostname & protocol for your site, e.g. http://example.com
+url: "https://scalastic.io" # the base hostname & protocol for your site, e.g. http://example.com
 logo: /assets/img/logo-scalastic.png
 
 # Company Settings
