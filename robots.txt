@@ -1,6 +1,7 @@
 ---
 layout: null
 sitemap: false
+permalink: /robots.txt
 ---
 
 User-agent: *
