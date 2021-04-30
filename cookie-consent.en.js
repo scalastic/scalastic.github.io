@@ -1,6 +1,8 @@
 ---
+layout: null
 lang: en
 permalink: /cookie-consent.js
+sitemap: false
 ---
 window.cookieconsent.initialise({
   "palette": {
