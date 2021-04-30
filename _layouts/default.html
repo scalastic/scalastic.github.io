@@ -7,7 +7,7 @@
       {{ content }}
     </div>
 
-    <script src="https://cdn.jsdelivr.net/npm/cookieconsent@3/build/cookieconsent.min.js" data-cfasync="false"></script>
+    <script src="{{ site.url }}{{ site.baseurl }}{% if site.active_lang != site.default_lang %}/{{ site.active_lang }}{% endif %}/cookieconsent.min.js" data-cfasync="false"></script>
     {% include analytics.html %}
     <script src="{{ site.url }}{{ site.baseurl }}{% if site.active_lang != site.default_lang %}/{{ site.active_lang }}{% endif %}/cookie-consent.js"></script>
 

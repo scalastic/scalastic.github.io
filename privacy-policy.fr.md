@@ -11,7 +11,7 @@ permalink: /privacy/
 ---
 
 
-#### ***Last updated: April 30, 2021***
+#### ***Dernière mise à jour: April 30, 2021***
 
 ## Politique de confidentialité
 
