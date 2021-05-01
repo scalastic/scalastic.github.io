@@ -105,7 +105,7 @@ Let's focus on 2 of them.
 ##### Detail of 2 memory spaces
 
 {% figure caption:"Details of 2 memory spaces of the JVM" class:"article" %}
-![Details of 2 memory spaces of the JVM]({{site.baseurl}}/assets/img/jvm-memory.png)
+![Details of 2 memory spaces of the JVM]({{site.baseurl}}/assets/img/jvm-memory.jpg)
 {% endfigure %}
 
 The JVM allocates memory for the application but also for its own metadata and its operation:

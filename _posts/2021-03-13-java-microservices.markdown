@@ -106,7 +106,7 @@ Concentrons-nous sur 2 d'entre eux.
 ##### Détail de 2 espaces mémoires
 
 {% figure caption:"Détails de 2 espaces mémoires de la JVM" class:"article" %}
-![Détails de 2 espaces mémoires de la JVM]({{site.baseurl}}/assets/img/jvm-memory.png)
+![Détails de 2 espaces mémoires de la JVM]({{site.baseurl}}/assets/img/jvm-memory.jpg)
 {% endfigure %}
 
 La JVM alloue de la mémoire pour l'application mais aussi pour ses propres métadonnées et son fonctionnement :
