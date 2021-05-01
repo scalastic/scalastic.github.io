@@ -62,7 +62,9 @@ Well, that's not much and it already exists:
 
 Let's see what the application is made of:
 
-![Application Architecture]({{site.baseurl}}/assets/img/application-architecture.jpg)
+{% figure caption:"Demo application architecture" class:"article" %}
+![Demo application architecture]({{site.baseurl}}/assets/img/application-architecture.jpg)
+{% endfigure %}
 
 The application is made up of 4 microservices:
 1. `worker`: the algorithm orchestrator [***Python***] which gets `1` a random number, `2` hash it and `3` increment a counter in the redis database,
@@ -170,7 +172,9 @@ Let's see how to install these microservices in our kubernetes cluster:
 - The architecture of the application is deployed in a dedicated namespace, `demo`,
 - The monitoring tools are in another namespace called `monitoring`.
 
-![Kubernetes Architecture]({{site.baseurl}}/assets/img/kubernetes-architecture.jpg)
+{% figure caption:"Our Kubernetes cluster architecture" class:"article" %}
+![Our Kubernetes cluster architecture]({{site.baseurl}}/assets/img/kubernetes-architecture.jpg)
+{% endfigure %}
 
 1. We want to manage the number of ~~containers~~ - pods in this case - for each microservice,
 1. We also want to be able to change the pod image (Bytecode or native) without needing to redeploy everything.
@@ -194,7 +198,7 @@ Let's see how to install these microservices in our kubernetes cluster:
 
 Take a look at the Hasher microservice configuration below:
 <details>
-<summary>_kube/k8s-app-jvm.yml extract</summary>
+<summary>Kubernetes configuration of Hasher microservices</summary>
 
 {% highlight yaml %}
 apiVersion: apps/v1
@@ -266,7 +270,7 @@ To display the metrics collected by Prometheus, Grafana needs:
 - A dashboard describing the metrics to display and in what form.
 
 > info ""
-> If you followed my previous article [Locally install Kubernetes, Prometheus et Grafana]({{site.baseurl}}/install-kubernetes-prometheus-grafana/), the data source is already configured and you can skip the next step. The Grafana interface is then accessible to [http://localhost:3000/](http://localhost:3000/)
+> If you followed my previous article [Locally install Kubernetes, Prometheus et Grafana]({{site.baseurl}}/install-kubernetes-prometheus-grafana/), the data source is already configured and you can skip the next step. The Grafana interface is then accessible to [http://localhost:3000/](http://localhost:3000/){:target="_blank" rel="noopener noreferrer nofollow"}
 
 ### Data source configuration
 
@@ -340,12 +344,15 @@ spec:
 
 You should see an empty dashboard as follows:
 
-![Empty Demo Grafana dashboard]({{site.baseurl}}/assets/img/grafana-demo-empty.png)
-
+{% figure caption:"The demo dashboard in Grafana" class:"article" %}
+![The demo dashboard in Grafana]({{site.baseurl}}/assets/img/grafana-demo-empty.png)
+{% endfigure %}
 
 ### Description of the Demo Dashboard
 
-![Description of the Demo Grafana dashboard]({{site.baseurl}}/assets/img/grafana-demo-description.png)
+{% figure caption:"Description of the demo dashboard in Grafana" class:"article" %}
+![Description of the demo dashboard in Grafana]({{site.baseurl}}/assets/img/grafana-demo-description.png)
+{% endfigure %}
 
 * The rows of the table (labeled from A to C) represent the 3 microservices, respectively, Worker, Random Number Generator -RNG- and Hasher.
 
@@ -384,7 +391,9 @@ service/worker created
 
 - Visualize the start of the pods in Grafana:
 
-  ![Grafana dashboard starting app]({{site.baseurl}}/assets/img/grafana-demo-starting-app.png)
+{% figure caption:"Starting of the application in Grafana" class:"article" %}
+![Starting of the application in Grafana]({{site.baseurl}}/assets/img/grafana-demo-starting-app.png)
+{% endfigure %}
 
 > note "Result"
 >
@@ -429,7 +438,9 @@ deployment.apps/worker scaled
 
 - Let's take a look at the Grafana dashboard:
 
-![Grafana dashboard 2 workers]({{site.baseurl}}/assets/img/grafana-demo-2-workers.png)
+{% figure caption:"2-workers' visualization in Grafana" class:"article" %}
+![2-workers' visualization in Grafana]({{site.baseurl}}/assets/img/grafana-demo-2-workers.png)
+{% endfigure %}
 
 > note "Results"
 > 
@@ -444,7 +455,9 @@ deployment.apps/worker scaled
 kubectl scale deployment worker --replicas=10 -n demo
 {% endhighlight %}
 
-![Grafana dashboard 10 workers]({{site.baseurl}}/assets/img/grafana-demo-10-workers.png)
+{% figure caption:"10-workers' visualization in Grafana" class:"article" %}
+![10-workers' visualization in Grafana]({{site.baseurl}}/assets/img/grafana-demo-10-workers.png)
+{% endfigure %}
 
 > note "Results"
 > 
@@ -456,7 +469,9 @@ kubectl scale deployment worker --replicas=10 -n demo
 kubectl scale deployment hasher rng --replicas=5 -n demo
 {% endhighlight %}
 
-![Grafana dashboard 4 RNGs & Hashers]({{site.baseurl}}/assets/img/grafana-demo-4-rng-hasher.png)
+{% figure caption:"RND and Hasher microservices visualization in Grafana" class:"article" %}
+![RND and Hasher microservices visualization in Grafana]({{site.baseurl}}/assets/img/grafana-demo-4-rng-hasher.png)
+{% endfigure %}
 
 > note "Results"
 > 
@@ -478,7 +493,9 @@ kubectl rollout status deployment/hasher -n demo
 
 - And open the Grafana dashboard:
 
-![Grafana dashboard native RNGs & Hashers]({{site.baseurl}}/assets/img/grafana_demo_native_rng_hasher.png)
+{% figure caption:"Native images deployment visualization in Grafana" class:"article" %}
+![Native images deployment visualization in Grafana]({{site.baseurl}}/assets/img/grafana_demo_native_rng_hasher.png)
+{% endfigure %}
 
 > note "Results"
 >
