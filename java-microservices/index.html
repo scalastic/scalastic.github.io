@@ -1,0 +1,660 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta name="generator" content="Jekyll 🎩" >
+  <meta charset="utf-8" >
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" >
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" >
+
+  <meta http-equiv="Content-Language" content="fr" >
+  <meta property="og:locale" content="fr_FR" >
+  <meta name="language" content="fr" >
+
+  <title itemprop="name">Java et les microservices | Scalastic DevOps</title>
+  <meta property="og:title" content="Java et les microservices" >
+  <meta name="twitter:title" content="Java et les microservices" >
+  <meta itemprop="name" content="Java et les microservices" >
+  <meta name="application-name" content="Java et les microservices" >
+
+  <meta name="description" content="Java et les microservices : temps de démarrage, temps de chauffe, consommation mémoire de la JVM... Faisons un état des lieux." >
+  <meta itemprop="description" content="Java et les microservices : temps de démarrage, temps de chauffe, consommation mémoire de la JVM... Faisons un état des lieux." >
+  <meta property="og:description" content="Java et les microservices : temps de démarrage, temps de chauffe, consommation mémoire de la JVM... Faisons un état des lieux." >
+  <meta name="twitter:description" content="Java et les microservices : temps de démarrage, temps de chauffe, consommation mémoire de la JVM... Faisons un état des lieux." >
+
+  <link rel="canonical" href="https://scalastic.io/java-microservices/" itemprop="url" >
+  <meta name="url" content="https://scalastic.io/java-microservices/" >
+  <meta property="og:url" content="https://scalastic.io/java-microservices/" >
+  <meta name="twitter:url" content="https://scalastic.io/java-microservices/" > 
+  <link rel="alternate" hreflang="fr" href="https://scalastic.io/java-microservices/" >
+  <link rel="alternate" hreflang="en" href="https://scalastic.io/en/java-microservices/" >
+
+  
+  <meta itemprop="image" content="https://scalastic.io/assets/img/java-like-rusty-container.jpg" >
+  <meta property="og:image" content="https://scalastic.io/assets/img/java-like-rusty-container.jpg" > 
+  <meta name="twitter:image" content="https://scalastic.io/assets/img/java-like-rusty-container.jpg" >
+  <meta name="twitter:image:src" content="https://scalastic.io/assets/img/java-like-rusty-container.jpg" > 
+  
+
+  <meta name="twitter:card" content="summary" >
+  <meta property="og:site_name" content="Scalastic DevOps" >
+  <meta name="author" content="Jean-Jerome Levy" >
+  <link rel="sitemap" type="application/xml" title="Sitemap" href="https://scalastic.io/sitemap.xml" > 
+
+  <!-- @TODO : link pagination-->
+  <!-- link rel="next" href="https://scalastic.io/en/page/2" / -->
+  
+  
+    
+      <meta property="og:type" content="article" >
+<meta property="article:publisher" content="Jean-Jerome Levy" >
+<meta property="og:article:author" content="Jean-Jerome Levy" >
+<meta property="article:author" content="Jean-Jerome Levy" > 
+<meta name="author" content="Jean-Jerome Levy"> 
+<meta property="article:published_time" content="2021-03-13T14:21:20+01:00" >
+<meta property="og:article:published_time" content="2021-03-13T14:21:20+01:00" > 
+
+
+<meta property="article:modified_time" content="2021-05-01T11:10:10+02:00" >
+<meta property="og:updated_time" content="2021-05-01T11:10:10+02:00" >
+
+
+
+<meta name="keywords" content="Java, Microservices" >
+
+<meta property="article:tag" content="Java" >
+
+<meta property="article:tag" content="Microservices" >
+
+
+
+<script type="application/ld+json">
+{
+  "@context": "http://schema.org",
+  "@type": "BlogPosting",
+  "url": "https://scalastic.io/java-microservices/",
+  "headline": "Java et les microservices",
+  "description": "Java et les microservices : temps de démarrage, temps de chauffe, consommation mémoire de la JVM... Faisons un état des lieux.",
+  "mainEntityOfPage":{
+    "@type": "WebPage",
+    "@id": "https://scalastic.io/java-microservices/"
+  },
+  "image": [
+  
+    "https://scalastic.io/assets/img/java-like-rusty-container.jpg"
+  
+  ],
+  "datePublished": "2021-03-13T14:21:20+01:00",
+  "dateModified": "2021-05-01T11:10:10+02:00",
+  "keywords": [ ["Java", "Microservices"] ],
+  "isAccessibleForFree": "True",
+  "isPartOf": {
+    "@type": ["CreativeWork", "Product", "WebSite"],
+    "name": "Scalastic",
+    "productID": "scalastic.io"
+  },
+  "inLanguage": "fr-FR",
+  "license": "https://creativecommons.org/licenses/by-nc-nd/4.0/",
+  "author": {
+    "@type": "Person",
+    "name": "Jean-Jerome Levy",
+    "description": "Je suis consultant freelance DevOps spécialisé dans le CI/CD, Docker/Kubernetes et le Cloud",
+    "jobTitle": "Consultant DevOps",
+    "sameAs":[
+      "https://www.linkedin.com/in/jean-jerome-levy",
+      "https://github.com/jeanjerome",
+      "https://github.com/scalastic",
+      "https://hub.docker.com/u/jeanjerome"
+    ]
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Scalastic",
+    "description": "Une société spécialisée dans le DevOps et le Cloud",
+    "url": "https://scalastic.io",
+    "sameAs": [ "https://github.com/scalastic" ],
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://scalastic.io/assets/img/logo-scalastic.png"
+    }
+  }
+}
+</script>
+    
+  
+
+  <link rel="shortcut icon" href="/assets/img/favicon/favicon.ico" >
+  <link rel="icon" type="image/x-icon" sizes="16x16 32x32" href="/assets/img/favicon/favicon.ico" >
+  <link rel="apple-touch-icon" href="/assets/img/favicon/apple-touch-icon.png" >
+  <link rel="apple-touch-icon" sizes="72x72" href="/assets/img/favicon/apple-touch-icon-72x72.png" >
+  <link rel="apple-touch-icon" sizes="144x144" href="/assets/img/favicon/apple-touch-icon-144x144.png" >
+  <link rel="/assets/img/favicon/apple-touch-icon.png" >
+  <link rel="icon" sizes="72x72" href="/assets/img/favicon/apple-touch-icon-72x72.png" >
+  <link rel="icon" sizes="144x144" href="/assets/img/favicon/apple-touch-icon-144x144.png" >
+  
+  <meta name="robots" content="index,follow" > 
+  <meta name="googlebot" content="index,follow" >
+
+  <meta name="theme-color" content="#141414" > 
+  <meta name="msapplication-TileColor" content="#141414" >
+
+  <meta name="imagemode" content="force" >
+  <meta name="coverage" content="Worldwide" > 
+  <meta name="distribution" content="Global" >
+  <meta name="HandheldFriendly" content="True" > 
+  <meta name="msapplication-tap-highlight" content="no" >
+  <meta name="apple-mobile-web-app-title" content="Scalastic DevOps" > 
+  <meta name="apple-mobile-web-app-capable" content="yes" >
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" >
+  <meta name="apple-touch-fullscreen" content="yes" > 
+
+  <link href="https://fonts.googleapis.com/css?family=PT+Serif:400,700|Lato:300,400,700&display=swap" rel="stylesheet" >
+  <link rel="stylesheet" type="text/css" href="/assets/css/cookieconsent.min.css" >
+  <link rel="stylesheet" href="/assets/fonts/fontawesome/css/all.min.css" >
+  <link rel="stylesheet" href="/assets/css/main.css" >
+</head>
+
+  <body>
+
+    <div class="wrapper">
+      <aside class="sidebar">
+  <header>
+    <div class="about">
+      <div class="cover-company-image">
+        <a href="/"><img src="/assets/img/scalastic.png" alt="Scalastic"></a>
+      </div>
+      <div class="cover-author-image">
+        <a href="/"><img src="/assets/img/jean-jerome-levy.jpg" alt="Jean-Jerome Levy"></a>
+      </div>
+      <div class="author-name">Jean-Jerome Levy</div>
+      <p>Bonjour,<br> Je suis un consultant freelance DevOps spécialisé dans le CI/CD, Docker/Kubernetes et le Cloud.</p>
+      <p>J'officie au sein de la société Scalastic.</p>
+      
+      
+      
+      
+      <a href="/en/java-microservices/">🇬🇧 🇺🇸 English version</a>
+      
+      
+    </div>
+  </header>
+  <footer>
+    <section class="contact">
+      <h3 class="contact-title">Contactez-moi</h3>
+      <ul>
+        
+        
+          <li class="github"><a href="http://github.com/jeanjerome" target="_blank" rel="noopener noreferrer nofollow"><i class="fab fa-github"></i></i></a></li>
+        
+        
+          <li class="linkedin"><a href="https://in.linkedin.com/in/jean-jerome-levy/" rel="noopener noreferrer nofollow" target="_blank"><i class="fab fa-linkedin-in"></i></i></a></li>
+        
+        
+          <li class="email"><a href="mailto:contact@scalastic.io"><i class="far fa-envelope"></i></i></a></li>
+        
+      </ul>
+    </section>
+    <section class="contact">
+      <ul>
+        <li><a href="/informations-légales/"><i class="fas fa-gavel"></i></a></li>
+        <li><a href="/sitemap.xml"><i class="fas fa-sitemap"></i></a></li>
+        <li><a href="https://github.com/scalastic/scalastic.github.io" target="_blank" rel="licence noopener noreferrer nofollow"><i class="fas fa-code"></i></a></li>
+      </ul>
+    </section>
+    <section class="copyright">
+      <p>2021 <a href="https://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank" rel="licence noopener noreferrer nofollow"><i class="fab fa-creative-commons"></i><i class="fab fa-creative-commons-by"></i><i class="fab fa-creative-commons-nc-eu"></i><i class="fab fa-creative-commons-nd"></i></a> Jean-Jérôme Lévy pour Scalastic sauf indication contraire</p>
+    </section>
+  </footer> 
+</aside>
+<div class="content-box clearfix">
+  <article class="article-page">
+  <div class="page-content">
+    
+    <div class="page-cover-image">
+      <figure>
+        <img class="page-image" src=/assets/img/java-like-rusty-container.jpg alt="Java et les microservices">
+        
+          <figcaption>Photo de <a href="https://unsplash.com/@darkcut?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Robert MODOUX</a> sur <a href="https://unsplash.com/s/photos/container-rusty?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Unsplash</a></figcaption>
+        
+      </figure>
+    </div> <!-- End Page Cover Image -->
+    
+    <div class="wrap-content">
+      <header class="page-header">
+        <h1 class="page-title">Java et les microservices</h1>
+        <div class="page-metadata">
+          <ul>
+            <li><i class="far fa-calendar-alt"></i> 13 Mars 2021</li>
+            <li><i class="far fa-clock"></i> 6 minutes</li>
+            <li><i class="fas fa-tags"></i>
+              
+              <a href="/tags/#Java">Java</a>, 
+              
+              <a href="/tags/#Microservices">Microservices</a>
+              
+            </li>
+          </ul>
+        </div>
+      </header>
+      <p>Cet article est le premier d’une série abordant les concepts de la nouvelle machine virtuelle GraalVM.</p>
+
+<p>Nous allons aborder ici des notions de bases sur les microservices, sur Java et sa JVM HotSpot. Cela nous donnera une première idée sur l’adéquation de Java au monde des conteneurs et notammement des microservices.</p>
+
+<!--more-->
+
+<hr class="hr-text" data-content="Plan" />
+
+<ul id="markdown-toc">
+  <li><a href="#quest-ce-quun-microservice-" id="markdown-toc-quest-ce-quun-microservice-">Qu’est-ce qu’un microservice ?</a></li>
+  <li><a href="#quest-ce-que-java-" id="markdown-toc-quest-ce-que-java-">Qu’est-ce que Java ?</a>    <ul>
+      <li><a href="#le-fonctionnement-de-la-jvm" id="markdown-toc-le-fonctionnement-de-la-jvm">Le fonctionnement de la JVM</a>        <ul>
+          <li><a href="#linterprétation" id="markdown-toc-linterprétation">L’interprétation</a></li>
+          <li><a href="#le-compilateur-just-in-time-jit" id="markdown-toc-le-compilateur-just-in-time-jit">Le compilateur Just-In-Time (JIT)</a></li>
+          <li><a href="#lempreinte-mémoire" id="markdown-toc-lempreinte-mémoire">L’empreinte mémoire</a>            <ul>
+              <li><a href="#architecture-générale-de-la-jvm" id="markdown-toc-architecture-générale-de-la-jvm">Architecture générale de la JVM</a></li>
+              <li><a href="#détail-de-2-espaces-mémoires" id="markdown-toc-détail-de-2-espaces-mémoires">Détail de 2 espaces mémoires</a></li>
+            </ul>
+          </li>
+        </ul>
+      </li>
+      <li><a href="#le-fonctionnement-des-frameworks-java" id="markdown-toc-le-fonctionnement-des-frameworks-java">Le fonctionnement des Frameworks Java</a></li>
+    </ul>
+  </li>
+  <li><a href="#on-fait-comment-à-présent-" id="markdown-toc-on-fait-comment-à-présent-">On fait comment à présent ?</a></li>
+</ul>
+
+<hr class="hr-text" data-content="Microservices" />
+
+<h2 id="quest-ce-quun-microservice-">Qu’est-ce qu’un microservice ?</h2>
+
+<p>On peut, pour les plus vieux d’entre nous, considérer les microservices comme le prolongement du concept de <code class="language-plaintext highlighter-rouge">SOA</code> (Architecture Orientée Service) avec l’avènement du cloud.</p>
+
+<p>Un <code class="language-plaintext highlighter-rouge">microservice</code> peut se caractériser comme étant :</p>
+
+<ul>
+  <li>Un service conçu pour <strong>gérer une seule fonctionnalité</strong> (par exemple, la gestion des utilisateurs)</li>
+  <li><strong>Elastique</strong>, c’est à dire facilement scalable. Ceci implique un déploiement rapide, un service léger, tout cela, dans un conteneur, voire dans le Cloud.</li>
+  <li><strong>Automatisé</strong>, du processus de build jusqu’au déploiement. Généralement, il est maintenu par une équipe dédiée et réduite, avec des tests automatisés pour déployer rapidement une nouvelle version.</li>
+</ul>
+
+<div class="premonition note">
+  <i class="premonition pn-note"></i>
+  <div class="content">
+    <p class="header">Microservice vs FaaS</p><p><code class="language-plaintext highlighter-rouge">FaaS</code>, pour Functions-as-a-Service, va un peu plus loin dans ce concept, en ajoutant les notions de « <em>serverless</em> » (l’infrastructure nécessaire au service est de la responsabilité du fournisseur) et « <em>sans état</em> » (cher à la programmation fonctionnelle, x -&gt; f(x), toujours !)</p>
+
+
+
+
+  </div>
+</div>
+
+<hr class="hr-text" data-content="Java" />
+
+<h2 id="quest-ce-que-java-">Qu’est-ce que Java ?</h2>
+
+<p>Tout le monde connait Java ! Un langage interprété par une JVM et portable sur différents systèmes. Révisons tout de même quelques notions sur son fonctionnement interne pour bien en saisir la portée.</p>
+
+<h3 id="le-fonctionnement-de-la-jvm">Le fonctionnement de la JVM</h3>
+<hr class="hr-text" data-content="Interpréteur" />
+
+<h4 id="linterprétation">L’interprétation</h4>
+
+<figure class="article">
+<p><img src="/assets/img/jvm-execution.png" alt="Les étapes de l'interprétation du Bytecode par la JVM" /></p>
+  <figcaption>Les étapes de l’interprétation du Bytecode par la JVM</figcaption>
+</figure>
+
+<ol>
+  <li>La JVM est un exécutable qui lit du bytecode puis l’interprète.</li>
+  <li>Le bytecode est dans des packages .jar sous forme de fichiers .class</li>
+  <li>La JVM <strong>recherche</strong> le fichier .class dans les packages .jar, <strong>vérifie</strong> le fichier .class puis le charge</li>
+  <li>Une fois que le bytecode est chargé, la JVM peut l’exécuter (<strong>le semi-interpréter</strong>)</li>
+</ol>
+
+<div class="premonition warning">
+  <i class="premonition pn-warn"></i>
+  <div class="content">
+    <p>Exécuter du bytecode a donc un coût :</p>
+
+<ul>
+  <li>Le bytecode est recherché, vérifié puis interprété par la JVM qui elle-même s’exécute sur le processeur.</li>
+</ul>
+
+
+
+
+  </div>
+</div>
+
+<hr class="hr-text" data-content="Compilateur JIT" />
+
+<h4 id="le-compilateur-just-in-time-jit">Le compilateur Just-In-Time (JIT)</h4>
+
+<figure class="article">
+<p><img src="/assets/img/jvm-jit.png" alt="Les étapes de l'optimisation JIT du Bytecode par la JVM" /></p>
+  <figcaption>Les étapes de l’optimisation JIT du Bytecode par la JVM</figcaption>
+</figure>
+
+<p>1.  Lors de l’exécution d’une méthode Java, le compilateur <code class="language-plaintext highlighter-rouge">C1</code> de JIT (just-in-time, à la volée) va la compiler en code natif et le <code class="language-plaintext highlighter-rouge">Profiler</code> va commencer à recueillir des informations sur son utilisation.</p>
+
+<div class="premonition info">
+  <i class="premonition pn-info"></i>
+  <div class="content">
+    <p>C1 est un compilateur léger et rapide mais il ne produit pas du code natif optimisé.</p>
+
+
+
+
+  </div>
+</div>
+
+<p>2.  Losrque le profiler détecte une méthode très utilisée, « <strong><em>Hot</em></strong> », le compilateur <code class="language-plaintext highlighter-rouge">C2</code> va se servir des informations du Profiler pour produire un code natif, <strong>agressif</strong>,  optimisé et très bien adapté au contexte d’utilisation.</p>
+
+<div class="premonition info">
+  <i class="premonition pn-info"></i>
+  <div class="content">
+    <p>C2 est un compilateur lourd et lent mais il produit un code natif très bien optimisé et très rapide.</p>
+
+
+
+
+  </div>
+</div>
+
+<div class="premonition note">
+  <i class="premonition pn-note"></i>
+  <div class="content">
+    <p>Il y a en réalité un cycle entre la compilation C1 et C2. Le compilateur C2 va souvent recompiler des morceaux de bytecode avec de nouvelles informations provenant du profiler pour produire un binaire toujours plus optimal.</p>
+
+
+
+
+  </div>
+</div>
+
+<p>3.  Au bout d’un certain temps, lorsque de nombreux morceaux de bytecode auront été compilés par le compilateur C2, l’application Java fonctionnera très rapidement.</p>
+
+<div class="premonition warning">
+  <i class="premonition pn-warn"></i>
+  <div class="content">
+    <ul>
+  <li>Il faut donc un temps de chauffe, « <strong><em>warm-up</em></strong> », à une application Java pour être pleinement réactive.</li>
+  <li>C’est un réel problème pour un microservice qui doit pouvoir être déployé et opérationnel très rapidement.</li>
+</ul>
+
+
+
+
+  </div>
+</div>
+
+<hr class="hr-text" data-content="Mémoire" />
+
+<h4 id="lempreinte-mémoire">L’empreinte mémoire</h4>
+
+<h5 id="architecture-générale-de-la-jvm">Architecture générale de la JVM</h5>
+
+<figure class="article">
+<p><img src="/assets/img/jvm-architecture.png" alt="Les différentes couches mises en jeu dans une JVM" /></p>
+  <figcaption>Les différentes couches mises en jeu dans une JVM</figcaption>
+</figure>
+
+<p>Lorsque l’on regarde l’architecture générale d’une JVM, on ne peut que constater qu’il y a beaucoup de composants. On voit aussi que son espace mémoire est compartimenté.</p>
+
+<p>Concentrons-nous sur 2 d’entre eux.</p>
+
+<h5 id="détail-de-2-espaces-mémoires">Détail de 2 espaces mémoires</h5>
+
+<figure class="article">
+<p><img src="/assets/img/jvm-memory.jpg" alt="Détails de 2 espaces mémoires de la JVM" /></p>
+  <figcaption>Détails de 2 espaces mémoires de la JVM</figcaption>
+</figure>
+
+<p>La JVM alloue de la mémoire pour l’application mais aussi pour ses propres métadonnées et son fonctionnement :</p>
+
+<ol>
+  <li>
+    <p>Le « <strong><em>Java Heap</em></strong> » stocke les instances des objets Java.
+Il est divisé en 2 parties : le « <strong><em>Young Generation</em></strong> » qui contient les objets récemment créés et le « <strong><em>Tenured Generation</em></strong> » qui contient lui des objets qui ont résisté au ramasse-miettes (« <strong><em>Garbage Collector</em></strong> »).</p>
+  </li>
+  <li>
+    <p>Le « <strong><em>Metaspace</em></strong> » (anciennement «<em>PermGen</em>») contient les métadonnées des classes (le bytecode des méthodes, les symboles, les «constant pools», les annotations…).</p>
+  </li>
+</ol>
+
+<div class="premonition warning">
+  <i class="premonition pn-warn"></i>
+  <div class="content">
+    <ul>
+  <li>Pour une application de 10Mo, la JVM occupe souvent une taille de 100Mo.</li>
+  <li>Là encore, c’est un problème pour un microservice qui doit avoir une empreinte mémoire la plus petite possible.</li>
+</ul>
+
+
+
+
+  </div>
+</div>
+
+<hr class="hr-text" data-content="Frameworks" />
+
+<h3 id="le-fonctionnement-des-frameworks-java">Le fonctionnement des Frameworks Java</h3>
+
+<p>Il est, à present, usuel d’embarquer plusieurs frameworks dans une application Java afin de simplifier certains aspects techniques ou bien d’organiser ses couches applicatives.</p>
+
+<p>Prenons le cas de 2 frameworks, sans doute, les plus utilisés dans le monde Java : <strong>Spring</strong> et <strong>Hibernate</strong>.</p>
+
+<p>Voici ce qu’une application Java qui utilise ces frameworks, va exécuter à son démarrage :</p>
+<ol>
+  <li>Lecture et parsing des fichiers de configuration,</li>
+  <li>Scanne complet des classes pour récupérer les métadonnées (annotations, accesseurs,…),</li>
+  <li>Création d’un métamodèle,</li>
+  <li>Préparation de la réflexion,</li>
+  <li>Création des proxies (beaucoup de proxies !),…</li>
+</ol>
+
+<p>Ce sont pourtant des frameworks très utilisés par les développeurs et, en réalité, très bien adaptés aux applications monolithiques.</p>
+
+<div class="premonition warning">
+  <i class="premonition pn-warn"></i>
+  <div class="content">
+    <ul>
+  <li>Les frameworks Java amplifient les problèmes de temps de démarrage et de consommation mémoire de la JVM.</li>
+</ul>
+
+
+
+
+  </div>
+</div>
+
+<hr class="hr-text" data-content="Conclusion" />
+
+<h2 id="on-fait-comment-à-présent-">On fait comment à présent ?</h2>
+
+<div class="premonition info">
+  <i class="premonition pn-info"></i>
+  <div class="content">
+    <p class="header">Pour résumer</p><p>Nous avons vu les problèmes de Java :</p>
+<ul>
+  <li>Consommation importante de la mémoire</li>
+  <li>Nécessité d’un temps de chauffe au démarrage</li>
+  <li>Optimisation du code natif au fil de l’eau</li>
+</ul>
+
+
+
+
+  </div>
+</div>
+
+<p>A priori, tout ce qu’il ne faut pas pour un microservice.</p>
+
+<p>Alors, que fait-on à présent ? On oublie Java et on se met tous au C++ ??</p>
+
+<p>Rien de tout cela bien sûr. La réponse dans l’article suivant présentant GraalVM. Et vous allez voir que ça déménage !</p>
+
+<div class="article-navigation"><a class="next" rel="next" href="/graalvm-microservices-java/">
+					<div class="article-nav article-nav-next">
+						Article Suivant <i class="fas fa-angle-double-right"></i>
+						<h4 class="article-nav-title">GraalVM, le futur des applications microservices en Java</h4>
+					</div>
+				</a></div>
+
+<p>Cheers…</p>
+
+<div class="premonition info">
+  <i class="premonition pn-info"></i>
+  <div class="content">
+    <p class="header">Et maintenant</p><ul>
+  <li>Vous avez aimé cet article ? Dites-le ci-dessous afin que le blog gagne en visibilité.</li>
+  <li>Vous avez une question ? Posez-la en commentaire, je m’efforcerai d’y répondre dans les plus brefs délais !!</li>
+</ul>
+
+<p>Merci à vous !</p>
+
+
+
+
+  </div>
+</div>
+
+      <div class="page-footer">
+        <div class="page-share">
+          <a href="https://twitter.com/intent/tweet?text=Java et les microservices&url=https://scalastic.io/java-microservices/" title="Share on Twitter" rel="nofollow" target="_blank"><i class="fa fa-twitter" aria-hidden="true"></i>&nbsp;Twitter</a>
+          <a href="https://www.linkedin.com/sharing/share-offsite/?url=https://scalastic.io/java-microservices/" title="Share on LinkedIn" rel="nofollow" target="_blank"><i class="fa fa-linkedin" aria-hidden="true"></i>&nbsp;LinkedIn</a>
+        </div>
+        <div class="page-tag">
+          
+            <a href="/tags#Java" class="tag" rel="tag">&#35; Java</a>
+          
+            <a href="/tags#Microservices" class="tag" rel="tag">&#35; Microservices</a>
+          
+        </div>
+      </div>
+      
+
+
+
+
+  
+  
+  
+  
+
+  
+  
+  
+  
+
+  
+  
+  
+  
+
+  
+  
+  
+  
+
+  
+  
+  
+  
+    
+    <div class="page-recomm">
+    <h3>Articles associés</h3>
+    
+    <a class="recomm" href="/installer-java-sdkman/">
+      <div class="recomm">
+        <h5>Installer Java avec SDKMAN</h5>
+        <img width="100%" src="/assets/img/sdkman-post.jpg" alt="Installer Java avec SDKMAN">
+      </div>
+    </a>
+    
+    
+  
+
+  
+  
+  
+  
+    
+    <a class="recomm" href="/graalvm-microservices-java/">
+      <div class="recomm">
+        <h5>GraalVM, le futur des applications microservices en Java</h5>
+        <img width="100%" src="/assets/img/graalvm-brand-new-containers.jpg" alt="GraalVM, le futur des applications microservices en Java">
+      </div>
+    </a>
+    
+    
+  
+
+  
+  
+  
+  
+
+
+      
+<div class="comment-area">
+  <div class="comment-wrapper">
+    <h3>Commentaires</h3>
+    
+    <div id="disqus_thread" class="article-comments"></div>
+    <script>
+      function loadDisqusOnConsent() {
+        var disqus_config = function () {
+          this.page.url = "https://scalastic.io/java-microservices/";  /* Replace PAGE_URL with your page's canonical URL variable */
+          this.page.identifier = "/java-microservices/"; /* Replace PAGE_IDENTIFIER with your page's unique identifier variable */
+        };
+        (function() {
+            var d = document, s = d.createElement('script');
+            s.src = '//scalastic.disqus.com/embed.js';
+            s.setAttribute('data-timestamp', +new Date());
+            (d.head || d.body).appendChild(s);
+        })();
+      };
+      function activateCookie() {
+        document.querySelector('.cc-btn.cc-allow').click();
+      };
+      var container_disqus = document.getElementById('disqus_thread');
+      var disqus_display = container_disqus.getElementsByTagName('div').length == 0;
+      if (disqus_display) {
+
+        document.getElementById('disqus_thread').innerHTML += '<div class="premonition error"><i class="premonition pn-error"></i><div class="content"><p class="header">Note</p><p>Les commentaires Disqus ont été désactivés car ils ne peuvent pas fonctionner sans cookie.</p><p>Pour réactiver les commentaires et les cookies, cliquez sur <a href="javascript:activateCookie()">Autoriser les cookies</a></p></div></div>';
+      };
+
+    </script>
+    <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+    
+  </div>
+</div> <!-- End Comment Area -->
+
+
+    </div> <!-- End Wrap Content -->
+  </div> <!-- End Page Content -->
+</article> <!-- End Article Page -->
+
+</div>
+
+    </div>
+
+    <script src="https://scalastic.io/cookieconsent.min.js" data-cfasync="false"></script>
+    <script>
+  function loadGAonConsent() {
+    window._gaq = window._gaq || [];
+    _gaq.push(['_setAccount', 'UA-63884203-1']);
+    
+    _gaq.push(['_trackPageview']);
+
+    (function() {
+      var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+      ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+    })();
+  }
+</script>
+    <script src="https://scalastic.io/cookie-consent.js"></script>
+
+  </body>
+</html>

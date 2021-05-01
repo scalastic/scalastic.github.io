@@ -1,0 +1,705 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta name="generator" content="Jekyll 🎩" >
+  <meta charset="utf-8" >
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" >
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" >
+
+  <meta http-equiv="Content-Language" content="en" >
+  <meta property="og:locale" content="en_US" >
+  <meta name="language" content="en" >
+
+  <title itemprop="name">Locally install Kubernetes, Prometheus, and Grafana | Scalastic DevOps</title>
+  <meta property="og:title" content="Locally install Kubernetes, Prometheus, and Grafana" >
+  <meta name="twitter:title" content="Locally install Kubernetes, Prometheus, and Grafana" >
+  <meta itemprop="name" content="Locally install Kubernetes, Prometheus, and Grafana" >
+  <meta name="application-name" content="Locally install Kubernetes, Prometheus, and Grafana" >
+
+  <meta name="description" content="How to install Kubernetes, Prometheus, and Grafana on macOS locally with Docker Desktop" >
+  <meta itemprop="description" content="How to install Kubernetes, Prometheus, and Grafana on macOS locally with Docker Desktop" >
+  <meta property="og:description" content="How to install Kubernetes, Prometheus, and Grafana on macOS locally with Docker Desktop" >
+  <meta name="twitter:description" content="How to install Kubernetes, Prometheus, and Grafana on macOS locally with Docker Desktop" >
+
+  <link rel="canonical" href="https://scalastic.io/en/install-kubernetes-prometheus-grafana/" itemprop="url" >
+  <meta name="url" content="https://scalastic.io/en/install-kubernetes-prometheus-grafana/" >
+  <meta property="og:url" content="https://scalastic.io/en/install-kubernetes-prometheus-grafana/" >
+  <meta name="twitter:url" content="https://scalastic.io/en/install-kubernetes-prometheus-grafana/" > 
+  <link rel="alternate" hreflang="fr" href="https://scalastic.io/install-kubernetes-prometheus-grafana/" >
+  <link rel="alternate" hreflang="en" href="https://scalastic.io/en/install-kubernetes-prometheus-grafana/" >
+
+  
+  <meta itemprop="image" content="https://scalastic.io/assets/img/install-kubernetes.jpg" >
+  <meta property="og:image" content="https://scalastic.io/assets/img/install-kubernetes.jpg" > 
+  <meta name="twitter:image" content="https://scalastic.io/assets/img/install-kubernetes.jpg" >
+  <meta name="twitter:image:src" content="https://scalastic.io/assets/img/install-kubernetes.jpg" > 
+  
+
+  <meta name="twitter:card" content="summary" >
+  <meta property="og:site_name" content="Scalastic DevOps" >
+  <meta name="author" content="Jean-Jerome Levy" >
+  <link rel="sitemap" type="application/xml" title="Sitemap" href="https://scalastic.io/en/sitemap.xml" > 
+
+  <!-- @TODO : link pagination-->
+  <!-- link rel="next" href="https://scalastic.io/en/page/2" / -->
+  
+  
+    
+      <meta property="og:type" content="article" >
+<meta property="article:publisher" content="Jean-Jerome Levy" >
+<meta property="og:article:author" content="Jean-Jerome Levy" >
+<meta property="article:author" content="Jean-Jerome Levy" > 
+<meta name="author" content="Jean-Jerome Levy"> 
+<meta property="article:published_time" content="2021-04-13T17:51:20+02:00" >
+<meta property="og:article:published_time" content="2021-04-13T17:51:20+02:00" > 
+
+
+<meta property="article:modified_time" content="2021-04-28T20:43:25+02:00" >
+<meta property="og:updated_time" content="2021-04-28T20:43:25+02:00" >
+
+
+
+<meta name="keywords" content="Kubernetes, Docker, Prometheus, Grafana, macOS" >
+
+<meta property="article:tag" content="Kubernetes" >
+
+<meta property="article:tag" content="Docker" >
+
+<meta property="article:tag" content="Prometheus" >
+
+<meta property="article:tag" content="Grafana" >
+
+<meta property="article:tag" content="macOS" >
+
+
+
+<script type="application/ld+json">
+{
+  "@context": "http://schema.org",
+  "@type": "BlogPosting",
+  "url": "https://scalastic.io/en/install-kubernetes-prometheus-grafana/",
+  "headline": "Locally install Kubernetes, Prometheus, and Grafana",
+  "description": "How to install Kubernetes, Prometheus, and Grafana on macOS locally with Docker Desktop",
+  "mainEntityOfPage":{
+    "@type": "WebPage",
+    "@id": "https://scalastic.io/en/install-kubernetes-prometheus-grafana/"
+  },
+  "image": [
+  
+    "https://scalastic.io/assets/img/install-kubernetes.jpg"
+  
+  ],
+  "datePublished": "2021-04-13T17:51:20+02:00",
+  "dateModified": "2021-04-28T20:43:25+02:00",
+  "keywords": [ ["Kubernetes", "Docker", "Prometheus", "Grafana", "macOS"] ],
+  "isAccessibleForFree": "True",
+  "isPartOf": {
+    "@type": ["CreativeWork", "Product", "WebSite"],
+    "name": "Scalastic",
+    "productID": "scalastic.io"
+  },
+  "inLanguage": "en-US",
+  "license": "https://creativecommons.org/licenses/by-nc-nd/4.0/",
+  "author": {
+    "@type": "Person",
+    "name": "Jean-Jerome Levy",
+    "description": "I am an independent DevOps consultant specializing in CI/CD, Docker/Kubernetes and Cloud",
+    "jobTitle": "DevOps Consultant",
+    "sameAs":[
+      "https://www.linkedin.com/in/jean-jerome-levy",
+      "https://github.com/jeanjerome",
+      "https://github.com/scalastic",
+      "https://hub.docker.com/u/jeanjerome"
+    ]
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Scalastic",
+    "description": "A company specializing in DevOps and Cloud",
+    "url": "https://scalastic.io",
+    "sameAs": [ "https://github.com/scalastic" ],
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://scalastic.io/assets/img/logo-scalastic.png"
+    }
+  }
+}
+</script>
+    
+  
+
+  <link rel="shortcut icon" href="/assets/img/favicon/favicon.ico" >
+  <link rel="icon" type="image/x-icon" sizes="16x16 32x32" href="/assets/img/favicon/favicon.ico" >
+  <link rel="apple-touch-icon" href="/assets/img/favicon/apple-touch-icon.png" >
+  <link rel="apple-touch-icon" sizes="72x72" href="/assets/img/favicon/apple-touch-icon-72x72.png" >
+  <link rel="apple-touch-icon" sizes="144x144" href="/assets/img/favicon/apple-touch-icon-144x144.png" >
+  <link rel="/assets/img/favicon/apple-touch-icon.png" >
+  <link rel="icon" sizes="72x72" href="/assets/img/favicon/apple-touch-icon-72x72.png" >
+  <link rel="icon" sizes="144x144" href="/assets/img/favicon/apple-touch-icon-144x144.png" >
+  
+  <meta name="robots" content="index,follow" > 
+  <meta name="googlebot" content="index,follow" >
+
+  <meta name="theme-color" content="#141414" > 
+  <meta name="msapplication-TileColor" content="#141414" >
+
+  <meta name="imagemode" content="force" >
+  <meta name="coverage" content="Worldwide" > 
+  <meta name="distribution" content="Global" >
+  <meta name="HandheldFriendly" content="True" > 
+  <meta name="msapplication-tap-highlight" content="no" >
+  <meta name="apple-mobile-web-app-title" content="Scalastic DevOps" > 
+  <meta name="apple-mobile-web-app-capable" content="yes" >
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" >
+  <meta name="apple-touch-fullscreen" content="yes" > 
+
+  <link href="https://fonts.googleapis.com/css?family=PT+Serif:400,700|Lato:300,400,700&display=swap" rel="stylesheet" >
+  <link rel="stylesheet" type="text/css" href="/assets/css/cookieconsent.min.css" >
+  <link rel="stylesheet" href="/assets/fonts/fontawesome/css/all.min.css" >
+  <link rel="stylesheet" href="/assets/css/main.css" >
+</head>
+
+  <body>
+
+    <div class="wrapper">
+      <aside class="sidebar">
+  <header>
+    <div class="about">
+      <div class="cover-company-image">
+        <a href="/en/"><img src="/assets/img/scalastic.png" alt="Scalastic"></a>
+      </div>
+      <div class="cover-author-image">
+        <a href="/en/"><img src="/assets/img/jean-jerome-levy.jpg" alt="Jean-Jerome Levy"></a>
+      </div>
+      <div class="author-name">Jean-Jerome Levy</div>
+      <p>Hello,<br> I am an independent DevOps consultant specializing in CI / CD, Docker / Kubernetes and Cloud.</p>
+      <p>I officiate in the company Scalastic.</p>
+      
+      
+      <a href="/install-kubernetes-prometheus-grafana/">🇫🇷 Version française</a>
+      
+      
+      
+      
+    </div>
+  </header>
+  <footer>
+    <section class="contact">
+      <h3 class="contact-title">Contact me</h3>
+      <ul>
+        
+        
+          <li class="github"><a href="http://github.com/jeanjerome" target="_blank" rel="noopener noreferrer nofollow"><i class="fab fa-github"></i></i></a></li>
+        
+        
+          <li class="linkedin"><a href="https://in.linkedin.com/in/jean-jerome-levy/" rel="noopener noreferrer nofollow" target="_blank"><i class="fab fa-linkedin-in"></i></i></a></li>
+        
+        
+          <li class="email"><a href="mailto:contact@scalastic.io"><i class="far fa-envelope"></i></i></a></li>
+        
+      </ul>
+    </section>
+    <section class="contact">
+      <ul>
+        <li><a href="/en/informations-légales/"><i class="fas fa-gavel"></i></a></li>
+        <li><a href="/en/sitemap.xml"><i class="fas fa-sitemap"></i></a></li>
+        <li><a href="https://github.com/scalastic/scalastic.github.io" target="_blank" rel="licence noopener noreferrer nofollow"><i class="fas fa-code"></i></a></li>
+      </ul>
+    </section>
+    <section class="copyright">
+      <p>2021 <a href="https://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank" rel="licence noopener noreferrer nofollow"><i class="fab fa-creative-commons"></i><i class="fab fa-creative-commons-by"></i><i class="fab fa-creative-commons-nc-eu"></i><i class="fab fa-creative-commons-nd"></i></a> Jean-Jérôme Lévy for Scalastic unless otherwise specified</p>
+    </section>
+  </footer> 
+</aside>
+<div class="content-box clearfix">
+  <article class="article-page">
+  <div class="page-content">
+    
+    <div class="page-cover-image">
+      <figure>
+        <img class="page-image" src=/assets/img/install-kubernetes.jpg alt="Locally install Kubernetes, Prometheus, and Grafana">
+        
+          <figcaption>Photo by <a href="https://unsplash.com/@safesolvent?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Martin Reisch</a> on <a href="https://unsplash.com/s/photos/square-pattern?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Unsplash</a></figcaption>
+        
+      </figure>
+    </div> <!-- End Page Cover Image -->
+    
+    <div class="wrap-content">
+      <header class="page-header">
+        <h1 class="page-title">Locally install Kubernetes, Prometheus, and Grafana</h1>
+        <div class="page-metadata">
+          <ul>
+            <li><i class="far fa-calendar-alt"></i> April 13, 2021</li>
+            <li><i class="far fa-clock"></i> 6 minutes</li>
+            <li><i class="fas fa-tags"></i>
+              
+              <a href="/en/tags/#Kubernetes">Kubernetes</a>, 
+              
+              <a href="/en/tags/#Docker">Docker</a>, 
+              
+              <a href="/en/tags/#Prometheus">Prometheus</a>, 
+              
+              <a href="/en/tags/#Grafana">Grafana</a>, 
+              
+              <a href="/en/tags/#macOS">macOS</a>
+              
+            </li>
+          </ul>
+        </div>
+      </header>
+      <p>Sometimes it may be useful for developers to have an effective monitoring toolset installed beside your Kubernetes cluster. The obvious choice would be to go to Prometheus and Grafana, two tools highly recognized.</p>
+
+<p>And that’s when you get into trouble.</p>
+
+<p>In this article I’m going to show you how to succesfully install a complete Kubernetes platform on your local machine particulary on macOS.</p>
+
+<div class="premonition info">
+  <i class="premonition pn-info"></i>
+  <div class="content">
+    <p class="header">Source code</p><p>All scripts are kept in <a href="https://github.com/scalastic/local-k8s-installation" target="_blank" rel="noopener noreferrer nofollow">https://github.com/scalastic/local-k8s-installation</a></p>
+
+
+
+
+  </div>
+</div>
+
+<hr class="hr-text" data-content="Contents" />
+
+<ul id="markdown-toc">
+  <li><a href="#notice" id="markdown-toc-notice">Notice</a></li>
+  <li><a href="#kubernetes" id="markdown-toc-kubernetes">Kubernetes</a></li>
+  <li><a href="#dashboard" id="markdown-toc-dashboard">Dashboard</a></li>
+  <li><a href="#metrics-server" id="markdown-toc-metrics-server">Metrics Server</a></li>
+  <li><a href="#kube-state-metrics" id="markdown-toc-kube-state-metrics">Kube State Metrics</a></li>
+  <li><a href="#prometheus" id="markdown-toc-prometheus">Prometheus</a></li>
+  <li><a href="#grafana" id="markdown-toc-grafana">Grafana</a>    <ul>
+      <li><a href="#import-grafana-dashboard" id="markdown-toc-import-grafana-dashboard">Import Grafana dashboard</a></li>
+    </ul>
+  </li>
+</ul>
+
+<hr class="hr-text" data-content="Notice" />
+
+<h2 id="notice">Notice</h2>
+
+<ul>
+  <li>This procedure is intended to work on <strong>macOS</strong> but should work on any other host. However I was not able to test it.</li>
+  <li>Things are more tying up with the Kubernetes distribution (<strong>Docker Desktop</strong>) than the OS itself.</li>
+</ul>
+
+<hr class="hr-text" data-content="Kubernetes" />
+
+<h2 id="kubernetes">Kubernetes</h2>
+
+<ul>
+  <li>
+    <p>We’ll be using <strong>Docker Desktop</strong> which comes with a ready-to-use Kubernetes cluster.</p>
+
+    <ol>
+      <li>
+        <p>Download the installer at <a href="https://www.docker.com/products/docker-desktop" target="_blank" rel="noopener noreferrer nofollow">https://www.docker.com/products/docker-desktop</a> and follow the instructions.</p>
+      </li>
+      <li>
+        <p>Once installed, activate Kubernetes in the <strong><em>Preferences</em></strong> pane / <strong><em>Kubernetes</em></strong> / <strong><em>Enable Kubernetes</em></strong>.</p>
+      </li>
+      <li>
+        <p>You should now see all the <strong>Docker Desktop</strong> components in the <strong><em>About</em></strong> pane included Kubernetes:</p>
+      </li>
+    </ol>
+  </li>
+</ul>
+<figure class="article">
+<p><img src="/assets/img/docker-desktop.png" alt="Docker Desktop" /></p>
+  <figcaption>Docker Desktop interface with components version</figcaption>
+</figure>
+
+<ul>
+  <li>Grapple basic information from your cluster to verify everything’s working fine:</li>
+</ul>
+
+<figure class="highlight"><pre><code class="language-zsh" data-lang="zsh">% kubectl cluster-info</code></pre></figure>
+
+<figure class="highlight"><pre><code class="language-zsh" data-lang="zsh">% kubectl get nodes</code></pre></figure>
+
+<ul>
+  <li>Or even:</li>
+</ul>
+
+<figure class="highlight"><pre><code class="language-zsh" data-lang="zsh">% kubectl get all <span class="nt">-A</span></code></pre></figure>
+
+<div class="premonition info">
+  <i class="premonition pn-info"></i>
+  <div class="content">
+    <p class="header">-A parameter</p>
+<p>Since Kube <code class="language-plaintext highlighter-rouge">1.14</code>, we don’t have to use the <code class="language-plaintext highlighter-rouge">--all-namespaces</code> anymore! So don’t…</p>
+
+
+
+
+  </div>
+</div>
+
+<hr class="hr-text" data-content="Dashboard" />
+
+<h2 id="dashboard">Dashboard</h2>
+
+<p><strong>Dashboard</strong> is a web UI of k8s API and provides an easy way to visualize and debug things. You can find more about <strong>Dashboard</strong> at <a href="https://github.com/kubernetes/dashboard" target="_blank" rel="noopener noreferrer nofollow">https://github.com/kubernetes/dashboard</a></p>
+
+<p>By default, <strong>Dashboard</strong> is protected by a token, and each time you’ll access it, you’ll be asked to provide one. It could 
+really be annoying in the long run. Fortunately, <strong>Dashboard</strong> allows you to bypass the login page by adding <code class="language-plaintext highlighter-rouge">--enable-skip-login</code> to the 
+configuration.</p>
+
+<div class="premonition info">
+  <i class="premonition pn-info"></i>
+  <div class="content">
+    <p class="header">Note</p><p>The provided configuration file is patched with this instruction (<a href="https://github.com/scalastic/local-k8s-installation/blob/7b0857d64475a1b4c0d1f3680f8d48f076211de8/k8s/dashboard-v2.2.0-recommended.yaml#L198" target="_blank" rel="noopener noreferrer nofollow">line 198</a>)</p>
+
+
+
+
+  </div>
+</div>
+
+<p>To deploy <strong>Dashboard</strong> - with no authentication - execute the following command:</p>
+
+<figure class="highlight"><pre><code class="language-zsh" data-lang="zsh">% kubectl apply <span class="nt">-f</span> ./k8s/dashboard-v2.2.0-recommended.yaml</code></pre></figure>
+
+<p>Then access your dashboard from your local workstation by creating a secure channel to your Kubernetes cluster. To do 
+so, run the following command:</p>
+
+<figure class="highlight"><pre><code class="language-zsh" data-lang="zsh">% kubectl proxy</code></pre></figure>
+
+<p>The address is now:</p>
+
+<p><a href="http://localhost:8001/api/v1/namespaces/kubernetes-dashboard/services/https:kubernetes-dashboard:/proxy/" rel="noopener noreferrer nofollow" target="_blank" data-proofer-ignore="">http://localhost:8001/api/v1/namespaces/kubernetes-dashboard/services/https:kubernetes-dashboard:/proxy/</a></p>
+
+<div class="premonition info">
+  <i class="premonition pn-info"></i>
+  <div class="content">
+    <p class="header">Tips</p><p>I know so don’t forget to bookmark the URL!</p>
+
+
+
+
+  </div>
+</div>
+
+<p>You’ll see this login page at first:</p>
+
+<figure class="article">
+<p><img src="/assets/img/dashboard-first-access.jpg" alt="Dashboard Login Screen" /></p>
+  <figcaption>Dashboard login screen</figcaption>
+</figure>
+
+<p>Just push the <strong><em>skip</em></strong> button to bypass authentication.</p>
+
+<figure class="article">
+<p><img src="/assets/img/dashboard-index.jpg" alt="Dashboard index page" /></p>
+  <figcaption>Dashboard main page</figcaption>
+</figure>
+
+<hr class="hr-text" data-content="Metrics-Server" />
+
+<h2 id="metrics-server">Metrics Server</h2>
+
+<p><strong>Metrics-Server</strong> is used to crop metrics from k8s components and exposes them to k8s API. The official repository is <a href="https://github.com/kubernetes-sigs/metrics-server" target="_blank" rel="noopener noreferrer nofollow">https://github.com/kubernetes-sigs/metrics-server</a></p>
+
+<p><strong>Metrics Server</strong> serves the goals of core metrics pipelines: CPU and RAM. The important thing is that <strong><em>Horizontal Pod Autoscaler</em></strong> uses this API to collect metrics. It’s a cluster level component which 
+periodically scrapes metrics from all Kubernetes nodes served by Kubelet. When installed, <strong>Dashboard</strong> displays automatically this metrics too.</p>
+
+<div class="premonition info">
+  <i class="premonition pn-info"></i>
+  <div class="content">
+    <p class="header">Note</p><p>To allow <strong>Metrics Server</strong> to collect its data over https, the original script has been modified to accept insecure TLS connections by adding <code class="language-plaintext highlighter-rouge">- --kubelet-insecure-tls</code> at <a href="https://github.com/scalastic/local-k8s-installation/blob/7b0857d64475a1b4c0d1f3680f8d48f076211de8/k8s/metrics-server-components-v0.4.2.yaml#L133" target="_blank" rel="noopener noreferrer nofollow">line 133</a>.</p>
+
+
+
+
+  </div>
+</div>
+
+<p>Apply the configuration by entering :</p>
+
+<figure class="highlight"><pre><code class="language-zsh" data-lang="zsh">% kubectl apply <span class="nt">-f</span> k8s/metrics-server-components-v0.4.2.yaml</code></pre></figure>
+
+<p>When reloading the <strong>Dashboard</strong>, you should now see CPU and Memory Usages (after some time) 🌈</p>
+
+<p>You can try the <strong><em>Pods</em></strong> section, this is my favorite!</p>
+
+<figure class="article">
+<p><img src="/assets/img/dashboard-with-metrics.jpg" alt="Dashboard with metrics page" /></p>
+  <figcaption>Dashboard page with metrics. Beautiful!</figcaption>
+</figure>
+
+<hr class="hr-text" data-content="Kube State Metrics" />
+
+<h2 id="kube-state-metrics">Kube State Metrics</h2>
+
+<p>Unlike <strong>Metrics Server</strong>, <strong>Kube State Metrics</strong> is focused on generating numerous metrics from Kubernetes’ object state 
+(e.g. metrics based on deployments, replica sets, pods, etc.). For this, it holds an entire snapshot of Kubernetes state in memory
+and generates new metrics based off of it.</p>
+
+<ul>
+  <li>
+    <p>Having <strong>Kube State Metrics</strong> enables access to these metrics from monitoring systems such as <strong>Prometheus</strong>, our concerne here.</p>
+  </li>
+  <li>
+    <p>To install <strong>Kube State Metrics</strong>, launch the following:</p>
+  </li>
+</ul>
+
+<figure class="highlight"><pre><code class="language-zsh" data-lang="zsh">% kubectl apply <span class="nt">-f</span> k8s/kube-state-metrics-v2.0.0-rc.1.yaml</code></pre></figure>
+
+<hr class="hr-text" data-content="Prometheus" />
+
+<h2 id="prometheus">Prometheus</h2>
+
+<p><strong>Prometheus</strong> is a collecting, querying, monitoring, and alerting system. It is useful when it comes to:</p>
+<ul>
+  <li>Collects data identified by a metric name</li>
+  <li>Stores time-series in memory and on local disk for efficiency</li>
+  <li>Allows notifications and alerting depending on data queries</li>
+</ul>
+
+<p>Full documentation is accessible from <a href="https://prometheus.io" target="_blank" rel="noopener noreferrer nofollow">https://prometheus.io</a>.</p>
+
+<p><strong>Prometheus</strong>’ maintainers provide binaries and Docker images for <strong>Prometheus</strong> components. 
+With a bit of elbow grease, it is possible to create a k8s configuration file with everything we need: Resources access, dedicated role, configuration, deployment, and service exposition.</p>
+
+<p>To install the <strong>Prometheus</strong> configuration, run the command:</p>
+
+<figure class="highlight"><pre><code class="language-zsh" data-lang="zsh">% kubectl apply <span class="nt">-f</span> k8s/prometheus.yaml</code></pre></figure>
+
+<p>You can now access <strong>Prometheus</strong> interface at <a href="http://localhost:30000/" rel="noopener noreferrer nofollow" target="_blank" data-proofer-ignore="">http://localhost:30000/</a> … but wait and see!!</p>
+
+<hr class="hr-text" data-content="Grafana" />
+
+<h2 id="grafana">Grafana</h2>
+
+<p><strong>Grafana</strong> (<a href="https://grafana.com/grafana/" target="_blank" rel="noopener noreferrer nofollow">https://grafana.com/grafana/</a>) allows you to « <em>query, visualize and alert on 
+metrics through a powerful user interface</em> » as the site puts.</p>
+
+<div class="premonition info">
+  <i class="premonition pn-info"></i>
+  <div class="content">
+    <p class="header">That's what Prometheus is already doing!?</p><p>Let’s clarify : in practice, you will develop your query in <strong>Prometheus</strong>, and run on <strong>Grafana</strong> when you’re satisfied.</p>
+
+
+
+
+  </div>
+</div>
+
+<p>To configure the <strong>Prometheus</strong> datasource and install <strong>Grafana</strong>, run the commands:</p>
+
+<figure class="highlight"><pre><code class="language-zsh" data-lang="zsh">% kubectl apply <span class="nt">-f</span> k8s/grafana-datasource.yaml
+% kubectl apply <span class="nt">-f</span> k8s/grafana.yaml</code></pre></figure>
+
+<p><strong>Grafana</strong> will be listening on <a href="http://localhost:3000/" rel="noopener noreferrer nofollow" target="_blank" data-proofer-ignore="">http://localhost:3000/</a>. The default login is <strong><em>admin</em></strong> / <strong><em>admin</em></strong>.</p>
+
+<h3 id="import-grafana-dashboard">Import Grafana dashboard</h3>
+
+<ul>
+  <li>
+    <p>By default, <strong>Grafana</strong> comes with nothing specific and you’ll have to configure a dashboard. Fortunatly, you can easilly import pre-built ones via the <strong>Grafana</strong> interface. The principal dashboards’ source is at <a href="https://grafana.com/grafana/dashboards" target="_blank" rel="noopener noreferrer nofollow">https://grafana.com/grafana/dashboards</a>.</p>
+  </li>
+  <li>
+    <p>I’ve made one specific to local Kubernetes cluster you can find here <a href="https://raw.githubusercontent.com/scalastic/local-k8s-installation/main/k8s/Docker%20Desktop%20Kubernetes%20All-in-one-1618321310777.json" target="_blank" rel="noopener noreferrer nofollow">Dashboard model</a>.</p>
+  </li>
+</ul>
+
+<p>It looks like this - as you can see, the <strong>Grafana</strong> graphical interface offers numerous possibilities - unlike <strong>Prometheus</strong>:</p>
+<figure class="article">
+<p><img src="/assets/img/grafana-ui.jpg" alt="Grafana interface" /></p>
+  <figcaption>Grafana interface after complete installation. Woah!!</figcaption>
+</figure>
+
+<div class="premonition info">
+  <i class="premonition pn-info"></i>
+  <div class="content">
+    <p class="header">👨🏻‍💻</p>
+<p>Configuring a dashboard in Grafana could be long, costly, and time-consuming. Collecting metrics depends on your host, VM/Virtualization Framework and OS on your pod. You will have to get your hands dirty…</p>
+
+
+
+
+  </div>
+</div>
+
+<p>Well, that’s your turn playing with the stack now!</p>
+
+<p>Cheers…</p>
+
+<div class="premonition info">
+  <i class="premonition pn-info"></i>
+  <div class="content">
+    <p class="header">And now</p><ul>
+  <li>You liked this article? Feel free to tell Disqus so the site increases in visibility</li>
+  <li>You have a question? Ask it, and I will get back to you as soon as possible</li>
+</ul>
+
+<p>Thanks!</p>
+
+
+
+
+  </div>
+</div>
+
+      <div class="page-footer">
+        <div class="page-share">
+          <a href="https://twitter.com/intent/tweet?text=Locally install Kubernetes, Prometheus, and Grafana&url=https://scalastic.io/install-kubernetes-prometheus-grafana/" title="Share on Twitter" rel="nofollow" target="_blank"><i class="fa fa-twitter" aria-hidden="true"></i>&nbsp;Twitter</a>
+          <a href="https://www.linkedin.com/sharing/share-offsite/?url=https://scalastic.io/install-kubernetes-prometheus-grafana/" title="Share on LinkedIn" rel="nofollow" target="_blank"><i class="fa fa-linkedin" aria-hidden="true"></i>&nbsp;LinkedIn</a>
+        </div>
+        <div class="page-tag">
+          
+            <a href="/tags#Kubernetes" class="tag" rel="tag">&#35; Kubernetes</a>
+          
+            <a href="/tags#Docker" class="tag" rel="tag">&#35; Docker</a>
+          
+            <a href="/tags#Prometheus" class="tag" rel="tag">&#35; Prometheus</a>
+          
+            <a href="/tags#Grafana" class="tag" rel="tag">&#35; Grafana</a>
+          
+            <a href="/tags#macOS" class="tag" rel="tag">&#35; macOS</a>
+          
+        </div>
+      </div>
+      
+
+
+
+
+  
+  
+  
+  
+    
+    <div class="page-recomm">
+    <h3>Related articles</h3>
+    
+    <a class="recomm" href="/en/jvm-vs-native/">
+      <div class="recomm">
+        <h5>JVM vs Native - An effective comparison of performances</h5>
+        <img width="100%" src="/assets/img/jvm-vs-native.jpg" alt="JVM vs Native - An effective comparison of performances">
+      </div>
+    </a>
+    
+    
+  
+
+  
+  
+  
+  
+
+  
+  
+  
+  
+    
+    <a class="recomm" href="/en/dive-image-docker/">
+      <div class="recomm">
+        <h5>A Dive into Docker images</h5>
+        <img width="100%" src="/assets/img/dive-image-docker.jpg" alt="A Dive into Docker images">
+      </div>
+    </a>
+    
+    
+  
+
+  
+  
+  
+  
+    
+    <a class="recomm" href="/en/spring-natif-graalvm/">
+      <div class="recomm">
+        <h5>Compile a Spring application natively with GraalVM</h5>
+        <img width="100%" src="/assets/img/spring-native-graalvm-post.jpg" alt="Compile a Spring application natively with GraalVM">
+      </div>
+    </a>
+    
+    
+  
+
+  
+  
+  
+  
+    
+    <a class="recomm" href="/en/installer-java-sdkman/">
+      <div class="recomm">
+        <h5>Install Java with SDKMAN</h5>
+        <img width="100%" src="/assets/img/sdkman-post.jpg" alt="Install Java with SDKMAN">
+      </div>
+    </a>
+    
+    
+    </div>
+      
+
+      
+<div class="comment-area">
+  <div class="comment-wrapper">
+    <h3>Comments</h3>
+    
+    <div id="disqus_thread" class="article-comments"></div>
+    <script>
+      function loadDisqusOnConsent() {
+        var disqus_config = function () {
+          this.page.url = "https://scalastic.io/en/install-kubernetes-prometheus-grafana/";  /* Replace PAGE_URL with your page's canonical URL variable */
+          this.page.identifier = "/en/install-kubernetes-prometheus-grafana/"; /* Replace PAGE_IDENTIFIER with your page's unique identifier variable */
+        };
+        (function() {
+            var d = document, s = d.createElement('script');
+            s.src = '//scalastic.disqus.com/embed.js';
+            s.setAttribute('data-timestamp', +new Date());
+            (d.head || d.body).appendChild(s);
+        })();
+      };
+      function activateCookie() {
+        document.querySelector('.cc-btn.cc-allow').click();
+      };
+      var container_disqus = document.getElementById('disqus_thread');
+      var disqus_display = container_disqus.getElementsByTagName('div').length == 0;
+      if (disqus_display) {
+
+        document.getElementById('disqus_thread').innerHTML += '<div class="premonition error"><i class="premonition pn-error"></i><div class="content"><p class="header">Note</p><p>Disqus comments have been disabled because they cannot work without cookies.</p><p>To reactivate comments and cookies, click on <a href="javascript:activateCookie()">Allow cookies</a></p></div></div>';
+      };
+
+    </script>
+    <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+    
+  </div>
+</div> <!-- End Comment Area -->
+
+
+    </div> <!-- End Wrap Content -->
+  </div> <!-- End Page Content -->
+</article> <!-- End Article Page -->
+
+</div>
+
+    </div>
+
+    <script src="https://scalastic.io/en/cookieconsent.min.js" data-cfasync="false"></script>
+    <script>
+  function loadGAonConsent() {
+    window._gaq = window._gaq || [];
+    _gaq.push(['_setAccount', 'UA-63884203-1']);
+    
+    _gaq.push(['_trackPageview']);
+
+    (function() {
+      var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+      ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+    })();
+  }
+</script>
+    <script src="https://scalastic.io/en/cookie-consent.js"></script>
+
+  </body>
+</html>

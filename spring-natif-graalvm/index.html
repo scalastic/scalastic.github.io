@@ -1,0 +1,844 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta name="generator" content="Jekyll 🎩" >
+  <meta charset="utf-8" >
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" >
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" >
+
+  <meta http-equiv="Content-Language" content="fr" >
+  <meta property="og:locale" content="fr_FR" >
+  <meta name="language" content="fr" >
+
+  <title itemprop="name">Compiler une application Spring en natif avec GraalVM | Scalastic DevOps</title>
+  <meta property="og:title" content="Compiler une application Spring en natif avec GraalVM" >
+  <meta name="twitter:title" content="Compiler une application Spring en natif avec GraalVM" >
+  <meta itemprop="name" content="Compiler une application Spring en natif avec GraalVM" >
+  <meta name="application-name" content="Compiler une application Spring en natif avec GraalVM" >
+
+  <meta name="description" content="Tuto pour compiler une application ✨Spring✨ en code natif avec ✨GraalVM✨ - Détails avec explications à chaque étape." >
+  <meta itemprop="description" content="Tuto pour compiler une application ✨Spring✨ en code natif avec ✨GraalVM✨ - Détails avec explications à chaque étape." >
+  <meta property="og:description" content="Tuto pour compiler une application ✨Spring✨ en code natif avec ✨GraalVM✨ - Détails avec explications à chaque étape." >
+  <meta name="twitter:description" content="Tuto pour compiler une application ✨Spring✨ en code natif avec ✨GraalVM✨ - Détails avec explications à chaque étape." >
+
+  <link rel="canonical" href="https://scalastic.io/spring-natif-graalvm/" itemprop="url" >
+  <meta name="url" content="https://scalastic.io/spring-natif-graalvm/" >
+  <meta property="og:url" content="https://scalastic.io/spring-natif-graalvm/" >
+  <meta name="twitter:url" content="https://scalastic.io/spring-natif-graalvm/" > 
+  <link rel="alternate" hreflang="fr" href="https://scalastic.io/spring-natif-graalvm/" >
+  <link rel="alternate" hreflang="en" href="https://scalastic.io/en/spring-natif-graalvm/" >
+
+  
+  <meta itemprop="image" content="https://scalastic.io/assets/img/spring-native-graalvm-post.jpg" >
+  <meta property="og:image" content="https://scalastic.io/assets/img/spring-native-graalvm-post.jpg" > 
+  <meta name="twitter:image" content="https://scalastic.io/assets/img/spring-native-graalvm-post.jpg" >
+  <meta name="twitter:image:src" content="https://scalastic.io/assets/img/spring-native-graalvm-post.jpg" > 
+  
+
+  <meta name="twitter:card" content="summary" >
+  <meta property="og:site_name" content="Scalastic DevOps" >
+  <meta name="author" content="Jean-Jerome Levy" >
+  <link rel="sitemap" type="application/xml" title="Sitemap" href="https://scalastic.io/sitemap.xml" > 
+
+  <!-- @TODO : link pagination-->
+  <!-- link rel="next" href="https://scalastic.io/en/page/2" / -->
+  
+  
+    
+      <meta property="og:type" content="article" >
+<meta property="article:publisher" content="Jean-Jerome Levy" >
+<meta property="og:article:author" content="Jean-Jerome Levy" >
+<meta property="article:author" content="Jean-Jerome Levy" > 
+<meta name="author" content="Jean-Jerome Levy"> 
+<meta property="article:published_time" content="2021-03-22T00:10:00+01:00" >
+<meta property="og:article:published_time" content="2021-03-22T00:10:00+01:00" > 
+
+
+<meta property="article:modified_time" content="2021-04-29T17:43:46+02:00" >
+<meta property="og:updated_time" content="2021-04-29T17:43:46+02:00" >
+
+
+
+<meta name="keywords" content="Spring-Native, GraalVM, Spring, Docker, Tutorial" >
+
+<meta property="article:tag" content="Spring-Native" >
+
+<meta property="article:tag" content="GraalVM" >
+
+<meta property="article:tag" content="Spring" >
+
+<meta property="article:tag" content="Docker" >
+
+<meta property="article:tag" content="Tutorial" >
+
+
+
+<script type="application/ld+json">
+{
+  "@context": "http://schema.org",
+  "@type": "BlogPosting",
+  "url": "https://scalastic.io/spring-natif-graalvm/",
+  "headline": "Compiler une application Spring en natif avec GraalVM",
+  "description": "Tuto pour compiler une application ✨Spring✨ en code natif avec ✨GraalVM✨ - Détails avec explications à chaque étape.",
+  "mainEntityOfPage":{
+    "@type": "WebPage",
+    "@id": "https://scalastic.io/spring-natif-graalvm/"
+  },
+  "image": [
+  
+    "https://scalastic.io/assets/img/spring-native-graalvm-post.jpg"
+  
+  ],
+  "datePublished": "2021-03-22T00:10:00+01:00",
+  "dateModified": "2021-04-29T17:43:46+02:00",
+  "keywords": [ ["Spring-Native", "GraalVM", "Spring", "Docker", "Tutorial"] ],
+  "isAccessibleForFree": "True",
+  "isPartOf": {
+    "@type": ["CreativeWork", "Product", "WebSite"],
+    "name": "Scalastic",
+    "productID": "scalastic.io"
+  },
+  "inLanguage": "fr-FR",
+  "license": "https://creativecommons.org/licenses/by-nc-nd/4.0/",
+  "author": {
+    "@type": "Person",
+    "name": "Jean-Jerome Levy",
+    "description": "Je suis consultant freelance DevOps spécialisé dans le CI/CD, Docker/Kubernetes et le Cloud",
+    "jobTitle": "Consultant DevOps",
+    "sameAs":[
+      "https://www.linkedin.com/in/jean-jerome-levy",
+      "https://github.com/jeanjerome",
+      "https://github.com/scalastic",
+      "https://hub.docker.com/u/jeanjerome"
+    ]
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Scalastic",
+    "description": "Une société spécialisée dans le DevOps et le Cloud",
+    "url": "https://scalastic.io",
+    "sameAs": [ "https://github.com/scalastic" ],
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://scalastic.io/assets/img/logo-scalastic.png"
+    }
+  }
+}
+</script>
+    
+  
+
+  <link rel="shortcut icon" href="/assets/img/favicon/favicon.ico" >
+  <link rel="icon" type="image/x-icon" sizes="16x16 32x32" href="/assets/img/favicon/favicon.ico" >
+  <link rel="apple-touch-icon" href="/assets/img/favicon/apple-touch-icon.png" >
+  <link rel="apple-touch-icon" sizes="72x72" href="/assets/img/favicon/apple-touch-icon-72x72.png" >
+  <link rel="apple-touch-icon" sizes="144x144" href="/assets/img/favicon/apple-touch-icon-144x144.png" >
+  <link rel="/assets/img/favicon/apple-touch-icon.png" >
+  <link rel="icon" sizes="72x72" href="/assets/img/favicon/apple-touch-icon-72x72.png" >
+  <link rel="icon" sizes="144x144" href="/assets/img/favicon/apple-touch-icon-144x144.png" >
+  
+  <meta name="robots" content="index,follow" > 
+  <meta name="googlebot" content="index,follow" >
+
+  <meta name="theme-color" content="#141414" > 
+  <meta name="msapplication-TileColor" content="#141414" >
+
+  <meta name="imagemode" content="force" >
+  <meta name="coverage" content="Worldwide" > 
+  <meta name="distribution" content="Global" >
+  <meta name="HandheldFriendly" content="True" > 
+  <meta name="msapplication-tap-highlight" content="no" >
+  <meta name="apple-mobile-web-app-title" content="Scalastic DevOps" > 
+  <meta name="apple-mobile-web-app-capable" content="yes" >
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" >
+  <meta name="apple-touch-fullscreen" content="yes" > 
+
+  <link href="https://fonts.googleapis.com/css?family=PT+Serif:400,700|Lato:300,400,700&display=swap" rel="stylesheet" >
+  <link rel="stylesheet" type="text/css" href="/assets/css/cookieconsent.min.css" >
+  <link rel="stylesheet" href="/assets/fonts/fontawesome/css/all.min.css" >
+  <link rel="stylesheet" href="/assets/css/main.css" >
+</head>
+
+  <body>
+
+    <div class="wrapper">
+      <aside class="sidebar">
+  <header>
+    <div class="about">
+      <div class="cover-company-image">
+        <a href="/"><img src="/assets/img/scalastic.png" alt="Scalastic"></a>
+      </div>
+      <div class="cover-author-image">
+        <a href="/"><img src="/assets/img/jean-jerome-levy.jpg" alt="Jean-Jerome Levy"></a>
+      </div>
+      <div class="author-name">Jean-Jerome Levy</div>
+      <p>Bonjour,<br> Je suis un consultant freelance DevOps spécialisé dans le CI/CD, Docker/Kubernetes et le Cloud.</p>
+      <p>J'officie au sein de la société Scalastic.</p>
+      
+      
+      
+      
+      <a href="/en/spring-natif-graalvm/">🇬🇧 🇺🇸 English version</a>
+      
+      
+    </div>
+  </header>
+  <footer>
+    <section class="contact">
+      <h3 class="contact-title">Contactez-moi</h3>
+      <ul>
+        
+        
+          <li class="github"><a href="http://github.com/jeanjerome" target="_blank" rel="noopener noreferrer nofollow"><i class="fab fa-github"></i></i></a></li>
+        
+        
+          <li class="linkedin"><a href="https://in.linkedin.com/in/jean-jerome-levy/" rel="noopener noreferrer nofollow" target="_blank"><i class="fab fa-linkedin-in"></i></i></a></li>
+        
+        
+          <li class="email"><a href="mailto:contact@scalastic.io"><i class="far fa-envelope"></i></i></a></li>
+        
+      </ul>
+    </section>
+    <section class="contact">
+      <ul>
+        <li><a href="/informations-légales/"><i class="fas fa-gavel"></i></a></li>
+        <li><a href="/sitemap.xml"><i class="fas fa-sitemap"></i></a></li>
+        <li><a href="https://github.com/scalastic/scalastic.github.io" target="_blank" rel="licence noopener noreferrer nofollow"><i class="fas fa-code"></i></a></li>
+      </ul>
+    </section>
+    <section class="copyright">
+      <p>2021 <a href="https://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank" rel="licence noopener noreferrer nofollow"><i class="fab fa-creative-commons"></i><i class="fab fa-creative-commons-by"></i><i class="fab fa-creative-commons-nc-eu"></i><i class="fab fa-creative-commons-nd"></i></a> Jean-Jérôme Lévy pour Scalastic sauf indication contraire</p>
+    </section>
+  </footer> 
+</aside>
+<div class="content-box clearfix">
+  <article class="article-page">
+  <div class="page-content">
+    
+    <div class="page-cover-image">
+      <figure>
+        <img class="page-image" src=/assets/img/spring-native-graalvm-post.jpg alt="Compiler une application Spring en natif avec GraalVM">
+        
+          <figcaption>Photo de <a href="https://unsplash.com/@helloimnik?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Hello I'm Nik 🪴</a> sur <a href="https://unsplash.com/s/photos/rocket?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Unsplash</a></figcaption>
+        
+      </figure>
+    </div> <!-- End Page Cover Image -->
+    
+    <div class="wrap-content">
+      <header class="page-header">
+        <h1 class="page-title">Compiler une application Spring en natif avec GraalVM</h1>
+        <div class="page-metadata">
+          <ul>
+            <li><i class="far fa-calendar-alt"></i> 22 Mars 2021</li>
+            <li><i class="far fa-clock"></i> 10 minutes</li>
+            <li><i class="fas fa-tags"></i>
+              
+              <a href="/tags/#Spring-Native">Spring-Native</a>, 
+              
+              <a href="/tags/#GraalVM">GraalVM</a>, 
+              
+              <a href="/tags/#Spring">Spring</a>, 
+              
+              <a href="/tags/#Docker">Docker</a>, 
+              
+              <a href="/tags/#Tutorial">Tutorial</a>
+              
+            </li>
+          </ul>
+        </div>
+      </header>
+      <p>Avec la sortie cette semaine de Spring Native Beta en version 0.9.0, il est intéressant de faire un état des lieux de la compilation d’applications <code class="language-plaintext highlighter-rouge">Spring</code> en exécutables natifs à l’aide de <code class="language-plaintext highlighter-rouge">GraalVM</code> et de son mode <code class="language-plaintext highlighter-rouge">native-image</code>.</p>
+
+<p>L’exécution d’une application en code natif a, en effet, de nombreux intérêts comparée à celle en Bytecode dans une JVM :</p>
+<ul>
+  <li>Le démarrage est instantané</li>
+  <li>La performance est optimale dès le démarrage</li>
+  <li>La consommation de la mémoire est fortement réduite</li>
+</ul>
+
+<p>La version de Spring Native est, toutefois, en Beta ce qui signifie que tous les composants de Spring ne sont pas encore fonctionnels en mode natif. Voyons en détails son fonctionnement.</p>
+
+<hr class="hr-text" data-content="Plan" />
+
+<ul id="markdown-toc">
+  <li><a href="#configuration-requise-de-base" id="markdown-toc-configuration-requise-de-base">Configuration requise de base</a></li>
+  <li><a href="#génération-du-squelette-dapplication" id="markdown-toc-génération-du-squelette-dapplication">Génération du squelette d’application</a>    <ul>
+      <li><a href="#modules-spring-native" id="markdown-toc-modules-spring-native">Modules Spring Native</a></li>
+      <li><a href="#remarques" id="markdown-toc-remarques">Remarques</a></li>
+    </ul>
+  </li>
+  <li><a href="#ajout-dun-controller-web" id="markdown-toc-ajout-dun-controller-web">Ajout d’un Controller Web</a></li>
+  <li><a href="#compilation-en-code-natif" id="markdown-toc-compilation-en-code-natif">Compilation en code natif</a>    <ul>
+      <li><a href="#utilisation-du-buildpack-spring-boot" id="markdown-toc-utilisation-du-buildpack-spring-boot">Utilisation du Buildpack Spring Boot</a>        <ul>
+          <li><a href="#pré-requis" id="markdown-toc-pré-requis">Pré-requis</a></li>
+          <li><a href="#compilation-en-mode-natif-avec-buildpacks" id="markdown-toc-compilation-en-mode-natif-avec-buildpacks">Compilation en mode natif avec Buildpacks</a></li>
+          <li><a href="#exécution-de-lapplication" id="markdown-toc-exécution-de-lapplication">Exécution de l’application</a></li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+  <li><a href="#conclusion" id="markdown-toc-conclusion">Conclusion</a></li>
+</ul>
+
+<hr class="hr-text" data-content="Installation" />
+
+<h2 id="configuration-requise-de-base">Configuration requise de base</h2>
+
+<p>Tout d’abord, vous devrez installer <a href="https://www.graalvm.org/" target="_blank" rel="noopener noreferrer nofollow">GraalVM</a> et ensuite son compilateur en code natif <code class="language-plaintext highlighter-rouge">native-image</code> :</p>
+
+<ul>
+  <li>
+    <p>Pour MacOS et Linux, il est recommandé d’installer ses JDKs avec <a href="https://sdkman.io/" target="_blank" rel="noopener noreferrer nofollow">SDKMAN</a>. Rien de compliqué : référez-vous à la <a href="https://sdkman.io/install" target="_blank" rel="noopener noreferrer nofollow">doc. officielle</a> ou bien retrouvez un précédent article sur cet outil <a href="/installer-java-sdkman/">Installer Java avec SDKMAN</a></p>
+  </li>
+  <li>
+    <p>Pour nos amis sur Windows, reportez-vous directement à la page <a href="https://www.graalvm.org/docs/getting-started/windows/" target="_blank" rel="noopener noreferrer nofollow">Installation on Windows Platforms</a></p>
+  </li>
+</ul>
+
+<hr class="hr-text" data-content="Squelette" />
+
+<h2 id="génération-du-squelette-dapplication">Génération du squelette d’application</h2>
+
+<p>L’arrivée de la version Beta implique que Spring Native est désormais supporté par <a href="https://start.spring.io" target="_blank" rel="noopener noreferrer nofollow">Spring Initializr</a>, une interface web qui permet de composer son application Spring puis de générer son squelette.</p>
+
+<p>Utilisons-la pour définir notre application démo :</p>
+<ul>
+  <li>Renseignez les métadonnées du projet</li>
+  <li>Sélectionnez la dépendance <code class="language-plaintext highlighter-rouge">Spring Native [Experimental]</code> pour bénéficier de la compilation native</li>
+  <li>Ajoutez la dépendance <code class="language-plaintext highlighter-rouge">Spring Web</code> dans le cadre de cette démo</li>
+  <li>Téléchargez le code généré en cliquant sur le bouton <code class="language-plaintext highlighter-rouge">Generate</code></li>
+</ul>
+
+<figure class="article">
+<p><img src="/assets/img/spring-initializr-demo.jpg" alt="Ecran Spring Initializr pour la démo" /></p>
+  <figcaption>Interface Spring Initializr pour l’application démo</figcaption>
+</figure>
+
+<h3 id="modules-spring-native">Modules Spring Native</h3>
+
+<p>Vous trouverez, dans le POM, la liste de modules Spring configurés en tant que dépendances Maven :</p>
+
+<ul>
+  <li>La dépendance <code class="language-plaintext highlighter-rouge">Spring Native</code> et sa version :</li>
+</ul>
+
+<figure class="highlight"><pre><code class="language-maven" data-lang="maven">&lt;properties&gt;
+&lt;java.version&gt;11&lt;/java.version&gt;
+&lt;spring-native.version&gt;0.9.1-SNAPSHOT&lt;/spring-native.version&gt;
+&lt;/properties&gt;
+.../...
+&lt;dependency&gt;
+  &lt;groupId&gt;org.springframework.experimental&lt;/groupId&gt;
+  &lt;artifactId&gt;spring-native&lt;/artifactId&gt;
+  &lt;version&gt;${spring-native.version}&lt;/version&gt;
+&lt;/dependency&gt;</code></pre></figure>
+
+<ul>
+  <li>Le plugin <code class="language-plaintext highlighter-rouge">Spring Boot Maven</code> et sa configuration pour exécuter le build d’une image native dans un conteneur <a href="https://buildpacks.io" target="_blank" rel="noopener noreferrer nofollow">Buildpacks</a> :</li>
+</ul>
+
+<figure class="highlight"><pre><code class="language-maven" data-lang="maven">&lt;plugin&gt;
+	&lt;groupId&gt;org.springframework.boot&lt;/groupId&gt;
+	&lt;artifactId&gt;spring-boot-maven-plugin&lt;/artifactId&gt;
+	&lt;configuration&gt;
+	  &lt;image&gt;
+	    &lt;builder&gt;paketobuildpacks/builder:tiny&lt;/builder&gt;
+	    &lt;env&gt;
+	      &lt;BP_NATIVE_IMAGE&gt;true&lt;/BP_NATIVE_IMAGE&gt;
+	    &lt;/env&gt;
+	  &lt;/image&gt;
+	&lt;/configuration&gt;
+&lt;/plugin&gt;</code></pre></figure>
+
+<ul>
+  <li>Le plugin <code class="language-plaintext highlighter-rouge">AOT Maven</code> qui sert à configurer Spring pour sa compilation <code class="language-plaintext highlighter-rouge">Ahead-Of-Time</code> ainsi qu’à générer du code pour la configuration et le classpath de l’application :</li>
+</ul>
+
+<figure class="highlight"><pre><code class="language-maven" data-lang="maven">&lt;plugin&gt;
+  &lt;groupId&gt;org.springframework.experimental&lt;/groupId&gt;
+  &lt;artifactId&gt;spring-aot-maven-plugin&lt;/artifactId&gt;
+  &lt;version&gt;${spring-native.version}&lt;/version&gt;
+  &lt;executions&gt;
+    &lt;execution&gt;
+      &lt;id&gt;test-generate&lt;/id&gt;
+      &lt;goals&gt;
+        &lt;goal&gt;test-generate&lt;/goal&gt;
+      &lt;/goals&gt;
+    &lt;/execution&gt;
+    &lt;execution&gt;
+      &lt;id&gt;generate&lt;/id&gt;
+      &lt;goals&gt;
+        &lt;goal&gt;generate&lt;/goal&gt;
+      &lt;/goals&gt;
+    &lt;/execution&gt;
+  &lt;/executions&gt;
+&lt;/plugin&gt;</code></pre></figure>
+
+<h3 id="remarques">Remarques</h3>
+
+<div class="premonition warning">
+  <i class="premonition pn-warn"></i>
+  <div class="content">
+    <p class="header">Dépendances non supportées</p><p>Au cas où vous sélectionneriez une dépendance Spring non encore supportée dans le mode natif, le fichier <code class="language-plaintext highlighter-rouge">HELP.md</code> contiendra un avertissement :</p>
+
+
+
+
+  </div>
+</div>
+
+<figure class="article">
+<p><img src="/assets/img/spring-initializr-help.jpg" alt="Avertissement Spring dans HELP.md" /></p>
+  <figcaption>Avertissement dans le fichier HELP.md</figcaption>
+</figure>
+
+<div class="premonition info">
+  <i class="premonition pn-info"></i>
+  <div class="content">
+    <p class="header">Dépendances supportées</p><ul>
+  <li>Dans le cas des dépendances supportées par Spring, l’initializr va configurer tous les plugins nécessaires pour que le build et l’exécution de l’application Spring fonctionnent <strong><em>out-of-the-box</em></strong> !</li>
+</ul>
+
+
+
+
+  </div>
+</div>
+
+<p>Dans l’exemple de <code class="language-plaintext highlighter-rouge">Spring Data JPA</code>, Maven sera configuré pour que les classes Hibernate soient compilées au moment du build de l’application et non pas lors de son runtime comme c’est le cas pour une JVM :</p>
+
+<figure class="highlight"><pre><code class="language-maven" data-lang="maven">&lt;plugin&gt;
+  &lt;groupId&gt;org.hibernate.orm.tooling&lt;/groupId&gt;
+  &lt;artifactId&gt;hibernate-enhance-maven-plugin&lt;/artifactId&gt;
+  &lt;version&gt;${hibernate.version}&lt;/version&gt;
+  &lt;executions&gt;
+    &lt;execution&gt;
+      &lt;id&gt;enhance&lt;/id&gt;
+      &lt;goals&gt;
+        &lt;goal&gt;enhance&lt;/goal&gt;
+      &lt;/goals&gt;
+      &lt;configuration&gt;
+        &lt;failOnError&gt;true&lt;/failOnError&gt;
+        &lt;enableLazyInitialization&gt;true&lt;/enableLazyInitialization&gt;
+        &lt;enableDirtyTracking&gt;true&lt;/enableDirtyTracking&gt;
+        &lt;enableAssociationManagement&gt;true&lt;/enableAssociationManagement&gt;
+        &lt;enableExtendedEnhancement&gt;false&lt;/enableExtendedEnhancement&gt;
+      &lt;/configuration&gt;
+    &lt;/execution&gt;
+  &lt;/executions&gt;
+&lt;/plugin&gt;</code></pre></figure>
+
+<p>Tout cela est très rassurant ! J’avais testé auparavant la version <code class="language-plaintext highlighter-rouge">0.7.1</code> de Spring Native (nommé spring-graalvm-native à l’époque) et il y avait alors beaucoup de modifications manuelles à apporter.</p>
+
+<div class="premonition note">
+  <i class="premonition pn-note"></i>
+  <div class="content">
+    <p class="header">But affiché de l'équipe en charge de Spring Native</p><ul>
+  <li>Fournir une <strong>configuration automatiquement</strong> afin qu’il n’y ait pas besoin de modifier le code Java, que l’application soit exécutée en mode natif ou dans une JVM.</li>
+  <li>Faire en sorte que les <strong>tests unitaires</strong> s’exécutent de la même façon dans une image native ou dans une JVM.</li>
+  <li>Réduire encore plus la taille de l’image native générée dans la prochaine version 0.10 de Spring Native.</li>
+</ul>
+
+
+
+
+  </div>
+</div>
+
+<hr class="hr-text" data-content="Implémentation de la démo" />
+
+<h2 id="ajout-dun-controller-web">Ajout d’un Controller Web</h2>
+
+<ul>
+  <li>
+    <p>Dézippez le fichier généré par <code class="language-plaintext highlighter-rouge">Spring Initializr</code> et ouvrez le répertoire avec votre IDE préféré.</p>
+  </li>
+  <li>
+    <p>Créez un nouveau Controller à la racine du package de votre projet avec le code ci-dessous :</p>
+  </li>
+</ul>
+
+<figure class="highlight"><pre><code class="language-java" data-lang="java"><div class="line-1"><span class="kn">package</span> <span class="nn">io.scalastic.demo.demo_spring_native</span><span class="o">;</span>
+</div><div class="line-2">
+</div><div class="line-3"><span class="kn">import</span> <span class="nn">org.springframework.web.bind.annotation.GetMapping</span><span class="o">;</span>
+</div><div class="line-4"><span class="kn">import</span> <span class="nn">org.springframework.web.bind.annotation.RestController</span><span class="o">;</span>
+</div><div class="line-5">
+</div><div class="line-6"><span class="nd">@RestController</span>
+</div><div class="line-7"><span class="kd">public</span> <span class="kd">class</span> <span class="nc">DemoSpringNativeController</span> <span class="o">{</span>
+</div><div class="line-8">
+</div><div class="line-9">    <span class="nd">@GetMapping</span><span class="o">(</span><span class="s">"/"</span><span class="o">)</span>
+</div><div class="line-10">    <span class="kd">public</span> <span class="nc">String</span> <span class="nf">hello</span><span class="o">()</span> <span class="o">{</span>
+</div><div class="line-11">        <span class="k">return</span> <span class="s">"Hello!"</span><span class="o">;</span>
+</div><div class="line-12">    <span class="o">}</span>
+</div><div class="line-13">
+</div><div class="line-14"><span class="o">}</span>
+</div></code></pre></figure>
+
+<figure class="article">
+<p><img src="/assets/img/spring-initializr-demo-intellij.png" alt="IntelliJ IDEA projet démo" /></p>
+  <figcaption>Le projet et son Controller dans IntelliJ IDEA</figcaption>
+</figure>
+
+<hr class="hr-text" data-content="Compilation" />
+
+<h2 id="compilation-en-code-natif">Compilation en code natif</h2>
+
+<p>Il existe deux façons de compiler une application Spring en code natif :</p>
+<ul>
+  <li>En utilisant le <a href="https://github.com/paketo-buildpacks/spring-boot" target="_blank" rel="noopener noreferrer nofollow">Buildpack Spring Boot</a> intégré à Spring et qui va produire un conteneur léger contenant le code natif de l’application</li>
+  <li>En utilisant le plugin Maven <a href="https://www.graalvm.org/reference-manual/native-image/NativeImageMavenPlugin/" target="_blank" rel="noopener noreferrer nofollow">native-image-maven-plugin</a> qui va produire un exécutable natif</li>
+</ul>
+
+<div class="premonition warning">
+  <i class="premonition pn-warn"></i>
+  <div class="content">
+    <p class="header">Remarque</p><p>La configuration Maven générée par Spring Initializr fait le choix de Buildpacks :</p>
+<ul>
+  <li>Nous n’aborderons par conséquent que cet aspect dans cet article.</li>
+  <li>Nous verrons le build natif à l’aide du plugin Maven <strong>native-image</strong> qui nécessite des modifications importantes du POM, dans un prochain article.</li>
+</ul>
+
+
+
+
+  </div>
+</div>
+
+<h3 id="utilisation-du-buildpack-spring-boot">Utilisation du Buildpack Spring Boot</h3>
+
+<p>Cette procédure permet d’obtenir un conteneur Docker qui contient l’application compilée en code natif. Il est léger et peut être déployé directement dans un orchestrateur de conteneurs.</p>
+
+<h4 id="pré-requis">Pré-requis</h4>
+
+<p><a href="https://www.docker.com" target="_blank" rel="noopener noreferrer nofollow">Docker</a> doit être installé afin de pouvoir lancer le <strong>Buildpack Spring Boot</strong>. C’est un conteneur qui contient tout le nécessaire pour builder une application Spring en code natif.</p>
+
+<ul>
+  <li>Vous pouvez installer <strong>Docker</strong> à partir de <a href="https://docs.docker.com/installation/#installation" target="_blank" rel="noopener noreferrer nofollow">Docker Installation</a></li>
+  <li>Pour MacOS, il est recommandé d’allouer au moins <strong>8Go</strong> de mémoire à Docker</li>
+  <li>Pour Windows, il faut activer <a href="https://docs.docker.com/docker-for-windows/wsl/" target="_blank" rel="noopener noreferrer nofollow">Docker WSL 2 Backend</a> pour avoir de meilleures performances</li>
+</ul>
+
+<h4 id="compilation-en-mode-natif-avec-buildpacks">Compilation en mode natif avec Buildpacks</h4>
+
+<ul>
+  <li>L’application native peut être compilée en lançant la commande suivante :</li>
+</ul>
+
+<figure class="highlight"><pre><code class="language-zsh" data-lang="zsh">% mvn spring-boot:build-image
+<span class="o">[</span>INFO] Scanning <span class="k">for </span>projects...
+<span class="o">[</span>INFO] 
+<span class="o">[</span>INFO] <span class="nt">----------------</span>&lt; io.scalastic.demo:demo_spring_native <span class="o">&gt;</span><span class="nt">----------------</span>
+<span class="o">[</span>INFO] Building demo_spring_native 0.0.1-SNAPSHOT
+<span class="o">[</span>INFO] <span class="nt">--------------------------------</span><span class="o">[</span> jar <span class="o">]</span><span class="nt">---------------------------------</span>
+<span class="o">[</span>INFO] 
+<span class="o">[</span>INFO] <span class="o">&gt;&gt;&gt;</span> spring-boot-maven-plugin:2.4.4:build-image <span class="o">(</span>default-cli<span class="o">)</span> <span class="o">&gt;</span> package @ demo_spring_native <span class="o">&gt;&gt;&gt;</span>
+<span class="o">[</span>INFO] 
+<span class="o">[</span>INFO] <span class="nt">---</span> maven-resources-plugin:3.2.0:resources <span class="o">(</span>default-resources<span class="o">)</span> @ demo_spring_native <span class="nt">---</span>
+
+<span class="o">[</span>.../...]
+
+<span class="o">[</span>INFO] Successfully built image <span class="s1">'docker.io/library/demo_spring_native:0.0.1-SNAPSHOT'</span>
+<span class="o">[</span>INFO] 
+<span class="o">[</span>INFO] <span class="nt">------------------------------------------------------------------------</span>
+<span class="o">[</span>INFO] BUILD SUCCESS
+<span class="o">[</span>INFO] <span class="nt">------------------------------------------------------------------------</span>
+<span class="o">[</span>INFO] Total <span class="nb">time</span>:  03:03 min
+<span class="o">[</span>INFO] Finished at: 2021-03-21T20:57:29+01:00
+<span class="o">[</span>INFO] <span class="nt">------------------------------------------------------------------------</span>
+
+Process finished with <span class="nb">exit </span>code 0</code></pre></figure>
+
+<p>Cette commande va créer, en local, un conteneur Linux pour compiler l’application native à partir du compilateur <code class="language-plaintext highlighter-rouge">native-image</code> de GraalVM.</p>
+
+<ul>
+  <li>Regardons les images présentes, dans le registre Docker local et qui viennent d’être mises en oeuvre dans ce build :</li>
+</ul>
+
+<figure class="highlight"><pre><code class="language-zsh" data-lang="zsh">% docker images
+REPOSITORY                 TAG              IMAGE ID       CREATED        SIZE
+paketobuildpacks/run       tiny-cnb         e85a0fe734d7   17 hours ago   17.3MB
+paketobuildpacks/builder   tiny             1cbb20e3de7e   41 years ago   401MB
+demo_spring_native         0.0.1-SNAPSHOT   a423116a12a8   41 years ago   81.9MB</code></pre></figure>
+
+<p>On constate que ce processus produit 3 images Docker :</p>
+<ul>
+  <li><strong>paketobuildpacks/run:tiny-cnb</strong> : Le <code class="language-plaintext highlighter-rouge">runner</code> basé sur <code class="language-plaintext highlighter-rouge">distroless</code> bionic + glibc + openssl + CA certs pour exécuter une application en code natif. C’est le conteneur de base servant à encapsuler une application en code natif.</li>
+  <li><strong>paketobuildpacks/builder:tiny</strong> : Le <code class="language-plaintext highlighter-rouge">builder</code> basé sur une stack <code class="language-plaintext highlighter-rouge">distroless</code> ubuntu:bionic + openssl + CA certs + compilers + shell utilities. C’est un Buildpack servant à compiler la plupart des applications en Go et les applications Java en code natif avec GraalVM.</li>
+  <li><strong>demo_spring_native:0.0.1-SNAPSHOT</strong> : L’application, en code natif, encapsulée dans un runner de base <code class="language-plaintext highlighter-rouge">distroless</code>.</li>
+</ul>
+
+<div class="premonition note">
+  <i class="premonition pn-note"></i>
+  <div class="content">
+    <p class="header">Pour aller plus loin</p><ul>
+  <li>Les images issues du Buildpack datent de 1980, du 1er janvier 1980 exactement ! C’est tout à fait voulu et l’explication se trouve là : <a href="https://medium.com/buildpacks/time-travel-with-pack-e0efd8bf05db" target="_blank" rel="noopener noreferrer nofollow">Time Travel with Pack</a></li>
+  <li>Les stacks <a href="https://github.com/GoogleContainerTools/distroless" target="_blank" rel="noopener noreferrer nofollow">Distroless</a> sont des images minimalistes, développées par Google et qui améliorent la sécurité et la taille des conteneurs en diminuant la surface des attaques et le nombre de composants qu’elles intègrent.</li>
+  <li>La notion de <a href="https://paketo.io/docs/stacks/#what-is-a-stack" target="_blank" rel="noopener noreferrer nofollow">Runner et Builder</a> dans les Buildpacks.</li>
+</ul>
+
+
+
+
+  </div>
+</div>
+
+<h4 id="exécution-de-lapplication">Exécution de l’application</h4>
+
+<ul>
+  <li>Pour démarrer l’application issue du Buildpack, tapez la commande suivante:</li>
+</ul>
+
+<figure class="highlight"><pre><code class="language-zsh" data-lang="zsh">% docker run <span class="nt">-p</span> 8080:8080 docker.io/library/demo_spring_native:0.0.1-SNAPSHOT
+2021-03-21 19:32:54.188  INFO 1 <span class="nt">---</span> <span class="o">[</span>           main] o.s.nativex.NativeListener               : This application is bootstrapped with code generated with Spring AOT
+
+  <span class="nb">.</span>   ____          _            __ _ _
+ /<span class="se">\\</span> / ___<span class="s1">'_ __ _ _(_)_ __  __ _ \ \ \ \
+( ( )\___ | '</span>_ | <span class="s1">'_| | '</span>_ <span class="se">\/</span> _<span class="sb">`</span> | <span class="se">\ \ \ \</span>
+ <span class="se">\\</span>/  ___<span class="o">)</span>| |_<span class="o">)</span>| | | | | <span class="o">||</span> <span class="o">(</span>_| |  <span class="o">)</span> <span class="o">)</span> <span class="o">)</span> <span class="o">)</span>
+  <span class="s1">'  |____| .__|_| |_|_| |_\__, | / / / /
+ =========|_|==============|___/=/_/_/_/
+ :: Spring Boot ::                (v2.4.4)
+
+2021-03-21 19:32:54.190  INFO 1 --- [           main] i.s.d.d.DemoSpringNativeApplication      : Starting DemoSpringNativeApplication using Java 11.0.10 on 91a2f0962a8e with PID 1 (/workspace/io.scalastic.demo.demo_spring_native.DemoSpringNativeApplication started by cnb in /workspace)
+2021-03-21 19:32:54.190  INFO 1 --- [           main] i.s.d.d.DemoSpringNativeApplication      : No active profile set, falling back to default profiles: default
+2021-03-21 19:32:54.218  INFO 1 --- [           main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+Mar 21, 2021 7:32:54 PM org.apache.coyote.AbstractProtocol init
+INFO: Initializing ProtocolHandler ["http-nio-8080"]
+Mar 21, 2021 7:32:54 PM org.apache.catalina.core.StandardService startInternal
+INFO: Starting service [Tomcat]
+Mar 21, 2021 7:32:54 PM org.apache.catalina.core.StandardEngine startInternal
+INFO: Starting Servlet engine: [Apache Tomcat/9.0.44]
+Mar 21, 2021 7:32:54 PM org.apache.catalina.core.ApplicationContext log
+INFO: Initializing Spring embedded WebApplicationContext
+2021-03-21 19:32:54.220  INFO 1 --- [           main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 29 ms
+2021-03-21 19:32:54.231  INFO 1 --- [           main] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService '</span>applicationTaskExecutor<span class="s1">'
+Mar 21, 2021 7:32:54 PM org.apache.coyote.AbstractProtocol start
+INFO: Starting ProtocolHandler ["http-nio-8080"]
+2021-03-21 19:32:54.240  INFO 1 --- [           main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
+2021-03-21 19:32:54.241  INFO 1 --- [           main] i.s.d.d.DemoSpringNativeApplication      : Started DemoSpringNativeApplication in 0.057 seconds (JVM running for 0.06)</span></code></pre></figure>
+
+<ul>
+  <li>Testez son fonctionnement avec :</li>
+</ul>
+
+<figure class="highlight"><pre><code class="language-zsh" data-lang="zsh">% curl http://127.0.0.1:8080
+Hello!</code></pre></figure>
+
+<p>Ca marche ! Magnifique !!</p>
+
+<div class="premonition info">
+  <i class="premonition pn-info"></i>
+  <div class="content">
+    <p class="header">Caractéristiques du Buildpacks</p><ul>
+  <li>La compilation dure 3 min (avec les images Docker et les artefacts Maven en local)</li>
+  <li>L’application démarre en 0.06 s</li>
+  <li>L’image Docker contenant l’application Spring et l’OS, fait une taille de 82 Mo</li>
+</ul>
+
+
+
+
+  </div>
+</div>
+
+<hr class="hr-text" data-content="Conclusion" />
+
+<h2 id="conclusion">Conclusion</h2>
+
+<ul>
+  <li>La version <strong>Spring Native 0.9.0</strong> nous a permis de compiler facilement une application Spring en mode natif.</li>
+  <li>Comme attendu, les bénéfices du mode natif sont un démarrage instantané et une taille de conteneur fortement réduite.</li>
+</ul>
+
+<p>Points intéressants, cela engendre de nouvelles utilisations :</p>
+<ul>
+  <li>la gestion du <strong>High Availability</strong> peut se faire avec une seule instance, le démarrage d’une seconde étant instantanée.</li>
+  <li>le démarrage instantané permet aussi à une application web d’être serverless, sans avoir besoin d’être redéveloppée.</li>
+  <li>Avec Knative (un redesign de Kubernetes qui démarre des conteneurs serverless), GraalVM Native est une solution très bien adaptée.</li>
+</ul>
+
+<p>Spring Native sera, à terme, intégré dans <strong>Spring Boot 3</strong> et <strong>Spring Framework 6</strong>, le but étant de spécifier uniquement dans le build Maven ou Graddle, la cible attendue (native ou autre). Le travail restant consiste à optimiser la taille du code natif générée, prendre en compte plus d’APIs Spring et améliorer l’exécution des tests dans l’image native (JUnit 5,…)</p>
+
+<p>A suivre de près donc !</p>
+
+<div class="article-navigation"><a class="prev" rel="prev" href="/graalvm-microservices-java/">
+					<div class="article-nav article-nav-prev">
+						<i class="fas fa-angle-double-left"></i> Article Précédent
+						<h4 class="article-nav-title">GraalVM, le futur des applications microservices en Java</h4>
+					</div>
+				</a></div>
+
+<p>Cheers…</p>
+
+<div class="premonition info">
+  <i class="premonition pn-info"></i>
+  <div class="content">
+    <p class="header">Et maintenant</p><ul>
+  <li>Vous avez aimé cet article ? Dites-le ci-dessous afin que le blog gagne en visibilité.</li>
+  <li>Vous avez une question ? Posez-la en commentaire, je m’efforcerai d’y répondre dans les plus brefs délais !!</li>
+</ul>
+
+<p>Merci à vous !</p>
+
+
+
+
+  </div>
+</div>
+
+      <div class="page-footer">
+        <div class="page-share">
+          <a href="https://twitter.com/intent/tweet?text=Compiler une application Spring en natif avec GraalVM&url=https://scalastic.io/spring-natif-graalvm/" title="Share on Twitter" rel="nofollow" target="_blank"><i class="fa fa-twitter" aria-hidden="true"></i>&nbsp;Twitter</a>
+          <a href="https://www.linkedin.com/sharing/share-offsite/?url=https://scalastic.io/spring-natif-graalvm/" title="Share on LinkedIn" rel="nofollow" target="_blank"><i class="fa fa-linkedin" aria-hidden="true"></i>&nbsp;LinkedIn</a>
+        </div>
+        <div class="page-tag">
+          
+            <a href="/tags#Spring-Native" class="tag" rel="tag">&#35; Spring-Native</a>
+          
+            <a href="/tags#GraalVM" class="tag" rel="tag">&#35; GraalVM</a>
+          
+            <a href="/tags#Spring" class="tag" rel="tag">&#35; Spring</a>
+          
+            <a href="/tags#Docker" class="tag" rel="tag">&#35; Docker</a>
+          
+            <a href="/tags#Tutorial" class="tag" rel="tag">&#35; Tutorial</a>
+          
+        </div>
+      </div>
+      
+
+
+
+
+  
+  
+  
+  
+    
+    <div class="page-recomm">
+    <h3>Articles associés</h3>
+    
+    <a class="recomm" href="/jvm-vs-native/">
+      <div class="recomm">
+        <h5>JVM vs Native - Une réelle comparaison des performances</h5>
+        <img width="100%" src="/assets/img/jvm-vs-native.jpg" alt="JVM vs Native - Une réelle comparaison des performances">
+      </div>
+    </a>
+    
+    
+  
+
+  
+  
+  
+  
+    
+    <a class="recomm" href="/install-kubernetes-prometheus-grafana/">
+      <div class="recomm">
+        <h5>Installez Kubernetes, Prometheus et Grafana en local</h5>
+        <img width="100%" src="/assets/img/install-kubernetes.jpg" alt="Installez Kubernetes, Prometheus et Grafana en local">
+      </div>
+    </a>
+    
+    
+  
+
+  
+  
+  
+  
+    
+    <a class="recomm" href="/dive-image-docker/">
+      <div class="recomm">
+        <h5>Dive, une plongée dans les images Docker</h5>
+        <img width="100%" src="/assets/img/dive-image-docker.jpg" alt="Dive, une plongée dans les images Docker">
+      </div>
+    </a>
+    
+    
+  
+
+  
+  
+  
+  
+
+  
+  
+  
+  
+    
+    <a class="recomm" href="/installer-java-sdkman/">
+      <div class="recomm">
+        <h5>Installer Java avec SDKMAN</h5>
+        <img width="100%" src="/assets/img/sdkman-post.jpg" alt="Installer Java avec SDKMAN">
+      </div>
+    </a>
+    
+    
+    </div>
+      
+
+      
+<div class="comment-area">
+  <div class="comment-wrapper">
+    <h3>Commentaires</h3>
+    
+    <div id="disqus_thread" class="article-comments"></div>
+    <script>
+      function loadDisqusOnConsent() {
+        var disqus_config = function () {
+          this.page.url = "https://scalastic.io/spring-natif-graalvm/";  /* Replace PAGE_URL with your page's canonical URL variable */
+          this.page.identifier = "/spring-natif-graalvm/"; /* Replace PAGE_IDENTIFIER with your page's unique identifier variable */
+        };
+        (function() {
+            var d = document, s = d.createElement('script');
+            s.src = '//scalastic.disqus.com/embed.js';
+            s.setAttribute('data-timestamp', +new Date());
+            (d.head || d.body).appendChild(s);
+        })();
+      };
+      function activateCookie() {
+        document.querySelector('.cc-btn.cc-allow').click();
+      };
+      var container_disqus = document.getElementById('disqus_thread');
+      var disqus_display = container_disqus.getElementsByTagName('div').length == 0;
+      if (disqus_display) {
+
+        document.getElementById('disqus_thread').innerHTML += '<div class="premonition error"><i class="premonition pn-error"></i><div class="content"><p class="header">Note</p><p>Les commentaires Disqus ont été désactivés car ils ne peuvent pas fonctionner sans cookie.</p><p>Pour réactiver les commentaires et les cookies, cliquez sur <a href="javascript:activateCookie()">Autoriser les cookies</a></p></div></div>';
+      };
+
+    </script>
+    <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+    
+  </div>
+</div> <!-- End Comment Area -->
+
+
+    </div> <!-- End Wrap Content -->
+  </div> <!-- End Page Content -->
+</article> <!-- End Article Page -->
+
+</div>
+
+    </div>
+
+    <script src="https://scalastic.io/cookieconsent.min.js" data-cfasync="false"></script>
+    <script>
+  function loadGAonConsent() {
+    window._gaq = window._gaq || [];
+    _gaq.push(['_setAccount', 'UA-63884203-1']);
+    
+    _gaq.push(['_trackPageview']);
+
+    (function() {
+      var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+      ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+    })();
+  }
+</script>
+    <script src="https://scalastic.io/cookie-consent.js"></script>
+
+  </body>
+</html>

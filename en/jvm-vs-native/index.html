@@ -1,0 +1,1185 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta name="generator" content="Jekyll 🎩" >
+  <meta charset="utf-8" >
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" >
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" >
+
+  <meta http-equiv="Content-Language" content="en" >
+  <meta property="og:locale" content="en_US" >
+  <meta name="language" content="en" >
+
+  <title itemprop="name">JVM vs Native - An effective comparison of performances | Scalastic DevOps</title>
+  <meta property="og:title" content="JVM vs Native - An effective comparison of performances" >
+  <meta name="twitter:title" content="JVM vs Native - An effective comparison of performances" >
+  <meta itemprop="name" content="JVM vs Native - An effective comparison of performances" >
+  <meta name="application-name" content="JVM vs Native - An effective comparison of performances" >
+
+  <meta name="description" content="How to actually compare running Java Applications between its JVM and native versions - A complete guide built from Java Spring Boot, Spring Native, WebFlux, Docker, Kubernetes, Prometheus, and Grafana" >
+  <meta itemprop="description" content="How to actually compare running Java Applications between its JVM and native versions - A complete guide built from Java Spring Boot, Spring Native, WebFlux, Docker, Kubernetes, Prometheus, and Grafana" >
+  <meta property="og:description" content="How to actually compare running Java Applications between its JVM and native versions - A complete guide built from Java Spring Boot, Spring Native, WebFlux, Docker, Kubernetes, Prometheus, and Grafana" >
+  <meta name="twitter:description" content="How to actually compare running Java Applications between its JVM and native versions - A complete guide built from Java Spring Boot, Spring Native, WebFlux, Docker, Kubernetes, Prometheus, and Grafana" >
+
+  <link rel="canonical" href="https://scalastic.io/en/jvm-vs-native/" itemprop="url" >
+  <meta name="url" content="https://scalastic.io/en/jvm-vs-native/" >
+  <meta property="og:url" content="https://scalastic.io/en/jvm-vs-native/" >
+  <meta name="twitter:url" content="https://scalastic.io/en/jvm-vs-native/" > 
+  <link rel="alternate" hreflang="fr" href="https://scalastic.io/jvm-vs-native/" >
+  <link rel="alternate" hreflang="en" href="https://scalastic.io/en/jvm-vs-native/" >
+
+  
+  <meta itemprop="image" content="https://scalastic.io/assets/img/jvm-vs-native.jpg" >
+  <meta property="og:image" content="https://scalastic.io/assets/img/jvm-vs-native.jpg" > 
+  <meta name="twitter:image" content="https://scalastic.io/assets/img/jvm-vs-native.jpg" >
+  <meta name="twitter:image:src" content="https://scalastic.io/assets/img/jvm-vs-native.jpg" > 
+  
+
+  <meta name="twitter:card" content="summary" >
+  <meta property="og:site_name" content="Scalastic DevOps" >
+  <meta name="author" content="Jean-Jerome Levy" >
+  <link rel="sitemap" type="application/xml" title="Sitemap" href="https://scalastic.io/en/sitemap.xml" > 
+
+  <!-- @TODO : link pagination-->
+  <!-- link rel="next" href="https://scalastic.io/en/page/2" / -->
+  
+  
+    
+      <meta property="og:type" content="article" >
+<meta property="article:publisher" content="Jean-Jerome Levy" >
+<meta property="og:article:author" content="Jean-Jerome Levy" >
+<meta property="article:author" content="Jean-Jerome Levy" > 
+<meta name="author" content="Jean-Jerome Levy"> 
+<meta property="article:published_time" content="2021-04-22T21:00:00+02:00" >
+<meta property="og:article:published_time" content="2021-04-22T21:00:00+02:00" > 
+
+
+<meta property="article:modified_time" content="2021-05-01T11:10:10+02:00" >
+<meta property="og:updated_time" content="2021-05-01T11:10:10+02:00" >
+
+
+
+<meta name="keywords" content="Spring-Boot, Spring-Native, Spring-WebFlux, GraalVM, Docker, Kubernetes, Prometheus, Grafana, Micoservices" >
+
+<meta property="article:tag" content="Spring-Boot" >
+
+<meta property="article:tag" content="Spring-Native" >
+
+<meta property="article:tag" content="Spring-WebFlux" >
+
+<meta property="article:tag" content="GraalVM" >
+
+<meta property="article:tag" content="Docker" >
+
+<meta property="article:tag" content="Kubernetes" >
+
+<meta property="article:tag" content="Prometheus" >
+
+<meta property="article:tag" content="Grafana" >
+
+<meta property="article:tag" content="Micoservices" >
+
+
+
+<script type="application/ld+json">
+{
+  "@context": "http://schema.org",
+  "@type": "BlogPosting",
+  "url": "https://scalastic.io/en/jvm-vs-native/",
+  "headline": "JVM vs Native - An effective comparison of performances",
+  "description": "How to actually compare running Java Applications between its JVM and native versions - A complete guide built from Java Spring Boot, Spring Native, WebFlux, Docker, Kubernetes, Prometheus, and Grafana",
+  "mainEntityOfPage":{
+    "@type": "WebPage",
+    "@id": "https://scalastic.io/en/jvm-vs-native/"
+  },
+  "image": [
+  
+    "https://scalastic.io/assets/img/jvm-vs-native.jpg"
+  
+  ],
+  "datePublished": "2021-04-22T21:00:00+02:00",
+  "dateModified": "2021-05-01T11:10:10+02:00",
+  "keywords": [ ["Spring-Boot", "Spring-Native", "Spring-WebFlux", "GraalVM", "Docker", "Kubernetes", "Prometheus", "Grafana", "Micoservices"] ],
+  "isAccessibleForFree": "True",
+  "isPartOf": {
+    "@type": ["CreativeWork", "Product", "WebSite"],
+    "name": "Scalastic",
+    "productID": "scalastic.io"
+  },
+  "inLanguage": "en-US",
+  "license": "https://creativecommons.org/licenses/by-nc-nd/4.0/",
+  "author": {
+    "@type": "Person",
+    "name": "Jean-Jerome Levy",
+    "description": "I am an independent DevOps consultant specializing in CI/CD, Docker/Kubernetes and Cloud",
+    "jobTitle": "DevOps Consultant",
+    "sameAs":[
+      "https://www.linkedin.com/in/jean-jerome-levy",
+      "https://github.com/jeanjerome",
+      "https://github.com/scalastic",
+      "https://hub.docker.com/u/jeanjerome"
+    ]
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Scalastic",
+    "description": "A company specializing in DevOps and Cloud",
+    "url": "https://scalastic.io",
+    "sameAs": [ "https://github.com/scalastic" ],
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://scalastic.io/assets/img/logo-scalastic.png"
+    }
+  }
+}
+</script>
+    
+  
+
+  <link rel="shortcut icon" href="/assets/img/favicon/favicon.ico" >
+  <link rel="icon" type="image/x-icon" sizes="16x16 32x32" href="/assets/img/favicon/favicon.ico" >
+  <link rel="apple-touch-icon" href="/assets/img/favicon/apple-touch-icon.png" >
+  <link rel="apple-touch-icon" sizes="72x72" href="/assets/img/favicon/apple-touch-icon-72x72.png" >
+  <link rel="apple-touch-icon" sizes="144x144" href="/assets/img/favicon/apple-touch-icon-144x144.png" >
+  <link rel="/assets/img/favicon/apple-touch-icon.png" >
+  <link rel="icon" sizes="72x72" href="/assets/img/favicon/apple-touch-icon-72x72.png" >
+  <link rel="icon" sizes="144x144" href="/assets/img/favicon/apple-touch-icon-144x144.png" >
+  
+  <meta name="robots" content="index,follow" > 
+  <meta name="googlebot" content="index,follow" >
+
+  <meta name="theme-color" content="#141414" > 
+  <meta name="msapplication-TileColor" content="#141414" >
+
+  <meta name="imagemode" content="force" >
+  <meta name="coverage" content="Worldwide" > 
+  <meta name="distribution" content="Global" >
+  <meta name="HandheldFriendly" content="True" > 
+  <meta name="msapplication-tap-highlight" content="no" >
+  <meta name="apple-mobile-web-app-title" content="Scalastic DevOps" > 
+  <meta name="apple-mobile-web-app-capable" content="yes" >
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" >
+  <meta name="apple-touch-fullscreen" content="yes" > 
+
+  <link href="https://fonts.googleapis.com/css?family=PT+Serif:400,700|Lato:300,400,700&display=swap" rel="stylesheet" >
+  <link rel="stylesheet" type="text/css" href="/assets/css/cookieconsent.min.css" >
+  <link rel="stylesheet" href="/assets/fonts/fontawesome/css/all.min.css" >
+  <link rel="stylesheet" href="/assets/css/main.css" >
+</head>
+
+  <body>
+
+    <div class="wrapper">
+      <aside class="sidebar">
+  <header>
+    <div class="about">
+      <div class="cover-company-image">
+        <a href="/en/"><img src="/assets/img/scalastic.png" alt="Scalastic"></a>
+      </div>
+      <div class="cover-author-image">
+        <a href="/en/"><img src="/assets/img/jean-jerome-levy.jpg" alt="Jean-Jerome Levy"></a>
+      </div>
+      <div class="author-name">Jean-Jerome Levy</div>
+      <p>Hello,<br> I am an independent DevOps consultant specializing in CI / CD, Docker / Kubernetes and Cloud.</p>
+      <p>I officiate in the company Scalastic.</p>
+      
+      
+      <a href="/jvm-vs-native/">🇫🇷 Version française</a>
+      
+      
+      
+      
+    </div>
+  </header>
+  <footer>
+    <section class="contact">
+      <h3 class="contact-title">Contact me</h3>
+      <ul>
+        
+        
+          <li class="github"><a href="http://github.com/jeanjerome" target="_blank" rel="noopener noreferrer nofollow"><i class="fab fa-github"></i></i></a></li>
+        
+        
+          <li class="linkedin"><a href="https://in.linkedin.com/in/jean-jerome-levy/" rel="noopener noreferrer nofollow" target="_blank"><i class="fab fa-linkedin-in"></i></i></a></li>
+        
+        
+          <li class="email"><a href="mailto:contact@scalastic.io"><i class="far fa-envelope"></i></i></a></li>
+        
+      </ul>
+    </section>
+    <section class="contact">
+      <ul>
+        <li><a href="/en/informations-légales/"><i class="fas fa-gavel"></i></a></li>
+        <li><a href="/en/sitemap.xml"><i class="fas fa-sitemap"></i></a></li>
+        <li><a href="https://github.com/scalastic/scalastic.github.io" target="_blank" rel="licence noopener noreferrer nofollow"><i class="fas fa-code"></i></a></li>
+      </ul>
+    </section>
+    <section class="copyright">
+      <p>2021 <a href="https://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank" rel="licence noopener noreferrer nofollow"><i class="fab fa-creative-commons"></i><i class="fab fa-creative-commons-by"></i><i class="fab fa-creative-commons-nc-eu"></i><i class="fab fa-creative-commons-nd"></i></a> Jean-Jérôme Lévy for Scalastic unless otherwise specified</p>
+    </section>
+  </footer> 
+</aside>
+<div class="content-box clearfix">
+  <article class="article-page">
+  <div class="page-content">
+    
+    <div class="page-cover-image">
+      <figure>
+        <img class="page-image" src=/assets/img/jvm-vs-native.jpg alt="JVM vs Native - An effective comparison of performances">
+        
+          <figcaption>Photo by <a href="https://unsplash.com/@jtylernix?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Tyler Nix</a> on <a href="https://unsplash.com/s/photos/surf?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Unsplash</a></figcaption>
+        
+      </figure>
+    </div> <!-- End Page Cover Image -->
+    
+    <div class="wrap-content">
+      <header class="page-header">
+        <h1 class="page-title">JVM vs Native - An effective comparison of performances</h1>
+        <div class="page-metadata">
+          <ul>
+            <li><i class="far fa-calendar-alt"></i> April 22, 2021</li>
+            <li><i class="far fa-clock"></i> 13 minutes</li>
+            <li><i class="fas fa-tags"></i>
+              
+              <a href="/en/tags/#Spring-Boot">Spring-Boot</a>, 
+              
+              <a href="/en/tags/#Spring-Native">Spring-Native</a>, 
+              
+              <a href="/en/tags/#Spring-WebFlux">Spring-WebFlux</a>, 
+              
+              <a href="/en/tags/#GraalVM">GraalVM</a>, 
+              
+              <a href="/en/tags/#Docker">Docker</a>, 
+              
+              <a href="/en/tags/#Kubernetes">Kubernetes</a>, 
+              
+              <a href="/en/tags/#Prometheus">Prometheus</a>, 
+              
+              <a href="/en/tags/#Grafana">Grafana</a>, 
+              
+              <a href="/en/tags/#Micoservices">Micoservices</a>
+              
+            </li>
+          </ul>
+        </div>
+      </header>
+      <p>To compare the execution of a Java application between its Bytecode (JVM) and native (GraalVM) versions, you must first decide on its architecture and the framewoks to use. Secondly, we must also ask ourselves what we are going to measure.</p>
+
+<p>Recently, I came across a very interesting course, <a href="https://github.com/jpetazzo/container.training" target="_blank" rel="noopener noreferrer nofollow">containers and orchestration</a>, by Jérôme Petazzoni . It uses different Python and Ruby applications which interact by means of Docker containers. They act as a mesh of microservices. The efficiency of the system is measured by the number of treatments performed per second.</p>
+
+<p>It seemed like a good example to serve as a basis for this comparison by:</p>
+<ul>
+  <li>Transposing the code into Java language under the Spring Boot / WebFlux frameworks and using Spring Native for the build in Bytecode or in native,</li>
+  <li>Playing on the number of containers in order to vary the load of the system.</li>
+</ul>
+
+<p>Let’s see this in detail.</p>
+
+<div class="premonition info">
+  <i class="premonition pn-info"></i>
+  <div class="content">
+    <p class="header">Source code</p><p>All sources are kept at <a href="https://github.com/scalastic/hotspot-vs-native" target="_blank" rel="noopener noreferrer nofollow">https://github.com/scalastic/hotspot-vs-native</a></p>
+
+
+
+
+  </div>
+</div>
+
+<hr class="hr-text" data-content="Contents" />
+
+<ul id="markdown-toc">
+  <li><a href="#requirements" id="markdown-toc-requirements">Requirements</a></li>
+  <li><a href="#application-architecture" id="markdown-toc-application-architecture">Application Architecture</a></li>
+  <li><a href="#build-the-app" id="markdown-toc-build-the-app">Build the app</a>    <ul>
+      <li><a href="#requirements-for-the-build" id="markdown-toc-requirements-for-the-build">Requirements for the build</a></li>
+      <li><a href="#the-easy-way" id="markdown-toc-the-easy-way">The easy way</a></li>
+      <li><a href="#summary-of-executed-commands" id="markdown-toc-summary-of-executed-commands">Summary of executed commands</a></li>
+      <li><a href="#from-docker-hub" id="markdown-toc-from-docker-hub">From Docker Hub</a></li>
+      <li><a href="#check" id="markdown-toc-check">Check</a></li>
+    </ul>
+  </li>
+  <li><a href="#kubernetes-configuration" id="markdown-toc-kubernetes-configuration">Kubernetes configuration</a>    <ul>
+      <li><a href="#kubernetes-stack-architecture" id="markdown-toc-kubernetes-stack-architecture">Kubernetes Stack Architecture</a></li>
+    </ul>
+  </li>
+  <li><a href="#grafana-configuration" id="markdown-toc-grafana-configuration">Grafana configuration</a>    <ul>
+      <li><a href="#data-source-configuration" id="markdown-toc-data-source-configuration">Data source configuration</a></li>
+      <li><a href="#dashboard-configuration" id="markdown-toc-dashboard-configuration">Dashboard configuration</a></li>
+      <li><a href="#description-of-the-demo-dashboard" id="markdown-toc-description-of-the-demo-dashboard">Description of the Demo Dashboard</a></li>
+    </ul>
+  </li>
+  <li><a href="#starting-the-application" id="markdown-toc-starting-the-application">Starting the application</a></li>
+  <li><a href="#play-with-kubernetes-configuration" id="markdown-toc-play-with-kubernetes-configuration">Play with Kubernetes configuration</a>    <ul>
+      <li><a href="#overview" id="markdown-toc-overview">Overview</a></li>
+      <li><a href="#increase-pods-number" id="markdown-toc-increase-pods-number">Increase pods’ number</a></li>
+      <li><a href="#impact-on-the-application" id="markdown-toc-impact-on-the-application">Impact on the application</a></li>
+      <li><a href="#further-increase-the-number-of-pods" id="markdown-toc-further-increase-the-number-of-pods">Further increase the number of pods</a></li>
+      <li><a href="#lets-deploy-the-native-version-of-the-application" id="markdown-toc-lets-deploy-the-native-version-of-the-application">Let’s deploy the native version of the application</a></li>
+    </ul>
+  </li>
+  <li><a href="#clean-all" id="markdown-toc-clean-all">Clean all</a></li>
+  <li><a href="#conclusion" id="markdown-toc-conclusion">Conclusion</a></li>
+  <li><a href="#what-next" id="markdown-toc-what-next">What next?</a>    <ul>
+      <li><a href="#what-is-missing-for-a-more-realistic-evaluation" id="markdown-toc-what-is-missing-for-a-more-realistic-evaluation">What is missing for a more realistic evaluation?</a></li>
+      <li><a href="#useful-links" id="markdown-toc-useful-links">Useful links</a></li>
+    </ul>
+  </li>
+</ul>
+
+<hr class="hr-text" data-content="Demonstration" />
+
+<h3 id="requirements">Requirements</h3>
+
+<p>To implement this solution, we will need:</p>
+<ol>
+  <li>A <strong>Kubernetes</strong> cluster to run our containers,</li>
+  <li>Different <strong>processing measurements</strong> from microservices</li>
+  <li><strong>Prometheus</strong> and <strong>Grafana</strong> to collect and display these measurements,</li>
+  <li>A Java application compilable in <strong>Bytecode</strong> and <strong>native</strong></li>
+</ol>
+
+<p>Well, that’s not much and it already exists:</p>
+
+<ul>
+  <li>In a previous article, I explain how to install a complete Kubernetes, Prometheus and Grafana stack - <a href="/en/install-kubernetes-prometheus-grafana/">Locally install Kubernetes, Prometheus, and Grafana</a>,</li>
+  <li>By integrating <strong>Micrometer</strong> with a Java <strong>Spring Boot</strong> application, it is possible to expose the measurements of its services - <a href="https://github.com/scalastic/hotspot-vs-native/blob/main/hasher-java/src/main/java/io/scalastic/jvmvsnative/hasher/" target="_blank" rel="noopener noreferrer nofollow">HasherHandler.java</a>,</li>
+  <li>For a Python application, the <strong>prometheus_client</strong> library also allows to expose measurements - <a href="https://github.com/scalastic/hotspot-vs-native/blob/main/worker/worker.py" target="_blank" rel="noopener noreferrer nofollow">worker.py</a>,</li>
+  <li>By configuring the Maven POM with the <code class="language-plaintext highlighter-rouge">org.springframework.experimental:spring-native</code> dependency, it is possible to compile the application in Bytecode as well as in native.</li>
+</ul>
+
+<div class="premonition info">
+  <i class="premonition pn-info"></i>
+  <div class="content">
+    <p class="header">Spring version</p>
+<p>These are the latest versions of <strong>Spring Experimental</strong> that will be used to develop our Java microservices. Indeed, they continuously correct and improve the bugs and the performance of the native build. But keep in mind that these are beta versions:</p>
+<ul>
+  <li>Spring <code class="language-plaintext highlighter-rouge">2.5.0-RC1</code></li>
+  <li>Spring Native <code class="language-plaintext highlighter-rouge">0.10.0-SNAPSHOT</code></li>
+</ul>
+
+
+
+
+  </div>
+</div>
+
+<hr class="hr-text" data-content="Application Architecture" />
+
+<h2 id="application-architecture">Application Architecture</h2>
+
+<p>Let’s see what the application is made of:</p>
+
+<figure class="article">
+<p><img src="/assets/img/application-architecture.jpg" alt="Demo application architecture" /></p>
+  <figcaption>Demo application architecture</figcaption>
+</figure>
+
+<p>The application is made up of 4 microservices:</p>
+<ol>
+  <li><code class="language-plaintext highlighter-rouge">worker</code>: the algorithm orchestrator [<strong><em>Python</em></strong>] which gets <code class="language-plaintext highlighter-rouge">1</code> a random number, <code class="language-plaintext highlighter-rouge">2</code> hash it and <code class="language-plaintext highlighter-rouge">3</code> increment a counter in the redis database,</li>
+  <li><code class="language-plaintext highlighter-rouge">rng</code>: the random number generator [<strong><em>Java</em></strong>],</li>
+  <li><code class="language-plaintext highlighter-rouge">hasher</code>: the hash processor [<strong><em>Java</em></strong>],</li>
+  <li><code class="language-plaintext highlighter-rouge">redis</code>: the database which records a processing cycle counter.</li>
+</ol>
+
+<hr class="hr-text" data-content="Build" />
+
+<h2 id="build-the-app">Build the app</h2>
+
+<p>The purpose of the compilation is to produce one Docker image by microservice. For Java microservices, there will be two images, the first in <strong>Bytecode</strong>, the second in <strong>native</strong>.</p>
+
+<div class="premonition note">
+  <i class="premonition pn-note"></i>
+  <div class="content">
+    <p class="header">Optional</p>
+<p>I have put these images in a public registry on <a href="https://hub.docker.com/orgs/scalastic" target="_blank" rel="noopener noreferrer nofollow">Docker Hub</a>, so you can skip this build step.</p>
+
+
+
+
+  </div>
+</div>
+
+<h3 id="requirements-for-the-build">Requirements for the build</h3>
+
+<p>However, if you want to create these Docker images, you will need to install:</p>
+<ul>
+  <li><a href="https://www.graalvm.org/docs/getting-started/#install-graalvm" target="_blank" rel="noopener noreferrer nofollow">GraalVM 21.1.0 Java 11 based</a></li>
+  <li><a href="https://www.graalvm.org/docs/getting-started/#native-images" target="_blank" rel="noopener noreferrer nofollow">GraalVM Native Images</a></li>
+  <li><a href="https://www.docker.com/products/docker-desktop" target="_blank" rel="noopener noreferrer nofollow">Docker</a></li>
+</ul>
+
+<h3 id="the-easy-way">The easy way</h3>
+
+<div class="premonition warning">
+  <i class="premonition pn-warn"></i>
+  <div class="content">
+    <p class="header">Note</p><ul>
+  <li>It should work on <strong>Linux</strong> and <strong>macOS</strong> based systems - *and on <strong>Windows</strong> with some small modifications</li>
+  <li>It will take time……. 10-20 min depending on your internet connection and processor! That’s the price to compile to native code.</li>
+</ul>
+
+
+
+
+  </div>
+</div>
+
+<p>To do so, execute this script in the project root:</p>
+
+<figure class="highlight"><pre><code class="language-bash" data-lang="bash">./build_docker_images.sh</code></pre></figure>
+
+<h3 id="summary-of-executed-commands">Summary of executed commands</h3>
+
+<ul>
+  <li>For a <strong>non-java</strong> app:</li>
+</ul>
+
+<figure class="highlight"><pre><code class="language-bash" data-lang="bash">docker build <span class="nt">-t</span> &lt;app_docker_tag&gt; ./&lt;app_dir&gt;</code></pre></figure>
+
+<ul>
+  <li>For <strong>JVM-based</strong> image:</li>
+</ul>
+
+<figure class="highlight"><pre><code class="language-bash" data-lang="bash"><span class="nb">cd</span> &lt;app_dir&gt;
+mvn clean package
+docker build <span class="nt">-t</span> &lt;app_docker_tag&gt; .</code></pre></figure>
+
+<ul>
+  <li>For a <strong>Java native</strong> image:</li>
+</ul>
+
+<figure class="highlight"><pre><code class="language-bash" data-lang="bash"><span class="nb">cd</span> &lt;app_dir&gt;
+mvn spring-boot:build-image</code></pre></figure>
+
+<h3 id="from-docker-hub">From Docker Hub</h3>
+
+<p>You can pull pre-build images from Docker Hub by entering:</p>
+
+<figure class="highlight"><pre><code class="language-bash" data-lang="bash">docker pull jeanjerome/rng-jvm:1.0.0
+docker pull jeanjerome/hasher-jvm:1.0.0
+docker pull jeanjerome/worker-python:1.0.0
+docker pull jeanjerome/rng-native:1.0.0
+docker pull jeanjerome/hasher-native:1.0.0</code></pre></figure>
+
+<h3 id="check">Check</h3>
+
+<p>To list your local docker images, enter:</p>
+
+<figure class="highlight"><pre><code class="language-bash" data-lang="bash">docker images</code></pre></figure>
+
+<p>At least, you should see these images in your local registry:</p>
+
+<figure class="highlight"><pre><code class="language-bash" data-lang="bash">REPOSITORY                TAG        IMAGE ID       CREATED             SIZE
+rng-jvm                   1.0.0      f4bfdacdd2a1   4 minutes ago       242MB
+hasher-jvm                1.0.0      ab3600420eab   11 minutes ago      242MB
+worker-python             1.0.0      e2e76d5f8ad4   38 hours ago        55MB
+hasher-native             1.0.0      629bf3cb8760   41 years ago        82.2MB
+rng-native                1.0.0      68e484d391f3   41 years ago        82.2MB</code></pre></figure>
+
+<div class="premonition info">
+  <i class="premonition pn-info"></i>
+  <div class="content">
+    <p class="header">Note</p>
+<p>Created time of native images seems inaccurate. It’s not, the explanation is here: 
+<a href="https://medium.com/buildpacks/time-travel-with-pack-e0efd8bf05db" target="_blank" rel="noopener noreferrer nofollow">Time Travel with Pack</a></p>
+
+
+
+
+  </div>
+</div>
+
+<hr class="hr-text" data-content="Kubernetes" />
+
+<h2 id="kubernetes-configuration">Kubernetes configuration</h2>
+
+<p>First, we need to define the kubernetes configuration of our application and tell Prometheus where to find the metrics.</p>
+
+<h3 id="kubernetes-stack-architecture">Kubernetes Stack Architecture</h3>
+
+<p>Let’s see how to install these microservices in our kubernetes cluster:</p>
+<ul>
+  <li>The architecture of the application is deployed in a dedicated namespace, <code class="language-plaintext highlighter-rouge">demo</code>,</li>
+  <li>The monitoring tools are in another namespace called <code class="language-plaintext highlighter-rouge">monitoring</code>.</li>
+</ul>
+
+<figure class="article">
+<p><img src="/assets/img/kubernetes-architecture.jpg" alt="Our Kubernetes cluster architecture" /></p>
+  <figcaption>Our Kubernetes cluster architecture</figcaption>
+</figure>
+
+<ol>
+  <li>We want to manage the number of <del>containers</del> - pods in this case - for each microservice,</li>
+  <li>
+    <p>We also want to be able to change the pod image (Bytecode or native) without needing to redeploy everything.</p>
+
+    <p>=&gt; Such Kubernetes resource already exists, <a href="https://kubernetes.io/docs/concepts/workloads/controllers/deployment/" target="_blank" rel="noopener noreferrer nofollow">Deployment</a></p>
+  </li>
+  <li>
+    <p>We need our microservices to communicate with each other in the Kubernetes cluster.</p>
+
+    <p>=&gt; This is the job of the resource <a href="https://kubernetes.io/docs/concepts/services-networking/" target="_blank" rel="noopener noreferrer nofollow">Service</a>.</p>
+  </li>
+  <li>
+    <p>The Redis database does not need to be accessible from outside, only from inside the cluster.</p>
+
+    <p>=&gt; This is already the case because, by default, Kubernetes Services are of type <a href="https://kubernetes.io/docs/concepts/services-networking/service/" target="_blank" rel="noopener noreferrer nofollow">ClusterIP</a>.</p>
+  </li>
+  <li>
+    <p>We want application metrics to be collected by Prometheus.</p>
+
+    <p>=&gt; Here is <a href="https://developer.ibm.com/technologies/containers/tutorials/monitoring-kubernetes-prometheus/" target="_blank" rel="noopener noreferrer nofollow">how to configure it</a></p>
+  </li>
+</ol>
+
+<p>Take a look at the Hasher microservice configuration below:</p>
+<details>
+<summary>Kubernetes configuration of Hasher microservices</summary>
+
+
+<figure class="highlight"><pre><code class="language-yaml" data-lang="yaml"><span class="na">apiVersion</span><span class="pi">:</span> <span class="s">apps/v1</span>
+<span class="na">kind</span><span class="pi">:</span> <span class="s">Deployment</span>
+<span class="na">metadata</span><span class="pi">:</span>
+  <span class="na">name</span><span class="pi">:</span> <span class="s">hasher</span>
+  <span class="na">namespace</span><span class="pi">:</span> <span class="s">demo</span>
+  <span class="na">labels</span><span class="pi">:</span>
+    <span class="na">app</span><span class="pi">:</span> <span class="s">hasher</span>
+<span class="na">spec</span><span class="pi">:</span>
+  <span class="na">replicas</span><span class="pi">:</span> <span class="m">1</span>
+  <span class="na">selector</span><span class="pi">:</span>
+    <span class="na">matchLabels</span><span class="pi">:</span>
+      <span class="na">app</span><span class="pi">:</span> <span class="s">hasher</span>
+  <span class="na">template</span><span class="pi">:</span>
+    <span class="na">metadata</span><span class="pi">:</span>
+      <span class="na">name</span><span class="pi">:</span> <span class="s">hasher</span>
+      <span class="na">labels</span><span class="pi">:</span>
+        <span class="na">app</span><span class="pi">:</span> <span class="s">hasher</span>
+    <span class="na">spec</span><span class="pi">:</span>
+      <span class="na">containers</span><span class="pi">:</span>
+        <span class="pi">-</span> <span class="na">image</span><span class="pi">:</span> <span class="s">hasher-jvm:1.0.0</span>
+          <span class="na">imagePullPolicy</span><span class="pi">:</span> <span class="s">IfNotPresent</span>
+          <span class="na">name</span><span class="pi">:</span> <span class="s">hasher</span>
+          <span class="na">ports</span><span class="pi">:</span>
+            <span class="pi">-</span> <span class="na">containerPort</span><span class="pi">:</span> <span class="m">8080</span>
+              <span class="na">name</span><span class="pi">:</span> <span class="s">http-hasher</span>
+              <span class="na">protocol</span><span class="pi">:</span> <span class="s">TCP</span>
+          <span class="na">readinessProbe</span><span class="pi">:</span>
+            <span class="na">failureThreshold</span><span class="pi">:</span> <span class="m">3</span>
+            <span class="na">httpGet</span><span class="pi">:</span>
+              <span class="na">path</span><span class="pi">:</span> <span class="s">/actuator/health</span>
+              <span class="na">port</span><span class="pi">:</span> <span class="m">8080</span>
+              <span class="na">scheme</span><span class="pi">:</span> <span class="s">HTTP</span>
+            <span class="na">initialDelaySeconds</span><span class="pi">:</span> <span class="m">10</span>
+            <span class="na">periodSeconds</span><span class="pi">:</span> <span class="m">30</span>
+            <span class="na">successThreshold</span><span class="pi">:</span> <span class="m">1</span>
+            <span class="na">timeoutSeconds</span><span class="pi">:</span> <span class="m">2</span>
+<span class="nn">---</span>
+<span class="na">apiVersion</span><span class="pi">:</span> <span class="s">v1</span>
+<span class="na">kind</span><span class="pi">:</span> <span class="s">Service</span>
+<span class="na">metadata</span><span class="pi">:</span>
+  <span class="na">name</span><span class="pi">:</span> <span class="s">hasher</span>
+  <span class="na">namespace</span><span class="pi">:</span> <span class="s">demo</span>
+  <span class="na">labels</span><span class="pi">:</span>
+    <span class="na">app</span><span class="pi">:</span> <span class="s">hasher</span>
+  <span class="na">annotations</span><span class="pi">:</span>
+    <span class="s">prometheus.io/scrape</span><span class="pi">:</span> <span class="s1">'</span><span class="s">true'</span>
+    <span class="s">prometheus.io/scheme</span><span class="pi">:</span> <span class="s">http</span>
+    <span class="s">prometheus.io/path</span><span class="pi">:</span> <span class="s">/actuator/prometheus</span>
+    <span class="s">prometheus.io/port</span><span class="pi">:</span> <span class="s1">'</span><span class="s">8080'</span>
+<span class="na">spec</span><span class="pi">:</span>
+  <span class="na">ports</span><span class="pi">:</span>
+    <span class="pi">-</span> <span class="na">port</span><span class="pi">:</span> <span class="m">8080</span>
+      <span class="na">protocol</span><span class="pi">:</span> <span class="s">TCP</span>
+      <span class="na">targetPort</span><span class="pi">:</span> <span class="s">http-hasher</span>
+  <span class="na">selector</span><span class="pi">:</span>
+    <span class="na">app</span><span class="pi">:</span> <span class="s">hasher</span></code></pre></figure>
+
+
+</details>
+
+<hr class="hr-text" data-content="Grafana" />
+
+<h2 id="grafana-configuration">Grafana configuration</h2>
+
+<p>To display the metrics collected by Prometheus, Grafana needs:</p>
+<ul>
+  <li>A data source to Prometheus,</li>
+  <li>A dashboard describing the metrics to display and in what form.</li>
+</ul>
+
+<div class="premonition info">
+  <i class="premonition pn-info"></i>
+  <div class="content">
+    <p>If you followed my previous article <a href="/en/install-kubernetes-prometheus-grafana/">Locally install Kubernetes, Prometheus et Grafana</a>, the data source is already configured and you can skip the next step. The Grafana interface is then accessible to <a href="http://localhost:3000/" target="_blank" rel="noopener noreferrer nofollow">http://localhost:3000/</a></p>
+
+
+
+
+  </div>
+</div>
+
+<h3 id="data-source-configuration">Data source configuration</h3>
+
+<p>Grafana uses YAML files to configure a data source. It can be defined using the Kubernetes ConfigMap resource:</p>
+
+<figure class="highlight"><pre><code class="language-yaml" data-lang="yaml"><span class="na">apiVersion</span><span class="pi">:</span> <span class="s">v1</span>
+<span class="na">kind</span><span class="pi">:</span> <span class="s">Namespace</span>
+<span class="na">metadata</span><span class="pi">:</span>
+  <span class="na">name</span><span class="pi">:</span> <span class="s">monitoring</span>
+<span class="nn">---</span>
+<span class="na">apiVersion</span><span class="pi">:</span> <span class="s">v1</span>
+<span class="na">kind</span><span class="pi">:</span> <span class="s">ConfigMap</span>
+<span class="na">metadata</span><span class="pi">:</span>
+  <span class="na">name</span><span class="pi">:</span> <span class="s">grafana-datasources</span>
+  <span class="na">namespace</span><span class="pi">:</span> <span class="s">monitoring</span>
+<span class="na">data</span><span class="pi">:</span>
+  <span class="s">prometheus.yaml</span><span class="pi">:</span> <span class="pi">|-</span>
+    <span class="s">{</span>
+        <span class="s">"apiVersion": 1,</span>
+        <span class="s">"datasources": [</span>
+            <span class="s">{</span>
+               <span class="s">"access":"proxy",</span>
+                <span class="s">"editable": true,</span>
+                <span class="s">"name": "prometheus",</span>
+                <span class="s">"orgId": 1,</span>
+                <span class="s">"type": "prometheus",</span>
+                <span class="s">"url": "http://prometheus-service.monitoring.svc:8080",</span>
+                <span class="s">"version": 1</span>
+            <span class="s">}</span>
+        <span class="s">]</span>
+    <span class="s">}</span></code></pre></figure>
+
+<p>It remains to pass this resource to Grafana in the definition of its Deployment:</p>
+
+<figure class="highlight"><pre><code class="language-yaml" data-lang="yaml"><span class="na">apiVersion</span><span class="pi">:</span> <span class="s">apps/v1</span>
+<span class="na">kind</span><span class="pi">:</span> <span class="s">Deployment</span>
+<span class="na">metadata</span><span class="pi">:</span>
+  <span class="na">name</span><span class="pi">:</span> <span class="s">grafana</span>
+  <span class="na">namespace</span><span class="pi">:</span> <span class="s">monitoring</span>
+<span class="na">spec</span><span class="pi">:</span>
+  <span class="na">replicas</span><span class="pi">:</span> <span class="m">1</span>
+  <span class="na">template</span><span class="pi">:</span>
+    <span class="na">spec</span><span class="pi">:</span>
+      <span class="na">containers</span><span class="pi">:</span>
+        <span class="pi">-</span> <span class="na">image</span><span class="pi">:</span> <span class="s">grafana/grafana:latest</span>
+          <span class="na">name</span><span class="pi">:</span> <span class="s">grafana</span>
+<span class="s">.../...</span>
+          <span class="s">volumeMounts</span><span class="pi">:</span>
+            <span class="pi">-</span> <span class="na">mountPath</span><span class="pi">:</span> <span class="s">/etc/grafana/provisioning/datasources</span>
+              <span class="na">name</span><span class="pi">:</span> <span class="s">grafana-datasources</span>
+              <span class="na">readOnly</span><span class="pi">:</span> <span class="no">false</span>
+      <span class="na">volumes</span><span class="pi">:</span>
+        <span class="pi">-</span> <span class="na">name</span><span class="pi">:</span> <span class="s">grafana</span>
+          <span class="na">emptyDir</span><span class="pi">:</span> <span class="pi">{}</span>
+        <span class="pi">-</span> <span class="na">name</span><span class="pi">:</span> <span class="s">grafana-datasources</span>
+          <span class="na">configMap</span><span class="pi">:</span>
+            <span class="na">defaultMode</span><span class="pi">:</span> <span class="m">420</span>
+            <span class="na">name</span><span class="pi">:</span> <span class="s">grafana-datasources</span></code></pre></figure>
+
+<h3 id="dashboard-configuration">Dashboard configuration</h3>
+
+<ol>
+  <li>Connect to the Grafana web interface,</li>
+  <li>Import the pre-defined dashboard <a href="https://raw.githubusercontent.com/scalastic/hotspot-vs-native/main/_grafana/demo-dashboard.json">demo-dashboard.json</a>,</li>
+  <li>Display the dashboard.</li>
+</ol>
+
+<p>You should see an empty dashboard as follows:</p>
+
+<figure class="article">
+<p><img src="/assets/img/grafana-demo-empty.jpg" alt="The demo dashboard in Grafana" /></p>
+  <figcaption>The demo dashboard in Grafana</figcaption>
+</figure>
+
+<h3 id="description-of-the-demo-dashboard">Description of the Demo Dashboard</h3>
+
+<figure class="article">
+<p><img src="/assets/img/grafana-demo-description.jpg" alt="Description of the demo dashboard in Grafana" /></p>
+  <figcaption>Description of the demo dashboard in Grafana</figcaption>
+</figure>
+
+<ul>
+  <li>
+    <p>The rows of the table (labeled from A to C) represent the 3 microservices, respectively, Worker, Random Number Generator -RNG- and Hasher.</p>
+  </li>
+  <li>
+    <p>The columns (numbered 1 to 4) represent different metrics:</p>
+    <ul>
+      <li>In column 1, we can see the number of pods running as well as the speed of the processes</li>
+      <li>In column 2 is displayed the history of processing speeds, for each microservice,</li>
+      <li>In column 3 the CPU consumption of each pod is displayed,</li>
+      <li>In column 4, the RAM consumption of each pod.</li>
+    </ul>
+  </li>
+</ul>
+
+<hr class="hr-text" data-content="Starting" />
+
+<h2 id="starting-the-application">Starting the application</h2>
+
+<p>A Kubernetes configuration was created with Replicas of 1 pod for each microservice and Java images compiled in Bytecode.</p>
+
+<ul>
+  <li>To start the application in Kubernetes, enter:</li>
+</ul>
+
+<figure class="highlight"><pre><code class="language-bash" data-lang="bash">kubectl apply <span class="nt">-f</span> _kube/k8s-app-jvm.yml</code></pre></figure>
+
+<ul>
+  <li>You should see the output:</li>
+</ul>
+
+<figure class="highlight"><pre><code class="language-bash" data-lang="bash">namespace/demo created
+deployment.apps/hasher created
+service/hasher created
+deployment.apps/rng created
+service/rng created
+deployment.apps/redis created
+service/redis created
+deployment.apps/worker created
+service/worker created</code></pre></figure>
+
+<ul>
+  <li>Visualize the start of the pods in Grafana:</li>
+</ul>
+
+<figure class="article">
+<p><img src="/assets/img/grafana-demo-starting-app.jpg" alt="Starting of the application in Grafana" /></p>
+  <figcaption>Starting of the application in Grafana</figcaption>
+</figure>
+
+<div class="premonition note">
+  <i class="premonition pn-note"></i>
+  <div class="content">
+    <p class="header">Result</p>
+<ul>
+  <li>The observed processing speed, located in cell A1, gives us a basic measure of the efficiency for our application: <code class="language-plaintext highlighter-rouge">3.20</code> cycles / s.</li>
+  <li>Depending on the resources allocated to your space, you may get a different result.</li>
+</ul>
+
+
+
+
+  </div>
+</div>
+
+<hr class="hr-text" data-content="Playing" />
+
+<h2 id="play-with-kubernetes-configuration">Play with Kubernetes configuration</h2>
+
+<h3 id="overview">Overview</h3>
+
+<ul>
+  <li>Let’s see the actual deployment’s situation by entering:</li>
+</ul>
+
+<figure class="highlight"><pre><code class="language-bash" data-lang="bash">kubectl get deployment <span class="nt">-n</span> demo</code></pre></figure>
+
+<ul>
+  <li>Which should return:</li>
+</ul>
+
+<figure class="highlight"><pre><code class="language-bash" data-lang="bash">NAME     READY   UP-TO-DATE   AVAILABLE   AGE
+hasher   1/1     1            1           13m
+redis    1/1     1            1           13m
+rng      1/1     1            1           13m
+worker   1/1     1            1           13m</code></pre></figure>
+
+<h3 id="increase-pods-number">Increase pods’ number</h3>
+
+<ul>
+  <li>To scale up <code class="language-plaintext highlighter-rouge">worker</code> pods to <code class="language-plaintext highlighter-rouge">2</code>, enter:</li>
+</ul>
+
+<figure class="highlight"><pre><code class="language-bash" data-lang="bash">kubectl scale deployment worker <span class="nt">--replicas</span><span class="o">=</span>2 <span class="nt">-n</span> demo</code></pre></figure>
+
+<ul>
+  <li>Which returns:</li>
+</ul>
+
+<figure class="highlight"><pre><code class="language-bash" data-lang="bash">deployment.apps/worker scaled</code></pre></figure>
+
+<h3 id="impact-on-the-application">Impact on the application</h3>
+
+<ul>
+  <li>Let’s take a look at the Grafana dashboard:</li>
+</ul>
+
+<figure class="article">
+<p><img src="/assets/img/grafana-demo-2-workers.jpg" alt="2-workers' visualization in Grafana" /></p>
+  <figcaption>2-workers’ visualization in Grafana</figcaption>
+</figure>
+
+<div class="premonition note">
+  <i class="premonition pn-note"></i>
+  <div class="content">
+    <p class="header">Results</p>
+<p>You will notice that the speed of the application is multiplied by <code class="language-plaintext highlighter-rouge">x2</code>.</p>
+
+
+
+
+  </div>
+</div>
+
+<h3 id="further-increase-the-number-of-pods">Further increase the number of pods</h3>
+
+<ul>
+  <li>Let’s go to 10 workers:</li>
+</ul>
+
+<figure class="highlight"><pre><code class="language-bash" data-lang="bash">kubectl scale deployment worker <span class="nt">--replicas</span><span class="o">=</span>10 <span class="nt">-n</span> demo</code></pre></figure>
+
+<figure class="article">
+<p><img src="/assets/img/grafana-demo-10-workers.jpg" alt="10-workers' visualization in Grafana" /></p>
+  <figcaption>10-workers’ visualization in Grafana</figcaption>
+</figure>
+
+<div class="premonition note">
+  <i class="premonition pn-note"></i>
+  <div class="content">
+    <p class="header">Results</p>
+<p>The speed of the process increases, but does not reach exactly 10x more: the latency of the 2 microservices, rng and hasher, which increased slightly, explains this.</p>
+
+
+
+
+  </div>
+</div>
+
+<ul>
+  <li>Let’s increase <code class="language-plaintext highlighter-rouge">hasher</code> and <code class="language-plaintext highlighter-rouge">rng</code> pods’ number:</li>
+</ul>
+
+<figure class="highlight"><pre><code class="language-bash" data-lang="bash">kubectl scale deployment hasher rng <span class="nt">--replicas</span><span class="o">=</span>5 <span class="nt">-n</span> demo</code></pre></figure>
+
+<figure class="article">
+<p><img src="/assets/img/grafana-demo-4-rng-hasher.jpg" alt="RND and Hasher microservices visualization in Grafana" /></p>
+  <figcaption>RND and Hasher microservices visualization in Grafana</figcaption>
+</figure>
+
+<div class="premonition note">
+  <i class="premonition pn-note"></i>
+  <div class="content">
+    <p class="header">Results</p>
+<ul>
+  <li>The increase in the number of <code class="language-plaintext highlighter-rouge">hasher</code> and <code class="language-plaintext highlighter-rouge">rng</code> pods has reduced their latency, but it is still a little higher than at the beginning,</li>
+  <li>Another factor is limiting but we do not see which one in the displayed data.</li>
+</ul>
+
+
+
+
+  </div>
+</div>
+
+<h3 id="lets-deploy-the-native-version-of-the-application">Let’s deploy the native version of the application</h3>
+
+<ul>
+  <li>Replace the current image of the pods with their native version by updating their Deployment:</li>
+</ul>
+
+<figure class="highlight"><pre><code class="language-bash" data-lang="bash">kubectl <span class="nb">set </span>image deployment/hasher <span class="nv">hasher</span><span class="o">=</span>hasher-native:1.0.0 <span class="nt">-n</span> demo
+kubectl <span class="nb">set </span>image deployment/rng <span class="nv">rng</span><span class="o">=</span>rng-native:1.0.0 <span class="nt">-n</span> demo</code></pre></figure>
+
+<ul>
+  <li>Watch the rollout:</li>
+</ul>
+
+<figure class="highlight"><pre><code class="language-bash" data-lang="bash">kubectl rollout status deployment/hasher <span class="nt">-n</span> demo</code></pre></figure>
+
+<ul>
+  <li>And open the Grafana dashboard:</li>
+</ul>
+
+<figure class="article">
+<p><img src="/assets/img/grafana_demo_native_rng_hasher.jpg" alt="Native images deployment visualization in Grafana" /></p>
+  <figcaption>Native images deployment visualization in Grafana</figcaption>
+</figure>
+
+<div class="premonition note">
+  <i class="premonition pn-note"></i>
+  <div class="content">
+    <p class="header">Results</p>
+<p><strong>Latency</strong></p>
+<ul>
+  <li>No change for the responsiveness of the microservices: undoubtedly, the code is too simple to benefit from a native build.</li>
+</ul>
+
+<p><strong>CPU usage</strong></p>
+<ul>
+  <li>With Bytecode, CPU usage tended to decrease over time. This was due to the action of the HotSpot <code class="language-plaintext highlighter-rouge">C2</code> compiler which produces native code that is increasingly optimized over time.</li>
+  <li>In contrast, native processor usage is low from the start.</li>
+</ul>
+
+<p><strong>RAM usage</strong></p>
+<ul>
+  <li>Surprisingly, native applications use more memory than Bytecode ones: it is all the more surprising that reducing the memory footprint is one of the advantages cited by the community.</li>
+  <li>Is it because of the Beta versions used in this demo or a memory leak in the implementation?</li>
+</ul>
+
+
+
+
+  </div>
+</div>
+
+<hr class="hr-text" data-content="Cleaning" />
+
+<h2 id="clean-all">Clean all</h2>
+
+<ul>
+  <li>To simply remove the app and all its microservices, enter:</li>
+</ul>
+
+<figure class="highlight"><pre><code class="language-bash" data-lang="bash">kubectl delete <span class="nt">-f</span> _kube/k8s-app-jvm.yml </code></pre></figure>
+
+<ul>
+  <li>which will remove all the Kubernetes configuration created previously:</li>
+</ul>
+
+<figure class="highlight"><pre><code class="language-bash" data-lang="bash">namespace <span class="s2">"demo"</span> deleted
+deployment.apps <span class="s2">"hasher"</span> deleted
+service <span class="s2">"hasher"</span> deleted
+deployment.apps <span class="s2">"rng"</span> deleted
+service <span class="s2">"rng"</span> deleted
+deployment.apps <span class="s2">"redis"</span> deleted
+service <span class="s2">"redis"</span> deleted
+deployment.apps <span class="s2">"worker"</span> deleted
+service <span class="s2">"worker"</span> deleted</code></pre></figure>
+
+<hr class="hr-text" data-content="Conclusion" />
+
+<h2 id="conclusion">Conclusion</h2>
+
+<p>We learned how to install a full Kubernetes stack so that we can measure application metrics.</p>
+
+<p>However, we are not getting the results we expect in the context of native applications. One explanation could be a lack of the Spring Beta version: Spring Native has just upgraded to version 0.10.0-SNAPSHOT and this is precisely the version where performance improvements are planned.</p>
+
+<p>I’ll open a ticket with the Spring Boot team to ask for their analysis.</p>
+
+<hr class="hr-text" data-content="What to do next?" />
+
+<h2 id="what-next">What next?</h2>
+
+<h3 id="what-is-missing-for-a-more-realistic-evaluation">What is missing for a more realistic evaluation?</h3>
+
+<ul>
+  <li>Kubernetes configuration should always include a resource limit which has not been done in this demo.</li>
+  <li>I could have used <a href="https://kubernetes.io/docs/tasks/run-application/horizontal-pod-autoscale/" target="_blank" rel="noopener noreferrer nofollow">Horizontal Pod Autoscaler</a>
+(HPA) and even better HPA on custom metrics (read <a href="https://itnext.io/horizontal-pod-autoscale-with-custom-metrics-8cb13e9d475" target="_blank" rel="noopener noreferrer nofollow">this post</a> 
+for more details).</li>
+</ul>
+
+<div class="premonition info">
+  <i class="premonition pn-info"></i>
+  <div class="content">
+    <p class="header">Question</p><ul>
+  <li>I wish I found something on self-regulating Scalers, able to maximize a metric but nothing about such a thing…</li>
+  <li>Have you ever heard of something like that?</li>
+</ul>
+
+
+
+
+  </div>
+</div>
+
+<h3 id="useful-links">Useful links</h3>
+
+<p>Here are some links for further reading:</p>
+
+<ul>
+  <li>Jérôme Patazzoni’s container training: <a href="https://github.com/jpetazzo/container.training" target="_blank" rel="noopener noreferrer nofollow">https://github.com/jpetazzo/container.training</a></li>
+  <li>Kubernetes Concepts : <a href="https://kubernetes.io/docs/concepts/" target="_blank" rel="noopener noreferrer nofollow">https://kubernetes.io/docs/concepts/</a></li>
+  <li>Monitoring your apps in Kubernetes with Prometheus and Spring Boot: <a href="https://developer.ibm.com/technologies/containers/tutorials/monitoring-kubernetes-prometheus/" target="_blank" rel="noopener noreferrer nofollow">https://developer.ibm.com/technologies/containers/tutorials/monitoring-kubernetes-prometheus/</a></li>
+  <li>Prometheus Python Client: <a href="https://github.com/prometheus/client_python" target="_blank" rel="noopener noreferrer nofollow">https://github.com/prometheus/client_python</a></li>
+  <li>Custom Prometheus Metrics for Apps Running in Kubernetes: <a href="https://zhimin-wen.medium.com/custom-prometheus-metrics-for-apps-running-in-kubernetes-498d69ada7aa" target="_blank" rel="noopener noreferrer nofollow">https://zhimin-wen.medium.com/custom-prometheus-metrics-for-apps-running-in-kubernetes-498d69ada7aa</a></li>
+</ul>
+
+<p>Well, that’s your turn playing with native apps now!</p>
+
+<p>Cheers…</p>
+
+<div class="premonition info">
+  <i class="premonition pn-info"></i>
+  <div class="content">
+    <p class="header">And now</p><ul>
+  <li>You liked this article? Feel free to tell Disqus so the site increases in visibility</li>
+  <li>You have a question? Ask it, and I will get back to you as soon as possible</li>
+</ul>
+
+<p>Thanks!</p>
+
+
+
+
+  </div>
+</div>
+
+      <div class="page-footer">
+        <div class="page-share">
+          <a href="https://twitter.com/intent/tweet?text=JVM vs Native - An effective comparison of performances&url=https://scalastic.io/jvm-vs-native/" title="Share on Twitter" rel="nofollow" target="_blank"><i class="fa fa-twitter" aria-hidden="true"></i>&nbsp;Twitter</a>
+          <a href="https://www.linkedin.com/sharing/share-offsite/?url=https://scalastic.io/jvm-vs-native/" title="Share on LinkedIn" rel="nofollow" target="_blank"><i class="fa fa-linkedin" aria-hidden="true"></i>&nbsp;LinkedIn</a>
+        </div>
+        <div class="page-tag">
+          
+            <a href="/tags#Spring-Boot" class="tag" rel="tag">&#35; Spring-Boot</a>
+          
+            <a href="/tags#Spring-Native" class="tag" rel="tag">&#35; Spring-Native</a>
+          
+            <a href="/tags#Spring-WebFlux" class="tag" rel="tag">&#35; Spring-WebFlux</a>
+          
+            <a href="/tags#GraalVM" class="tag" rel="tag">&#35; GraalVM</a>
+          
+            <a href="/tags#Docker" class="tag" rel="tag">&#35; Docker</a>
+          
+            <a href="/tags#Kubernetes" class="tag" rel="tag">&#35; Kubernetes</a>
+          
+            <a href="/tags#Prometheus" class="tag" rel="tag">&#35; Prometheus</a>
+          
+            <a href="/tags#Grafana" class="tag" rel="tag">&#35; Grafana</a>
+          
+            <a href="/tags#Micoservices" class="tag" rel="tag">&#35; Micoservices</a>
+          
+        </div>
+      </div>
+      
+
+
+
+
+  
+  
+  
+  
+
+  
+  
+  
+  
+    
+    <div class="page-recomm">
+    <h3>Related articles</h3>
+    
+    <a class="recomm" href="/en/install-kubernetes-prometheus-grafana/">
+      <div class="recomm">
+        <h5>Locally install Kubernetes, Prometheus, and Grafana</h5>
+        <img width="100%" src="/assets/img/install-kubernetes.jpg" alt="Locally install Kubernetes, Prometheus, and Grafana">
+      </div>
+    </a>
+    
+    
+  
+
+  
+  
+  
+  
+    
+    <a class="recomm" href="/en/dive-image-docker/">
+      <div class="recomm">
+        <h5>A Dive into Docker images</h5>
+        <img width="100%" src="/assets/img/dive-image-docker.jpg" alt="A Dive into Docker images">
+      </div>
+    </a>
+    
+    
+  
+
+  
+  
+  
+  
+    
+    <a class="recomm" href="/en/spring-natif-graalvm/">
+      <div class="recomm">
+        <h5>Compile a Spring application natively with GraalVM</h5>
+        <img width="100%" src="/assets/img/spring-native-graalvm-post.jpg" alt="Compile a Spring application natively with GraalVM">
+      </div>
+    </a>
+    
+    
+  
+
+  
+  
+  
+  
+    
+    <a class="recomm" href="/en/installer-java-sdkman/">
+      <div class="recomm">
+        <h5>Install Java with SDKMAN</h5>
+        <img width="100%" src="/assets/img/sdkman-post.jpg" alt="Install Java with SDKMAN">
+      </div>
+    </a>
+    
+    
+    </div>
+      
+
+      
+<div class="comment-area">
+  <div class="comment-wrapper">
+    <h3>Comments</h3>
+    
+    <div id="disqus_thread" class="article-comments"></div>
+    <script>
+      function loadDisqusOnConsent() {
+        var disqus_config = function () {
+          this.page.url = "https://scalastic.io/en/jvm-vs-native/";  /* Replace PAGE_URL with your page's canonical URL variable */
+          this.page.identifier = "/en/jvm-vs-native/"; /* Replace PAGE_IDENTIFIER with your page's unique identifier variable */
+        };
+        (function() {
+            var d = document, s = d.createElement('script');
+            s.src = '//scalastic.disqus.com/embed.js';
+            s.setAttribute('data-timestamp', +new Date());
+            (d.head || d.body).appendChild(s);
+        })();
+      };
+      function activateCookie() {
+        document.querySelector('.cc-btn.cc-allow').click();
+      };
+      var container_disqus = document.getElementById('disqus_thread');
+      var disqus_display = container_disqus.getElementsByTagName('div').length == 0;
+      if (disqus_display) {
+
+        document.getElementById('disqus_thread').innerHTML += '<div class="premonition error"><i class="premonition pn-error"></i><div class="content"><p class="header">Note</p><p>Disqus comments have been disabled because they cannot work without cookies.</p><p>To reactivate comments and cookies, click on <a href="javascript:activateCookie()">Allow cookies</a></p></div></div>';
+      };
+
+    </script>
+    <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+    
+  </div>
+</div> <!-- End Comment Area -->
+
+
+    </div> <!-- End Wrap Content -->
+  </div> <!-- End Page Content -->
+</article> <!-- End Article Page -->
+
+</div>
+
+    </div>
+
+    <script src="https://scalastic.io/en/cookieconsent.min.js" data-cfasync="false"></script>
+    <script>
+  function loadGAonConsent() {
+    window._gaq = window._gaq || [];
+    _gaq.push(['_setAccount', 'UA-63884203-1']);
+    
+    _gaq.push(['_trackPageview']);
+
+    (function() {
+      var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+      ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+    })();
+  }
+</script>
+    <script src="https://scalastic.io/en/cookie-consent.js"></script>
+
+  </body>
+</html>
