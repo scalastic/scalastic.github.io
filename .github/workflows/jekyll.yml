@@ -8,22 +8,6 @@ jobs:
   jekyll:
     runs-on: ubuntu-latest
     steps:
-      - name: update apt-get
-        env:
-          DEBIAN_FRONTEND: noninteractive
-        run:
-          sudo -E apt-get update -qq -o Acquire::Retries=3
-      - name: install snapd
-        env:
-          DEBIAN_FRONTEND: noninteractive
-        run:
-          sudo -E apt-get install --fix-missing -qq -o Acquire::Retries=3
-          snapd
-      - name: install libvips
-        env:
-          DEBIAN_FRONTEND: noninteractive
-        run:
-          sudo -E snap install libvips
       - name: 💾 checkout
         uses: actions/checkout@v2
         with:
@@ -36,10 +20,14 @@ jobs:
           key: ${{ runner.os}}-gem-${{ hashFiles('**/Gemfile') }}
           restore-keys: |
             ${{ runner.os }}-gems-
-
       # Specify the target branch (optional)
       - name: 🛠 build & deploy
+        env:
+          DEBIAN_FRONTEND: noninteractive
         uses: helaili/jekyll-action@v2
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
           target_branch: 'test-pages'
+          pre_build_commands: 
+            sudo -E apk --update add snapd
+            sudo -E snap install libvips
