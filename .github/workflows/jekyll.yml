@@ -2,19 +2,32 @@ name: Jekyll CI-CD
 
 on:
   push:
-    branches: [ main ]
-  pull_request:
-    branches: [ main ]
+    branches: [ webp ]
 
 jobs:
   jekyll:
     runs-on: ubuntu-latest
     steps:
+      - name: update apt-get
+        env:
+          DEBIAN_FRONTEND: noninteractive
+        run:
+          sudo -E apt-get update -qq -o Acquire::Retries=3
+      - name: install snapd
+        env:
+          DEBIAN_FRONTEND: noninteractive
+        run:
+          sudo -E apt-get install --fix-missing -qq -o Acquire::Retries=3
+          snapd
+      - name: install libvips
+        env:
+          DEBIAN_FRONTEND: noninteractive
+        run:
+          sudo -E snap install libvips -qq -o Acquire::Retries=3
       - name: 💾 checkout
         uses: actions/checkout@v2
         with:
           fetch-depth: '0'
-
       # Use GitHub Actions' cache to shorten build times and decrease load on servers
       - name: 🚀 enable cache
         uses: actions/cache@v2
@@ -29,4 +42,4 @@ jobs:
         uses: helaili/jekyll-action@v2
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
-          target_branch: 'gh-pages'
+          target_branch: 'test-pages'
