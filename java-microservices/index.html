@@ -54,8 +54,8 @@
 <meta property="og:article:published_time" content="2021-03-13T14:21:20+01:00" > 
 
 
-<meta property="article:modified_time" content="2021-05-01T11:10:10+02:00" >
-<meta property="og:updated_time" content="2021-05-01T11:10:10+02:00" >
+<meta property="article:modified_time" content="2021-05-02T22:18:17+02:00" >
+<meta property="og:updated_time" content="2021-05-02T22:18:17+02:00" >
 
 
 
@@ -84,7 +84,7 @@
   
   ],
   "datePublished": "2021-03-13T14:21:20+01:00",
-  "dateModified": "2021-05-01T11:10:10+02:00",
+  "dateModified": "2021-05-02T22:18:17+02:00",
   "keywords": [ ["Java", "Microservices"] ],
   "isAccessibleForFree": "True",
   "isPartOf": {
@@ -160,10 +160,26 @@
   <header>
     <div class="about">
       <div class="cover-company-image">
-        <a href="/"><img src="/assets/img/scalastic.png" alt="Scalastic"></a>
+        <a href="/">
+  <picture>
+    <source srcset="/assets/img/scalastic-200-ca05b29d3.avif 0.21x" type="image/avif">
+    <source srcset="/assets/img/scalastic-200-657cab43f.webp 0.21x" type="image/webp">
+    <source srcset="/assets/img/scalastic-200-35fa1bfc9.png 0.21x" type="image/png">
+    <img src="/assets/img/scalastic-200-35fa1bfc9.png" alt="Scalastic" width="200" height="62">
+  </picture>
+</a>
+
       </div>
       <div class="cover-author-image">
-        <a href="/"><img src="/assets/img/jean-jerome-levy.jpg" alt="Jean-Jerome Levy"></a>
+        <a href="/">
+  <picture>
+    <source srcset="/assets/img/jean-jerome-levy-128-e16108e88.avif 0.13x" type="image/avif">
+    <source srcset="/assets/img/jean-jerome-levy-128-1203b8866.webp 0.13x" type="image/webp">
+    <source srcset="/assets/img/jean-jerome-levy-128-218547a53.jpg 0.13x" type="image/jpeg">
+    <img src="/assets/img/jean-jerome-levy-128-218547a53.jpg" alt="Jean-Jerome Levy" width="128" height="128">
+  </picture>
+</a>
+
       </div>
       <div class="author-name">Jean-Jerome Levy</div>
       <p>Bonjour,<br> Je suis un consultant freelance DevOps spécialisé dans le CI/CD, Docker/Kubernetes et le Cloud.</p>
@@ -211,7 +227,14 @@
     
     <div class="page-cover-image">
       <figure>
-        <img class="page-image" src=/assets/img/java-like-rusty-container.jpg alt="Java et les microservices">
+        <!-- img class="page-image" src=/assets/img/java-like-rusty-container.jpg alt="Java et les microservices" -->
+        <picture>
+  <source srcset="/assets/img/java-like-rusty-container-485.0-99182b842.avif 0.5x, /assets/img/java-like-rusty-container-970-99182b842.avif 1.0x" type="image/avif">
+  <source srcset="/assets/img/java-like-rusty-container-485.0-a97b76b8d.webp 0.5x, /assets/img/java-like-rusty-container-970-a97b76b8d.webp 1.0x" type="image/webp">
+  <source srcset="/assets/img/java-like-rusty-container-485.0-66be793c1.jpg 0.5x, /assets/img/java-like-rusty-container-970-66be793c1.jpg 1.0x" type="image/jpeg">
+  <img src="/assets/img/java-like-rusty-container-970-66be793c1.jpg" alt="Java et les microservices" width="970" height="630">
+</picture>
+
         
           <figcaption>Photo de <a href="https://unsplash.com/@darkcut?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Robert MODOUX</a> sur <a href="https://unsplash.com/s/photos/container-rusty?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Unsplash</a></figcaption>
         
@@ -238,8 +261,6 @@
       <p>Cet article est le premier d’une série abordant les concepts de la nouvelle machine virtuelle GraalVM.</p>
 
 <p>Nous allons aborder ici des notions de bases sur les microservices, sur Java et sa JVM HotSpot. Cela nous donnera une première idée sur l’adéquation de Java au monde des conteneurs et notammement des microservices.</p>
-
-<!--more-->
 
 <hr class="hr-text" data-content="Plan" />
 
@@ -299,8 +320,14 @@
 <h4 id="linterprétation">L’interprétation</h4>
 
 <figure class="article">
-<p><img src="/assets/img/jvm-execution.png" alt="Les étapes de l'interprétation du Bytecode par la JVM" /></p>
-  <figcaption>Les étapes de l’interprétation du Bytecode par la JVM</figcaption>
+  <picture>
+  <source srcset="/assets/img/jvm-execution-485.0-ec245f5f4.avif 0.5x, /assets/img/jvm-execution-970-ec245f5f4.avif 1.0x" type="image/avif" />
+  <source srcset="/assets/img/jvm-execution-485.0-8094b2bb0.webp 0.5x, /assets/img/jvm-execution-970-8094b2bb0.webp 1.0x" type="image/webp" />
+  <source srcset="/assets/img/jvm-execution-485.0-2659a938f.png 0.5x, /assets/img/jvm-execution-970-2659a938f.png 1.0x" type="image/png" />
+  <img src="/assets/img/jvm-execution-970-2659a938f.png" alt="Les étapes de l'interprétation du Bytecode par la JVM" width="1648" height="692" />
+</picture>
+
+  <figcaption>Les étapes de l'interprétation du Bytecode par la JVM</figcaption>
 </figure>
 
 <ol>
@@ -330,8 +357,14 @@
 <h4 id="le-compilateur-just-in-time-jit">Le compilateur Just-In-Time (JIT)</h4>
 
 <figure class="article">
-<p><img src="/assets/img/jvm-jit.png" alt="Les étapes de l'optimisation JIT du Bytecode par la JVM" /></p>
-  <figcaption>Les étapes de l’optimisation JIT du Bytecode par la JVM</figcaption>
+  <picture>
+  <source srcset="/assets/img/jvm-jit-485.0-1c794a416.avif 0.5x, /assets/img/jvm-jit-970-1c794a416.avif 1.0x" type="image/avif" />
+  <source srcset="/assets/img/jvm-jit-485.0-bfbe4dc18.webp 0.5x, /assets/img/jvm-jit-970-bfbe4dc18.webp 1.0x" type="image/webp" />
+  <source srcset="/assets/img/jvm-jit-485.0-2d4223f23.png 0.5x, /assets/img/jvm-jit-970-2d4223f23.png 1.0x" type="image/png" />
+  <img src="/assets/img/jvm-jit-970-2d4223f23.png" alt="Les étapes de l'optimisation JIT du Bytecode par la JVM" width="1652" height="690" />
+</picture>
+
+  <figcaption>Les étapes de l'optimisation JIT du Bytecode par la JVM</figcaption>
 </figure>
 
 <p>1.  Lors de l’exécution d’une méthode Java, le compilateur <code class="language-plaintext highlighter-rouge">C1</code> de JIT (just-in-time, à la volée) va la compiler en code natif et le <code class="language-plaintext highlighter-rouge">Profiler</code> va commencer à recueillir des informations sur son utilisation.</p>
@@ -394,7 +427,13 @@
 <h5 id="architecture-générale-de-la-jvm">Architecture générale de la JVM</h5>
 
 <figure class="article">
-<p><img src="/assets/img/jvm-architecture.png" alt="Les différentes couches mises en jeu dans une JVM" /></p>
+  <picture>
+  <source srcset="/assets/img/jvm-architecture-450-1673d586b.avif 0.46x" type="image/avif" />
+  <source srcset="/assets/img/jvm-architecture-450-20b91462e.webp 0.46x" type="image/webp" />
+  <source srcset="/assets/img/jvm-architecture-450-67cbfa8f2.png 0.46x" type="image/png" />
+  <img src="/assets/img/jvm-architecture-450-67cbfa8f2.png" alt="Les différentes couches mises en jeu dans une JVM" width="450" height="611" />
+</picture>
+
   <figcaption>Les différentes couches mises en jeu dans une JVM</figcaption>
 </figure>
 
@@ -405,7 +444,13 @@
 <h5 id="détail-de-2-espaces-mémoires">Détail de 2 espaces mémoires</h5>
 
 <figure class="article">
-<p><img src="/assets/img/jvm-memory.jpg" alt="Détails de 2 espaces mémoires de la JVM" /></p>
+  <picture>
+  <source srcset="/assets/img/jvm-memory-485.0-fe66be5a1.avif 0.5x, /assets/img/jvm-memory-970-fe66be5a1.avif 1.0x" type="image/avif" />
+  <source srcset="/assets/img/jvm-memory-485.0-7139ae69f.webp 0.5x, /assets/img/jvm-memory-970-7139ae69f.webp 1.0x" type="image/webp" />
+  <source srcset="/assets/img/jvm-memory-485.0-bfa758624.jpg 0.5x, /assets/img/jvm-memory-970-bfa758624.jpg 1.0x" type="image/jpeg" />
+  <img src="/assets/img/jvm-memory-970-bfa758624.jpg" alt="Détails de 2 espaces mémoires de la JVM" width="1024" height="465" />
+</picture>
+
   <figcaption>Détails de 2 espaces mémoires de la JVM</figcaption>
 </figure>
 
@@ -567,7 +612,14 @@ Il est divisé en 2 parties : le « <strong><em>Young Generation</em></strong> �
     <a class="recomm" href="/installer-java-sdkman/">
       <div class="recomm">
         <h5>Installer Java avec SDKMAN</h5>
-        <img width="100%" src="/assets/img/sdkman-post.jpg" alt="Installer Java avec SDKMAN">
+        <!-- img width="100%" src="/assets/img/sdkman-post.jpg" alt="Installer Java avec SDKMAN" -->
+        <picture>
+  <source srcset="/assets/img/sdkman-post-180-9edb4d775.avif 1.0x, /assets/img/sdkman-post-270.0-9edb4d775.avif 1.5x, /assets/img/sdkman-post-360-9edb4d775.avif 2.0x" type="image/avif">
+  <source srcset="/assets/img/sdkman-post-180-c4fa93e2d.webp 1.0x, /assets/img/sdkman-post-270.0-c4fa93e2d.webp 1.5x, /assets/img/sdkman-post-360-c4fa93e2d.webp 2.0x" type="image/webp">
+  <source srcset="/assets/img/sdkman-post-180-c94348989.jpg 1.0x, /assets/img/sdkman-post-270.0-c94348989.jpg 1.5x, /assets/img/sdkman-post-360-c94348989.jpg 2.0x" type="image/jpeg">
+  <img src="/assets/img/sdkman-post-180-c94348989.jpg" alt=""Installer Java avec SDKMAN">
+</picture>
+
       </div>
     </a>
     
@@ -582,7 +634,14 @@ Il est divisé en 2 parties : le « <strong><em>Young Generation</em></strong> �
     <a class="recomm" href="/graalvm-microservices-java/">
       <div class="recomm">
         <h5>GraalVM, le futur des applications microservices en Java</h5>
-        <img width="100%" src="/assets/img/graalvm-brand-new-containers.jpg" alt="GraalVM, le futur des applications microservices en Java">
+        <!-- img width="100%" src="/assets/img/graalvm-brand-new-containers.jpg" alt="GraalVM, le futur des applications microservices en Java" -->
+        <picture>
+  <source srcset="/assets/img/graalvm-brand-new-containers-180-d0b14c689.avif 1.0x, /assets/img/graalvm-brand-new-containers-270.0-d0b14c689.avif 1.5x, /assets/img/graalvm-brand-new-containers-360-d0b14c689.avif 2.0x" type="image/avif">
+  <source srcset="/assets/img/graalvm-brand-new-containers-180-c88740f59.webp 1.0x, /assets/img/graalvm-brand-new-containers-270.0-c88740f59.webp 1.5x, /assets/img/graalvm-brand-new-containers-360-c88740f59.webp 2.0x" type="image/webp">
+  <source srcset="/assets/img/graalvm-brand-new-containers-180-786009735.jpg 1.0x, /assets/img/graalvm-brand-new-containers-270.0-786009735.jpg 1.5x, /assets/img/graalvm-brand-new-containers-360-786009735.jpg 2.0x" type="image/jpeg">
+  <img src="/assets/img/graalvm-brand-new-containers-180-786009735.jpg" alt=""GraalVM, le futur des applications microservices en Java">
+</picture>
+
       </div>
     </a>
     
