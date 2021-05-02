@@ -23,7 +23,7 @@ jobs:
         env:
           DEBIAN_FRONTEND: noninteractive
         run:
-          sudo -E snap install libvips -qq -o Acquire::Retries=3
+          sudo -E snap install libvips
       - name: 💾 checkout
         uses: actions/checkout@v2
         with:
