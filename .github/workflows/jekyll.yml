@@ -22,11 +22,11 @@ jobs:
             ${{ runner.os }}-gems-
       # Specify the target branch (optional)
       - name: 🛠 build & deploy
-        env:
-          DEBIAN_FRONTEND: noninteractive
-        uses: helaili/jekyll-action@v2
+        uses: helaili/jekyll-action@master
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
           target_branch: 'test-pages'
+          jekyll_build_options: --lsi
           pre_build_commands: |
             apk add --update --no-cache --repository http://dl-3.alpinelinux.org/alpine/edge/community --repository http://dl-3.alpinelinux.org/alpine/edge/main vips
+            apk --update add imagemagick nodejs
