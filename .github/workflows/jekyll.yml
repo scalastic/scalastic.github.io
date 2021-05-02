@@ -28,6 +28,6 @@ jobs:
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
           target_branch: 'test-pages'
-          pre_build_commands: 
-            sudo -E apk --update add snapd
-            sudo -E snap install libvips
+          pre_build_commands: |
+            apk --update add snapd
+            snap install libvips
