@@ -6,10 +6,10 @@ layout: default
   <header>
     <div class="about">
       <div class="cover-company-image">
-        <a href="{{site.baseurl}}/"><img src="{{site.baseurl}}/assets/img/{% if site.company-img %}{{site.company-img}}{% endif %}" alt="{{site.company}}"></a>
+        {% picture {{site.baseurl}}/assets/img/{{site.company-img}} --alt {{site.company}} --link {{site.baseurl}}/ %}
       </div>
       <div class="cover-author-image">
-        <a href="{{site.baseurl}}/"><img src="{{site.baseurl}}/assets/img/{% if site.author-img %}{{site.author-img}}{% endif %}" alt="{{site.author}}"></a>
+        {% picture {{site.baseurl}}/assets/img/{{site.author-img}} --alt {{site.author}} --link {{site.baseurl}}/ %}
       </div>
       <div class="author-name">{{site.author}}</div>
       <p>{{site.data.i18n.about-author}}</p>

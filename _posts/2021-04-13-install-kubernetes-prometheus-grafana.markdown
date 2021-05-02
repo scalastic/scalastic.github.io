@@ -44,9 +44,10 @@ Dans cet article, je vais vous montrer comment installer avec succès une plate-
 2. Une fois installé, activez kubernetes dans le volet ***Préférences*** / ***Kubernetes*** / ***Activer Kubernetes***.
 
 3. Vous devriez maintenant voir tous les composants **Docker Desktop** dans le volet ***About*** inclus Kubernetes:
-{% figure caption:"L'interface de Docker Desktop avec la version de ses composants" class:"article" %}
-![Bureau Docker]({{site.baseurl}}/assets/img/docker-desktop.png)
-{% endfigure %}
+<figure class="article">
+  {% picture {{site.baseurl}}/assets/img/docker-desktop.png --alt L'interface de Docker Desktop avec la version de ses composants %}
+  <figcaption>L'interface de Docker Desktop avec la version de ses composants</figcaption>
+</figure>
 
 - Collectez les informations de base de votre cluster pour vérifier que tout fonctionne bien :
 {% highlight Zsh %}
@@ -108,15 +109,17 @@ L'adresse est à présent:
 
 Vous verrez d’abord cette page de connexion :
 
-{% figure caption:"Ecran de login du Dashboard" class:"article" %}
-![Dashboard Login Screen]({{site.baseurl}}/assets/img/dashboard-first-access.jpg)
-{% endfigure %}
+<figure class="article">
+  {% picture {{site.baseurl}}/assets/img/dashboard-first-access.jpg --alt Ecran de login du Dashboard %}
+  <figcaption>Ecran de login du Dashboard</figcaption>
+</figure>
 
 Il suffit d’appuyer sur le bouton ***skip*** pour contourner l’authentification.
 
-{% figure caption:"Page principale de Dashboard" class:"article" %}
-![Dashboard index page]({{site.baseurl}}/assets/img/dashboard-index.jpg)
-{% endfigure %}
+<figure class="article">
+  {% picture {{site.baseurl}}/assets/img/dashboard-index.jpg --alt Page principale de Dashboard %}
+  <figcaption>Page principale de Dashboard</figcaption>
+</figure>
 
 <hr class="hr-text" data-content="Metrics-Server">
 
@@ -140,9 +143,10 @@ Lors du rechargement du **Dashboard**, vous devriez maintenant voir les utilisat
 
 Vous pouvez essayer la section ***Pods***, c’est ma préférée! 
 
-{% figure caption:"Une page du tableau de bord avec les mesures. C'est magnifique !" class:"article" %}
-![Dashboard with metrics page]({{site.baseurl}}/assets/img/dashboard-with-metrics.jpg)
-{% endfigure %}
+<figure class="article">
+  {% picture {{site.baseurl}}/assets/img/dashboard-with-metrics.jpg --alt Une page du tableau de bord avec les mesures. C'est magnifique ! %}
+  <figcaption>Une page du tableau de bord avec les mesures. C'est magnifique !</figcaption>
+</figure>
 
 <hr class="hr-text" data-content="Kube State Metrics">
 
@@ -207,9 +211,11 @@ Pour configurer la source de données **Prometheus** et installer **Grafana**, e
 - J’en ai fait un spécifique à un cluster kubernetes local, vous le trouverez ici [Dashboard model](https://raw.githubusercontent.com/scalastic/local-k8s-installation/main/k8s/Docker%20Desktop%20Kubernetes%20All-in-one-1618321310777.json){:target="_blank" rel="noopener noreferrer nofollow"}.
 
 Il ressemble à cela - comme vous pouvez le voir, l’interface graphique **Grafana** offre de nombreuses possibilités - contrairement à **Prometheus**:
-{% figure caption:"L'interface Grafana après une installation complète. Woah!" class:"article" %}
-![Grafana interface]({{site.baseurl}}/assets/img/grafana-ui.jpg)
-{% endfigure %}
+
+<figure class="article">
+  {% picture {{site.baseurl}}/assets/img/grafana-ui.jpg --alt L'interface Grafana après une installation complète. Woah! %}
+  <figcaption>L'interface Grafana après une installation complète. Woah!</figcaption>
+</figure>
 
 > info "👨🏻‍💻"
 > 

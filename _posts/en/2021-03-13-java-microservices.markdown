@@ -46,9 +46,10 @@ Everyone knows Java! A language interpreted by a JVM and portable on different s
 
 #### The interpretation
 
-{% figure caption:"The stages of the interpretation of Bytecode by the JVM" class:"article" %}
-![The stages of the interpretation of Bytecode by the JVM]({{site.baseurl}}/assets/img/jvm-execution.png)
-{% endfigure %}
+<figure class="article">
+  {% picture {{site.baseurl}}/assets/img/jvm-execution.png --alt The stages of the interpretation of Bytecode by the JVM %}
+  <figcaption>The stages of the interpretation of Bytecode by the JVM</figcaption>
+</figure>
 
 1. The JVM is an executable which reads bytecode and then interprets it.
 2. The bytecode is in .jar packages as .class files
@@ -64,9 +65,10 @@ Everyone knows Java! A language interpreted by a JVM and portable on different s
 
 #### The Just-In-Time (JIT) compiler
 
-{% figure caption:"The stages of the JIT optimization of Bytecode by the JVM" class:"article" %}
-![The stages of the JIT optimization of Bytecode by the JVM]({{site.baseurl}}/assets/img/jvm-jit.png)
-{% endfigure %}
+<figure class="article">
+  {% picture {{site.baseurl}}/assets/img/jvm-jit.png --alt The stages of the JIT optimization of Bytecode by the JVM %}
+  <figcaption>The stages of the JIT optimization of Bytecode by the JVM</figcaption>
+</figure>
 
 1. &nbsp; &nbsp; When executing a Java method, JIT's `C1` compiler (just-in-time, on the fly) will compile it to native code and the `Profiler` will start to collect information on its use.
 
@@ -93,9 +95,10 @@ Everyone knows Java! A language interpreted by a JVM and portable on different s
 
 ##### Architecture générale de la JVM 
 
-{% figure caption:"The different layers involved in a JVM" class:"article" %}
-![The different layers involved in a JVM]({{site.baseurl}}/assets/img/jvm-architecture.png)
-{% endfigure %}
+<figure class="article">
+  {% picture {{site.baseurl}}/assets/img/jvm-architecture.png --alt The different layers involved in a JVM %}
+  <figcaption>The different layers involved in a JVM</figcaption>
+</figure>
 
 
 When we look at the general architecture of a JVM, we can only see that there are a lot of components. We also see that its memory space is compartmentalized.
@@ -104,9 +107,10 @@ Let's focus on 2 of them.
 
 ##### Detail of 2 memory spaces
 
-{% figure caption:"Details of 2 memory spaces of the JVM" class:"article" %}
-![Details of 2 memory spaces of the JVM]({{site.baseurl}}/assets/img/jvm-memory.jpg)
-{% endfigure %}
+<figure class="article">
+  {% picture {{site.baseurl}}/assets/img/jvm-memory.jpg --alt Details of 2 memory spaces of the JVM %}
+  <figcaption>Details of 2 memory spaces of the JVM</figcaption>
+</figure>
 
 The JVM allocates memory for the application but also for its own metadata and its operation:
 

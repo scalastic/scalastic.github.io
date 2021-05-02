@@ -62,9 +62,10 @@ Well, that's not much and it already exists:
 
 Let's see what the application is made of:
 
-{% figure caption:"Demo application architecture" class:"article" %}
-![Demo application architecture]({{site.baseurl}}/assets/img/application-architecture.jpg)
-{% endfigure %}
+<figure class="article">
+  {% picture {{site.baseurl}}/assets/img/application-architecture.jpg --alt Demo application architecture %}
+  <figcaption>Demo application architecture</figcaption>
+</figure>
 
 The application is made up of 4 microservices:
 1. `worker`: the algorithm orchestrator [***Python***] which gets `1` a random number, `2` hash it and `3` increment a counter in the redis database,
@@ -172,9 +173,10 @@ Let's see how to install these microservices in our kubernetes cluster:
 - The architecture of the application is deployed in a dedicated namespace, `demo`,
 - The monitoring tools are in another namespace called `monitoring`.
 
-{% figure caption:"Our Kubernetes cluster architecture" class:"article" %}
-![Our Kubernetes cluster architecture]({{site.baseurl}}/assets/img/kubernetes-architecture.jpg)
-{% endfigure %}
+<figure class="article">
+  {% picture {{site.baseurl}}/assets/img/kubernetes-architecture.jpg --alt Our Kubernetes cluster architecture %}
+  <figcaption>Our Kubernetes cluster architecture</figcaption>
+</figure>
 
 1. We want to manage the number of ~~containers~~ - pods in this case - for each microservice,
 1. We also want to be able to change the pod image (Bytecode or native) without needing to redeploy everything.
@@ -344,15 +346,17 @@ spec:
 
 You should see an empty dashboard as follows:
 
-{% figure caption:"The demo dashboard in Grafana" class:"article" %}
-![The demo dashboard in Grafana]({{site.baseurl}}/assets/img/grafana-demo-empty.jpg)
-{% endfigure %}
+<figure class="article">
+  {% picture {{site.baseurl}}/assets/img/grafana-demo-empty.jpg --alt The demo dashboard in Grafana %}
+  <figcaption>The demo dashboard in Grafana</figcaption>
+</figure>
 
 ### Description of the Demo Dashboard
 
-{% figure caption:"Description of the demo dashboard in Grafana" class:"article" %}
-![Description of the demo dashboard in Grafana]({{site.baseurl}}/assets/img/grafana-demo-description.jpg)
-{% endfigure %}
+<figure class="article">
+  {% picture {{site.baseurl}}/assets/img/grafana-demo-description.jpg --alt Description of the demo dashboard in Grafana %}
+  <figcaption>Description of the demo dashboard in Grafana</figcaption>
+</figure>
 
 * The rows of the table (labeled from A to C) represent the 3 microservices, respectively, Worker, Random Number Generator -RNG- and Hasher.
 
@@ -391,9 +395,10 @@ service/worker created
 
 - Visualize the start of the pods in Grafana:
 
-{% figure caption:"Starting of the application in Grafana" class:"article" %}
-![Starting of the application in Grafana]({{site.baseurl}}/assets/img/grafana-demo-starting-app.jpg)
-{% endfigure %}
+<figure class="article">
+  {% picture {{site.baseurl}}/assets/img/grafana-demo-starting-app.jpg --alt Starting of the application in Grafana %}
+  <figcaption>Starting of the application in Grafana</figcaption>
+</figure>
 
 > note "Result"
 >
@@ -438,9 +443,10 @@ deployment.apps/worker scaled
 
 - Let's take a look at the Grafana dashboard:
 
-{% figure caption:"2-workers' visualization in Grafana" class:"article" %}
-![2-workers' visualization in Grafana]({{site.baseurl}}/assets/img/grafana-demo-2-workers.jpg)
-{% endfigure %}
+<figure class="article">
+  {% picture {{site.baseurl}}/assets/img/grafana-demo-2-workers.jpg --alt 2-workers' visualization in Grafana %}
+  <figcaption>2-workers' visualization in Grafana</figcaption>
+</figure>
 
 > note "Results"
 > 
@@ -455,9 +461,10 @@ deployment.apps/worker scaled
 kubectl scale deployment worker --replicas=10 -n demo
 {% endhighlight %}
 
-{% figure caption:"10-workers' visualization in Grafana" class:"article" %}
-![10-workers' visualization in Grafana]({{site.baseurl}}/assets/img/grafana-demo-10-workers.jpg)
-{% endfigure %}
+<figure class="article">
+  {% picture {{site.baseurl}}/assets/img/grafana-demo-10-workers.jpg --alt 10-workers' visualization in Grafana %}
+  <figcaption>10-workers' visualization in Grafana</figcaption>
+</figure>
 
 > note "Results"
 > 
@@ -469,9 +476,10 @@ kubectl scale deployment worker --replicas=10 -n demo
 kubectl scale deployment hasher rng --replicas=5 -n demo
 {% endhighlight %}
 
-{% figure caption:"RND and Hasher microservices visualization in Grafana" class:"article" %}
-![RND and Hasher microservices visualization in Grafana]({{site.baseurl}}/assets/img/grafana-demo-4-rng-hasher.jpg)
-{% endfigure %}
+<figure class="article">
+  {% picture {{site.baseurl}}/assets/img/grafana-demo-4-rng-hasher.jpg --alt RND and Hasher microservices visualization in Grafana %}
+  <figcaption>RND and Hasher microservices visualization in Grafana</figcaption>
+</figure>
 
 > note "Results"
 > 
@@ -493,9 +501,10 @@ kubectl rollout status deployment/hasher -n demo
 
 - And open the Grafana dashboard:
 
-{% figure caption:"Native images deployment visualization in Grafana" class:"article" %}
-![Native images deployment visualization in Grafana]({{site.baseurl}}/assets/img/grafana_demo_native_rng_hasher.jpg)
-{% endfigure %}
+<figure class="article">
+  {% picture {{site.baseurl}}/assets/img/grafana_demo_native_rng_hasher.jpg --alt Native images deployment visualization in Grafana %}
+  <figcaption>Native images deployment visualization in Grafana</figcaption>
+</figure>
 
 > note "Results"
 >
