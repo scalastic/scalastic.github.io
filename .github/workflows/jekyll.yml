@@ -29,5 +29,4 @@ jobs:
           token: ${{ secrets.GITHUB_TOKEN }}
           target_branch: 'test-pages'
           pre_build_commands: |
-            apk --update add snapd
-            snap install libvips
+            apk add --update --no-cache --repository http://dl-3.alpinelinux.org/alpine/edge/community --repository http://dl-3.alpinelinux.org/alpine/edge/main vips
