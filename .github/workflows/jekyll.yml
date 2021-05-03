@@ -29,5 +29,6 @@ jobs:
           jekyll_build_options: '--limit_posts 1 --verbose --trace'
           build_only: true
           pre_build_commands: |
+            ulimit -s 32768
             apk --update add vips vips-tools
             gem install bundler:2.2.15
