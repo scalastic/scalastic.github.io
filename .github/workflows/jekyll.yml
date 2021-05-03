@@ -27,4 +27,4 @@ jobs:
           token: ${{ secrets.GITHUB_TOKEN }}
           target_branch: 'test-pages'
           pre_build_commands:
-            apk update | apk add --upgrade vips vips-tools
+            apk --update add vips vips-tools
