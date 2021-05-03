@@ -26,5 +26,6 @@ jobs:
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
           target_branch: 'test-pages'
-          pre_build_commands:
+          pre_build_commands: |
             apk --update add vips vips-tools
+            gem install bundler:2.2.15

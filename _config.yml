@@ -43,7 +43,6 @@ plugins:
   - jemoji
   - premonition
   - jekyll-last-modified-at
-  - jekyll-figure
   - jekyll-polyglot
   - jekyll_picture_tag
 
