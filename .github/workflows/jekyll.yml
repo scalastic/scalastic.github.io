@@ -26,6 +26,5 @@ jobs:
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
           target_branch: 'test-pages'
-          pre_build_commands: |
-            apk add --update --no-cache --repository http://dl-3.alpinelinux.org/alpine/edge/community --repository http://dl-3.alpinelinux.org/alpine/edge/main vips
-            apk --update add imagemagick nodejs
+          pre_build_commands:
+            apk update | apk add --upgrade vips vips-tools
