@@ -68,8 +68,7 @@ jekyll-figure:
 picture:
   output: /
   nomarkdown: false
-  suppress_warnings: false
-  fast_build: true
+  suppress_warnings: true
 
 exclude: ["node_modules", "gulpfile.js", "package.json", "yarn.lock", "archive-posts"]
 
