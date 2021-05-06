@@ -3,18 +3,17 @@ layout: main
 ---
 <article class="article-page">
   <div class="page-content">
-    {% if page.img %}
+    {% if page.img -%}
     <div class="page-cover-image">
       <figure>
-        <!-- img class="page-image" src={{ "/assets/img/" | prepend: site.baseurl | append : page.img}} alt="{{page.title}}" -->
         {% picture {{ "/assets/img/" | prepend: site.baseurl | append : page.img}} center --alt {{page.title}} --class page-image %}
-        {% if page.fig-caption %}
+        {% if page.fig-caption -%}
           <figcaption>{{page.fig-caption}}</figcaption>
-        {% endif %}
+        {%- endif %}
       </figure>
-    </div> <!-- End Page Cover Image -->
+    </div>
     {% else %}
-    {% endif %}
+    {%- endif %}
     <div class="wrap-content">
       <header class="page-header">
         <h1 class="page-title">{{page.title}}</h1>
@@ -23,9 +22,9 @@ layout: main
             <li><i class="far fa-calendar-alt"></i> {{ page.date | i18n_date: site.active_lang }}</li>
             <li><i class="far fa-clock"></i> {% capture words %}{{ page.content | number_of_words }}{% endcapture %}{% unless words contains "-" %}{{ words | plus: 250 | divided_by: 250 | append: " minutes" }}{% endunless %}</li>
             <li><i class="fas fa-tags"></i>
-              {% for tag in page.tags %}
+              {%- for tag in page.tags %}
               <a href="/tags/#{{ tag }}">{{ tag }}</a>{% unless forloop.last %}, {% endunless %}
-              {% endfor %}
+              {% endfor -%}
             </li>
           </ul>
         </div>
@@ -33,13 +32,13 @@ layout: main
       {{content | markdownify}}
       <div class="page-footer">
         <div class="page-share">
-          <a href="https://twitter.com/intent/tweet?text={{ page.title }}&url={{ site.url }}{{ page.url }}" title="Share on Twitter" rel="nofollow" target="_blank"><i class="fa fa-twitter" aria-hidden="true"></i>&nbsp;Twitter</a>
+          <a href="https://twitter.com/intent/tweet?text={{ page.title | uri_escape }}&url={{ site.url }}{{ page.url }}" title="Share on Twitter" rel="nofollow" target="_blank"><i class="fa fa-twitter" aria-hidden="true"></i>&nbsp;Twitter</a>
           <a href="https://www.linkedin.com/sharing/share-offsite/?url={{ site.url }}{{ page.url }}" title="Share on LinkedIn" rel="nofollow" target="_blank"><i class="fa fa-linkedin" aria-hidden="true"></i>&nbsp;LinkedIn</a>
         </div>
         <div class="page-tag">
-          {% for tag in page.tags %}
+          {%- for tag in page.tags %}
             <a href="{{site.baseurl}}/tags#{{tag}}" class="tag" rel="tag">&#35; {{ tag }}</a>
-          {% endfor %}
+          {% endfor -%}
         </div>
       </div>
       {% include related_post.html %}

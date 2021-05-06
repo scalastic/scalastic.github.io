@@ -196,7 +196,7 @@ Voyons comment installer ces microservices dans notre cluster kubernetes :
 
 1. Nous voulons que les métriques de l’application soient collectés par Prometheus.
 
-    => Voici [comment le configurer](https://developer.ibm.com/technologies/containers/tutorials/monitorin]g-kubernetes-prometheus/){:target="_blank" rel="noopener noreferrer nofollow"}
+    => Voici [comment le configurer](https://developer.ibm.com/technologies/containers/tutorials/monitoring-kubernetes-prometheus/){:target="_blank" rel="noopener noreferrer nofollow"}
 
 
 

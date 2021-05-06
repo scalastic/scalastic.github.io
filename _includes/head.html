@@ -8,40 +8,57 @@
   <meta property="og:locale" content="{% if site.active_lang == site.default_lang %}fr_FR{% else %}en_US{% endif %}" >
   <meta name="language" content="{{ site.active_lang }}" >
 
-  <title itemprop="name">{% if page.title %}{{ page.title }}{% else %}{{ site.data.i18n.site-description }}{% endif %} | {{ site.title }}</title>
-  <meta property="og:title" content="{% if page.title %}{{ page.title }}{% else %}{{ site.data.i18n.site-description }}{% endif %}" >
-  <meta name="twitter:title" content="{% if page.title %}{{ page.title }}{% else %}{{ site.data.i18n.site-description }}{% endif %}" >
-  <meta itemprop="name" content="{% if page.title %}{{ page.title }}{% else %}{{ site.data.i18n.site-description }}{% endif %}" >
-  <meta name="application-name" content="{% if page.title %}{{ page.title }}{% else %}{{ site.data.i18n.site-description }}{% endif %}" >
+  <title>{% if page.title %}{{ page.title }}{% else %}{{ site.data.i18n.site-description }}{% endif %} | {{ site.title }}</title>
 
-  <meta name="description" content="{% if page.description %}{{ page.description }}{% else %}{{ site.data.i18n.site-description }}{% endif %}" >
-  <meta itemprop="description" content="{% if page.description %}{{ page.description }}{% else %}{{ site.data.i18n.site-description }}{% endif %}" >
-  <meta property="og:description" content="{% if page.description %}{{ page.description }}{% else %}{{ site.data.i18n.site-description }}{% endif %}" >
-  <meta name="twitter:description" content="{% if page.description %}{{ page.description }}{% else %}{{ site.data.i18n.site-description }}{% endif %}" >
+  {% capture pageTitle %}{% if page.title %}{{ page.title }}{% else %}{{ site.data.i18n.site-description }}{% endif %}{% endcapture %}
+  <meta property="og:title" content="{{ pageTitle }}" >
+  <meta name="twitter:title" content="{{ pageTitle }}" >
+  <meta itemprop="name" content="{{ pageTitle }}" >
+  <meta name="application-name" content="{{ pageTitle }}" >
 
-  <link rel="canonical" href="{{ site.url }}{{ site.baseurl }}{% if site.active_lang != site.default_lang %}/{{ site.active_lang }}{% endif %}{{ page.url | replace:'index.html','' }}" itemprop="url" >
-  <meta name="url" content="{{ site.url }}{{ site.baseurl }}{% if site.active_lang != site.default_lang %}/{{ site.active_lang }}{% endif %}{{ page.url | replace:'index.html','' }}" >
-  <meta property="og:url" content="{{ site.url }}{{ site.baseurl }}{% if site.active_lang != site.default_lang %}/{{ site.active_lang }}{% endif %}{{ page.url | replace:'index.html','' }}" >
-  <meta name="twitter:url" content="{{ site.url }}{{ site.baseurl }}{% if site.active_lang != site.default_lang %}/{{ site.active_lang }}{% endif %}{{ page.url | replace:'index.html','' }}" > 
-  <link rel="alternate" hreflang="fr" href="{{ site.url }}{{ site.baseurl }}{{ page.url | replace:'index.html','' }}" >
-  <link rel="alternate" hreflang="en" href="{{ site.url }}{{ site.baseurl }}/en{{ page.url | replace:'index.html','' }}" >
+  {% capture pageDescription %}{% if page.description %}{{ page.description }}{% else %}{{ site.data.i18n.site-description }}{% endif %}{% endcapture %}
+  <meta name="description" content="{{ pageDescription }}" >
+  <meta itemprop="description" content="{{ pageDescription }}" >
+  <meta property="og:description" content="{{ pageDescription }}" >
+  <meta name="twitter:description" content="{{ pageDescription }}" >
+
+  {% capture pageUrl %}
+    {%- if site.active_lang == site.default_lang -%}
+      {{ site.url | append: page.url | replace:'index.html','' }}
+    {%- else -%}
+      {{ site.url | append: site.baseurl | append: '/' | append: site.active_lang | append: page.url | replace:'index.html','' }}
+    {%- endif -%}
+  {% endcapture %}
+  <link rel="canonical" href="{{ pageUrl }}" >
+  <meta name="url" content="{{ pageUrl }}" >
+  <meta property="og:url" content="{{ pageUrl }}" >
+  <meta name="twitter:url" content="{{ pageUrl }}" >
+
+  <link rel="alternate" hreflang="fr" href="{{ site.url | append: page.url | replace:'index.html','' }}" >
+  <link rel="alternate" hreflang="en" href="{{ site.url | append: '/en' | append: page.url | replace:'index.html','' }}" >
 
   {% if page.img %}
-  <meta itemprop="image" content="{{ site.url }}{{ site.baseurl }}/assets/img/{{ page.img }}" >
-  <meta property="og:image" content="{{ site.url }}{{ site.baseurl }}/assets/img/{{ page.img }}" > 
-  <meta name="twitter:image" content="{{ site.url }}{{ site.baseurl }}/assets/img/{{ page.img }}" >
-  <meta name="twitter:image:src" content="{{ site.url }}{{ site.baseurl }}/assets/img/{{ page.img }}" > 
+    {%- capture pageImage -%}
+      {{ site.url }}{{ site.baseurl }}/assets/img/{{ page.img }}
+    {%- endcapture -%}
+  <meta itemprop="image" content="{{ pageImage }}" >
+  <meta property="og:image" content="{{ pageImage }}" > 
+  <meta name="twitter:image" content="{{ pageImage }}" >
+  <meta name="twitter:image:src" content="{{ pageImage }}" > 
   {% else %}
-  <meta itemprop="image" content="{{ site.url }}{{ site.baseurl }}/assets/img/logo-scalastic.png" >
-  <meta property="og:image" content="{{ site.url }}{{ site.baseurl }}/assets/img/logo-scalastic.png" > 
-  <meta name="twitter:image" content="{{ site.url }}{{ site.baseurl }}/assets/img/logo-scalastic.png" >
-  <meta name="twitter:image:src" content="{{ site.url }}{{ site.baseurl }}/assets/img/logo-scalastic.png" > 
+    {%- capture pageImage -%}
+      {{ site.url }}{{ site.baseurl }}/assets/img/logo-scalastic.png
+    {%- endcapture -%}
+  <meta itemprop="image" content="" >
+  <meta property="og:image" content="{{ pageImage }}" > 
+  <meta name="twitter:image" content="{{ pageImage }}" >
+  <meta name="twitter:image:src" content="{{ pageImage }}" > 
   {% endif %}
 
   <meta name="twitter:card" content="summary" >
   <meta property="og:site_name" content="{{ site.title }}" >
   <meta name="author" content="Jean-Jerome Levy" >
-  <link rel="sitemap" type="application/xml" title="Sitemap" href="https://scalastic.io/sitemap.xml" > 
+  <link rel="sitemap" type="application/xml" title="Sitemap" {% static_href %}href="https://scalastic.io/sitemap.xml"{% endstatic_href %} > 
 
   <!-- @TODO : link pagination-->
   <!-- link rel="next" href="https://scalastic.io/en/page/2" / -->
@@ -61,7 +78,6 @@
   <link rel="apple-touch-icon" href="{{ '/assets/img/favicon/apple-touch-icon.png' | prepend: site.baseurl }}" >
   <link rel="apple-touch-icon" sizes="72x72" href="{{ '/assets/img/favicon/apple-touch-icon-72x72.png' | prepend: site.baseurl }}" >
   <link rel="apple-touch-icon" sizes="144x144" href="{{ '/assets/img/favicon/apple-touch-icon-144x144.png' | prepend: site.baseurl }}" >
-  <link rel="{{ '/assets/img/favicon/apple-touch-icon.png' | prepend: site.baseurl }}" >
   <link rel="icon" sizes="72x72" href="{{ '/assets/img/favicon/apple-touch-icon-72x72.png' | prepend: site.baseurl }}" >
   <link rel="icon" sizes="144x144" href="{{ '/assets/img/favicon/apple-touch-icon-144x144.png' | prepend: site.baseurl }}" >
   

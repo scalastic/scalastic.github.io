@@ -1,4 +1,5 @@
 _site/
+vendor/
 .jekyll-metadata/
 .jekyll-cache/
 .sass-cache/

@@ -2,7 +2,7 @@
 {% if paginator.total_pages > 1 %}
 <div class="pagination">
   {% if paginator.previous_page %}
-    <a href="{{ paginator.previous_page_path | prepend: site.baseurl | replace: '//', '/' }}"><i class="fas fa-arrow-circle-left"></i></a>
+    <a href="{{ paginator.previous_page_path | prepend: site.baseurl | append: '/' | replace: '//', '/' }}"><i class="fas fa-arrow-circle-left"></i></a>
   {% else %}
     <span class="disable"><i class="fas fa-arrow-circle-left"></i></span>
   {% endif %}
@@ -13,12 +13,12 @@
     {% elsif page == 1 %}
       <a href="/">{{ page }}</a>
     {% else %}
-      <a href="{{ site.paginate_path | prepend: site.baseurl | replace: '//', '/' | replace: ':num', page }}">{{ page }}</a>
+      <a href="{{ site.paginate_path | prepend: site.baseurl | append: '/' | replace: '//', '/' | replace: ':num', page }}">{{ page }}</a>
     {% endif %}
   {% endfor %}
 
   {% if paginator.next_page %}
-    <a href="{{ paginator.next_page_path | prepend: site.baseurl | replace: '//', '/' }}"><i class="fas fa-arrow-circle-right"></i></a>
+    <a href="{{ paginator.next_page_path | prepend: site.baseurl | append: '/' | replace: '//', '/' }}"><i class="fas fa-arrow-circle-right"></i></a>
   {% else %}
     <span class="disable"><i class="fas fa-arrow-circle-right"></i></span>
   {% endif %}

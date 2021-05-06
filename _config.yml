@@ -1,7 +1,7 @@
 title: Scalastic DevOps
 permalink: ':title/'
-baseurl: "" # the subpath of your site, e.g. /blog
-url: https://scalastic.io" # the base hostname & protocol for your site, e.g. http://example.com
+baseurl:
+url: https://scalastic.io
 logo: /assets/img/logo-scalastic.png
 
 # Company Settings
@@ -46,9 +46,13 @@ plugins:
   - jekyll-polyglot
   - jekyll_picture_tag
 
+#Jekyll build
+exclude: ["node_modules", "gulpfile.js", "package.json", "yarn.lock", "archive-posts"]
+
 # Activate page redirection when change
 redirects: yes
 
+#Paginate
 paginate: 6
 paginate_path: "/page/:num"
 page_excerpts: true
@@ -61,18 +65,15 @@ sass:
   sourcemap: never
   style: compressed
 
-jekyll-figure:
-  paragraphs: false
-
+#Picture Tag
 picture:
   output: /
   nomarkdown: false
   suppress_warnings: true
-
-exclude: ["node_modules", "gulpfile.js", "package.json", "yarn.lock", "archive-posts"]
+  #disabled: development
 
 #Polyglot
-languages: ["fr", "en"]
 default_lang: "fr"
+languages: ["fr", "en"]
 exclude_from_localization: ["generated", "assets", "css", "fonts", "img"]
 parallel_localization: false
