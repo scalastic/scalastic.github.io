@@ -10,25 +10,29 @@
   <meta property="og:locale" content="fr_FR" >
   <meta name="language" content="fr" >
 
-  <title itemprop="name">JVM vs Native - Une réelle comparaison des performances | Scalastic DevOps</title>
+  <title>JVM vs Native - Une réelle comparaison des performances | Scalastic DevOps</title>
+
+  
   <meta property="og:title" content="JVM vs Native - Une réelle comparaison des performances" >
   <meta name="twitter:title" content="JVM vs Native - Une réelle comparaison des performances" >
   <meta itemprop="name" content="JVM vs Native - Une réelle comparaison des performances" >
   <meta name="application-name" content="JVM vs Native - Une réelle comparaison des performances" >
 
+  
   <meta name="description" content="Comment réellement comparer l'exécution d'une application Java entre ses versions JVM et native - Un guide complet construit à partir de Java Spring Boot, Spring Native, WebFlux, Docker, Kubernetes, Prometheus et Grafana" >
   <meta itemprop="description" content="Comment réellement comparer l'exécution d'une application Java entre ses versions JVM et native - Un guide complet construit à partir de Java Spring Boot, Spring Native, WebFlux, Docker, Kubernetes, Prometheus et Grafana" >
   <meta property="og:description" content="Comment réellement comparer l'exécution d'une application Java entre ses versions JVM et native - Un guide complet construit à partir de Java Spring Boot, Spring Native, WebFlux, Docker, Kubernetes, Prometheus et Grafana" >
   <meta name="twitter:description" content="Comment réellement comparer l'exécution d'une application Java entre ses versions JVM et native - Un guide complet construit à partir de Java Spring Boot, Spring Native, WebFlux, Docker, Kubernetes, Prometheus et Grafana" >
 
-  <link rel="canonical" href="https://scalastic.io/jvm-vs-native/" itemprop="url" >
+  
+  <link rel="canonical" href="https://scalastic.io/jvm-vs-native/" >
   <meta name="url" content="https://scalastic.io/jvm-vs-native/" >
   <meta property="og:url" content="https://scalastic.io/jvm-vs-native/" >
-  <meta name="twitter:url" content="https://scalastic.io/jvm-vs-native/" > 
+  <meta name="twitter:url" content="https://scalastic.io/jvm-vs-native/" >
+
   <link rel="alternate" hreflang="fr" href="https://scalastic.io/jvm-vs-native/" >
   <link rel="alternate" hreflang="en" href="https://scalastic.io/en/jvm-vs-native/" >
 
-  
   <meta itemprop="image" content="https://scalastic.io/assets/img/jvm-vs-native.jpg" >
   <meta property="og:image" content="https://scalastic.io/assets/img/jvm-vs-native.jpg" > 
   <meta name="twitter:image" content="https://scalastic.io/assets/img/jvm-vs-native.jpg" >
@@ -51,16 +55,11 @@
 <meta property="article:author" content="Jean-Jerome Levy" > 
 <meta name="author" content="Jean-Jerome Levy"> 
 <meta property="article:published_time" content="2021-04-22T21:00:00+02:00" >
-<meta property="og:article:published_time" content="2021-04-22T21:00:00+02:00" > 
-
-
+<meta property="og:article:published_time" content="2021-04-22T21:00:00+02:00" >
 <meta property="article:modified_time" content="2021-05-02T22:18:17+02:00" >
 <meta property="og:updated_time" content="2021-05-02T22:18:17+02:00" >
 
-
-
 <meta name="keywords" content="Spring-Boot, Spring-Native, Spring-WebFlux, GraalVM, Docker, Kubernetes, Prometheus, Grafana, Micoservices" >
-
 <meta property="article:tag" content="Spring-Boot" >
 
 <meta property="article:tag" content="Spring-Native" >
@@ -78,9 +77,6 @@
 <meta property="article:tag" content="Grafana" >
 
 <meta property="article:tag" content="Micoservices" >
-
-
-
 <script type="application/ld+json">
 {
   "@context": "http://schema.org",
@@ -141,7 +137,6 @@
   <link rel="apple-touch-icon" href="/assets/img/favicon/apple-touch-icon.png" >
   <link rel="apple-touch-icon" sizes="72x72" href="/assets/img/favicon/apple-touch-icon-72x72.png" >
   <link rel="apple-touch-icon" sizes="144x144" href="/assets/img/favicon/apple-touch-icon-144x144.png" >
-  <link rel="/assets/img/favicon/apple-touch-icon.png" >
   <link rel="icon" sizes="72x72" href="/assets/img/favicon/apple-touch-icon-72x72.png" >
   <link rel="icon" sizes="144x144" href="/assets/img/favicon/apple-touch-icon-144x144.png" >
   
@@ -168,7 +163,6 @@
 </head>
 
   <body>
-
     <div class="wrapper">
       <aside class="sidebar">
   <header>
@@ -213,13 +207,13 @@
       <ul>
         
         
-          <li class="github"><a href="http://github.com/jeanjerome" target="_blank" rel="noopener noreferrer nofollow"><i class="fab fa-github"></i></i></a></li>
+          <li class="github"><a href="http://github.com/jeanjerome" target="_blank" rel="noopener noreferrer nofollow"><i class="fab fa-github"></i></a></li>
         
         
-          <li class="linkedin"><a href="https://in.linkedin.com/in/jean-jerome-levy/" rel="noopener noreferrer nofollow" target="_blank"><i class="fab fa-linkedin-in"></i></i></a></li>
+          <li class="linkedin"><a href="https://in.linkedin.com/in/jean-jerome-levy/" rel="noopener noreferrer nofollow" target="_blank"><i class="fab fa-linkedin-in"></i></a></li>
         
         
-          <li class="email"><a href="mailto:contact@scalastic.io"><i class="far fa-envelope"></i></i></a></li>
+          <li class="email"><a href="mailto:contact@scalastic.io"><i class="far fa-envelope"></i></a></li>
         
       </ul>
     </section>
@@ -238,10 +232,8 @@
 <div class="content-box clearfix">
   <article class="article-page">
   <div class="page-content">
-    
     <div class="page-cover-image">
       <figure>
-        <!-- img class="page-image" src=/assets/img/jvm-vs-native.jpg alt="JVM vs Native - Une réelle comparaison des performances" -->
         <picture>
   <source srcset="/assets/img/jvm-vs-native-485.0-a6b4853c2.avif 0.5x, /assets/img/jvm-vs-native-970-a6b4853c2.avif 1.0x" type="image/avif">
   <source srcset="/assets/img/jvm-vs-native-485.0-e718b3a97.webp 0.5x, /assets/img/jvm-vs-native-970-e718b3a97.webp 1.0x" type="image/webp">
@@ -249,11 +241,9 @@
   <img src="/assets/img/jvm-vs-native-970-e5b7aac82.jpg" alt="JVM vs Native - Une réelle comparaison des performances" width="1920" height="1253">
 </picture>
 
-        
-          <figcaption>Photo de <a href="https://unsplash.com/@jtylernix?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Tyler Nix</a> sur <a href="https://unsplash.com/s/photos/surf?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Unsplash</a></figcaption>
-        
+        <figcaption>Photo de <a href="https://unsplash.com/@jtylernix?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Tyler Nix</a> sur <a href="https://unsplash.com/s/photos/surf?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Unsplash</a></figcaption>
       </figure>
-    </div> <!-- End Page Cover Image -->
+    </div>
     
     <div class="wrap-content">
       <header class="page-header">
@@ -263,7 +253,6 @@
             <li><i class="far fa-calendar-alt"></i> 22 Avril 2021</li>
             <li><i class="far fa-clock"></i> 15 minutes</li>
             <li><i class="fas fa-tags"></i>
-              
               <a href="/tags/#Spring-Boot">Spring-Boot</a>, 
               
               <a href="/tags/#Spring-Native">Spring-Native</a>, 
@@ -281,8 +270,7 @@
               <a href="/tags/#Grafana">Grafana</a>, 
               
               <a href="/tags/#Micoservices">Micoservices</a>
-              
-            </li>
+              </li>
           </ul>
         </div>
       </header>
@@ -565,7 +553,7 @@ rng-native                1.0.0      68e484d391f3   41 years ago        82.2MB</
   <li>
     <p>Nous voulons que les métriques de l’application soient collectés par Prometheus.</p>
 
-    <p>=&gt; Voici <a href="https://developer.ibm.com/technologies/containers/tutorials/monitorin]g-kubernetes-prometheus/" target="_blank" rel="noopener noreferrer nofollow">comment le configurer</a></p>
+    <p>=&gt; Voici <a href="https://developer.ibm.com/technologies/containers/tutorials/monitoring-kubernetes-prometheus/" target="_blank" rel="noopener noreferrer nofollow">comment le configurer</a></p>
   </li>
 </ol>
 
@@ -1096,11 +1084,10 @@ service <span class="s2">"worker"</span> deleted</code></pre></figure>
 
       <div class="page-footer">
         <div class="page-share">
-          <a href="https://twitter.com/intent/tweet?text=JVM vs Native - Une réelle comparaison des performances&url=https://scalastic.io/jvm-vs-native/" title="Share on Twitter" rel="nofollow" target="_blank"><i class="fa fa-twitter" aria-hidden="true"></i>&nbsp;Twitter</a>
+          <a href="https://twitter.com/intent/tweet?text=JVM%20vs%20Native%20-%20Une%20r%C3%A9elle%20comparaison%20des%20performances&url=https://scalastic.io/jvm-vs-native/" title="Share on Twitter" rel="nofollow" target="_blank"><i class="fa fa-twitter" aria-hidden="true"></i>&nbsp;Twitter</a>
           <a href="https://www.linkedin.com/sharing/share-offsite/?url=https://scalastic.io/jvm-vs-native/" title="Share on LinkedIn" rel="nofollow" target="_blank"><i class="fa fa-linkedin" aria-hidden="true"></i>&nbsp;LinkedIn</a>
         </div>
         <div class="page-tag">
-          
             <a href="/tags#Spring-Boot" class="tag" rel="tag">&#35; Spring-Boot</a>
           
             <a href="/tags#Spring-Native" class="tag" rel="tag">&#35; Spring-Native</a>
@@ -1118,111 +1105,54 @@ service <span class="s2">"worker"</span> deleted</code></pre></figure>
             <a href="/tags#Grafana" class="tag" rel="tag">&#35; Grafana</a>
           
             <a href="/tags#Micoservices" class="tag" rel="tag">&#35; Micoservices</a>
-          
-        </div>
+          </div>
       </div>
       
 
 
 
-
   
-  
-  
-  
-
-  
-  
-  
-  
-    
-    <div class="page-recomm">
-    <h3>Articles associés</h3>
-    
-    <a class="recomm" href="/install-kubernetes-prometheus-grafana/">
+  <div class="page-recomm">
+    <h3>Articles associés</h3><a class="recomm" href="/install-kubernetes-prometheus-grafana/">
       <div class="recomm">
-        <h5>Installez Kubernetes, Prometheus et Grafana en local</h5>
-        <!-- img width="100%" src="/assets/img/install-kubernetes.jpg" alt="Installez Kubernetes, Prometheus et Grafana en local" -->
-        <picture>
+        <h5>Installez Kubernetes, Prometheus et Grafana en local</h5><picture>
   <source srcset="/assets/img/install-kubernetes-180-a3dfc0ff2.avif 1.0x, /assets/img/install-kubernetes-270.0-a3dfc0ff2.avif 1.5x, /assets/img/install-kubernetes-360-a3dfc0ff2.avif 2.0x" type="image/avif">
   <source srcset="/assets/img/install-kubernetes-180-8d26bd2b3.webp 1.0x, /assets/img/install-kubernetes-270.0-8d26bd2b3.webp 1.5x, /assets/img/install-kubernetes-360-8d26bd2b3.webp 2.0x" type="image/webp">
   <source srcset="/assets/img/install-kubernetes-180-b46b83254.jpg 1.0x, /assets/img/install-kubernetes-270.0-b46b83254.jpg 1.5x, /assets/img/install-kubernetes-360-b46b83254.jpg 2.0x" type="image/jpeg">
-  <img src="/assets/img/install-kubernetes-180-b46b83254.jpg" alt=""Installez Kubernetes, Prometheus et Grafana en local">
+  <img src="/assets/img/install-kubernetes-180-b46b83254.jpg" alt="Installez Kubernetes, Prometheus et Grafana en local">
 </picture>
-
-      </div>
+</div>
     </a>
-    
-    
-  
-
-  
-  
-  
-  
-    
-    <a class="recomm" href="/dive-image-docker/">
+  <a class="recomm" href="/dive-image-docker/">
       <div class="recomm">
-        <h5>Dive, une plongée dans les images Docker</h5>
-        <!-- img width="100%" src="/assets/img/dive-image-docker.jpg" alt="Dive, une plongée dans les images Docker" -->
-        <picture>
+        <h5>Dive, une plongée dans les images Docker</h5><picture>
   <source srcset="/assets/img/dive-image-docker-180-d4c8a45dc.avif 1.0x, /assets/img/dive-image-docker-270.0-d4c8a45dc.avif 1.5x, /assets/img/dive-image-docker-360-d4c8a45dc.avif 2.0x" type="image/avif">
   <source srcset="/assets/img/dive-image-docker-180-a4353eb0e.webp 1.0x, /assets/img/dive-image-docker-270.0-a4353eb0e.webp 1.5x, /assets/img/dive-image-docker-360-a4353eb0e.webp 2.0x" type="image/webp">
   <source srcset="/assets/img/dive-image-docker-180-6df4fff3d.jpg 1.0x, /assets/img/dive-image-docker-270.0-6df4fff3d.jpg 1.5x, /assets/img/dive-image-docker-360-6df4fff3d.jpg 2.0x" type="image/jpeg">
-  <img src="/assets/img/dive-image-docker-180-6df4fff3d.jpg" alt=""Dive, une plongée dans les images Docker">
+  <img src="/assets/img/dive-image-docker-180-6df4fff3d.jpg" alt="Dive, une plongée dans les images Docker">
 </picture>
-
-      </div>
+</div>
     </a>
-    
-    
-  
-
-  
-  
-  
-  
-    
-    <a class="recomm" href="/spring-natif-graalvm/">
+  <a class="recomm" href="/spring-natif-graalvm/">
       <div class="recomm">
-        <h5>Compiler une application Spring en natif avec GraalVM</h5>
-        <!-- img width="100%" src="/assets/img/spring-native-graalvm-post.jpg" alt="Compiler une application Spring en natif avec GraalVM" -->
-        <picture>
+        <h5>Compiler une application Spring en natif avec GraalVM</h5><picture>
   <source srcset="/assets/img/spring-native-graalvm-post-180-484c6e805.avif 1.0x, /assets/img/spring-native-graalvm-post-270.0-484c6e805.avif 1.5x, /assets/img/spring-native-graalvm-post-360-484c6e805.avif 2.0x" type="image/avif">
   <source srcset="/assets/img/spring-native-graalvm-post-180-8e6a0428d.webp 1.0x, /assets/img/spring-native-graalvm-post-270.0-8e6a0428d.webp 1.5x, /assets/img/spring-native-graalvm-post-360-8e6a0428d.webp 2.0x" type="image/webp">
   <source srcset="/assets/img/spring-native-graalvm-post-180-5a1bcaa7e.jpg 1.0x, /assets/img/spring-native-graalvm-post-270.0-5a1bcaa7e.jpg 1.5x, /assets/img/spring-native-graalvm-post-360-5a1bcaa7e.jpg 2.0x" type="image/jpeg">
-  <img src="/assets/img/spring-native-graalvm-post-180-5a1bcaa7e.jpg" alt=""Compiler une application Spring en natif avec GraalVM">
+  <img src="/assets/img/spring-native-graalvm-post-180-5a1bcaa7e.jpg" alt="Compiler une application Spring en natif avec GraalVM">
 </picture>
-
-      </div>
+</div>
     </a>
-    
-    
-  
-
-  
-  
-  
-  
-    
-    <a class="recomm" href="/installer-java-sdkman/">
+  <a class="recomm" href="/installer-java-sdkman/">
       <div class="recomm">
-        <h5>Installer Java avec SDKMAN</h5>
-        <!-- img width="100%" src="/assets/img/sdkman-post.jpg" alt="Installer Java avec SDKMAN" -->
-        <picture>
+        <h5>Installer Java avec SDKMAN</h5><picture>
   <source srcset="/assets/img/sdkman-post-180-9edb4d775.avif 1.0x, /assets/img/sdkman-post-270.0-9edb4d775.avif 1.5x, /assets/img/sdkman-post-360-9edb4d775.avif 2.0x" type="image/avif">
   <source srcset="/assets/img/sdkman-post-180-c4fa93e2d.webp 1.0x, /assets/img/sdkman-post-270.0-c4fa93e2d.webp 1.5x, /assets/img/sdkman-post-360-c4fa93e2d.webp 2.0x" type="image/webp">
   <source srcset="/assets/img/sdkman-post-180-c94348989.jpg 1.0x, /assets/img/sdkman-post-270.0-c94348989.jpg 1.5x, /assets/img/sdkman-post-360-c94348989.jpg 2.0x" type="image/jpeg">
-  <img src="/assets/img/sdkman-post-180-c94348989.jpg" alt=""Installer Java avec SDKMAN">
+  <img src="/assets/img/sdkman-post-180-c94348989.jpg" alt="Installer Java avec SDKMAN">
 </picture>
-
-      </div>
-    </a>
-    
-    
-    </div>
-      
-
+</div>
+    </a></div>
       
 <div class="comment-area">
   <div class="comment-wrapper">
@@ -1232,8 +1162,8 @@ service <span class="s2">"worker"</span> deleted</code></pre></figure>
     <script>
       function loadDisqusOnConsent() {
         var disqus_config = function () {
-          this.page.url = "https://scalastic.io/jvm-vs-native/";  /* Replace PAGE_URL with your page's canonical URL variable */
-          this.page.identifier = "/jvm-vs-native/"; /* Replace PAGE_IDENTIFIER with your page's unique identifier variable */
+          this.page.url = "https://scalastic.io/jvm-vs-native/";
+          this.page.identifier = "/jvm-vs-native/";
         };
         (function() {
             var d = document, s = d.createElement('script');
@@ -1248,10 +1178,8 @@ service <span class="s2">"worker"</span> deleted</code></pre></figure>
       var container_disqus = document.getElementById('disqus_thread');
       var disqus_display = container_disqus.getElementsByTagName('div').length == 0;
       if (disqus_display) {
-
         document.getElementById('disqus_thread').innerHTML += '<div class="premonition error"><i class="premonition pn-error"></i><div class="content"><p class="header">Note</p><p>Les commentaires Disqus ont été désactivés car ils ne peuvent pas fonctionner sans cookie.</p><p>Pour réactiver les commentaires et les cookies, cliquez sur <a href="javascript:activateCookie()">Autoriser les cookies</a></p></div></div>';
       };
-
     </script>
     <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
     
@@ -1266,7 +1194,6 @@ service <span class="s2">"worker"</span> deleted</code></pre></figure>
 </div>
 
     </div>
-
     <script src="https://scalastic.io/cookieconsent.min.js" data-cfasync="false"></script>
     <script>
   function loadGAonConsent() {
@@ -1283,6 +1210,5 @@ service <span class="s2">"worker"</span> deleted</code></pre></figure>
   }
 </script>
     <script src="https://scalastic.io/cookie-consent.js"></script>
-
   </body>
 </html>
