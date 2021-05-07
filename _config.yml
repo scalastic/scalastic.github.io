@@ -1,7 +1,7 @@
 title: Scalastic DevOps
 permalink: ':title/'
 baseurl:
-url: https://scalastic.io
+url: http://127.0.0.1:4000
 logo: /assets/img/logo-scalastic.png
 
 # Company Settings
