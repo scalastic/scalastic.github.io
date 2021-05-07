@@ -16,7 +16,7 @@
   {%- endcapture -%}
 {%- else -%}
   {%- capture pageImage -%}
-    {{ site.url }}{{ site.baseurl }}/assets/img/logo-scalastic.png
+    {{ site.url | append: site.baseurl | append: site.image }}
   {%- endcapture -%}
   {%- capture pageType -%}
     website
@@ -90,7 +90,7 @@
   <link rel="alternate icon" type="image/png" href="{{ site.url | append: site.baseurl | append: '/favicon.png' }}">
   <link rel="icon" type="image/svg+xml" href="{{ site.url | append: site.baseurl | append: '/favicon.svg' }}">
   <meta name="theme-color" content="#1e2327">
-  <meta name="color-scheme" content="dark"/>
+  <meta name="color-scheme" content="light dark"/>
   <meta name="coverage" content="Worldwide" > 
   <meta name="distribution" content="Global" >
   <meta name="HandheldFriendly" content="True" > 
