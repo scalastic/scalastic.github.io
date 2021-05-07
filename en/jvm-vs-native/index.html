@@ -1,83 +1,58 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta name="generator" content="Jekyll 🎩" >
-  <meta charset="utf-8" >
-  <meta http-equiv="X-UA-Compatible" content="IE=edge" >
-  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" >
-
-  <meta http-equiv="Content-Language" content="en" >
-  <meta property="og:locale" content="en_US" >
-  <meta name="language" content="en" >
-
-  <title>JVM vs Native - An effective comparison of performances | Scalastic DevOps</title>
-
-  
-  <meta property="og:title" content="JVM vs Native - An effective comparison of performances" >
-  <meta name="twitter:title" content="JVM vs Native - An effective comparison of performances" >
-  <meta itemprop="name" content="JVM vs Native - An effective comparison of performances" >
-  <meta name="application-name" content="JVM vs Native - An effective comparison of performances" >
-
-  
-  <meta name="description" content="How to actually compare running Java Applications between its JVM and native versions - A complete guide built from Java Spring Boot, Spring Native, WebFlux, Docker, Kubernetes, Prometheus, and Grafana" >
-  <meta itemprop="description" content="How to actually compare running Java Applications between its JVM and native versions - A complete guide built from Java Spring Boot, Spring Native, WebFlux, Docker, Kubernetes, Prometheus, and Grafana" >
-  <meta property="og:description" content="How to actually compare running Java Applications between its JVM and native versions - A complete guide built from Java Spring Boot, Spring Native, WebFlux, Docker, Kubernetes, Prometheus, and Grafana" >
-  <meta name="twitter:description" content="How to actually compare running Java Applications between its JVM and native versions - A complete guide built from Java Spring Boot, Spring Native, WebFlux, Docker, Kubernetes, Prometheus, and Grafana" >
-
-  
-  <link rel="canonical" href="https://scalastic.io/en/jvm-vs-native/" >
-  <meta name="url" content="https://scalastic.io/en/jvm-vs-native/" >
-  <meta property="og:url" content="https://scalastic.io/en/jvm-vs-native/" >
-  <meta name="twitter:url" content="https://scalastic.io/en/jvm-vs-native/" >
-
-  <link rel="alternate" hreflang="fr" href="https://scalastic.io/jvm-vs-native/" >
-  <link rel="alternate" hreflang="en" href="https://scalastic.io/en/jvm-vs-native/" >
-
-  <meta itemprop="image" content="https://scalastic.io/assets/img/jvm-vs-native.jpg" >
-  <meta property="og:image" content="https://scalastic.io/assets/img/jvm-vs-native.jpg" > 
-  <meta name="twitter:image" content="https://scalastic.io/assets/img/jvm-vs-native.jpg" >
-  <meta name="twitter:image:src" content="https://scalastic.io/assets/img/jvm-vs-native.jpg" > 
-  
-
-  <meta name="twitter:card" content="summary" >
-  <meta property="og:site_name" content="Scalastic DevOps" >
-  <meta name="author" content="Jean-Jerome Levy" >
-  <link rel="sitemap" type="application/xml" title="Sitemap" href="https://scalastic.io/sitemap.xml" > 
-
-  <!-- @TODO : link pagination-->
-  <!-- link rel="next" href="https://scalastic.io/en/page/2" / -->
-  
-  
-    
-      <meta property="og:type" content="article" >
-<meta property="article:publisher" content="Jean-Jerome Levy" >
-<meta property="og:article:author" content="Jean-Jerome Levy" >
-<meta property="article:author" content="Jean-Jerome Levy" > 
-<meta name="author" content="Jean-Jerome Levy"> 
-<meta property="article:published_time" content="2021-04-22T21:00:00+02:00" >
-<meta property="og:article:published_time" content="2021-04-22T21:00:00+02:00" >
-<meta property="article:modified_time" content="2021-05-02T22:18:17+02:00" >
-<meta property="og:updated_time" content="2021-05-02T22:18:17+02:00" >
-
-<meta name="keywords" content="Spring-Boot, Spring-Native, Spring-WebFlux, GraalVM, Docker, Kubernetes, Prometheus, Grafana, Micoservices" >
-<meta property="article:tag" content="Spring-Boot" >
-
-<meta property="article:tag" content="Spring-Native" >
-
-<meta property="article:tag" content="Spring-WebFlux" >
-
-<meta property="article:tag" content="GraalVM" >
-
-<meta property="article:tag" content="Docker" >
-
-<meta property="article:tag" content="Kubernetes" >
-
-<meta property="article:tag" content="Prometheus" >
-
-<meta property="article:tag" content="Grafana" >
-
-<meta property="article:tag" content="Micoservices" >
-<script type="application/ld+json">
+  <meta charset="utf-8">
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+  <link rel="canonical" href="https://scalastic.io/en/jvm-vs-native/">
+  <link rel="alternate" hreflang="fr" href="https://scalastic.io/jvm-vs-native/">
+  <link rel="alternate" hreflang="en" href="https://scalastic.io/en/jvm-vs-native/">
+  <!-- Meta html5 -->
+  <title>JVM vs Native - An effective comparison of performances|Scalastic DevOps</title>
+  <meta name="title" content="JVM vs Native - An effective comparison of performances">
+  <meta name="description" content="How to actually compare running Java Applications between its JVM and native versions - A complete guide built from Java Spring Boot, Spring Native, WebFlux, Docker, Kubernetes, Prometheus, and Grafana">
+  <meta name="keywords" content="Spring-Boot,Spring-Native,Spring-WebFlux,GraalVM,Docker,Kubernetes,Prometheus,Grafana,Micoservices">
+  <meta name="url" content="https://scalastic.io/en/jvm-vs-native/">
+  <meta name="robots" content="index, follow">
+  <meta name="googlebot" content="index,follow">
+  <meta name="copyright" content="Scalastic DevOps">
+  <meta name="language" content="en">
+  <meta name="author" content="Jean-Jerome Levy">
+  <meta name="creationdate" content="Ma date de création">
+  <meta name="distribution" content="global">
+  <meta name="rating" content="general">
+  <meta name="application-name" content="Scalastic DevOps">
+  <meta name="generator" content="Jekyll 🎩">
+  <!-- Meta og -->
+  <meta property="og:title" content="JVM vs Native - An effective comparison of performances">
+  <meta property="og:description" content="How to actually compare running Java Applications between its JVM and native versions - A complete guide built from Java Spring Boot, Spring Native, WebFlux, Docker, Kubernetes, Prometheus, and Grafana">
+  <meta property="og:url" content="https://scalastic.io/en/jvm-vs-native/">
+  <meta property="og:image" content="https://scalastic.io/assets/img/jvm-vs-native.jpg"> 
+  <meta property="og:locale" content="en_US">
+  <meta property="og:site_name" content="Scalastic DevOps">
+  <meta property="og:type" content="article">
+    <meta property="article:author" content="https://www.linkedin.com/in/jean-jerome-levy">
+    <meta property="article:published_time" content="2021-04-22T21:00:00+02:00">
+    <meta property="article:modified_time" content="2021-05-02T22:18:17+02:00">
+    <meta property="article:section" content="Technology">
+    <meta property="article:tag" content="Spring-Boot">
+    <meta property="article:tag" content="Spring-Native">
+    <meta property="article:tag" content="Spring-WebFlux">
+    <meta property="article:tag" content="GraalVM">
+    <meta property="article:tag" content="Docker">
+    <meta property="article:tag" content="Kubernetes">
+    <meta property="article:tag" content="Prometheus">
+    <meta property="article:tag" content="Grafana">
+    <meta property="article:tag" content="Micoservices">
+  <!-- Meta twitter -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="JVM vs Native - An effective comparison of performances">
+  <meta name="twitter:description" content="How to actually compare running Java Applications between its JVM and native versions - A complete guide built from Java Spring Boot, Spring Native, WebFlux, Docker, Kubernetes, Prometheus, and Grafana">
+  <meta name="twitter:url" content="https://scalastic.io/en/jvm-vs-native/">
+  <meta name="twitter:image" content="https://scalastic.io/assets/img/jvm-vs-native.jpg">
+  <!-- json-ld -->
+  <script type="application/ld+json">
 {
   "@context": "http://schema.org",
   "@type": "BlogPosting",
@@ -130,32 +105,22 @@
 }
 </script>
     
-  
 
-  <link rel="shortcut icon" href="/assets/img/favicon/favicon.ico" >
-  <link rel="icon" type="image/x-icon" sizes="16x16 32x32" href="/assets/img/favicon/favicon.ico" >
-  <link rel="apple-touch-icon" href="/assets/img/favicon/apple-touch-icon.png" >
-  <link rel="apple-touch-icon" sizes="72x72" href="/assets/img/favicon/apple-touch-icon-72x72.png" >
-  <link rel="apple-touch-icon" sizes="144x144" href="/assets/img/favicon/apple-touch-icon-144x144.png" >
-  <link rel="icon" sizes="72x72" href="/assets/img/favicon/apple-touch-icon-72x72.png" >
-  <link rel="icon" sizes="144x144" href="/assets/img/favicon/apple-touch-icon-144x144.png" >
-  
-  <meta name="robots" content="index,follow" > 
-  <meta name="googlebot" content="index,follow" >
-
-  <meta name="theme-color" content="#141414" > 
-  <meta name="msapplication-TileColor" content="#141414" >
-
-  <meta name="imagemode" content="force" >
+  <!-- pagination -->
+  <!-- icon -->
+  <link rel="mask-icon" href="https://scalastic.io/en/pinned-scalastic.svg" color="#000000">
+  <link rel="alternate icon" type="image/png" href="https://scalastic.io/en/favicon.png">
+  <link rel="icon" type="image/svg+xml" href="https://scalastic.io/en/favicon.svg">
+  <meta name="theme-color" content="#1e2327">
+  <meta name="color-scheme" content="light dark"/>
   <meta name="coverage" content="Worldwide" > 
   <meta name="distribution" content="Global" >
   <meta name="HandheldFriendly" content="True" > 
   <meta name="msapplication-tap-highlight" content="no" >
-  <meta name="apple-mobile-web-app-title" content="Scalastic DevOps" > 
-  <meta name="apple-mobile-web-app-capable" content="yes" >
-  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" >
-  <meta name="apple-touch-fullscreen" content="yes" > 
-
+  <link rel="apple-touch-icon" href="https://scalastic.io/en/apple-touch-icon.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="https://scalastic.io/en/apple-touch-icon-180x180.png">
+  <meta name="apple-mobile-web-app-title" content="Scalastic">
+  <!-- css -->
   <link href="https://fonts.googleapis.com/css?family=PT+Serif:400,700|Lato:300,400,700&display=swap" rel="stylesheet" >
   <link rel="stylesheet" type="text/css" href="/assets/css/cookieconsent.min.css" >
   <link rel="stylesheet" href="/assets/fonts/fontawesome/css/all.min.css" >
