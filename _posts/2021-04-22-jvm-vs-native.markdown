@@ -5,7 +5,7 @@ date: 2021-04-22 21:00:00 +0200
 description: Comment réellement comparer l'exécution d'une application Java entre ses versions JVM et native - Un guide complet construit à partir de Java Spring Boot, Spring Native, WebFlux, Docker, Kubernetes, Prometheus et Grafana
 img: jvm-vs-native.jpg
 fig-caption: Photo de <a href="https://unsplash.com/@jtylernix?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Tyler Nix</a> sur <a href="https://unsplash.com/s/photos/surf?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Unsplash</a>
-tags: [Spring-Boot, Spring-Native, Spring-WebFlux, GraalVM, Docker, Kubernetes, Prometheus, Grafana, Micoservices]
+tags: [Spring-Boot, Spring-Native, Spring-WebFlux, GraalVM, Docker, Kubernetes, Prometheus, Grafana, Microservices]
 lang: fr
 permalink: /jvm-vs-native/
 status: finished
