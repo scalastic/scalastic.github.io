@@ -34,16 +34,10 @@
   <title>{{ pageTitle | append: '|' | append: site.title }}</title>
   <meta name="title" content="{{ pageTitle }}">
   <meta name="description" content="{{ pageDescription }}">
-  {%- if page.tags %}
-  <meta name="keywords" content="{{ page.tags | join: ',' }}">
-  {% endif -%}
   <meta name="url" content="{{ pageUrl }}">
   <meta name="robots" content="index, follow">
-  <meta name="googlebot" content="index,follow">
-  <meta name="copyright" content="{{ site.title }}">
   <meta name="language" content="{{ site.active_lang }}">
   <meta name="author" content="Jean-Jerome Levy">
-  <meta name="creationdate" content="Ma date de création">
   <meta name="distribution" content="global">
   <meta name="rating" content="general">
   <meta name="application-name" content="{{ site.title }}">
