@@ -46,6 +46,7 @@ plugins:
   - jekyll-last-modified-at
   - jekyll-polyglot
   - jekyll_picture_tag
+  - jekyll-minifier
 
 #Jekyll build
 exclude: ["node_modules", "gulpfile.js", "package.json", "yarn.lock", "archive-posts"]
@@ -71,6 +72,7 @@ picture:
   output: /
   nomarkdown: false
   suppress_warnings: true
+  #disabled: production
   #disabled: development
 
 #Polyglot
@@ -78,3 +80,31 @@ default_lang: "fr"
 languages: ["fr", "en"]
 exclude_from_localization: ["generated", "assets", "css", "fonts", "img"]
 parallel_localization: false
+
+#Minifier
+jekyll-minifier:
+  preserve_php: false               # Default: false
+  remove_spaces_inside_tags: true   # Default: true
+  remove_multi_spaces: true         # Default: true
+  remove_comments: true             # Default: true
+  remove_intertag_spaces: true      # Default: false
+  remove_quotes: false              # Default: false
+  compress_css: true                # Default: true
+  compress_javascript: true         # Default: true
+  compress_json: true               # Default: true
+  simple_doctype: false             # Default: false
+  remove_script_attributes: false   # Default: false
+  remove_style_attributes: false    # Default: false
+  remove_link_attributes: false     # Default: false
+  remove_form_attributes: false     # Default: false
+  remove_input_attributes: false    # Default: false
+  remove_javascript_protocol: false # Default: false
+  remove_http_protocol: false       # Default: false
+  remove_https_protocol: false      # Default: false
+  preserve_line_breaks: false       # Default: false
+  simple_boolean_attributes: false  # Default: false
+  compress_js_templates: false      # Default: false
+  preserve_patterns:
+    [/<\?pre.*?\?>/im]              # Default: (empty)
+  uglifier_args:                    # Default: (empty)
+    compress: true

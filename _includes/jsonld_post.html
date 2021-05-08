@@ -13,7 +13,7 @@
   {% if page.img %}
     "{{ page.img | prepend: "/assets/img/" | prepend: site.baseurl | prepend: site.url }}"
   {% else %}
-    "{{ site.logo | prepend: site.baseurl | prepend: site.url }}"
+    "{{ site.image | prepend: site.baseurl | prepend: site.url }}"
   {% endif %}
   ],
   "datePublished": "{{page.date | date_to_xmlschema }}",
