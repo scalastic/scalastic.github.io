@@ -1,1 +1,52 @@
-window.cookieconsent.initialise({palette:{popup:{background:"#515151",text:"#0f0"},button:{background:"#0f0"}},theme:"edgeless",type:"opt-in",content:{message:"Ce site Web utilise des cookies pour vous garantir une meilleure exp\xe9rience.",href:"https://scalastic.io/privacy/"},onInitialise:function(){var n=this.options.type,o=this.hasConsented();"opt-in"==n&&o&&(loadGAonConsent(),loadDisqusOnConsent())},onStatusChange:function(){var n=this.options.type,o=this.hasConsented();"opt-in"==n&&o&&(loadGAonConsent(),loadDisqusOnConsent())},onRevokeChoice:function(){var n=this.options.type;"opt-out"==n&&(loadGAonConsent(),loadDisqusOnConsent())}});
+window.cookieconsent.initialise({
+  "palette": {
+    "popup": {
+      "background": "#515151",
+      "text": "#0f0"
+    },
+    "button": {
+      "background": "#0f0"
+    }
+  },
+  "theme": "edgeless",
+  "type": "opt-in",
+  "content": {
+    "message": "Ce site Web utilise des cookies pour vous garantir une meilleure expérience.",
+    "href": "https://scalastic.io/privacy/"
+  },
+  onInitialise: function (status) {
+    var type = this.options.type;
+    var didConsent = this.hasConsented();
+    if (type == 'opt-in' && didConsent) {
+      // enable cookies
+      loadGAonConsent();
+      loadDisqusOnConsent();
+    }
+    if (type == 'opt-out' && !didConsent) {
+      // disable cookies
+    }
+  },
+  onStatusChange: function(status, chosenBefore) {
+    var type = this.options.type;
+    var didConsent = this.hasConsented();
+    if (type == 'opt-in' && didConsent) {
+      // enable cookies
+      loadGAonConsent();
+      loadDisqusOnConsent();
+    }
+    if (type == 'opt-out' && !didConsent) {
+      // disable cookies
+    }
+  },
+  onRevokeChoice: function() {
+    var type = this.options.type;
+    if (type == 'opt-in') {
+      // disable cookies
+    }
+    if (type == 'opt-out') {
+      // enable cookies
+      loadGAonConsent();
+      loadDisqusOnConsent();
+    }
+  }
+});
