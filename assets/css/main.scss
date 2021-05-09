@@ -18,15 +18,19 @@ html {
 }
 
 body {
-  font-family: 'Lato', sans-serif;
   color: $body-color;
+  font-family: 'metropolisregular',sans-serif;
+  font-size: 1rem;
+  font-size: 19px;
+  font-weight: 400;
   background-color: #fbfbfb;
   margin: 0;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
-h1 {
+h1, h2, h3, h4, h4, h6 {
+  font-family: 'metropolisbold',sans-serif;
   font-weight: 400;
 }
 
