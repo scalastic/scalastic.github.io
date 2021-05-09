@@ -77,7 +77,7 @@ L’application est composée de 4 microservices :
 
 ## Build de l'appli
 
-Le but de la compilation est de produire une image Docker par microservice. Pour les microservices Java, il y aura deux images, la première en ***Bytecode***, la seconde en **natif***.
+Le but de la compilation est de produire une image Docker par microservice. Pour les microservices Java, il y aura deux images, la première en ***Bytecode***, la seconde en ***natif***.
 
 > note "Facultatif"
 > 

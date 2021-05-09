@@ -32,6 +32,8 @@
 }
 
 .article-page {
+  text-align: justify;
+  text-justify: inter-word;
   a {
     background: transparent;
     color: #3e64ff;
@@ -204,7 +206,7 @@
       padding: 5px 10px;
       margin-left: 5px;
       color: $dark-blue;
-      font-size: 12px;
+      font-size: 14px;
       transition: background-color .3s;
       &:first-child {
         margin-left: 0;
@@ -218,7 +220,7 @@
   .page-tag {
     a {
       text-decoration: none;
-      font-size: 10px;
+      font-size: 12px;
       padding: 5px 10px;
       margin-left: 5px;
       color: $dark-blue;

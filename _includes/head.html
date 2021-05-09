@@ -26,9 +26,8 @@
   <meta charset="utf-8">
   <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
-  <link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin>
-  <link rel="dns-prefetch" href="https://fonts.gstatic.com">
+  <!-- meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0" -->
+  <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="canonical" href="{{ pageUrl }}">
   <link rel="alternate" hreflang="fr" href="{{ site.url | append: page.url | replace:'index.html','' }}">
   <link rel="alternate" hreflang="en" href="{{ site.url | append: '/en' | append: page.url | replace:'index.html','' }}">
@@ -106,15 +105,15 @@
     }
 
     @font-face {
-      font-family: 'metropolisregular';
-      src: url("/assets/fonts/metropolis-regular-webfont.woff2") format("woff2"), url("/assets/fonts/metropolis-regular-webfont.woff") format("woff");
-      font-weight: normal;
+      font-family: 'Nunito Sans';
       font-style: normal;
+      font-weight: 400;
       font-display: swap;
+      src: url("/assets/fonts/nunito-regular.woff2") format("woff2");
+      unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
     }
+
     </style>
-  <!-- link href="https://fonts.googleapis.com/css?family=PT+Serif:400,700|Lato:300,400,700&display=swap" rel="stylesheet" -->
-  <!-- link rel="preload" href="/font.woff2" as="font" type="font/woff2" crossorigin/ -->
   <link rel="stylesheet" type="text/css" href="{{ '/assets/css/cookieconsent.min.css' | prepend: site.baseurl }}" >
   <!-- link rel="stylesheet" href="{{ '/assets/fonts/fontawesome/css/all.min.css' | prepend: site.baseurl }}" -->
   <link rel="stylesheet" href="{{ '/assets/css/main.css' | prepend: site.baseurl }}" >
