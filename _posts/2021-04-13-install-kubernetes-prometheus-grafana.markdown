@@ -224,10 +224,3 @@ Il ressemble à cela - comme vous pouvez le voir, l’interface graphique **Graf
 Eh bien, c’est à votre tour de jouer avec cette stack maintenant!
 
 Cheers...
-
-> info "Et maintenant"
-> * Vous avez aimé cet article? N’hésitez pas à dire Disqus afin que le site augmente la visibilité
-> * Vous avez une question? Demandez-le, et je vous reviendras dès que possible
-> 
-> Merci!
->

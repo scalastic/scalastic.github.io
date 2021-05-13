@@ -582,10 +582,3 @@ Here are some links for further reading:
 Well, that's your turn playing with native apps now!
 
 Cheers...
-
-> info "And now"
-> * You liked this article? Feel free to tell Disqus so the site increases in visibility
-> * You have a question? Ask it, and I will get back to you as soon as possible
-> 
-> Thanks!
->

@@ -119,10 +119,3 @@ Reste à voir en pratique le résultat. C'est ce que nous ferons dans l'article 
 {{ "/java-microservices/|Java et les microservices|/spring-natif-graalvm/|Compiler une application Spring en natif avec GraalVM" | pagination: site.data.i18n.article-previous, site.data.i18n.article-next }}
 
 Cheers...
-
-> info "Et maintenant"
-> * Vous avez aimé cet article ? Dites-le ci-dessous afin que le blog gagne en visibilité.
-> * Vous avez une question ? Posez-la en commentaire, je m'efforcerai d'y répondre dans les plus brefs délais !!
-> 
-> Merci à vous !
->

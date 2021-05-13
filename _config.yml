@@ -1,9 +1,9 @@
 title: Scalastic DevOps
 permalink: ':title/'
 baseurl:
-url: https://scalastic.io
-#url: http://localhost:4000
-logo: /assets/img/logo-scalastic.png
+#url: https://scalastic.io
+url: http://localhost:4000
+logo: /assets/img/logo-scalastic.svg
 image: /assets/img/site-scalastic.jpg
 
 # Company Settings
@@ -13,7 +13,7 @@ company-img: scalastic.png
 # Author Settings
 author: Jean-Jerome Levy # add your name
 author-img: jean-jerome-levy.jpg # add your photo
-social-github: jeanjerome # add your Github handle
+social-github: scalastic # add your Github handle
 social-linkedin: jean-jerome-levy # add your Linkedin handle
 social-email: contact@scalastic.io # add your Email address
 
@@ -60,7 +60,7 @@ paginate_path: "/page/:num"
 page_excerpts: true
 timezone: Europe/Paris
 last-modified-at:
-    date-format: '%d-%b-%y'
+  date-format: '%d-%b-%y'
 
 sass:
   sass_dir: _sass

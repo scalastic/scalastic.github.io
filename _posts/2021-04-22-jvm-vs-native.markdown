@@ -581,11 +581,3 @@ Voici quelques liens pour une lecture plus approfondie :
 Et bien, voilà, c’est à votre tour de jouer avec les applications natives à présent !
 
 Cheers...
-
-> info "Et maintenant"
-> * Cet article vous a plu ? N’hésitez pas à le dire à Disqus pour que le site progresse en visibilité
-> * Vous avez une question ? Posez-la et je vous répondrai dès que possible
-> 
-> Merci!
->
->

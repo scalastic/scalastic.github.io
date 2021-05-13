@@ -335,10 +335,3 @@ To be followed closely then!
 {{ "/graalvm-microservices-java/|GraalVM, the future of microservices applications in Java||" | pagination: site.data.i18n.article-previous, site.data.i18n.article-next }}
 
 Cheers ...
-
-> info "And now"
-> * Did you like this article? Say it below so that the blog gains visibility.
-> * Do you have a question? Leave it in comment, I will do my best to answer it as soon as possible !!
->
-> Thanks to you!
->

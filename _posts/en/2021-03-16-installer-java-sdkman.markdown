@@ -293,10 +293,3 @@ You will find at this address [https://sdkman.io/usage](https://sdkman.io/usage)
 Now it's your turn.
 
 Cheers ...
-
-> info "And now"
-> * Did you like this article? Say it below so that the blog gains visibility.
-> * Do you have a question? Leave it in comment, I will do my best to answer it as soon as possible !!
->
-> Thanks to you!
->

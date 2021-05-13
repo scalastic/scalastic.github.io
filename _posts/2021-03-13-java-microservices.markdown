@@ -162,10 +162,3 @@ Rien de tout cela bien sûr. La réponse dans l'article suivant présentant Graa
 {{ "||/graalvm-microservices-java/|GraalVM, le futur des applications microservices en Java" | pagination: site.data.i18n.article-previous, site.data.i18n.article-next }}
 
 Cheers...
-
-> info "Et maintenant"
-> * Vous avez aimé cet article ? Dites-le ci-dessous afin que le blog gagne en visibilité.
-> * Vous avez une question ? Posez-la en commentaire, je m'efforcerai d'y répondre dans les plus brefs délais !!
-> 
-> Merci à vous !
->

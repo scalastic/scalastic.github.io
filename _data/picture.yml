@@ -3,7 +3,9 @@
 # These are used in several places. You likely want to enter whatever CSS media queries your site
 # uses here.
 media_queries:
-    desktop: 'max-width: 970px'
+  phone: 'max-width : 550px'
+  tablet: 'max-width : 880px'
+  desktop: 'min-width : 1024px'
 
 presets:
   # This entry is purely an example. It is not the default JPT preset, nor is it available as a
@@ -11,7 +13,7 @@ presets:
   default:
     formats: [avif, webp, original] # Order matters!
     base_width: 970 # Image widths, in pixels.
-    pixel_ratios: [0.5, 1]
+    pixel_ratios: [1,1.5]
     fallback_width: 970
     # The sizes attribute is both important, and impossible to offer good defaults for. You need to
     # learn about it. Short version: Web browsers parse web pages line-by-line. When they run into
@@ -33,7 +35,7 @@ presets:
     # Size is unconditional; provided either after all conditional sizes (above) or alone. If you
     # only have a 'size' (no 'sizes'), and it's a constant (px, em, or rem), you should use a
     # pixel-ratio srcset.
-    size: 800px
+    #size: 800px
 
     link_source: false # wrap images in a link to the original source image.
     dimension_attributes: true # Page reflow begone!
@@ -65,7 +67,7 @@ presets:
   # to supply higher resolution images to devices with higher pixel ratios.
   thumbnail-home:
     base_width: 300 # How wide the 1x image should be.
-    pixel_ratios: [1, 1.5, 2] # Which multipliers to target.
+    pixel_ratios: [1,1.5] # Which multipliers to target.
     fallback_width: 300 # The default is 800, which is probably too big.
     formats: [avif, webp, original]
     link_source: true
@@ -74,19 +76,29 @@ presets:
       a: 'class="post-thumbnail"'
 
   thumbnail-article:
-    base_width: 180
-    pixel_ratios: [1, 1.5, 2] # Which multipliers to target.
-    fallback_width: 180 # The default is 800, which is probably too big.
+    base_width: 200
+    pixel_ratios: [1,1.5] # Which multipliers to target.
+    fallback_width: 200 # The default is 800, which is probably too big.
     formats: [avif, webp, original]
     link_source: false
     dimension_attributes: false
+
+  thumbnail-author:
+    base_width: 80
+    pixel_ratios: [1,2] # Which multipliers to target.
+    fallback_width: 80 # The default is 800, which is probably too big.
+    formats: [avif, webp, original]
+    link_source: false
+    dimension_attributes: true
+    attributes:
+      img: 'class="author-img"'
 
   # Another pixel-ratio example.
   avatar:
     # Say your layout demands a square:
     crop: 1:1
     base_width: 100
-    pixel_ratios: [1, 1.5, 2]
+    pixel_ratios: [1,2]
     fallback_width: 100
 
   # Here's an example of how you'd configure JPT to work with something like lazyload:

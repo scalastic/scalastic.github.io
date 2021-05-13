@@ -117,10 +117,3 @@ It remains to be seen in practice the result. This is what we will do in the nex
 {{ "/java-microservices/|Java and microservices|/spring-natif-graalvm/|Compile a Spring application natively with GraalVM" | pagination: site.data.i18n.article-previous, site.data.i18n.article-next }}
 
 Cheers ...
-
-> info "And now"
-> * Did you like this article? Say it to Disqus so that the blog gains visibility.
-> * You have a question? Leave it in comment, I will do my best to answer it as soon as possible !!
->
-> Thanks to you!
->

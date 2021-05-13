@@ -16,19 +16,25 @@
   {%- endfor -%}
   {%- if sameTagCount >= minCommonTags -%}
     {%- if maxRelatedCounter == 0 -%}
-    <div class="page-recomm">
+    <div>
     <h3>{{ site.data.i18n.related-article }}</h3>
+    <div class="page-recomm">
     {%- endif -%}
-    <a class="recomm" href="{{ site.baseurl }}{{ post.url }}">
-      <div class="recomm">
+    <div class="recomm">
+      <a class="recomm" href="{{ site.baseurl }}{{ post.url }}">
         <h5>{{ post.title }}</h5>
         {%- picture thumbnail-article {{ "/assets/img/" | prepend: site.baseurl | append : post.img}} 6:5 center --alt {{ post.title }} -%}
-      </div>
-    </a>
+      </a>
+    </div>
     {%- assign maxRelatedCounter = maxRelatedCounter | plus: 1 -%}
     {%- if maxRelatedCounter >= maxRelated -%}
+    </div>
     </div>
       {%- break -%}
     {%- endif -%}
   {%- endif -%}
 {%- endfor -%}
+{%- if maxRelatedCounter < maxRelated -%}
+  </div>
+</div>
+{%- endif -%}

@@ -5,20 +5,30 @@ layout: default
 <aside class="sidebar">
   <header>
     <div class="about">
-      <div class="cover-company-image">
-        {% picture {{site.baseurl}}/assets/img/{{site.company-img}} --alt {{site.company}} --link {{site.baseurl}}/ %}
+      <div class="cover-logo">
+        <a href="{{site.url}}"><img src="{{site.baseurl}}/assets/img/logo-scalastic.svg" alt="{{site.company}}" width="150"></a>
       </div>
-      <div class="cover-author-image">
+      <!--div class="cover-author-image">
         {% picture {{site.baseurl}}/assets/img/{{site.author-img}} --alt {{site.author}} --link {{site.baseurl}}/ %}
+      </div -->
+      <!-- div class="author-name">{{site.author}}</div -->
+      <div class="about-site">
+        {{site.data.i18n.about-author}}
       </div>
-      <div class="author-name">{{site.author}}</div>
-      <p>{{site.data.i18n.about-author}}</p>
-      <p>{{site.data.i18n.about-company}}</p>
-      {% for tongue in site.languages %}
-      {% if tongue != site.active_lang %}
-      <a {% static_href %}href="{% if tongue == site.default_lang %}{{site.baseurl}}{{page.url}}{% else %}{{site.baseurl}}/{{ tongue }}{{page.url}}{% endif %}"{% endstatic_href %}>{{ site.data.i18n.transl-version }}</a>
+      <!-- p>{{site.data.i18n.about-author}}</p -->
+      <!-- p>{{site.data.i18n.about-company}}</p -->
+      {% if site.active_lang == "fr" %}
+      <input id="toggle-french" class="toggle toggle-left" name="toggle" value="fr" type="radio" checked>
+      <label for="toggle-french" class="btn">Français</label>
+      <input id="toggle-english" class="toggle toggle-right" name="toggle" value="en" type="radio" onclick="window.location.assign( '{{site.baseurl}}/en{{page.url}}' );">
+      <label for="toggle-english" class="btn">English</label>
+      {% else %}
+      <input id="toggle-french" class="toggle toggle-left" name="toggle" value="fr" type="radio" onclick="window.location.assign( '{{site.baseurl}}{{page.url}}' );">
+      <label for="toggle-french" class="btn">Français</label>
+      <input id="toggle-english" class="toggle toggle-right" name="toggle" value="en" type="radio" checked>
+      <label for="toggle-english" class="btn">English</label>
       {% endif %}
-      {% endfor %}
+
     </div>
   </header>
   <footer>
@@ -36,7 +46,7 @@ layout: default
         {% endif %}
       </ul>
     </section>
-    <section class="contact">
+    <section class="contact nonmobile">
       <ul>
         <li><a href="/informations-légales/"><span><svg width="18" height="18" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!-- Font Awesome Free 5.15.3 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) --><path d="M504.971 199.362l-22.627-22.627c-9.373-9.373-24.569-9.373-33.941 0l-5.657 5.657L329.608 69.255l5.657-5.657c9.373-9.373 9.373-24.569 0-33.941L312.638 7.029c-9.373-9.373-24.569-9.373-33.941 0L154.246 131.48c-9.373 9.373-9.373 24.569 0 33.941l22.627 22.627c9.373 9.373 24.569 9.373 33.941 0l5.657-5.657 39.598 39.598-81.04 81.04-5.657-5.657c-12.497-12.497-32.758-12.497-45.255 0L9.373 412.118c-12.497 12.497-12.497 32.758 0 45.255l45.255 45.255c12.497 12.497 32.758 12.497 45.255 0l114.745-114.745c12.497-12.497 12.497-32.758 0-45.255l-5.657-5.657 81.04-81.04 39.598 39.598-5.657 5.657c-9.373 9.373-9.373 24.569 0 33.941l22.627 22.627c9.373 9.373 24.569 9.373 33.941 0l124.451-124.451c9.372-9.372 9.372-24.568 0-33.941z"/></svg></span></a></li>
         <li><a href="/sitemap.xml"><span><svg width="22.5" height="18" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 512"><!-- Font Awesome Free 5.15.3 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) --><path d="M128 352H32c-17.67 0-32 14.33-32 32v96c0 17.67 14.33 32 32 32h96c17.67 0 32-14.33 32-32v-96c0-17.67-14.33-32-32-32zm-24-80h192v48h48v-48h192v48h48v-57.59c0-21.17-17.23-38.41-38.41-38.41H344v-64h40c17.67 0 32-14.33 32-32V32c0-17.67-14.33-32-32-32H256c-17.67 0-32 14.33-32 32v96c0 17.67 14.33 32 32 32h40v64H94.41C73.23 224 56 241.23 56 262.41V320h48v-48zm264 80h-96c-17.67 0-32 14.33-32 32v96c0 17.67 14.33 32 32 32h96c17.67 0 32-14.33 32-32v-96c0-17.67-14.33-32-32-32zm240 0h-96c-17.67 0-32 14.33-32 32v96c0 17.67 14.33 32 32 32h96c17.67 0 32-14.33 32-32v-96c0-17.67-14.33-32-32-32z"/></svg></span></a></li>
@@ -44,7 +54,7 @@ layout: default
       </ul>
     </section>
     <section class="copyright">
-      <p>{{site.time | date: '%Y'}} <a href="https://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank" rel="noopener noreferrer nofollow">CC BY-NC-ND 4.0</a> {{ site.data.i18n.copyrigth }}</p>
+      <p>{{site.time | date: '%Y'}} <a href="https://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank" rel="noopener noreferrer nofollow license">CC BY-NC-ND 4.0</a> {{ site.data.i18n.copyrigth }}</p>
     </section>
   </footer> 
 </aside>

@@ -54,10 +54,3 @@ Cet outil simple devrait permettre à tout développeur de comprendre l'impact d
 Et vous, qu'en pensez-vous ?
 
 Cheers...
-
-> info "Et maintenant"
-> * Vous avez aimé cet article ? Dites-le ci-dessous afin que le blog gagne en visibilité.
-> * Vous avez une question ? Posez-la en commentaire, je m'efforcerai d'y répondre dans les plus brefs délais !!
-> 
-> Merci à vous !
->
