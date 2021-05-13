@@ -5,7 +5,7 @@
       
            	
 	<url>
-	  <loc>https://scalastic.io/jvm-vs-native/</loc>
+	  <loc>http://localhost:4000/jvm-vs-native/</loc>
 	  
 	    <lastmod>2021-04-22T21:00:00+02:00</lastmod>
 	  
@@ -20,7 +20,7 @@
       
         
 	<url>
-	  <loc>https://scalastic.io/en/jvm-vs-native/</loc>
+	  <loc>http://localhost:4000/en/jvm-vs-native/</loc>
 	  
 	    <lastmod>2021-04-22T21:00:00+02:00</lastmod>
 	  
@@ -39,7 +39,7 @@
       
            	
 	<url>
-	  <loc>https://scalastic.io/install-kubernetes-prometheus-grafana/</loc>
+	  <loc>http://localhost:4000/install-kubernetes-prometheus-grafana/</loc>
 	  
 	    <lastmod>2021-04-13T17:51:20+02:00</lastmod>
 	  
@@ -54,7 +54,7 @@
       
         
 	<url>
-	  <loc>https://scalastic.io/en/install-kubernetes-prometheus-grafana/</loc>
+	  <loc>http://localhost:4000/en/install-kubernetes-prometheus-grafana/</loc>
 	  
 	    <lastmod>2021-04-13T17:51:20+02:00</lastmod>
 	  
@@ -73,7 +73,7 @@
       
            	
 	<url>
-	  <loc>https://scalastic.io/dive-image-docker/</loc>
+	  <loc>http://localhost:4000/dive-image-docker/</loc>
 	  
 	    <lastmod>2021-03-22T14:00:00+01:00</lastmod>
 	  
@@ -88,7 +88,7 @@
       
         
 	<url>
-	  <loc>https://scalastic.io/en/dive-image-docker/</loc>
+	  <loc>http://localhost:4000/en/dive-image-docker/</loc>
 	  
 	    <lastmod>2021-03-22T14:00:00+01:00</lastmod>
 	  
@@ -107,7 +107,7 @@
       
            	
 	<url>
-	  <loc>https://scalastic.io/spring-natif-graalvm/</loc>
+	  <loc>http://localhost:4000/spring-natif-graalvm/</loc>
 	  
 	    <lastmod>2021-03-22T00:10:00+01:00</lastmod>
 	  
@@ -122,7 +122,7 @@
       
         
 	<url>
-	  <loc>https://scalastic.io/en/spring-natif-graalvm/</loc>
+	  <loc>http://localhost:4000/en/spring-natif-graalvm/</loc>
 	  
 	    <lastmod>2021-03-22T00:10:00+01:00</lastmod>
 	  
@@ -141,7 +141,7 @@
       
            	
 	<url>
-	  <loc>https://scalastic.io/installer-java-sdkman/</loc>
+	  <loc>http://localhost:4000/installer-java-sdkman/</loc>
 	  
 	    <lastmod>2021-03-16T10:44:00+01:00</lastmod>
 	  
@@ -156,7 +156,7 @@
       
         
 	<url>
-	  <loc>https://scalastic.io/en/installer-java-sdkman/</loc>
+	  <loc>http://localhost:4000/en/installer-java-sdkman/</loc>
 	  
 	    <lastmod>2021-03-16T10:44:00+01:00</lastmod>
 	  
@@ -175,7 +175,7 @@
       
            	
 	<url>
-	  <loc>https://scalastic.io/graalvm-microservices-java/</loc>
+	  <loc>http://localhost:4000/graalvm-microservices-java/</loc>
 	  
 	    <lastmod>2021-03-14T11:53:00+01:00</lastmod>
 	  
@@ -190,7 +190,7 @@
       
         
 	<url>
-	  <loc>https://scalastic.io/en/graalvm-microservices-java/</loc>
+	  <loc>http://localhost:4000/en/graalvm-microservices-java/</loc>
 	  
 	    <lastmod>2021-03-14T11:53:00+01:00</lastmod>
 	  
@@ -209,7 +209,7 @@
       
            	
 	<url>
-	  <loc>https://scalastic.io/java-microservices/</loc>
+	  <loc>http://localhost:4000/java-microservices/</loc>
 	  
 	    <lastmod>2021-03-13T14:21:20+01:00</lastmod>
 	  
@@ -224,7 +224,7 @@
       
         
 	<url>
-	  <loc>https://scalastic.io/en/java-microservices/</loc>
+	  <loc>http://localhost:4000/en/java-microservices/</loc>
 	  
 	    <lastmod>2021-03-13T14:21:20+01:00</lastmod>
 	  
@@ -251,24 +251,9 @@
       
         
     <url>
-      <loc>https://scalastic.io/</loc>
+      <loc>http://localhost:4000/</loc>
       
-        <lastmod>2021-05-10T01:29:10+02:00</lastmod>
-      
-      
-        <changefreq>weekly</changefreq>
-      
-      
-        <priority>0.5</priority>
-      
-    </url>
-        
-      
-        
-    <url>
-      <loc>https://scalastic.io/en/</loc>
-      
-        <lastmod>2021-05-10T01:29:10+02:00</lastmod>
+        <lastmod>2021-05-13T21:27:54+02:00</lastmod>
       
       
         <changefreq>weekly</changefreq>
@@ -276,6 +261,21 @@
       
         <priority>0.5</priority>
       
+    </url>
+        
+      
+        
+    <url>
+      <loc>http://localhost:4000/en/</loc>
+      
+        <lastmod>2021-05-13T21:27:54+02:00</lastmod>
+      
+      
+        <changefreq>weekly</changefreq>
+      
+      
+        <priority>0.5</priority>
+      
     </url>  
         
       
@@ -285,7 +285,7 @@
       
         
     <url>
-      <loc>https://scalastic.io/informations-l%C3%A9gales/</loc>
+      <loc>http://localhost:4000/informations-l%C3%A9gales/</loc>
       
         <lastmod>2021-02-28T23:00:00+01:00</lastmod>
       
@@ -300,7 +300,7 @@
       
         
     <url>
-      <loc>https://scalastic.io/en/informations-l%C3%A9gales/</loc>
+      <loc>http://localhost:4000/en/informations-l%C3%A9gales/</loc>
       
         <lastmod>2021-02-28T23:00:00+01:00</lastmod>
       
@@ -319,9 +319,9 @@
       
         
     <url>
-      <loc>https://scalastic.io/manifest.webmanifest</loc>
+      <loc>http://localhost:4000/manifest.webmanifest</loc>
       
-        <lastmod>2021-05-10T01:29:10+02:00</lastmod>
+        <lastmod>2021-05-13T21:27:54+02:00</lastmod>
       
       
         <changefreq>monthly</changefreq>
@@ -334,9 +334,9 @@
       
         
     <url>
-      <loc>https://scalastic.io/en/manifest.webmanifest</loc>
+      <loc>http://localhost:4000/en/manifest.webmanifest</loc>
       
-        <lastmod>2021-05-10T01:29:10+02:00</lastmod>
+        <lastmod>2021-05-13T21:27:54+02:00</lastmod>
       
       
         <changefreq>monthly</changefreq>
@@ -353,7 +353,7 @@
       
         
     <url>
-      <loc>https://scalastic.io/privacy/</loc>
+      <loc>http://localhost:4000/privacy/</loc>
       
         <lastmod>2021-02-28T23:00:00+01:00</lastmod>
       
@@ -368,7 +368,7 @@
       
         
     <url>
-      <loc>https://scalastic.io/en/privacy/</loc>
+      <loc>http://localhost:4000/en/privacy/</loc>
       
         <lastmod>2021-02-28T23:00:00+01:00</lastmod>
       
@@ -391,7 +391,7 @@
       
         
     <url>
-      <loc>https://scalastic.io/tags/</loc>
+      <loc>http://localhost:4000/tags/</loc>
       
         <lastmod>2021-08-08T00:00:00+02:00</lastmod>
       
@@ -406,7 +406,7 @@
       
         
     <url>
-      <loc>https://scalastic.io/en/tags/</loc>
+      <loc>http://localhost:4000/en/tags/</loc>
       
         <lastmod>2021-08-08T00:00:00+02:00</lastmod>
       
@@ -425,9 +425,9 @@
       
         
     <url>
-      <loc>https://scalastic.io/page/2/</loc>
+      <loc>http://localhost:4000/page/2/</loc>
       
-        <lastmod>2021-05-10T01:29:10+02:00</lastmod>
+        <lastmod>2021-05-13T21:27:54+02:00</lastmod>
       
       
         <changefreq>weekly</changefreq>
@@ -440,9 +440,9 @@
       
         
     <url>
-      <loc>https://scalastic.io/en/page/2/</loc>
+      <loc>http://localhost:4000/en/page/2/</loc>
       
-        <lastmod>2021-05-10T01:29:10+02:00</lastmod>
+        <lastmod>2021-05-13T21:27:54+02:00</lastmod>
       
       
         <changefreq>weekly</changefreq>

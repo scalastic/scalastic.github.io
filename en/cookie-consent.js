@@ -12,7 +12,7 @@ window.cookieconsent.initialise({
   "type": "opt-in",
   "content": {
     "message": "This website uses cookies to ensure you get the best experience here.",
-    "href": "https://scalastic.io/en/privacy/"
+    "href": "http://localhost:4000/en/privacy/"
   },
   onInitialise: function (status) {
     var type = this.options.type;
