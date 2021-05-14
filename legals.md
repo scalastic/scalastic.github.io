@@ -5,7 +5,9 @@ date: 2021-03-01 00:00:00 +0200
 description: Mentions légales du site
 img: informations-legales.jpg
 fig-caption: Photo de <a href="https://unsplash.com/@nahakiole?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Robin Glauser</a> sur <a href="https://unsplash.com/collections/8291752/tr-01-01?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Unsplash</a>
+lang: fr
 comments: false
+permalink: /legals/
 ---
 
 

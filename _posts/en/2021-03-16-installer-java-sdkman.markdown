@@ -33,7 +33,7 @@ Among the undeniable advantages of the tool, I would cite:
 
 ## Installing SDKMAN
 
-You can find on the [official SDKMAN page!](Https://sdkman.io/install){:target="_blank" rel="noopener noreferrer nofollow"}, the procedure to follow.
+You can find on the [official SDKMAN page!](https://sdkman.io/install){:target="_blank" rel="noopener noreferrer nofollow"}, the procedure to follow.
 In my case, I followed the default procedure:
 
 1. Open a terminal and run the following command:
