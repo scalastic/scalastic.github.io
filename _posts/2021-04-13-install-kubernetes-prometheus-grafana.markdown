@@ -74,7 +74,7 @@ Dans cet article, je vais vous montrer comment installer avec succès une plate-
 
 ## Dashboard
 
-**Dashboard** est une interface utilisateur web de l'API k8s et fournit un moyen facile de visualiser et déboguer les objets kube. Vous pouvez en savoir plus sur **Dashboard** à l'adresse [https://github.com/kubernetes/dashboard](https://github.com/kubernetes/dashboard){:target="_blank » rel="noopener noreferrer nofollow"}
+**Dashboard** est une interface utilisateur web de l'API k8s et fournit un moyen facile de visualiser et déboguer les objets kube. Vous pouvez en savoir plus sur **Dashboard** à l'adresse [https://github.com/kubernetes/dashboard](https://github.com/kubernetes/dashboard){:target="_blank" rel="noopener noreferrer nofollow"}
 
 
 Par défaut, **Dashboard** est protégé par un jeton, et chaque fois que vous y accéderez, il vous sera demandé d’en fournir un. Cela peut  
@@ -191,7 +191,7 @@ Vous pouvez accéder à l'interface de **Prometheus** à l'adresse <a href="http
 
 ## Grafana
 
-**Grafana** ([https://grafana.com/grafana/](https://grafana.com/grafana/){:target="_blank" rel="noopener noreferrer nofollow"}) vous permet d' « interroger, visualiser et alerter en fontion des mesures au moyen d'une interface utilisateur puissante* » comme le dit le site. 
+**Grafana** ([https://grafana.com/grafana/](https://grafana.com/grafana/){:target="_blank" rel="noopener noreferrer nofollow"}) vous permet d' « *interroger, visualiser et alerter en fontion des mesures au moyen d'une interface utilisateur puissante* » comme le dit le site. 
 
 > info "C'est ce que fait déjà Prometheus !?"
 > Clarifions : dans la pratique, vous développerez votre requête dans **Prometheus** puis la lancerez dans **Grafana**.

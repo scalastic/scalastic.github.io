@@ -93,7 +93,7 @@ However, if you want to create these Docker images, you will need to install:
 ### The easy way
 
 > warning "Note"
-> - It should work on **Linux** and **macOS** based systems - *and on **Windows** with some small modifications
+> - It should work on **Linux** and **macOS** based systems - and on **Windows** with some small modifications
 > - It will take time....... 10-20 min depending on your internet connection and processor! That's the price to compile to native code.
 
 To do so, execute this script in the project root:
