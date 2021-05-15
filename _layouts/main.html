@@ -6,17 +6,11 @@ layout: default
   <header>
     <div class="about">
       <div class="cover-logo">
-        <a href="{{ site.url }}{{ site.baseurl }}{% if site.active_lang != site.default_lang %}/{{ site.active_lang }}{% endif %}/"><h1><img src="{{site.baseurl}}/assets/img/logo-scalastic.svg" alt="{{site.title}}" width="150"></h1></a>
+        <a href="{{ site.url }}{{ site.baseurl }}{% if site.active_lang != site.default_lang %}/{{ site.active_lang }}{% endif %}/">{% unless page.url != "/" %}<h1>{% endunless %}<img src="{{site.baseurl}}/assets/img/logo-scalastic.svg" alt="{{site.title}}" width="150">{% unless page.url != "/" %}</h1>{% endunless %}</a>
       </div>
-      <!--div class="cover-author-image">
-        {% picture {{site.baseurl}}/assets/img/{{site.author-img}} --alt {{site.author}} --link {{site.baseurl}}/ %}
-      </div -->
-      <!-- div class="author-name">{{site.author}}</div -->
       <div class="about-site">
         {{site.data.i18n.about-author}}
       </div>
-      <!-- p>{{site.data.i18n.about-author}}</p -->
-      <!-- p>{{site.data.i18n.about-company}}</p -->
       {% if site.active_lang == "fr" %}
       <input id="toggle-french" class="toggle toggle-left" name="toggle" value="fr" type="radio" checked>
       <label for="toggle-french" class="btn">Français</label>
@@ -28,7 +22,6 @@ layout: default
       <input id="toggle-english" class="toggle toggle-right" name="toggle" value="en" type="radio" checked>
       <label for="toggle-english" class="btn">English</label>
       {% endif %}
-
     </div>
   </header>
   <footer>
