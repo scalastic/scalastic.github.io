@@ -6,7 +6,7 @@ layout: default
   <header>
     <div class="about">
       <div class="cover-logo">
-        <a href="{{ site.url }}{{ site.baseurl }}{% if site.active_lang != site.default_lang %}/{{ site.active_lang }}{% endif %}/">{% unless page.url != "/" %}<h1>{% endunless %}<img src="{{site.baseurl}}/assets/img/logo-scalastic.svg" alt="{{site.title}}" width="150">{% unless page.url != "/" %}</h1>{% endunless %}</a>
+        <a href="{{ site.url }}{{ site.baseurl }}{% if site.active_lang != site.default_lang %}/{{ site.active_lang }}{% endif %}/">{% if page.url == "/" or page.url contains "/page/" %}<h1>{% endif %}<img src="{{site.baseurl}}/assets/img/logo-scalastic.svg" alt="{{site.title}}" width="150">{% if page.url == "/" or page.url contains "/page/" %}</h1>{% endif %}</a>
       </div>
       <div class="about-site">
         {{site.data.i18n.about-author}}

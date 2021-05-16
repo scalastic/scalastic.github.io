@@ -1,0 +1,37 @@
+---
+layout: review
+title: Cette semaine sur le web
+date: 2021-05-16 12:00:00 +0200
+description: Cette semaine une simulation de l'atterisseur du Starship de SpaceX avec son sode exécutable dans Google Collab
+img: press-review-01.jpg
+fig-caption: Photo de <a href="https://unsplash.com/@spacex?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">SpaceX</a> sur <a href="https://unsplash.com/s/photos/spacex?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Unsplash</a>
+tags: [SpaceX, Spring-WebFlux, Lossless]
+lang: fr
+permalink: /review/2021-05-16/
+status: finished
+---
+
+Cette semaine, de l'Intelligence Artificielle pour faire atterrir la fusée Starship de SpaceX , de la programmation réactive avec un tuto autour de Spring WebFlux et un projet open source à l'honneur, ruby-vips, très utilisé sur ce site pour convertir les images dans des formats lossless.
+
+Bonne lecture à tous.
+
+## 1. Atterrissage du Starship de SpaceX
+
+L'algorithme d'atterrissage du Starship, basé sur une méthode d'apprentissage par *Reinforcement Learning* :
+
+[](https://thomas-godden.medium.com/how-spacex-lands-starship-sort-of-ee96cdde650b){:.card-preview target="_blank" rel="noopener noreferrer nofollow"}
+
+Et son code source exécutable directement dans Google Collab :
+
+[](https://colab.research.google.com/drive/18MVtu4reVJLBE1RXByQEmu0O9aLXlMHz?usp=sharing){:.card-preview target="_blank" rel="noopener noreferrer nofollow"}
+
+## 2. Reactive programming avec Spring WebFlux
+
+La Programmation Réactive (une philosophie de programmation <https://www.reactivemanifesto.org>{:target="_blank" rel="noopener noreferrer nofollow"}) dans Spring :
+
+[](https://medium.com/@rashmishehana_48965/going-reactive-with-spring-webflux-40128f3d5bad){:.card-preview target="_blank" rel="noopener noreferrer nofollow"}
+
+## 3. Ruby VIPS, le convertisseur d'images :
+
+[](https://github.com/libvips/ruby-vips){:.card-preview target="_blank" rel="noopener noreferrer nofollow"}
+
