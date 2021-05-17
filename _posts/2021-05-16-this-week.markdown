@@ -7,7 +7,7 @@ img: press-review-01.jpg
 fig-caption: Photo de <a href="https://unsplash.com/@spacex?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">SpaceX</a> sur <a href="https://unsplash.com/s/photos/spacex?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Unsplash</a>
 tags: [SpaceX, Spring-WebFlux, Lossless]
 lang: fr
-permalink: /review/2021-05-16/
+permalink: /review-2021-05-16/
 status: finished
 ---
 
@@ -33,5 +33,6 @@ La Programmation Réactive (une philosophie de programmation <https://www.reacti
 
 ## 3. Ruby VIPS, le convertisseur d'images :
 
+Une extension Ruby pour la bibliothèque libvips qui peut convertir des images au format WebP ou Avif entre autres:
 [](https://github.com/libvips/ruby-vips){:.card-preview target="_blank" rel="noopener noreferrer nofollow"}
 

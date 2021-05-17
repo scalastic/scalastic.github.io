@@ -7,7 +7,7 @@ img: press-review-01.jpg
 fig-caption: Photo by <a href="https://unsplash.com/@spacex?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">SpaceX</a> on <a href="https://unsplash.com/s/photos/spacex?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Unsplash</a>
 tags: [SpaceX, Spring-WebFlux, Lossless]
 lang: en
-permalink: /review/2021-05-16/
+permalink: /review-2021-05-16/
 status: finished
 ---
 
@@ -33,5 +33,6 @@ Reactive Programming (a programming philosophy <https://www.reactivemanifesto.or
 
 ## 3. Ruby VIPS, the image processor:
 
+A Ruby extension of the libvips library which can convert images into WebP or Avif format inter alia:
 [](https://github.com/libvips/ruby-vips){:.card-preview target="_blank" rel="noopener noreferrer nofollow"}
 
