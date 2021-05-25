@@ -83,32 +83,32 @@ svg {
 }
 
 table {
-  border: 1px solid #aaa;
-  background-color: #eee;
+  border: 1px solid #515151;
+  background-color: #fbfbfb;
   width: 100%;
   text-align: left;
   border-collapse: collapse;
 }
 table td, table.blueTable th {
-  border: 1px solid #aaa;
+  border: 1px solid #515151;
   padding: 3px 2px;
 }
 table tbody td {
-  font-size: 13px;
+  font-size: 14px;
 }
 table tr:nth-child(even) {
-  background: #adbecc;
+  background: #ecf0f1;
 }
 table thead {
-  background: #a9c4d1;
-  background: linear-gradient(to bottom, #bed3dc 0%, #b1cad5 66%, #A9C4D1 100%);
-  border-bottom: 1px solid #8c8c8c;
+  background: #515151;
+  /* background: linear-gradient(to bottom, #bed3dc 0%, #b1cad5 66%, #A9C4D1 100%); */
+  border-bottom: 1px solid #515151;
 }
 table thead th {
   font-size: 14px;
   font-weight: bold;
-  color: #fff;
-  border-left: 1px solid #d0e4f5;
+  color: #fafafa;
+  border-left: 1px solid #fafafa;
 }
 table thead th:first-child {
   border-left: none;
@@ -118,8 +118,8 @@ table tfoot {
   font-size: 14px;
   font-weight: bold;
   color: #fff;
-  background: #d0e4f5;
-  background: linear-gradient(to bottom, #dcebf7 0%, #d4e6f6 66%, #D0E4F5 100%);
+  background: #fafafa;
+  /* background: linear-gradient(to bottom, #dcebf7 0%, #d4e6f6 66%, #D0E4F5 100%); */
   border-top: 2px solid #444;
 }
 table tfoot td {
@@ -166,6 +166,12 @@ table tfoot td {
 @import 'parts/tag';
 
 /* - - - - - - - - - - Review Styles - - - - - - - - - - */
+:root {
+  --microlink-background-color: #fbfbfb;
+  --microlink-hover-background-color: #fbfbfb;
+  --microlink-color: #515151;
+}
+
 @import 'parts/review';
 
 /* - - - - - - - - - - Media Styles - - - - - - - - - - */

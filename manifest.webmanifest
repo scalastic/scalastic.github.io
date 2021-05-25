@@ -1,5 +1,7 @@
 ---
 layout: null
+sitemap:
+  exclude: 'yes'
 ---
 {
   "short_name": "Scalastic",

@@ -33,6 +33,7 @@ La Programmation Réactive (une philosophie de programmation <https://www.reacti
 
 ## 3. Ruby VIPS, le convertisseur d'images :
 
-Une extension Ruby pour la bibliothèque libvips qui peut convertir des images au format WebP ou Avif entre autres:
+Une extension Ruby de la bibliothèque libvips qui peut convertir des images au format WebP ou Avif entre autres:
+
 [](https://github.com/libvips/ruby-vips){:.card-preview target="_blank" rel="noopener noreferrer nofollow"}
 

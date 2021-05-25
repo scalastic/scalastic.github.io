@@ -187,6 +187,33 @@
   }
 }
 
+a.card-source.microlink_vanilla {
+  &:after {
+    background-color: #fbfbfb;
+    content: "";
+  }
+  &:hover {
+    text-decoration: none;
+    opacity: .8;
+  }
+}
+
+.card-source.microlink_vanilla {
+  --microlink-max-width: 500px;
+
+  .microlink_card {
+    font-family: 'Nunito Sans', sans-serif;
+    width: 100%;
+    border-radius: 10px;
+    overflow: hidden;
+    transition: all .3s ease;
+    &:hover {
+      transform: translate(0px, -2px);
+      box-shadow: 0 15px 45px -10px rgba(10, 16, 34, .2);
+    }
+  }
+}
+
 
 .page-footer {
   display: flex;

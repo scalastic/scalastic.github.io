@@ -27,13 +27,15 @@
   .cover-logo {
     width: 150px;
     margin: 0 auto 10px;
-    transition: all .3s ease;
     a {
       text-decoration: none;
     }
-    &:hover {
-      transform: translate(0px, -2px);
-      box-shadow: 0 15px 45px -10px rgba(10,16,34,0.2);
+    img {
+      transition: all .3s ease;
+      &:hover {
+        transform: translate(0px, -2px);
+        box-shadow: 0 15px 45px -10px rgba(10,16,34,0.2);
+      }
     }
   }
   .cover-company-image {
