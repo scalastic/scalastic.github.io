@@ -34,6 +34,9 @@
 .article-page {
   text-align: justify;
   text-justify: inter-word;
+  h2, h3, h4, h5, h7 {
+    text-align: left;
+  }
   a {
     color: #3e64ff;
     border: none;

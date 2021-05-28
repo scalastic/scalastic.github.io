@@ -16,7 +16,7 @@ In a previous article, [JVM vs Native - An effective comparison of performance](
 In this article, we will see why, in a Java application, this configuration is essential and how it impacts the resources consumed by an application.
 
 > info "Source code"
-> All sources are kept at <https://github.com/scalastic/hotspot-vs-native-part2>{:target="_blank" rel="noopener noreferrer nofollow"}
+> All sources are kept at [github.com/scalastic/hotspot-vs-native-part2](https://github.com/scalastic/hotspot-vs-native-part2){:target="_blank" rel="noopener noreferrer nofollow"}
 
 
 <hr class="hr-text" data-content="Content">
@@ -132,8 +132,8 @@ Kubernetes leaves to *Container Runtime* (e.g. Docker) the `limits` management:
 
 Take the example of the Microservice **hasher-java** and set up its deployment.
 
-- **requests**, the quantity of necessary resources, is configured in Kubertes with `spec.containers[].Resources.requests`.
-- **limits**, the maximum allowable amount, is configured with `spec.containers[].Resources.Limits`.
+- **requests**, the quantity of necessary resources, is configured in Kubertes with **spec.containers[].Resources.requests**.
+- **limits**, the maximum allowable amount, is configured with **spec.containers[].Resources.Limits**.
 
 For the Microservice **hasher-java**, you now have this:
 

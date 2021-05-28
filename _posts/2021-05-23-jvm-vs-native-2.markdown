@@ -16,7 +16,7 @@ Dans un article précédent, [JVM vs Native - Une réelle comparaison des perfor
 Dans cet article, nous allons voir pourquoi, dans une application Java, cette configuration est primordiale et en quoi elle impacte les ressources consommées par une application.
 
 > info "Code source"
-> Toutes les sources sont disponibles sur <https://github.com/scalastic/hotspot-vs-native-part2>{:target="_blank" rel="noopener noreferrer nofollow"}
+> Toutes les sources sont disponibles sur [github.com/scalastic/hotspot-vs-native-part2](https://github.com/scalastic/hotspot-vs-native-part2){:target="_blank" rel="noopener noreferrer nofollow"}
 
 <hr class="hr-text" data-content="Table">
 
@@ -130,8 +130,8 @@ Kubernetes laisse le soin au *Container Runtime* (par exemple Docker) de gérer 
 
 Prenons l'exemple du microservice **hasher-java** et configurons son déploiement.
 
-- Les **requests**, quantité de ressources nécessaires, se configure dans Kubernetes avec `spec.containers[].resources.requests`.
-- les **limits**, quantité maximale autorisée, se configure avec `spec.containers[].resources.limits`.
+- Les **requests**, quantité de ressources nécessaires, se configure dans Kubernetes avec **spec.containers[].resources.requests**.
+- les **limits**, quantité maximale autorisée, se configure avec **spec.containers[].resources.limits**.
 
 Pour le microservice **hasher-java**, voici ce que cela donne :
 
