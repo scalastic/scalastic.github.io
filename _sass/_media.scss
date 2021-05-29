@@ -2,20 +2,23 @@
 
 /* Medium Devices, Desktops */
 @media only screen and (min-width : 881) {
+  .post-container {
+    display: grid;
+    grid-template-columns: 1fr;
+  }
   .post {
     width: 48%;
     max-width: 100%;
     margin: 0 0.9% 1.5%;
     flex-direction: column;
-
     .post-thumbnail {
       width: 100%;
     }
-
     .post-content {
       width: 100%;
       .post-title {
         margin: 0 0 5px;
+        line-height: 1em;
         a {
           font-size: 21px;
         }
@@ -35,7 +38,6 @@
     padding: 10px;
     background-color: #fbfbfb;
     box-shadow: 0 1px 1px 0 rgba(31, 35, 46, .15);
-
     input.toggle[type="radio"]:checked + label {
       cursor: default;
       color: #fbfbfb;
@@ -43,27 +45,30 @@
       transition: color 200ms;
       padding: 1px;
     }
-
     footer {
       margin-bottom: 10px;
     }
   }
-  .post {
-    width: 98%;
-    max-width: 100%;
-    margin: 2%;
-    flex-direction: column;
-
-    .post-thumbnail {
-      width: 100%;
-    }
-
-    .post-content {
-      width: 100%;
-      .post-title {
-        margin: 0 0 5px;
-        a {
-          font-size: 21px;
+  .post-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    .post {
+      width: 95%;
+      max-width: 100%;
+      margin: 2%;
+      flex-direction: column;
+      .post-thumbnail {
+        width: 100%;
+      }
+      .post-content {
+        width: 100%;
+        .post-title {
+          margin: 0 0 5px;
+          text-align: center;
+          line-height: 1em;
+          a {
+            font-size: 21px;
+          }
         }
       }
     }
@@ -128,20 +133,24 @@
       margin-bottom: 10px;
     }
   }
+  .post-container {
+    display: grid;
+    grid-template-columns: 1fr;
+  }
   .post {
     width: 98%;
     max-width: 100%;
     margin: 2%;
     flex-direction: column;
-
     .post-thumbnail {
       width: 100%;
     }
-
     .post-content {
       width: 100%;
       .post-title {
         margin: 0 0 5px;
+        text-align: center;
+        line-height: 1em;
         a {
           font-size: 21px;
         }

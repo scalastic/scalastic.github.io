@@ -5,7 +5,7 @@
 media_queries:
   phone: 'max-width : 550px'
   tablet: 'max-width : 880px'
-  desktop: 'min-width : 1024px'
+  desktop: 'min-width : 881px'
 
 presets:
   # This entry is purely an example. It is not the default JPT preset, nor is it available as a
@@ -13,7 +13,7 @@ presets:
   default:
     formats: [avif, webp, original] # Order matters!
     base_width: 970 # Image widths, in pixels.
-    pixel_ratios: [1,1.5]
+    pixel_ratios: [1,2]
     fallback_width: 970
     # The sizes attribute is both important, and impossible to offer good defaults for. You need to
     # learn about it. Short version: Web browsers parse web pages line-by-line. When they run into
@@ -66,9 +66,9 @@ presets:
   # will always be the same size on all screens (icons, graphics, thumbnails, etc), but you'd like
   # to supply higher resolution images to devices with higher pixel ratios.
   thumbnail-home:
-    base_width: 300 # How wide the 1x image should be.
-    pixel_ratios: [1,1.5] # Which multipliers to target.
-    fallback_width: 300 # The default is 800, which is probably too big.
+    base_width: 380 # How wide the 1x image should be.
+    pixel_ratios: [1,2] # Which multipliers to target.
+    fallback_width: 380 # The default is 800, which is probably too big.
     formats: [avif, webp, original]
     link_source: true
     dimension_attributes: false
@@ -77,7 +77,7 @@ presets:
 
   thumbnail-article:
     base_width: 200
-    pixel_ratios: [1,1.5] # Which multipliers to target.
+    pixel_ratios: [1,2] # Which multipliers to target.
     fallback_width: 200 # The default is 800, which is probably too big.
     formats: [avif, webp, original]
     link_source: false

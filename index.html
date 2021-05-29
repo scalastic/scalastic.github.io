@@ -4,6 +4,7 @@ sitemap:
   changefreq: 'weekly'
   priority: '0.5'
 ---
+<div class="post-container">
 {% for post in paginator.posts %}
 <article class="post">
   {% if post.img %}
@@ -18,6 +19,7 @@ sitemap:
   </div>
 </article>
 {% endfor %}
+</div>
 
 {% include pagination.html %}
 <!-- Fake Disqus to prevent error when accepting cookies on home without it -->
