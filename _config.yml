@@ -90,3 +90,8 @@ compress_html:
   blanklines: false
   profile: false
   startings: []
+
+# Webrick (for dev)
+webrick:
+  headers:
+    Access-Control-Allow-Origin: "*"

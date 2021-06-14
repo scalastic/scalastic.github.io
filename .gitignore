@@ -9,6 +9,7 @@ Gemfile.lock
 package-lock.json
 node_modules/
 _posts/DRAFT*
+*.ORI
 
 ### macOS ###
 .DS_Store
