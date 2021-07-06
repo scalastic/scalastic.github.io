@@ -5,6 +5,74 @@
       
            	
 	<url>
+	  <loc>https://scalastic.io/aws-ec2-documentation/</loc>
+	  
+	    <lastmod>2021-07-06T19:57:00+02:00</lastmod>
+	  
+	  
+	    <changefreq>monthly</changefreq>
+	  
+	  
+	    <priority>0.5</priority>
+	  
+	</url>
+        
+      
+        
+	<url>
+	  <loc>https://scalastic.io/en/aws-ec2-documentation/</loc>
+	  
+	    <lastmod>2021-07-06T19:57:00+02:00</lastmod>
+	  
+	  
+	    <changefreq>monthly</changefreq>
+	  
+	  
+	    <priority>0.5</priority>
+	  
+	</url>
+        
+      
+    
+  
+    
+      
+           	
+	<url>
+	  <loc>https://scalastic.io/aws-iam-documentation/</loc>
+	  
+	    <lastmod>2021-07-06T10:37:00+02:00</lastmod>
+	  
+	  
+	    <changefreq>monthly</changefreq>
+	  
+	  
+	    <priority>0.5</priority>
+	  
+	</url>
+        
+      
+        
+	<url>
+	  <loc>https://scalastic.io/en/aws-iam-documentation/</loc>
+	  
+	    <lastmod>2021-07-06T10:37:00+02:00</lastmod>
+	  
+	  
+	    <changefreq>monthly</changefreq>
+	  
+	  
+	    <priority>0.5</priority>
+	  
+	</url>
+        
+      
+    
+  
+    
+      
+           	
+	<url>
 	  <loc>https://scalastic.io/aws-documentation/</loc>
 	  
 	    <lastmod>2021-06-13T09:00:00+02:00</lastmod>
@@ -355,7 +423,7 @@
     <url>
       <loc>https://scalastic.io/</loc>
       
-        <lastmod>2021-06-14T12:24:06+02:00</lastmod>
+        <lastmod>2021-07-07T00:14:35+02:00</lastmod>
       
       
         <changefreq>weekly</changefreq>
@@ -370,7 +438,7 @@
     <url>
       <loc>https://scalastic.io/en/</loc>
       
-        <lastmod>2021-06-14T12:24:06+02:00</lastmod>
+        <lastmod>2021-07-07T00:14:35+02:00</lastmod>
       
       
         <changefreq>weekly</changefreq>
@@ -499,7 +567,7 @@
     <url>
       <loc>https://scalastic.io/page/2/</loc>
       
-        <lastmod>2021-06-14T12:24:06+02:00</lastmod>
+        <lastmod>2021-07-07T00:14:35+02:00</lastmod>
       
       
         <changefreq>weekly</changefreq>
@@ -514,7 +582,7 @@
     <url>
       <loc>https://scalastic.io/en/page/2/</loc>
       
-        <lastmod>2021-06-14T12:24:06+02:00</lastmod>
+        <lastmod>2021-07-07T00:14:35+02:00</lastmod>
       
       
         <changefreq>weekly</changefreq>
