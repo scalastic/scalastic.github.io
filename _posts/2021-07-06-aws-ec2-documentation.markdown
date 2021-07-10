@@ -5,7 +5,7 @@ date: 2021-07-06 19:57:00 +0200
 description: Principes fondamentaux et concepts clés d'AWS EC2 que vous devez connaître. Tutoriel, mode d'emploi.
 img: aws-ec2-documentation.jpg
 fig-caption: Photo de <a href="https://unsplash.com/@joseadd?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">JOSE LARRAZOLO</a> sur <a href="https://unsplash.com/s/photos/lego?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Unsplash</a>
-tags: [AWS, EC2, Documentation]
+tags: [AWS, EC2, AMI, Security-Group, Documentation]
 lang: fr
 permalink: /aws-ec2-documentation/
 status: finished

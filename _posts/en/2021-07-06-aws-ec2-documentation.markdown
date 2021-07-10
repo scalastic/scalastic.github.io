@@ -5,7 +5,7 @@ date: 2021-07-06 19:57:00 +0200
 description: AWS EC2 fundamentals and key concepts you should know. Tutorial, user guide.
 img: aws-ec2-documentation.jpg
 fig-caption: Photo by <a href="https://unsplash.com/@joseadd?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">JOSE LARRAZOLO</a> on <a href="https://unsplash.com/s/photos/lego?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Unsplash</a>
-tags: [AWS, EC2, Documentation]
+tags: [AWS, EC2, AMI, Security-Group, Documentation]
 lang: en
 permalink: /aws-ec2-documentation/
 status: finished

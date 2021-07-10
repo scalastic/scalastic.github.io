@@ -5,7 +5,7 @@ date: 2021-07-08 12:10:00 +0200
 description: Principes fondamentaux et concepts clés du Stockage dans AWS EC2 que vous devez connaître. Tutoriel, mode d'emploi.
 img: aws-ec2-storage-documentation.jpg
 fig-caption: Photo de <a href="https://unsplash.com/@ryanquintal?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Ryan Quintal</a> sur <a href="https://unsplash.com/s/photos/bricks-legos?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Unsplash</a>
-tags: [AWS, EC2, Documentation]
+tags: [AWS, EC2, EBS, EFS, Documentation]
 lang: fr
 permalink: /aws-ec2-storage-documentation/
 status: finished
