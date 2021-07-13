@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Amazon RDS - Les Base de Données Relationnelles dans AWS
+title: Amazon RDS - Les Bases de Données Relationnelles dans AWS
 date: 2021-07-11 12:20:00 +0200
 description: Principes fondamentaux et concepts clés Amazon RDS à connaître. Tutoriel, mode d'emploi.
 img: aws-rds-documentation.jpg
