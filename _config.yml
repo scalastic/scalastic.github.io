@@ -68,7 +68,9 @@ sass:
   style: compressed
 
 #Picture Tag
+keep_files: ["assets/img/"]
 picture:
+  source: /
   output: /
   nomarkdown: false
   suppress_warnings: true
@@ -78,7 +80,7 @@ picture:
 default_lang: "fr"
 languages: ["fr", "en"]
 exclude_from_localization: ["generated", "assets", "css", "fonts", "img"]
-parallel_localization: false
+parallel_localization: true # keep_files: ["assets/img/"] must be set to prevent erasing all generated pictures
 
 #Compress html
 compress_html:
