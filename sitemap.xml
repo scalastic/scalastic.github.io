@@ -5,6 +5,40 @@
       
            	
 	<url>
+	  <loc>https://scalastic.io/aws-aurora-documentation/</loc>
+	  
+	    <lastmod>2021-07-13T12:35:00+02:00</lastmod>
+	  
+	  
+	    <changefreq>monthly</changefreq>
+	  
+	  
+	    <priority>0.5</priority>
+	  
+	</url>
+        
+      
+        
+	<url>
+	  <loc>https://scalastic.io/en/aws-aurora-documentation/</loc>
+	  
+	    <lastmod>2021-07-13T12:35:00+02:00</lastmod>
+	  
+	  
+	    <changefreq>monthly</changefreq>
+	  
+	  
+	    <priority>0.5</priority>
+	  
+	</url>
+        
+      
+    
+  
+    
+      
+           	
+	<url>
 	  <loc>https://scalastic.io/aws-rds-documentation/</loc>
 	  
 	    <lastmod>2021-07-11T12:20:00+02:00</lastmod>
@@ -525,7 +559,7 @@
     <url>
       <loc>https://scalastic.io/</loc>
       
-        <lastmod>2021-07-12T17:22:21+02:00</lastmod>
+        <lastmod>2021-07-13T15:34:59+02:00</lastmod>
       
       
         <changefreq>weekly</changefreq>
@@ -540,7 +574,7 @@
     <url>
       <loc>https://scalastic.io/en/</loc>
       
-        <lastmod>2021-07-12T17:22:21+02:00</lastmod>
+        <lastmod>2021-07-13T15:34:59+02:00</lastmod>
       
       
         <changefreq>weekly</changefreq>
@@ -669,7 +703,7 @@
     <url>
       <loc>https://scalastic.io/page/2/</loc>
       
-        <lastmod>2021-07-12T17:22:21+02:00</lastmod>
+        <lastmod>2021-07-13T15:34:59+02:00</lastmod>
       
       
         <changefreq>weekly</changefreq>
@@ -684,7 +718,7 @@
     <url>
       <loc>https://scalastic.io/en/page/2/</loc>
       
-        <lastmod>2021-07-12T17:22:21+02:00</lastmod>
+        <lastmod>2021-07-13T15:34:59+02:00</lastmod>
       
       
         <changefreq>weekly</changefreq>
@@ -703,7 +737,7 @@
     <url>
       <loc>https://scalastic.io/page/3/</loc>
       
-        <lastmod>2021-07-12T17:22:21+02:00</lastmod>
+        <lastmod>2021-07-13T15:34:59+02:00</lastmod>
       
       
         <changefreq>weekly</changefreq>
@@ -718,7 +752,7 @@
     <url>
       <loc>https://scalastic.io/en/page/3/</loc>
       
-        <lastmod>2021-07-12T17:22:21+02:00</lastmod>
+        <lastmod>2021-07-13T15:34:59+02:00</lastmod>
       
       
         <changefreq>weekly</changefreq>
