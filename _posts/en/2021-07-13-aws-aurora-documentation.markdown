@@ -32,11 +32,13 @@ It relies on Amazon RDS and extends its features.
 ### High performance and scalability
 
 - High Performance:
-  * It is optimized for the Cloud 
-  * It supports Low Latency reading with up to 15 Read Replicas in multi-AZ (but still 1 Master for Writing operations)
+  * It is connected to the Cloud 
+  * It supports Low Latency reading with up to 15 Read Replicas in Multi-AZ
+  * Depending on the option chosen, one can have 1 Master in Writing or several connected to the same storage volume
 - Scaling:
   * Automatic Storage Auto Scaling increase in 10 GB increments up to 128 TB
-  * The number of Read Replicas can be managed by an Auto Scaling Group 
+  * The number of Read Replicas can be managed by an Auto Scaling Group
+  * A Serverless option allows you to manage intermittent and unpredictable workloads
 
 ### Availability
 
@@ -44,17 +46,19 @@ It relies on Amazon RDS and extends its features.
   * 6x data replication in a shared storage volume on 3 AZs
   * Continuous backup in Amazon S3
   * 1 Endpoint for Writing and 1 for Reading
-  * Automatic failover in less than 30s
+  * Automatic failover in case of unavailability of an AZ in less than 30s
 
 
-- Support the cross-Region:
-  * Data is accessible with low latency in each Region
+- Support the cross-Region (Database Location: Global option);
+  * Data are replicated across multiple Regions
+  * Write operations on the Primary Region are replicated in the Secondary Regions with latency < 1s
+  * Automatic failover in case of unavailability of a Region
 
-- Data can be restored at any point of time regardless of the time of the last backup
+- Data can be restored at any point of time whatever the time of the last backup (Backtrack option)
 
 ### Security
 
-- Maintenance of transparent Aurora instances
+- Seamless maintenance of Aurora instances 
 - Network isolation with Amazon VPC
-- Data encryption at rest and in transit with AWS KMS as well as storage volumes, backups, snapshots and replicas.
+- Data encryption at rest and in transit with AWS KMS as well as storage volumes, backups, snapshots and replicas
 
