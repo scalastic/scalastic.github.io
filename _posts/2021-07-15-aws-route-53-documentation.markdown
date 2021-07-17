@@ -56,7 +56,7 @@ Route 53 apporte des fonctionnalités supplémentaires par rapport à un DNS cla
 
 ### Health Check
 
-  * Une ressource est marquée ***healthy*** une fois qu'elle a passée x Heath Checks (par défaut 3)
+  * Une ressource est marquée ***healthy*** une fois qu'elle a passé x Heath Checks (par défaut 3)
   * Une ressource est marquée ***unhealthy*** une fois qu'elle a echoué à x Heath Checks (par défaut 3)
 
 
