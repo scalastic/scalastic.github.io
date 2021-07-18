@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Recherchez des articles et mots-clés
+title: Recherche d'articles et mots-clés
 date: 2021-07-18 00:00:00 +0200
 description: Recherche full-text dans le contenu des articles et leurs mots-clés
 img: page-search.jpg
@@ -17,7 +17,7 @@ permalink: /search/
       <div class="search-container">
         <form class="search-form" name="search-hero" onsubmit="return false;">
           <span class="search-icon"><svg width="20" height="20" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><circle fill="none" stroke="#000" stroke-width="1.1" cx="9" cy="9" r="7"></circle><path fill="none" stroke="#000" stroke-width="1.1" d="M14,14 L18,18 L14,14 Z"></path></svg></span>
-          <input id="search-input" class="search-input" type="search" placeholder="Tapez votre recherche..." autofocus>
+          <input id="search-input" class="search-input" type="search" placeholder="Entrez votre recherche..." autofocus>
         </form>
       </div>
       <div id="search-result" class="page-recomm"></div>
