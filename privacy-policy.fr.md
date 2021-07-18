@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Conditions et politique de confidentialité
-date: 2021-03-01 00:00:00 +0200
+date: 2021-04-30 00:00:00 +0200
 description: Conditions et politique de confidentialité du site Web de Scalastic
 img: privacy.jpg
 fig-caption: Photo de <a href="https://unsplash.com/@biglaughkitchen?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Deva Williamson</a> sur <a href="https://unsplash.com/s/photos/cookie-privacy?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Unsplash</a>
@@ -9,9 +9,6 @@ lang: fr
 comments: false
 permalink: /privacy/
 ---
-
-
-#### ***Dernière mise à jour: 30 Avril 2021***
 
 ## Politique de confidentialité
 

@@ -1,0 +1,20 @@
+---
+lang: en
+permalink: /search.json
+sitemap:
+  exclude: 'yes'
+---
+[
+  {% for post in site.posts %}
+    {
+      "title"    : "{{ post.title | escape }}",
+      "url"      : "{{ site.baseurl }}/en{{ post.url }}",
+      {% assign imagepath = '/assets/img/' | prepend: site.baseurl | append : post.img %}
+      {%- capture picture %}{%- picture thumbnail-article {{imagepath}} 6:5 center --alt {{ post.title }} -%}{% endcapture -%}
+      "img"      : "{{ picture | base64_encode | strip_newlines }}",
+      "isencoded" : "y",
+      "tags"     : "{{ post.tags | join: ', ' }}",
+      "content"  : "{{ post.content | markdownify | strip_html | normalize_whitespace | escape | replace: '\', '--' }}"
+    } {% unless forloop.last %},{% endunless %}
+  {% endfor %}
+]

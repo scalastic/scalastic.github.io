@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Terms and Privacy Policy
-date: 2021-03-01 00:00:00 +0200
+date: 2021-04-30 00:00:00 +0200
 description: Terms and Privacy Policy for Scalastic's website
 img: privacy.jpg
 fig-caption: Photo by <a href="https://unsplash.com/@biglaughkitchen?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Deva Williamson</a> on <a href="https://unsplash.com/s/photos/cookie-privacy?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Unsplash</a>
@@ -10,8 +10,6 @@ comments: false
 permalink: /privacy/
 ---
 
-
-#### ***Last updated: April 30, 2021***
 
 ## Privacy Policy
 

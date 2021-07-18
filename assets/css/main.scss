@@ -169,6 +169,9 @@ table tfoot td {
 /* - - - - - - - - - - Tag Styles - - - - - - - - - - */
 @import 'parts/tag';
 
+/* - - - - - - - - - - Search Styles - - - - - - - - - - */
+@import 'parts/search';
+
 /* - - - - - - - - - - Review Styles - - - - - - - - - - */
 :root {
   --microlink-background-color: #fbfbfb;
