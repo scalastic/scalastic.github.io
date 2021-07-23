@@ -7,8 +7,8 @@
     <script>
       function loadDisqusOnConsent() {
         var disqus_config = function () {
-          this.page.url = "{{ site.url }}{{ site.baseurl }}{% if site.active_lang != site.default_lang %}/{{ site.active_lang }}{% endif %}{{ page.url | replace:'index.html','' }}";  /* Replace PAGE_URL with your page's canonical URL variable */
-          this.page.identifier = "{% if site.active_lang != site.default_lang %}/{{ site.active_lang }}{% endif %}{{ page.url | replace:'index.html','' }}"; /* Replace PAGE_IDENTIFIER with your page's unique identifier variable */
+          this.page.url = "{{ site.url }}{{ site.baseurl }}{% if site.active_lang != site.default_lang %}/{{ site.active_lang }}{% endif %}{{ page.url | replace:'index.html','' }}";
+          this.page.identifier = "{% if site.active_lang != site.default_lang %}/{{ site.active_lang }}{% endif %}{{ page.url | replace:'index.html','' }}";
         };
         (function() {
             var d = document, s = d.createElement('script');
@@ -23,10 +23,8 @@
       var container_disqus = document.getElementById('disqus_thread');
       var disqus_display = container_disqus.getElementsByTagName('div').length == 0;
       if (disqus_display) {
-
         document.getElementById('disqus_thread').innerHTML += '<div class="premonition error"><i class="premonition pn-error"></i><div class="content"><p class="header">Note</p>{{ site.data.i18n.allow-disqus-and-cookie }}</div></div>';
       };
-
     </script>
     <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
     {% endif %}
@@ -35,8 +33,6 @@
 {% else %}
 <!-- Fake Disqus to prevent error when accepting cookies on home without it -->
 <script>
-  function loadDisqusOnConsent() {
-    return true;
-  };
+  function loadDisqusOnConsent() { return true; };
 </script>
 {% endif %}

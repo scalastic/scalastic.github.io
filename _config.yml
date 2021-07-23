@@ -1,8 +1,10 @@
-title: Scalastic DevOps
+title: 'Scalastic 👨🏻‍💻'
 permalink: ':title/'
-baseurl: "" # the subpath of your site, e.g. /blog
-url: "https://scalastic.io" # the base hostname & protocol for your site, e.g. http://example.com
-logo: /assets/img/logo-scalastic.png
+baseurl:
+url: https://scalastic.io
+#url: http://localhost:4000
+logo: /assets/img/logo-scalastic.svg
+image: /assets/img/site-scalastic.jpg
 
 # Company Settings
 company: Scalastic
@@ -11,7 +13,7 @@ company-img: scalastic.png
 # Author Settings
 author: Jean-Jerome Levy # add your name
 author-img: jean-jerome-levy.jpg # add your photo
-social-github: jeanjerome # add your Github handle
+social-github: scalastic # add your Github handle
 social-linkedin: jean-jerome-levy # add your Linkedin handle
 social-email: contact@scalastic.io # add your Email address
 
@@ -22,6 +24,8 @@ social:
     - https://www.linkedin.com/in/jean-jerome-levy
     - https://github.com/jeanjerome
     - https://github.com/scalastic
+
+search: true
 
 webmaster_verifications:
   google: kt9V77LN_e6lPj1sb3RTOiZDGqNyfoHBchbh1oDgftQ
@@ -39,33 +43,59 @@ kramdown:
 highlighter: rouge
 
 plugins:
-  - jekyll-polyglot
-  - jekyll-seo-tag
   - jekyll-paginate
   - jemoji
   - premonition
   - jekyll-last-modified-at
-  - jekyll-figure
+  - jekyll-polyglot
+  - jekyll_picture_tag
+
+#Jekyll build
+exclude: ["node_modules", "gulpfile.js", "package.json", "yarn.lock", "archive-posts"]
 
 # Activate page redirection when change
 redirects: yes
 
-paginate: 4
+#Paginate
+paginate: 6
 paginate_path: "/page/:num"
 page_excerpts: true
 timezone: Europe/Paris
 last-modified-at:
-    date-format: '%d-%b-%y'
+  date-format: '%d-%b-%y'
 
 sass:
   sass_dir: _sass
   sourcemap: never
   style: compressed
 
-exclude: ["node_modules", "gulpfile.js", "package.json", "yarn.lock", "archive-posts"]
+#Picture Tag
+keep_files: ["assets/img/"]
+picture:
+  source: /
+  output: /
+  nomarkdown: false
+  suppress_warnings: true
+  #disabled: development
 
 #Polyglot
-languages: ["fr", "en"]
 default_lang: "fr"
-exclude_from_localization: ["assets", "css", "fonts", "img"]
-parallel_localization: true
+languages: ["fr", "en"]
+exclude_from_localization: ["generated", "assets", "css", "fonts", "img"]
+parallel_localization: true # keep_files: ["assets/img/"] must be set to prevent erasing all generated pictures
+
+#Compress html
+compress_html:
+  clippings: all
+  comments: all
+  endings: []
+  ignore:
+    envs: []
+  blanklines: false
+  profile: false
+  startings: []
+
+# Webrick (for dev)
+webrick:
+  headers:
+    Access-Control-Allow-Origin: "*"

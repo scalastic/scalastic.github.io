@@ -3,7 +3,7 @@ layout: post
 title: GraalVM, le futur des applications microservices en Java
 date: 2021-03-14 12:53:00 +0200
 description: Temps de démarrage et consommation mémoire de la JVM ne font pas de Java le candidat idéal pour développer des microservices. Mais GraalVM pourrait bien changer la donne...
-img: graalvm-brand-new-containers.jpg # Add image post (optional)
+img: graalvm-brand-new-containers.jpg
 fig-caption: Photo de <a href="https://unsplash.com/@ant0ine?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Antoine Petitteville</a> sur <a href="https://unsplash.com/s/photos/containers?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Unsplash</a> # Add figcaption (optional)
 tags: [Java, GraalVM, Microservices]
 lang: fr
@@ -23,9 +23,10 @@ Cet article est le deuxième d'une série abordant les concepts introduits dans 
 
 ## GraalVM, une nouvelle génération de machine virtuelle
 
-{% figure caption:"L'écosystème de GraalVM" class:"article" %}
-![Ecosystème de GraalVM]({{site.baseurl}}/assets/img/graalvm-ecosystem.png)
-{% endfigure %}
+<figure class="article">
+  {% picture {{site.baseurl}}/assets/img/graalvm-ecosystem.png --alt L'écosystème de GraalVM %}
+  <figcaption>L'écosystème de GraalVM</figcaption>
+</figure>
 
 ### Qu'est-ce que c'est ?
 
@@ -45,9 +46,10 @@ Cet article est le deuxième d'une série abordant les concepts introduits dans 
 
 ### L'architecture de GraalVM
 
-{% figure caption:"Les composants de GraalVM" class:"article" %}
-![Les composants de GraalVM]({{site.baseurl}}/assets/img/graalvm-components.jpg)
-{% endfigure %}
+<figure class="article">
+  {% picture {{site.baseurl}}/assets/img/graalvm-components.jpg --alt Les composants de GraalVM %}
+  <figcaption>Les composants de GraalVM</figcaption>
+</figure>
 
 
 #### 1. Le compilateur Graal
@@ -117,10 +119,3 @@ Reste à voir en pratique le résultat. C'est ce que nous ferons dans l'article 
 {{ "/java-microservices/|Java et les microservices|/spring-natif-graalvm/|Compiler une application Spring en natif avec GraalVM" | pagination: site.data.i18n.article-previous, site.data.i18n.article-next }}
 
 Cheers...
-
-> info "Et maintenant"
-> * Vous avez aimé cet article ? Dites-le ci-dessous afin que le blog gagne en visibilité.
-> * Vous avez une question ? Posez-la en commentaire, je m'efforcerai d'y répondre dans les plus brefs délais !!
-> 
-> Merci à vous !
->

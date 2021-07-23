@@ -4,7 +4,7 @@ title: Compiler une application Spring en natif avec GraalVM
 date: 2021-03-22 01:10:00 +2
 description: Tuto pour compiler une application ✨Spring✨ en code natif avec ✨GraalVM✨ - Détails avec explications à chaque étape.
 img: spring-native-graalvm-post.jpg
-fig-caption: Photo de <a href="https://unsplash.com/@helloimnik?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Hello I'm Nik 🪴</a> sur <a href="https://unsplash.com/s/photos/rocket?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Unsplash</a>
+fig-caption: Photo de <a href="https://unsplash.com/@spacex?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">SpaceX</a> sur <a href="https://unsplash.com/s/photos/spring-rocket?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Unsplash</a>
 tags: [Spring-Native, GraalVM, Spring, Docker, Tutorial]
 lang: fr
 permalink: /spring-natif-graalvm/
@@ -46,9 +46,10 @@ Utilisons-la pour définir notre application démo :
 - Ajoutez la dépendance `Spring Web` dans le cadre de cette démo
 - Téléchargez le code généré en cliquant sur le bouton `Generate`
 
-{% figure caption:"Interface Spring Initializr pour l'application démo" class:"article" %}
-![Ecran Spring Initializr pour la démo]({{site.baseurl}}/assets/img/spring-initializr-demo.jpg)
-{% endfigure %}
+<figure class="article">
+  {% picture {{site.baseurl}}/assets/img/spring-initializr-demo.jpg --alt Interface Spring Initializr pour l'application démo %}
+  <figcaption>Interface Spring Initializr pour l'application démo</figcaption>
+</figure>
 
 ### Modules Spring Native
 
@@ -115,9 +116,10 @@ Vous trouverez, dans le POM, la liste de modules Spring configurés en tant que 
 	> warning "Dépendances non supportées"	
 	> Au cas où vous sélectionneriez une dépendance Spring non encore supportée dans le mode natif, le fichier `HELP.md` contiendra un avertissement :
 
-{% figure caption:"Avertissement dans le fichier HELP.md" class:"article" %}
-![Avertissement Spring dans HELP.md]({{site.baseurl}}/assets/img/spring-initializr-help.jpg)
-{% endfigure %}
+<figure class="article">
+  {% picture {{site.baseurl}}/assets/img/spring-initializr-help.jpg --alt Avertissement dans le fichier HELP.md %}
+  <figcaption>Avertissement dans le fichier HELP.md</figcaption>
+</figure>
 
 
 	> info "Dépendances supportées"	
@@ -181,9 +183,10 @@ public class DemoSpringNativeController {
 }
 {% endhighlight %}
 
-{% figure caption:"Le projet et son Controller dans IntelliJ IDEA" class:"article" %}
-![IntelliJ IDEA projet démo]({{site.baseurl}}/assets/img/spring-initializr-demo-intellij.png)
-{% endfigure %}
+<figure class="article">
+  {% picture {{site.baseurl}}/assets/img/spring-initializr-demo-intellij.png --alt Le projet et son Controller dans IntelliJ IDEA %}
+  <figcaption>Le projet et son Controller dans IntelliJ IDEA</figcaption>
+</figure>
 
 <hr class="hr-text" data-content="Compilation">
 
@@ -332,10 +335,3 @@ A suivre de près donc !
 {{ "/graalvm-microservices-java/|GraalVM, le futur des applications microservices en Java||" | pagination: site.data.i18n.article-previous, site.data.i18n.article-next }}
 
 Cheers...
-
-> info "Et maintenant"
-> * Vous avez aimé cet article ? Dites-le ci-dessous afin que le blog gagne en visibilité.
-> * Vous avez une question ? Posez-la en commentaire, je m'efforcerai d'y répondre dans les plus brefs délais !!
-> 
-> Merci à vous !
->

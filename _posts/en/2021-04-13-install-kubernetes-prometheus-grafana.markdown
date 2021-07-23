@@ -45,9 +45,10 @@ In this article I'm going to show you how to succesfully install a complete Kube
 	2. Once installed, activate Kubernetes in the ***Preferences*** pane / ***Kubernetes*** / ***Enable Kubernetes***.
 
 	3. You should now see all the **Docker Desktop** components in the ***About*** pane included Kubernetes:
-{% figure caption:"Docker Desktop interface with components version" class:"article" %}
-![Docker Desktop]({{site.baseurl}}/assets/img/docker-desktop.png)
-{% endfigure %}
+<figure class="article">
+  {% picture {{site.baseurl}}/assets/img/docker-desktop.png --alt Docker Desktop interface with components version %}
+  <figcaption>Docker Desktop interface with components version</figcaption>
+</figure>
 
 - Grapple basic information from your cluster to verify everything's working fine:
 
@@ -109,15 +110,17 @@ The address is now:
 
 You'll see this login page at first:
 
-{% figure caption:"Dashboard login screen" class:"article" %}
-![Dashboard Login Screen]({{site.baseurl}}/assets/img/dashboard-first-access.jpg)
-{% endfigure %}
+<figure class="article">
+  {% picture {{site.baseurl}}/assets/img/dashboard-first-access.jpg --alt Dashboard login screen %}
+  <figcaption>Dashboard login screen</figcaption>
+</figure>
 
 Just push the ***skip*** button to bypass authentication.
 
-{% figure caption:"Dashboard main page" class:"article" %}
-![Dashboard index page]({{site.baseurl}}/assets/img/dashboard-index.jpg)
-{% endfigure %}
+<figure class="article">
+  {% picture {{site.baseurl}}/assets/img/dashboard-index.jpg --alt Dashboard main page %}
+  <figcaption>Dashboard main page</figcaption>
+</figure>
 
 <hr class="hr-text" data-content="Metrics-Server">
 
@@ -141,9 +144,10 @@ When reloading the **Dashboard**, you should now see CPU and Memory Usages (afte
 
 You can try the ***Pods*** section, this is my favorite! 
 
-{% figure caption:"Dashboard page with metrics. Beautiful!" class:"article" %}
-![Dashboard with metrics page]({{site.baseurl}}/assets/img/dashboard-with-metrics.jpg)
-{% endfigure %}
+<figure class="article">
+  {% picture {{site.baseurl}}/assets/img/dashboard-with-metrics.jpg --alt Dashboard page with metrics. Beautiful! %}
+  <figcaption>Dashboard page with metrics. Beautiful!</figcaption>
+</figure>
 
 <hr class="hr-text" data-content="Kube State Metrics">
 
@@ -209,9 +213,11 @@ To configure the **Prometheus** datasource and install **Grafana**, run the comm
 - I've made one specific to local Kubernetes cluster you can find here [Dashboard model](https://raw.githubusercontent.com/scalastic/local-k8s-installation/main/k8s/Docker%20Desktop%20Kubernetes%20All-in-one-1618321310777.json){:target="_blank" rel="noopener noreferrer nofollow"}.
 
 It looks like this - as you can see, the **Grafana** graphical interface offers numerous possibilities - unlike **Prometheus**:
-{% figure caption:"Grafana interface after complete installation. Woah!!" class:"article" %}
-![Grafana interface]({{site.baseurl}}/assets/img/grafana-ui.jpg)
-{% endfigure %}
+
+<figure class="article">
+  {% picture {{site.baseurl}}/assets/img/grafana-ui.jpg --alt Grafana interface after complete installation. Woah!! %}
+  <figcaption>Grafana interface after complete installation. Woah!!</figcaption>
+</figure>
 
 > info "👨🏻‍💻"
 > 
@@ -220,10 +226,3 @@ It looks like this - as you can see, the **Grafana** graphical interface offers 
 Well, that's your turn playing with the stack now!
 
 Cheers...
-
-> info "And now"
-> * You liked this article? Feel free to tell Disqus so the site increases in visibility
-> * You have a question? Ask it, and I will get back to you as soon as possible
-> 
-> Thanks!
->

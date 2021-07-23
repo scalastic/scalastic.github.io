@@ -5,7 +5,7 @@ date: 2021-04-22 21:00:00 +0200
 description: Comment réellement comparer l'exécution d'une application Java entre ses versions JVM et native - Un guide complet construit à partir de Java Spring Boot, Spring Native, WebFlux, Docker, Kubernetes, Prometheus et Grafana
 img: jvm-vs-native.jpg
 fig-caption: Photo de <a href="https://unsplash.com/@jtylernix?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Tyler Nix</a> sur <a href="https://unsplash.com/s/photos/surf?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Unsplash</a>
-tags: [Spring-Boot, Spring-Native, Spring-WebFlux, GraalVM, Docker, Kubernetes, Prometheus, Grafana, Micoservices]
+tags: [Spring-Boot, Spring-Native, Spring-WebFlux, GraalVM, Docker, Kubernetes, Prometheus, Grafana, Microservices]
 lang: fr
 permalink: /jvm-vs-native/
 status: finished
@@ -62,9 +62,10 @@ Et bien, ce n’est pas grand-chose et cela existe déjà :
 
 Voyons de quoi est faite l'application:
 
-{% figure caption:"L'architecture de l'application démo" class:"article" %}
-![L'architecture de l'application démo]({{site.baseurl}}/assets/img/application-architecture.jpg)
-{% endfigure %}
+<figure class="article">
+  {% picture {{site.baseurl}}/assets/img/application-architecture.jpg --alt L'architecture de l'application démo %}
+  <figcaption>L'architecture de l'application démo</figcaption>
+</figure>
 
 L’application est composée de 4 microservices :
 1. `worker` : l’orchestrateur d’algorithmes [***Python***] qui obtient `1` un nombre aléatoire, `2` le hacher et `3` incrémenter un compteur dans la base de données redis,
@@ -76,7 +77,7 @@ L’application est composée de 4 microservices :
 
 ## Build de l'appli
 
-Le but de la compilation est de produire une image Docker par microservice. Pour les microservices Java, il y aura deux images, la première en ***Bytecode***, la seconde en **natif***.
+Le but de la compilation est de produire une image Docker par microservice. Pour les microservices Java, il y aura deux images, la première en ***Bytecode***, la seconde en ***natif***.
 
 > note "Facultatif"
 > 
@@ -92,7 +93,7 @@ Toutefois, si vous souhaitez créer ces images Docker, vous devrez installer :
 ### La façon facile
 
 > warning "Note"
-> - Il devrait fonctionner sur des systèmes basés sur **Linux** et **macOS** - *et sur **Windows** avec quelques petites modifications
+> - Il devrait fonctionner sur des systèmes basés sur **Linux** et **macOS** - et sur **Windows** avec quelques petites modifications
 > - Cela va prendre du temps....... 10-20 min en fonction de votre connexion internet et de votre processeur ! C’est le prix à payer pour compiler du code natif.
 
 Pour ce faire, exécutez ce script, à la racine du projet :
@@ -172,9 +173,10 @@ Voyons comment installer ces microservices dans notre cluster kubernetes :
 - L’architecture de l’application est déployée dans un espace de nom dédié, `demo`,
 - Les outils de suivi se trouvent dans un autre espace de nom appelé `monitoring`.
 
-{% figure caption:"Architecture de notre cluster Kubernetes" class:"article" %}
-![Architecture de notre cluster Kubernetes]({{site.baseurl}}/assets/img/kubernetes-architecture.jpg)
-{% endfigure %}
+<figure class="article">
+  {% picture {{site.baseurl}}/assets/img/kubernetes-architecture.jpg --alt Architecture de notre cluster Kubernetes %}
+  <figcaption>Architecture de notre cluster Kubernetes</figcaption>
+</figure>
 
 1. Nous voulons gérer le nombre de ~~conteneurs~~ - pods dans ce cas - pour chaque microservice,
 1. Nous souhaitons également pouvoir changer l’image du pod (Bytecode ou natif) sans avoir besoin de tout redéployer.
@@ -194,7 +196,7 @@ Voyons comment installer ces microservices dans notre cluster kubernetes :
 
 1. Nous voulons que les métriques de l’application soient collectés par Prometheus.
 
-    => Voici [comment le configurer](https://developer.ibm.com/technologies/containers/tutorials/monitorin]g-kubernetes-prometheus/){:target="_blank" rel="noopener noreferrer nofollow"}
+    => Voici [comment le configurer](https://developer.ibm.com/technologies/containers/tutorials/monitoring-kubernetes-prometheus/){:target="_blank" rel="noopener noreferrer nofollow"}
 
 
 
@@ -344,15 +346,17 @@ spec:
 
 Vous devriez alors voir un tableau de bord vide comme celui-ci :
 
-{% figure caption:"Le tableau de bord démo dans Grafana" class:"article" %}
-![Le tableau de bord démo dans Grafana]({{site.baseurl}}/assets/img/grafana-demo-empty.jpg)
-{% endfigure %}
+<figure class="article">
+  {% picture {{site.baseurl}}/assets/img/grafana-demo-empty.jpg --alt Le tableau de bord démo dans Grafana %}
+  <figcaption>Le tableau de bord démo dans Grafana</figcaption>
+</figure>
 
 ### Description du tableau de bord de démonstration
 
-{% figure caption:"Description du tableau de bord démo de Grafana" class:"article" %}
-![Description du tableau de bord démo de Grafana]({{site.baseurl}}/assets/img/grafana-demo-description.jpg)
-{% endfigure %}
+<figure class="article">
+  {% picture {{site.baseurl}}/assets/img/grafana-demo-description.jpg --alt Description du tableau de bord démo de Grafana %}
+  <figcaption>Description du tableau de bord démo de Grafana</figcaption>
+</figure>
 
 * Les lignes du tableau (étiquetées de A à C) représentent les 3 microservices, respectivement, Worker, Random Number Generator -RNG- and Hasher.
 
@@ -391,9 +395,10 @@ service/worker created
 
 - Visualisez le démarrage des pods dans Grafana:
 
-{% figure caption:"Démarrage de l'application dans Grafana" class:"article" %}
-![Démarrage de l'application dans Grafana]({{site.baseurl}}/assets/img/grafana-demo-starting-app.jpg)
-{% endfigure %}
+<figure class="article">
+  {% picture {{site.baseurl}}/assets/img/grafana-demo-starting-app.jpg --alt Démarrage de l'application dans Grafana %}
+  <figcaption>Démarrage de l'application dans Grafana</figcaption>
+</figure>
   
 
 > note "Résultat"
@@ -439,9 +444,10 @@ deployment.apps/worker scaled
 
 - Jetons un coup d’œil au tableau de bord de Grafana :
 
-{% figure caption:"Visualisation des 2 workers dans Grafana" class:"article" %}
-![Visualisation des 2 workers dans Grafana]({{site.baseurl}}/assets/img/grafana-demo-2-workers.jpg)
-{% endfigure %}
+<figure class="article">
+  {% picture {{site.baseurl}}/assets/img/grafana-demo-2-workers.jpg --alt Visualisation des 2 workers dans Grafana %}
+  <figcaption>Visualisation des 2 workers dans Grafana</figcaption>
+</figure>
 
 > note "Résultats"
 > 
@@ -456,9 +462,10 @@ deployment.apps/worker scaled
 kubectl scale deployment worker --replicas=10 -n demo
 {% endhighlight %}
 
-{% figure caption:"Visualisation des 10 workers dans Grafana" class:"article" %}
-![Visualisation des 10 workers dans Grafana]({{site.baseurl}}/assets/img/grafana-demo-10-workers.jpg)
-{% endfigure %}
+<figure class="article">
+  {% picture {{site.baseurl}}/assets/img/grafana-demo-10-workers.jpg --alt Visualisation des 10 workers dans Grafana %}
+  <figcaption>Visualisation des 10 workers dans Grafana</figcaption>
+</figure>
 
 > note "Résultats"
 > 
@@ -470,9 +477,10 @@ kubectl scale deployment worker --replicas=10 -n demo
 kubectl scale deployment hasher rng --replicas=5 -n demo
 {% endhighlight %}
 
-{% figure caption:"Visualisation des microservices RNG et Hasher dans Grafana" class:"article" %}
-![Visualisation des microservices RNG et Hasher dans Grafana]({{site.baseurl}}/assets/img/grafana-demo-4-rng-hasher.jpg)
-{% endfigure %}
+<figure class="article">
+  {% picture {{site.baseurl}}/assets/img/grafana-demo-4-rng-hasher.jpg --alt Visualisation des microservices RNG et Hasher dans Grafana %}
+  <figcaption>Visualisation des microservices RNG et Hasher dans Grafana</figcaption>
+</figure>
 
 > note "Résultats"
 > 
@@ -494,9 +502,10 @@ kubectl rollout status deployment/hasher -n demo
 
 - Et ouvrez le tableau de bord Grafana :
 
-{% figure caption:"Visualisation du déploiement des images natives dans Grafana" class:"article" %}
-![Visualisation du déploiement des images natives dans Grafana]({{site.baseurl}}/assets/img/grafana_demo_native_rng_hasher.jpg)
-{% endfigure %}
+<figure class="article">
+  {% picture {{site.baseurl}}/assets/img/grafana_demo_native_rng_hasher.jpg --alt Visualisation du déploiement des images natives dans Grafana %}
+  <figcaption>Visualisation du déploiement des images natives dans Grafana</figcaption>
+</figure>
 
 > note "Résultats"
 >
@@ -572,11 +581,3 @@ Voici quelques liens pour une lecture plus approfondie :
 Et bien, voilà, c’est à votre tour de jouer avec les applications natives à présent !
 
 Cheers...
-
-> info "Et maintenant"
-> * Cet article vous a plu ? N’hésitez pas à le dire à Disqus pour que le site progresse en visibilité
-> * Vous avez une question ? Posez-la et je vous répondrai dès que possible
-> 
-> Merci!
->
->

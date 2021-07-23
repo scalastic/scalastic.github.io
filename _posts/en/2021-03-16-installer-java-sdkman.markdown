@@ -33,7 +33,7 @@ Among the undeniable advantages of the tool, I would cite:
 
 ## Installing SDKMAN
 
-You can find on the [official SDKMAN page!](Https://sdkman.io/install){:target="_blank" rel="noopener noreferrer nofollow"}, the procedure to follow.
+You can find on the [official SDKMAN page!](https://sdkman.io/install){:target="_blank" rel="noopener noreferrer nofollow"}, the procedure to follow.
 In my case, I followed the default procedure:
 
 1. Open a terminal and run the following command:
@@ -293,10 +293,3 @@ You will find at this address [https://sdkman.io/usage](https://sdkman.io/usage)
 Now it's your turn.
 
 Cheers ...
-
-> info "And now"
-> * Did you like this article? Say it below so that the blog gains visibility.
-> * Do you have a question? Leave it in comment, I will do my best to answer it as soon as possible !!
->
-> Thanks to you!
->

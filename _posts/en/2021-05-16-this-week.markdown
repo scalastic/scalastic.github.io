@@ -1,0 +1,39 @@
+---
+layout: review
+title: This week on the web
+date: 2021-05-16 12:00:00 +0200
+description: This week a landing simulation of SpaceX's Starship, Reactive Programming and the open source ruby-vips project
+img: press-review-01.jpg
+fig-caption: Photo by <a href="https://unsplash.com/@spacex?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">SpaceX</a> on <a href="https://unsplash.com/s/photos/spacex?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Unsplash</a>
+tags: [SpaceX, Spring-WebFlux, Lossless]
+lang: en
+permalink: /review-2021-05-16/
+status: finished
+---
+
+This week, Artificial Intelligence to land SpaceX's Starship rocket, reactive programming with a tutorial on Spring WebFlux and an open source project in the spotlight, ruby-vips, widely used on this site to convert images in lossless formats.
+
+Happy reading everyone.
+
+## 1. SpaceX Starship landing
+
+The Starship landing algorithm, based on a Reinforcement Learning method:
+
+[](https://thomas-godden.medium.com/how-spacex-lands-starship-sort-of-ee96cdde650b){:.card-preview target="_blank" rel="noopener noreferrer nofollow"}
+
+And its source code executable directly in Google Collab:
+
+[](https://colab.research.google.com/drive/18MVtu4reVJLBE1RXByQEmu0O9aLXlMHz?usp=sharing){:.card-preview target="_blank" rel="noopener noreferrer nofollow"}
+
+## 2. Reactive programming with Spring WebFlux
+
+Reactive Programming (a programming philosophy <https://www.reactivemanifesto.org>{:target="_blank" rel="noopener noreferrer nofollow"}) in Spring :
+
+[](https://medium.com/@rashmishehana_48965/going-reactive-with-spring-webflux-40128f3d5bad){:.card-preview target="_blank" rel="noopener noreferrer nofollow"}
+
+## 3. Ruby VIPS, the image processor:
+
+A Ruby extension of the libvips library which can convert images into WebP or Avif format inter alia:
+
+[](https://github.com/libvips/ruby-vips){:.card-preview target="_blank" rel="noopener noreferrer nofollow"}
+

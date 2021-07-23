@@ -1,0 +1,31 @@
+---
+layout: null
+sitemap:
+  exclude: 'yes'
+---
+{
+  "short_name": "Scalastic",
+  "name": "Scalastic",
+  "theme_color": "#1e2327",
+  "background_color": "#fbfbfb",
+  "display": "standalone",
+  "scope": "/",
+  "icons": [
+    {
+      "src": "/favicon.png",
+      "type": "image/png",
+      "sizes": "32x32"
+    },
+    {
+      "src": "/apple-touch-icon.png",
+      "type": "image/png",
+      "sizes": "120x120"
+    },
+    {
+      "src": "/apple-touch-icon-180x180.png",
+      "type": "image/png",
+      "sizes": "180x180"
+    }
+  ],
+  "start_url": "{{ site.url }}"
+}

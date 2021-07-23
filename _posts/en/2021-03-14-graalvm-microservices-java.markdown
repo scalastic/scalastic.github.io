@@ -3,7 +3,7 @@ layout: post
 title: GraalVM, the future of microservices applications in Java
 date: 2021-03-14 12:53:00 +0200
 description: JVM boot time and memory consumption do not make Java the ideal candidate for developing microservices. But GraalVM could be a game-changer ... Let's see how.
-img: graalvm-brand-new-containers.jpg # Add image post (optional)
+img: graalvm-brand-new-containers.jpg
 fig-caption: Photo by <a href="https://unsplash.com/@ant0ine?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Antoine Petitteville</a> on <a href="https://unsplash.com/s/photos/containers?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Unsplash</a>
 tags: [Java, GraalVM, Microservices]
 lang: en
@@ -21,9 +21,10 @@ This article is the second in a series discussing the concepts introduced in Gra
 
 ## GraalVM, a new generation of virtual machine
 
-{% figure caption:"The GraalVM ecosystem" class:"article" %}
-![GraalVM ecosystem]({{site.baseurl}}/assets/img/graalvm-ecosystem.png)
-{% endfigure %}
+<figure class="article">
+  {% picture {{site.baseurl}}/assets/img/graalvm-ecosystem.png --alt The GraalVM ecosystem %}
+  <figcaption>The GraalVM ecosystem</figcaption>
+</figure>
 
 ### What is that ?
 
@@ -43,9 +44,10 @@ This article is the second in a series discussing the concepts introduced in Gra
 
 ### The architecture of GraalVM
 
-{% figure caption:"The components of GraalVM" class:"article" %}
-![Les composants de GraalVM]({{site.baseurl}}/assets/img/graalvm-components.jpg)
-{% endfigure %}
+<figure class="article">
+  {% picture {{site.baseurl}}/assets/img/graalvm-components.jpg --alt The components of GraalVM %}
+  <figcaption>The components of GraalVM</figcaption>
+</figure>
 
 
 #### 1. The Grail compiler
@@ -115,10 +117,3 @@ It remains to be seen in practice the result. This is what we will do in the nex
 {{ "/java-microservices/|Java and microservices|/spring-natif-graalvm/|Compile a Spring application natively with GraalVM" | pagination: site.data.i18n.article-previous, site.data.i18n.article-next }}
 
 Cheers ...
-
-> info "And now"
-> * Did you like this article? Say it to Disqus so that the blog gains visibility.
-> * You have a question? Leave it in comment, I will do my best to answer it as soon as possible !!
->
-> Thanks to you!
->

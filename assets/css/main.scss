@@ -18,15 +18,19 @@ html {
 }
 
 body {
-  font-family: 'Lato', sans-serif;
   color: $body-color;
+  font-family: 'Nunito Sans',sans-serif;
+  font-size: 1rem;
+  font-size: 19px;
+  font-weight: 400;
   background-color: #fbfbfb;
   margin: 0;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
-h1 {
+h1, h2, h3, h4, h4, h6 {
+  font-family: 'metropolisbold',sans-serif;
   font-weight: 400;
 }
 
@@ -74,33 +78,37 @@ pre {
   }
 }
 
+svg {
+  vertical-align: -0.15em;
+}
+
 table {
-  border: 1px solid #aaa;
-  background-color: #eee;
+  border: 1px solid #515151;
+  background-color: #fbfbfb;
   width: 100%;
   text-align: left;
   border-collapse: collapse;
 }
 table td, table.blueTable th {
-  border: 1px solid #aaa;
+  border: 1px solid #515151;
   padding: 3px 2px;
 }
 table tbody td {
-  font-size: 13px;
+  font-size: 14px;
 }
 table tr:nth-child(even) {
-  background: #adbecc;
+  background: #ecf0f1;
 }
 table thead {
-  background: #a9c4d1;
-  background: linear-gradient(to bottom, #bed3dc 0%, #b1cad5 66%, #A9C4D1 100%);
-  border-bottom: 1px solid #8c8c8c;
+  background: #515151;
+  /* background: linear-gradient(to bottom, #bed3dc 0%, #b1cad5 66%, #A9C4D1 100%); */
+  border-bottom: 1px solid #515151;
 }
 table thead th {
   font-size: 14px;
   font-weight: bold;
-  color: #fff;
-  border-left: 1px solid #d0e4f5;
+  color: #fafafa;
+  border-left: 1px solid #fafafa;
 }
 table thead th:first-child {
   border-left: none;
@@ -110,16 +118,21 @@ table tfoot {
   font-size: 14px;
   font-weight: bold;
   color: #fff;
-  background: #d0e4f5;
-  background: linear-gradient(to bottom, #dcebf7 0%, #d4e6f6 66%, #D0E4F5 100%);
+  background: #fafafa;
+  /* background: linear-gradient(to bottom, #dcebf7 0%, #d4e6f6 66%, #D0E4F5 100%); */
   border-top: 2px solid #444;
 }
 table tfoot td {
   font-size: 14px;
 }
 
+.hide{
+  display:none;
+}
+
 .wrapper {
   max-width: 1250px;
+  width: 100%;
   position: relative;
 }
 
@@ -147,32 +160,6 @@ table tfoot td {
   clear: both;
 }
 
-.page-recomm {
-    padding-top: 15px;
-    margin:0 auto;
-}
-
-.recomm {
-    width: 200px;
-    display: inline-block;
-    padding: 10px;
-    opacity: 0.8;
-    background: $gray;
-    color: $dark;
-    &:hover {
-      opacity: 1;
-    }
-    & > h5 {
-      margin: 5px 5px;
-    }
-    & > img {
-      object-fit: cover;
-      object-position: center;
-      width: 190px;
-      height: 150px;
-    }
-}
-
 /* - - - - - - - - - - Home Page Styles - - - - - - - - - - */
 @import 'parts/home-page';
 
@@ -181,6 +168,18 @@ table tfoot td {
 
 /* - - - - - - - - - - Tag Styles - - - - - - - - - - */
 @import 'parts/tag';
+
+/* - - - - - - - - - - Search Styles - - - - - - - - - - */
+@import 'parts/search';
+
+/* - - - - - - - - - - Review Styles - - - - - - - - - - */
+:root {
+  --microlink-background-color: #fbfbfb;
+  --microlink-hover-background-color: #fbfbfb;
+  --microlink-color: #515151;
+}
+
+@import 'parts/review';
 
 /* - - - - - - - - - - Media Styles - - - - - - - - - - */
 @import 'media';

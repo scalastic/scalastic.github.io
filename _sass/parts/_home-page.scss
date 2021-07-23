@@ -10,10 +10,34 @@
   height: 100%;
   padding: 20px 10px;
   background-color: #fbfbfb;
+  font-size: 16px;
+  a {
+    color: #3e64ff;
+    fill: #3e64ff;
+    text-decoration: none;
+    &:hover {
+      text-decoration: underline;
+      opacity: .8;
+    }
+  }
 }
 .about {
   margin: 0 0 40px;
   text-align: center;
+  .cover-logo {
+    width: 150px;
+    margin: 0 auto 10px;
+    a {
+      text-decoration: none;
+    }
+    img {
+      transition: all .3s ease;
+      &:hover {
+        transform: translate(0px, -2px);
+        box-shadow: 0 15px 45px -10px rgba(10,16,34,0.2);
+      }
+    }
+  }
   .cover-company-image {
     width: 150px;
     margin: 0 auto 10px;
@@ -29,51 +53,83 @@
     overflow: hidden;
     background-color: $dark;
   }
-  img:not(.flag) {
+
+  /* img:not(.flag) */
+  img {
     width: 100%;
-    border-radius: 50%;
-  }
-  a {
-    background: transparent;
-    color: #3e64ff;
-    border: none;
-    padding: 0;
-    -webkit-box-shadow: none;
-    box-shadow: none;
-    text-decoration: none;
-    &:hover {
-      text-decoration: underline;
-      opacity: .8;
-    }
+    /* border-radius: 50%; */
   }
 
-  .author-name {
-    font-family: 'PT Serif', serif;
+  .about-site {
+    font-family: 'Nunito Sans', sans-serif;
     margin: 0 0 10px;
     position: relative;
-    padding-bottom: 15px;
+    padding: 15px;
     font-size: 16px;
-    text-transform: uppercase;
+    /*text-transform: uppercase;*/
     color: $dark;
-    font-weight: 700;
-    &::after {
-      content: "";
-      position: absolute;
-      left: 50%;
-      transform: translateX(-50%);
-      bottom: 0;
-      display: block;
-      width: 7px;
-      height: 7px;
-      border-radius: 100%;
-      background-color: $body-color;
-    }
+    font-weight: 400;
   }
   p {
     font-size: 16px;
     margin: 0 0 10px;
   }
 }
+
+/* Checkbox */
+
+.btn {
+  display: inline-block;
+  padding: 5px;
+  position: relative;
+  text-align: center;
+  transition: background 400ms ease, color 600ms ease;
+}
+
+input[type="radio"].toggle {
+  display: none;
+  & + label {
+    cursor: pointer;
+    min-width: 60px;
+    &:hover {
+      background: none;
+      color: #515151;
+    }
+    &:after {
+      background: #515151;
+      content: "";
+      height: 100%;
+      position: absolute;
+      top: 0;
+      transition: left 200ms cubic-bezier(0.77, 0, 0.175, 1);
+      width: 100%;
+      z-index: -1;
+    }
+  }
+  &.toggle-left + label {
+    border-right: 0;
+    &:after {
+      left: 100%
+    }
+  }
+  &.toggle-right + label {
+    margin-left: -5px;
+    &:after {
+      left: -100%;
+    }
+  }
+  &:checked + label {
+    cursor: default;
+    color: #fbfbfb;
+    transition: color 200ms;
+    &:after {
+      left: 0;
+    }
+  }
+}
+
+/* End Checkbox */
+
 .content-box {
   padding: 20px;
   padding-left: 260px;
@@ -129,12 +185,14 @@
       }
       a {
         color: $body-color;
+        fill: $body-color;
         display: block;
         padding: 5px;
         font-size: 18px;
         transition: all 350ms cubic-bezier(0.13, 0.43, 0.54, 1.82);
         &:hover {
           color: $dark;
+          fill: $dark;
           transform: scale(1.2);
         }
       }
@@ -171,13 +229,24 @@ footer {
     width: 30%;
     max-width: 100%;
     min-height: 11rem;
-    background-size: cover;
-    background-position: 50% 50%;
+    //background-size: cover;
+    //background-position: 50% 50%;
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      vertical-align: middle;
+      display: inline-block;
+      margin-left:auto;
+      margin-right: auto;
+      max-width: 100%;
+      min-height: 11rem;
+    }
   }
 
   .post-content {
     padding: 1rem;
-    width: 70%;
+    width: 100%;
     .post-date,
     .post-words {
       font-size: 12px;
@@ -187,9 +256,9 @@ footer {
       font-size: 30px;
       font-weight: 400;
       a {
-        font-family: 'PT Serif', serif;
+        //font-family: 'PT Serif', serif;
         text-decoration: none;
-        color: $dark-blue;
+        color: $body-color;
       }
     }
     p {
@@ -229,6 +298,9 @@ footer {
       color: $dark-gray;
       background-color: $gray;
       box-shadow: none;
+    }
+    svg {
+      vertical-align: -0.15em;
     }
   }
 }

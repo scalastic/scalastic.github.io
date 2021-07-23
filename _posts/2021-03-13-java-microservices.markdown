@@ -14,7 +14,6 @@ Cet article est le premier d'une série abordant les concepts de la nouvelle mac
 
 Nous allons aborder ici des notions de bases sur les microservices, sur Java et sa JVM HotSpot. Cela nous donnera une première idée sur l'adéquation de Java au monde des conteneurs et notammement des microservices.
 
-<!--more-->
 
 <hr class="hr-text" data-content="Plan">
 
@@ -47,9 +46,10 @@ Tout le monde connait Java ! Un langage interprété par une JVM et portable sur
 
 #### L'interprétation
 
-{% figure caption:"Les étapes de l'interprétation du Bytecode par la JVM" class:"article" %}
-![Les étapes de l'interprétation du Bytecode par la JVM]({{site.baseurl}}/assets/img/jvm-execution.png)
-{% endfigure %}
+<figure class="article">
+  {% picture {{site.baseurl}}/assets/img/jvm-execution.png --alt Les étapes de l'interprétation du Bytecode par la JVM %}
+  <figcaption>Les étapes de l'interprétation du Bytecode par la JVM</figcaption>
+</figure>
 
 1. La JVM est un exécutable qui lit du bytecode puis l'interprète.
 2. Le bytecode est dans des packages .jar sous forme de fichiers .class
@@ -65,9 +65,10 @@ Tout le monde connait Java ! Un langage interprété par une JVM et portable sur
 
 #### Le compilateur Just-In-Time (JIT)
 
-{% figure caption:"Les étapes de l'optimisation JIT du Bytecode par la JVM" class:"article" %}
-![Les étapes de l'optimisation JIT du Bytecode par la JVM]({{site.baseurl}}/assets/img/jvm-jit.png)
-{% endfigure %}
+<figure class="article">
+  {% picture {{site.baseurl}}/assets/img/jvm-jit.png --alt Les étapes de l'optimisation JIT du Bytecode par la JVM %}
+  <figcaption>Les étapes de l'optimisation JIT du Bytecode par la JVM</figcaption>
+</figure>
 
 1.&nbsp;&nbsp;Lors de l'exécution d'une méthode Java, le compilateur `C1` de JIT (just-in-time, à la volée) va la compiler en code natif et le `Profiler` va commencer à recueillir des informations sur son utilisation.
 
@@ -94,9 +95,10 @@ Tout le monde connait Java ! Un langage interprété par une JVM et portable sur
 
 ##### Architecture générale de la JVM 
 
-{% figure caption:"Les différentes couches mises en jeu dans une JVM" class:"article" %}
-![Les différentes couches mises en jeu dans une JVM]({{site.baseurl}}/assets/img/jvm-architecture.png)
-{% endfigure %}
+<figure class="article">
+  {% picture {{site.baseurl}}/assets/img/jvm-architecture.png --alt Les différentes couches mises en jeu dans une JVM %}
+  <figcaption>Les différentes couches mises en jeu dans une JVM</figcaption>
+</figure>
 
 
 Lorsque l'on regarde l'architecture générale d'une JVM, on ne peut que constater qu'il y a beaucoup de composants. On voit aussi que son espace mémoire est compartimenté.
@@ -105,9 +107,10 @@ Concentrons-nous sur 2 d'entre eux.
 
 ##### Détail de 2 espaces mémoires
 
-{% figure caption:"Détails de 2 espaces mémoires de la JVM" class:"article" %}
-![Détails de 2 espaces mémoires de la JVM]({{site.baseurl}}/assets/img/jvm-memory.jpg)
-{% endfigure %}
+<figure class="article">
+  {% picture {{site.baseurl}}/assets/img/jvm-memory.jpg --alt Détails de 2 espaces mémoires de la JVM %}
+  <figcaption>Détails de 2 espaces mémoires de la JVM</figcaption>
+</figure>
 
 La JVM alloue de la mémoire pour l'application mais aussi pour ses propres métadonnées et son fonctionnement :
 
@@ -159,10 +162,3 @@ Rien de tout cela bien sûr. La réponse dans l'article suivant présentant Graa
 {{ "||/graalvm-microservices-java/|GraalVM, le futur des applications microservices en Java" | pagination: site.data.i18n.article-previous, site.data.i18n.article-next }}
 
 Cheers...
-
-> info "Et maintenant"
-> * Vous avez aimé cet article ? Dites-le ci-dessous afin que le blog gagne en visibilité.
-> * Vous avez une question ? Posez-la en commentaire, je m'efforcerai d'y répondre dans les plus brefs délais !!
-> 
-> Merci à vous !
->

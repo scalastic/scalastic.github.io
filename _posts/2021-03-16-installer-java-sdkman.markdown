@@ -293,10 +293,3 @@ Vous trouverez à cette adresse [https://sdkman.io/usage](https://sdkman.io/usag
 A vous de jouer à présent.
 
 Cheers...
-
-> info "Et maintenant"
-> * Vous avez aimé cet article ? Dites-le ci-dessous afin que le blog gagne en visibilité.
-> * Vous avez une question ? Posez-la en commentaire, je m'efforcerai d'y répondre dans les plus brefs délais !!
-> 
-> Merci à vous !
->
