@@ -5,6 +5,40 @@
       
            	
 	<url>
+	  <loc>https://scalastic.io/aws-amazon-cloudfront/</loc>
+	  
+	    <lastmod>2021-07-28T10:46:00+02:00</lastmod>
+	  
+	  
+	    <changefreq>monthly</changefreq>
+	  
+	  
+	    <priority>0.5</priority>
+	  
+	</url>
+        
+      
+        
+	<url>
+	  <loc>https://scalastic.io/en/aws-amazon-cloudfront/</loc>
+	  
+	    <lastmod>2021-07-28T10:46:00+02:00</lastmod>
+	  
+	  
+	    <changefreq>monthly</changefreq>
+	  
+	  
+	    <priority>0.5</priority>
+	  
+	</url>
+        
+      
+    
+  
+    
+      
+           	
+	<url>
 	  <loc>https://scalastic.io/aws-amazon-s3/</loc>
 	  
 	    <lastmod>2021-07-27T18:21:00+02:00</lastmod>
@@ -695,7 +729,7 @@
     <url>
       <loc>https://scalastic.io/</loc>
       
-        <lastmod>2021-07-27T19:49:01+02:00</lastmod>
+        <lastmod>2021-07-28T17:40:26+02:00</lastmod>
       
       
         <changefreq>weekly</changefreq>
@@ -710,7 +744,7 @@
     <url>
       <loc>https://scalastic.io/en/</loc>
       
-        <lastmod>2021-07-27T19:49:01+02:00</lastmod>
+        <lastmod>2021-07-28T17:40:26+02:00</lastmod>
       
       
         <changefreq>weekly</changefreq>
@@ -873,7 +907,7 @@
     <url>
       <loc>https://scalastic.io/page/2/</loc>
       
-        <lastmod>2021-07-27T19:49:01+02:00</lastmod>
+        <lastmod>2021-07-28T17:40:26+02:00</lastmod>
       
       
         <changefreq>weekly</changefreq>
@@ -888,7 +922,7 @@
     <url>
       <loc>https://scalastic.io/en/page/2/</loc>
       
-        <lastmod>2021-07-27T19:49:01+02:00</lastmod>
+        <lastmod>2021-07-28T17:40:26+02:00</lastmod>
       
       
         <changefreq>weekly</changefreq>
@@ -907,7 +941,7 @@
     <url>
       <loc>https://scalastic.io/page/3/</loc>
       
-        <lastmod>2021-07-27T19:49:01+02:00</lastmod>
+        <lastmod>2021-07-28T17:40:26+02:00</lastmod>
       
       
         <changefreq>weekly</changefreq>
@@ -922,7 +956,7 @@
     <url>
       <loc>https://scalastic.io/en/page/3/</loc>
       
-        <lastmod>2021-07-27T19:49:01+02:00</lastmod>
+        <lastmod>2021-07-28T17:40:26+02:00</lastmod>
       
       
         <changefreq>weekly</changefreq>
@@ -941,7 +975,7 @@
     <url>
       <loc>https://scalastic.io/page/4/</loc>
       
-        <lastmod>2021-07-27T19:49:01+02:00</lastmod>
+        <lastmod>2021-07-28T17:40:26+02:00</lastmod>
       
       
         <changefreq>weekly</changefreq>
@@ -956,7 +990,7 @@
     <url>
       <loc>https://scalastic.io/en/page/4/</loc>
       
-        <lastmod>2021-07-27T19:49:01+02:00</lastmod>
+        <lastmod>2021-07-28T17:40:26+02:00</lastmod>
       
       
         <changefreq>weekly</changefreq>
