@@ -5,7 +5,7 @@ date: 2021-07-28 10:46:00 +0200
 description: Amazon CloudFront Fundamentals and Key Concepts to Know. Tutorial, instructions.
 img: aws-cloudfront-documentation.jpg
 fig-caption: Photo by <a href="https://unsplash.com/@tommorbey?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Tom Morbey</a> on <a href="https://unsplash.com/s/photos/venice-beach?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Unsplash</a>
-tags: [AWS, CloudFront, Origin, Geo Restriction, S3, ALB, EC2, Protocol-Policy, Signed-URL, Signed-Cookie, Trusted-Key-Group, Cache, TTL, Documentation]
+tags: [AWS, CloudFront, Origin, Geo-Restriction, S3, ALB, EC2, Protocol-Policy, Signed-URL, Signed-Cookie, Trusted-Key-Group, Cache, TTL, Documentation]
 lang: en
 permalink: /aws-amazon-cloudfront/
 status: finished
