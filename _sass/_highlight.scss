@@ -28,8 +28,8 @@ figure.highlight {
             
             /* Display language name */
             &[data-lang]::before {
-                font-family: "Font Awesome 5 Free";
-                content: "\f121" " " attr(data-lang);
+                font-family: 'Nunito Sans',sans-serif;
+                content: "</>" " " attr(data-lang);
                 position: absolute;
                 right: 34px;
                 top: -10px;
@@ -45,25 +45,11 @@ figure.highlight {
                 color: #f8f8f2;
                 font-weight: 600;
                 background: $background;
-                &[data-lang="java"] {
-                  font-family: "Font Awesome 5 Brands";
-                  content: "\f4e4" " Java";
-                }
                 &[data-lang="zsh"] {
-                  font-family: "Font Awesome 5 Free";
                   content: "%_ Zsh";
                 }
                 &[data-lang="bash"] {
-                  font-family: "Font Awesome 5 Free";
                   content: "$_ Bash";
-                }
-                &[data-lang="maven"] {
-                  font-family: "Font Awesome 5 Free";
-                  content: "\f56b" " Maven";
-                }
-                &[data-lang="docker"] {
-                  font-family: "Font Awesome 5 Brands";
-                  content: "\f395" " Docker";
                 }
             }
 
