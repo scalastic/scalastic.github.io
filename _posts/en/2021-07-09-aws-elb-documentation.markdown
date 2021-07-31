@@ -5,7 +5,7 @@ date: 2021-07-09 16:21:00 +0200
 description: AWS Elastic Load Balancing (ELB) fundamentals and key concepts you should know. Tutorial, user guide. Also talks about ASG, SSL-TLS, SNI, Sticky-Session, Target-Group.
 img: aws-elb-documentation.jpg
 fig-caption: Photo by <a href="https://unsplash.com/@derekowensheart?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Derek Owens</a> on <a href="https://unsplash.com/s/photos/swing?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Unsplash</a>
-tags: [AWS, ELB, ASG, SSL-TLS, SNI, Sticky-Session, Target-Group, Documentation]
+tags: [AWS, ELB, Auto-Scaling, ASG, SSL-TLS, SNI, Sticky-Session, Target-Group, Documentation]
 lang: en
 permalink: /aws-elb-documentation/
 status: finished
