@@ -5,7 +5,7 @@ date: 2021-07-06 10:37:00 +0200
 description: Principes fondamentaux et concepts clés d'AWS IAM que vous devez connaître. Tutoriel, mode d'emploi.
 img: aws-iam-documentation.jpg
 fig-caption: Photo de <a href="https://unsplash.com/@mojamsanii?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Moja Msanii</a> sur <a href="https://unsplash.com/s/photos/bank?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Unsplash</a>
-tags: [AWS, IAM, Documentation]
+tags: [AWS, IAM, IAM-User, IAM-Group, IAM-Role, MFA, AWS-Identity, AWS-Policy, IAM-Service-Role, AWS-Trust-Policy, AWS-Principale, Documentation]
 lang: fr
 permalink: /aws-iam-documentation/
 status: finished
@@ -20,7 +20,7 @@ AWS Identity and Access Management (IAM) est un service Web permettant de contr�
 
 <hr class="hr-text" data-content="Root Account">
 
-## Root Account
+## AWS account root user
 
 <figure class="article">
   {% picture {{site.baseurl}}/assets/img/aws-iam-root-account.png --alt Le rôle du Root Account est de créer des utilisateurs AWS %}
@@ -29,14 +29,17 @@ AWS Identity and Access Management (IAM) est un service Web permettant de contr�
 
 Il est créé par défaut lors de l'inscription sur AWS. Il ne doit pas être utilisé, sauf pour créer la configuration des comptes AWS. On peut même imaginer qu'il sert à créer le premier compte AWS avec des droits d'administrateur, et c'est tout.
 
-<hr class="hr-text" data-content="AWS User">
+<hr class="hr-text" data-content="User & Group">
 
-## AWS User (ou IAM User)
+## IAM User et Group
 
-Un **utilisateur AWS** est une personne physique et une seule :
-   - Les comptes d'utilisateurs AWS doivent être protégés par une **politique de mot de passe** et une **authentification multifacteur** (MFA) solides pour accéder à la AWS Management Console.
-   - Pour l'accès par programmation via CLI (AWS Command Line Interface) à partir d'une console ou via un SDK (AWS Software Development Kit) à partir d'une application, les utilisateurs peuvent utiliser des **clés d'accès** (un ID de clé d'accès + un secret de clé d'accès) pour accéder aux services AWS.
-   - Les autorisations des utilisateurs sont gérées via des **IAM Policies** soit au niveau des utilisateurs directement, soit et c'est encore mieux, au niveau des **Groups** auxquels les utilisateurs appartiennent.
+Un **IAM User** est une personne physique et une seule :
+- Les comptes d'utilisateurs AWS doivent être protégés par une **politique de mot de passe** et une **authentification multifacteur** (MFA) solides pour accéder à la AWS Management Console.
+- Pour l'accès par programmation via CLI (AWS Command Line Interface) à partir d'une console ou via un SDK (AWS Software Development Kit) à partir d'une application, les utilisateurs peuvent utiliser des **Access Keys** (un ID de clé d'accès + un secret de clé d'accès) pour accéder aux services AWS.
+
+Une **IAM Policy** accorde un ensemble précis de permissions et peut être rattachée à n’importe quelle identité IAM : User, Group ou Role.
+
+Les permissions / autorisations des utilisateurs (**IAM Policies**) sont rattachées soit au niveau des utilisateurs directement, soit et c'est encore mieux, au niveau des **Groups** auxquels les utilisateurs appartiennent.
 
 <figure class="article">
   {% picture {{site.baseurl}}/assets/img/aws-iam-user-group.png --alt Plusieurs Groups peuvent être rattachés aux Users %}
@@ -70,10 +73,59 @@ ssh -i <ACCESS-KEY-FILE>.pem ec2-user@<PUBLIC-IP-SERVER>
 
 ## IAM Role
 
-**IAM Role** donne des autorisations à un service AWS pour accéder aux informations AWS.
+Toute la sécurité dans AWS repose sur les **Roles IAM** et c'est sans doute la partie la plus délicate à bien appréhender.
+
+Voyons, par une approche progressive, les concepts des Roles IAM.
+
+### La version résumée (mais qui n'est pas entièrement juste !)
+
+  > info ""
+  > Un **IAM Role** donne des autorisations à un Service AWS pour accéder aux informations d'un autre Service AWS.
+
+  Dans l'exemple ci-dessous, une Instance EC2 utilise un IAM Role pour accéder en Lecture à un Bucket S3 :
 
 <figure class="article">
   {% picture {{site.baseurl}}/assets/img/aws-iam-role.png --alt Un IAM Role accorde l'accès à une EC2 instance pour accéder à un S3 bucket %}
   <figcaption>Un IAM Role accorde l'accès à une EC2 instance pour accéder à un S3 bucket</figcaption>
 </figure>
 
+### La version longue (mais qui est plus complexe !)
+
+Pour bien comprendre les concepts derrière les Roles IAM, nous devons définir quelques termes propres à AWS.
+
+#### IAM Identity
+* ***IAM User*** et ***IAM Role*** sont tous deux des IAM Identities
+* Il possède des **Permissions Policies** qui déterminent ce que l’identité peut et ne peut pas faire dans AWS
+
+Donc, User et Role sont un même concept dans AWS. 
+
+> note "Ce qui les différencie :"
+> - Un **User** est associé de ***façon unique*** à une personne et possède des ***identifiants à longue durée de vie***, comme un mot de passe ou des clés d’accès
+> - Un **Role** est destiné à ***quiconque*** en a besoin (donc ce peut être un User) et il possède des ***identifiants temporaires***, pour la durée de session du Role
+
+#### AWS Service Role
+
+C'est un **Role destiné à un Service**, c'est à dire un ensemble de permissions qui permettent à ce Service d'accéder, ***dans votre compte*** et ***en votre nom***, aux Services AWS dont il a besoin
+
+> note ""
+> C'est donc un Role destiné à un Service
+
+#### Trust Policy
+
+- Une **Trust Policy** définit les ***Principales*** en qui vous avez confiance pour endosser un Role. 
+- Un **Principale** peut être un User, un Role, un compte AWS ou un Service.
+
+> note ""
+> On peut donc définir exactement à qui est destiné un Role
+
+### Ce que cela permet de faire
+
+Quelques exemples d'utilisation de Roles (non exhaustif et sans ordre particulier !) :
+
+1. Permettre à un *Developer* d'accéder temporairement, en lecture seule, à un environnement de *Production*
+1. Permettre à un *Load Balancer* de (1) lire les metrics de CloudWatch et (2) créer de nouvelles instances EC2 au besoin
+1. Permettre à une certaine application d'avoir un accès en lecture/écriture dans un répertoire spécifique d'un Bucket S3
+
+
+> info "Ce qu'il faut retenir"
+> Il est toujours préférable d'utiliser un Role pour gérer les accès aux ressources AWS
