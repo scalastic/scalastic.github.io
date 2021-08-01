@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Amazon Containers - ECS, ECR et Fargate
+title: Amazon Containers - ECS, ECR and Fargate
 date: 2021-07-31 12:38:00 +0200
 description: Basic principles and key concepts of Amazon ECS, ECR and Fargate to know. Tutorial, instructions.
 img: aws-ecs-ecr-fargate-documentation.jpg
@@ -16,7 +16,7 @@ AWS offers several Container Management Services. These include:
 - **Amazon Fargate** to run Amazon ECS in Serverless
 - **Amazon EKS** for Amazon Elastic Kubernetes Service to manage a Kubernetes Cluster
 
-In this article, we will talk about the first 2 Services, Amazon EKS deserving a single chapter.
+In this article, we will talk about the first 2 Services, Amazon EKS deserving a chapter of its own.
 
 <hr class="hr-text" data-content="Content">
 
@@ -28,9 +28,9 @@ In this article, we will talk about the first 2 Services, Amazon EKS deserving a
 ## Amazon ECS
 
 - **Amazon Elastic Container Service** (**Amazon ECS**) is a highly scalable and fast container management service
-- It's a cluster of EC2 instances that each run an **ECS Agent** (the Docker container)
-- The ECS agent is also used to record the instance in the **Cluster ECS**
-- EC2 instances are based on an AMI (Amazon Machine Image) that contains the ECS agent
+- It's a cluster of EC2 instances : each instance runs an **ECS Agent** (the Docker container)
+- The ECS Agent is also used to record the instance in the **ECS Cluster**
+- There are AMIs (Amazon Machine Image) that contain the ECS Agent
 
 ### Composition of ECS Cluster
 
@@ -58,7 +58,7 @@ An ECS Cluster contains:
 #### Placement of Tasks in the ECS Cluster
 
 > info ""
-> Tasks are placed in "best-effort" mode. Amazon ECS always tries to place tasks even when the most optimal placement option is unavailable. However, the placement constraints of the Tasks are restrictive, and **they may prevent the placement of the Tasks**.
+> Tasks are placed in best-effort. Amazon ECS always tries to place tasks even when the most optimal placement option is unavailable. However, the placement constraints of the Tasks are restrictive, and **they may prevent the placement of the Tasks**.
 
 When Amazon ECS places Tasks, it uses the following process to select a container instance:
 
@@ -151,8 +151,8 @@ It is important to keep in mind the use of Roles that is made by ECS and what re
 
 > info "IAM Role and Instance Profile"
 > The two terms are used to designate, as appropriate, the same thing:
-> - The ***Instance Profile*** is the instantiation, in an EC2 instance, of permissions defined in a Role
-> - The ***IAM Role*** being just a definition of this permissions
+> - The ***Instance Profile*** is the instantiation, in an EC2 instance, of permissions defined in IAM Role
+> - The ***IAM Role*** being just the definition of this permissions
 
 <hr class="hr-text" data-content="Fargate">
 

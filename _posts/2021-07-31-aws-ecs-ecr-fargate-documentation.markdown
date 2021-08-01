@@ -11,7 +11,7 @@ permalink: /aws-ecs-ecr-fargate/
 status: finished
 ---
 
-AWS offre plusieurs Services de gestion de conteneurs. On peut citer:
+AWS offre plusieurs Services de gestion de conteneurs. On peut citer :
 - **Amazon ECS** pour Elastic Container Service
 - **Amazon Fargate** qui permet d'exécuter Amazon ECS en Serverless
 - **Amazon EKS** pour Amazon Elastic Kubernetes Service et qui permet de gérer un Cluster Kubernetes
@@ -28,9 +28,9 @@ Dans cet article, nous parlerons des 2 premiers Services, Amazon EKS méritant u
 ## Amazon ECS
 
 - **Amazon Elastic Container Service** (**Amazon ECS**) est un service de gestion de conteneurs hautement scalable et rapide
-- C'est un Cluster d'instances EC2 qui exécutent, chacune, un **Agent ECS** (le conteneur Docker)
-- L'agent ECS sert, de plus, à enregister l'instance dans le **Cluster ECS**
-- Les instances EC2 reposent sur une AMI (Amazon Machine Image) qui contient l'agent ECS
+- C'est un Cluster d'instances EC2 : chaque instance exécute un **Agent ECS** (le conteneur Docker)
+- L'Agent ECS sert, de plus, à enregister l'instance dans le **Cluster ECS**
+- Il existe des AMIs (Amazon Machine Image) qui contiennent un Agent ECS
 
 ### Composition d'un Cluster ECS
 
@@ -152,8 +152,8 @@ Il est important d'avoir à l'esprit l'utilisation des Roles qui est faite par E
 
 > info "IAM Role et Instance Profile"
 > On trouvera les deux termes pour désigner, selon les cas, la même chose en fait :
-> - L'***Instance Profile*** est l'instanciation, dans une instance EC2, des permissions définies dans un Role
-> - Le ***IAM Role*** étant juste une définition de permissions 
+> - L'***Instance Profile*** est l'instanciation, dans une instance EC2, des permissions définies dans un IAM Role
+> - Le ***IAM Role*** étant juste la définition de permissions 
 
 <hr class="hr-text" data-content="Fargate">
 
