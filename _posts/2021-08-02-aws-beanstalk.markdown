@@ -11,7 +11,7 @@ permalink: /aws-elastic-beanstalk/
 status: finished
 ---
 
-AWS Elastic Beanstalk est une service d'orchestration d'AWS qui sert à déployer des applications. Il sait gérer différents services de AWS tels que EC2, S3, Simple Notification Service (SNS), CloudWatch , AutoScaling et Elastic Load Balancers.
+AWS Elastic Beanstalk est un service d'orchestration d'AWS qui sert à déployer des applications. Il sait gérer différents services de AWS tels que EC2, S3, Simple Notification Service (SNS), CloudWatch , AutoScaling et Elastic Load Balancers.
 
 <hr class="hr-text" data-content="Plan">
 
