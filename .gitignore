@@ -1,8 +1,10 @@
 _site/
 vendor/
 .jekyll-metadata/
+.jekyll-metadata
 .jekyll-cache/
 .sass-cache/
+.vscode/
 archive-posts/
 yarn.lock
 Gemfile.lock
