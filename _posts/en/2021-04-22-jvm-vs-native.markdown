@@ -25,6 +25,9 @@ Let's see this in detail.
 > info "Source code"
 > All sources are kept at <https://github.com/scalastic/hotspot-vs-native>{:target="_blank" rel="noopener noreferrer nofollow"}
 
+> error "UPDATE"
+> The configuration of containers is essential when it comes to measuring memory and CPU consumption. An update of this article is available at [JVM vs Native - Configuring Java Containers in Kubernetes](/en/java-container-configuration/)
+
 <hr class="hr-text" data-content="Contents">
 
 * TOC
@@ -517,7 +520,11 @@ kubectl rollout status deployment/hasher -n demo
 > 
 > **RAM usage**
 > - Surprisingly, native applications use more memory than Bytecode ones: it is all the more surprising that reducing the memory footprint is one of the advantages cited by the community.
-> - Is it because of the Beta versions used in this demo or a memory leak in the implementation?
+> - ~~Is it because of the Beta versions used in this demo or a memory leak in the implementation?~~
+
+> error "UPDATE"
+> The configuration of containers is essential when it comes to measuring memory and CPU consumption. An update of this article is available at [JVM vs Native - Configuring Java Containers in Kubernetes](/en/java-container-configuration/)
+
 
 <hr class="hr-text" data-content="Cleaning">
 
@@ -548,9 +555,13 @@ service "worker" deleted
 
 We learned how to install a full Kubernetes stack so that we can measure application metrics.
 
-However, we are not getting the results we expect in the context of native applications. One explanation could be a lack of the Spring Beta version: Spring Native has just upgraded to version 0.10.0-SNAPSHOT and this is precisely the version where performance improvements are planned.
+~~However, we are not getting the results we expect in the context of native applications. One explanation could be a lack of the Spring Beta version: Spring Native has just upgraded to version 0.10.0-SNAPSHOT and this is precisely the version where performance improvements are planned.~~
 
-I'll open a ticket with the Spring Boot team to ask for their analysis.
+~~I'll open a ticket with the Spring Boot team to ask for their analysis.~~
+
+> error "UPDATE"
+> The configuration of containers is essential when it comes to measuring memory and CPU consumption. An update of this article is available at [JVM vs Native - Configuring Java Containers in Kubernetes](/en/java-container-configuration/)
+
 
 <hr class="hr-text" data-content="What to do next?">
 
