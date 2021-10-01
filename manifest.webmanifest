@@ -6,7 +6,7 @@ sitemap:
 {
   "short_name": "Scalastic",
   "name": "Scalastic",
-  "theme_color": "#1e2327",
+  "theme_color": "#515151",
   "background_color": "#fbfbfb",
   "display": "standalone",
   "scope": "/",
