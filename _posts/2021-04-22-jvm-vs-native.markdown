@@ -25,6 +25,9 @@ Voyons cela en détails.
 > info "Code source"
 > Toutes les sources sont conservées sur <https://github.com/scalastic/hotspot-vs-native>{:target="_blank" rel="noopener noreferrer nofollow"}
 
+> error "MAJ"
+> La configuration des conteneurs est primordiale lorsqu'il s'agit de mesurer des consommations mémoire et CPU. Une mise à jour de cet article est disponible à [JVM vs Native - Configuration des conteneurs Java dans Kubernetes](/java-container-configuration/)
+
 <hr class="hr-text" data-content="Table">
 
 * TOC
@@ -518,7 +521,10 @@ kubectl rollout status deployment/hasher -n demo
 > 
 > **L’utilisation de la RAM**
 > - Étonnamment, les applications natives utilisent plus de mémoire que celles en Bytecode : c'est d'autant plus étonnant que la réduction de l'empreinte mémoire est l'un des avantages cités par la communauté.
-> - Est-ce à cause des versions Bêta employées dans cette démo ou bien une fuite de mémoire dans l’implémentation ?
+> - ~~Est-ce à cause des versions Bêta employées dans cette démo ou bien une fuite de mémoire dans l’implémentation ?~~
+
+> error "MAJ"
+> La configuration des conteneurs est primordiale lorsqu'il s'agit de mesurer des consommations mémoire et CPU. Une mise à jour de cet article est disponible à [JVM vs Native - Configuration des conteneurs Java dans Kubernetes](/java-container-configuration/)
 
 <hr class="hr-text" data-content="Nettoyage">
 
@@ -549,9 +555,12 @@ service "worker" deleted
 
 Nous avons appris à installer une stack Kubernetes complète afin de pouvoir mesurer les métriques d'une application.
 
-Cependant, nous n’obtenons pas les résultats escomptés dans le contexte des applications natives. Une explication pourrait être un manque de la version Spring Beta : Spring Native vient de passer à la version 0.10.0-SNAPSHOT et c’est précisément la version où des améliorations de performance sont prévues. 
+~~Cependant, nous n’obtenons pas les résultats escomptés dans le contexte des applications natives. Une explication pourrait être un manque de la version Spring Beta : Spring Native vient de passer à la version 0.10.0-SNAPSHOT et c’est précisément la version où des améliorations de performance sont prévues.~~
 
-Je vais ouvrir un ticket auprès de l’équipe de Spring Boot pour leur demander leur analyse.
+~~Je vais ouvrir un ticket auprès de l’équipe de Spring Boot pour leur demander leur analyse.~~~
+
+> error "MAJ"
+> La configuration des conteneurs est primordiale lorsqu'il s'agit de mesurer des consommations mémoire et CPU. Une mise à jour de cet article est disponible à [JVM vs Native - Configuration des conteneurs Java dans Kubernetes](/java-container-configuration/)
 
 <hr class="hr-text" data-content="Que faire ensuite ?">
 
