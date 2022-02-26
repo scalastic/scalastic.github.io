@@ -73,9 +73,9 @@ GEM
       mime-types-data (~> 3.2015)
     mime-types-data (3.2021.0901)
     minitest (5.14.4)
-    nokogiri (1.12.5-x86_64-darwin)
+    nokogiri (1.13.2-x86_64-darwin)
       racc (~> 1.4)
-    nokogiri (1.12.5-x86_64-linux)
+    nokogiri (1.13.2-x86_64-linux)
       racc (~> 1.4)
     objective_elements (1.1.2)
     pathutil (0.16.2)
@@ -84,7 +84,7 @@ GEM
     premonition (4.0.1)
       jekyll (>= 3.7, < 5.0)
     public_suffix (4.0.6)
-    racc (1.5.2)
+    racc (1.6.0)
     rainbow (3.0.0)
     rb-fsevent (0.11.0)
     rb-inotify (0.10.1)
@@ -116,7 +116,7 @@ DEPENDENCIES
   jekyll-polyglot
   jekyll_picture_tag (~> 2.0)
   jemoji
-  nokogiri (~> 1.12)
+  nokogiri (~> 1.13)
   premonition (~> 4.0)
   webrick (~> 1.7)
 
