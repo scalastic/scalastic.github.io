@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Terms and Privacy Policy
-date: 2021-04-30 00:00:00 +0200
+date: 2022-02-28 00:58:00 +0200
 description: Terms and Privacy Policy for Scalastic's website
 img: privacy.jpg
 fig-caption: Photo by <a href="https://unsplash.com/@biglaughkitchen?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Deva Williamson</a> on <a href="https://unsplash.com/s/photos/cookie-privacy?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Unsplash</a>
@@ -10,31 +10,21 @@ comments: false
 permalink: /privacy/
 ---
 
-
 ## Privacy Policy
 
-The privacy of my visitors is extremely important. This Privacy Policy outlines the types of personal information that is received and collected and how it is used.
+The privacy of my visitors is extremely important to me. This privacy policy describes the personal information received and collected and how it is used.
 
-First and foremost, I will never share your email address or any other personal information to anyone without your direct consent.
+First of all, I will never share your personal information with anyone without your express consent.
 
-If you wish to disable cookies, you may do so:
-- Through your web browser options. Instructions for doing so can be found on the specific web browsers’ websites.
-- By refusing the use of cookies when accessing this site.
+If you want to disable cookies, you can do so:
+- Thanks to the options of your web browser. Instructions for this are available on the websites specific to your web browser.
+- Or by refusing the use of cookies when accessing this site.
 
-For complete informations about cookie, I recommend you to visit the General Data Protection Regulation site from the European Union: <https://gdpr.eu/cookies/>.
+For complete information on cookies, I recommend you to visit the website of the General Data Protection Regulation of the European Union: <https://gdpr.eu/cookies/>.
 
-## Disqus Service
+## Service Disqus
 
-When you visit this site, external service [Disqus](http://disqus.com/) is used to manage comments on the web pages. While it is a very convenient service, it uses cookies stored on your computer. The main purpose of these cookies is to help you log in faster next time you leave a comment.
-
-> info ""
-> If you decide to disable cookie, I made sure that no service from Disqus will be downloaded **but you won't be able to see or comment any page on this site**.
-
-## Google Analytics
-
-[Google Analytics](https://analytics.withgoogle.com) is a web analytics tool I use to help understand how visitors engage with this website. It reports website trends using cookies and web beacons without identifying individual visitors.
-
-Even if Google is perceived as an intrusive service, it is for me an important tool to know the expectations of visitors and to be able to better respond to them.
+When you visit this site, the external service [Disqus](http://disqus.com/) is used to manage comments on the web pages of this site. Although it is a very convenient service, it uses cookies stored on your computer. The main purpose of these cookies is to help you log in faster the next time you leave a comment. However they may allow Disqus to track your activity on other sites that would use this same service.
 
 > info ""
-> If you decide to disable cookie, I made sure that no Google service will be downloaded **but I will not be able to see the articles and topics that interest you the most on this website**.
+> If you decide to disable cookies, I made sure that no Disqus services or cookies will be downloaded to your browser **but you will not be able to comment on any page on this site**.

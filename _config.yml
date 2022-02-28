@@ -31,8 +31,6 @@ webmaster_verifications:
   google: kt9V77LN_e6lPj1sb3RTOiZDGqNyfoHBchbh1oDgftQ
   yandex: 586e50fdf1e71514
 
-analytics: UA-63884203-1
-
 # Disqus
 discus-identifier: scalastic # add your discus identifier
 
