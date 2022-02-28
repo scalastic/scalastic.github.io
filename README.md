@@ -1,4 +1,4 @@
-[![Jekyll site CI-CD](https://github.com/scalastic/scalastic.github.io/actions/workflows/jekyll.yml/badge.svg)](https://github.com/scalastic/scalastic.github.io/actions/workflows/jekyll.yml)
+[![Build and Deploy to Github Pages](https://github.com/scalastic/scalastic.github.io/actions/workflows/build-jekyll.yml/badge.svg)](https://github.com/scalastic/scalastic.github.io/actions/workflows/build-jekyll.yml)
 
 # Code source du site web Scalastic
 
