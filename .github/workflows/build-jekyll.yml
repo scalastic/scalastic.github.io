@@ -32,4 +32,4 @@ jobs:
           bundler_ver: '>=0'         # Default is latest bundler version
           cname: 'scalastic.io'      # Default is to not use a cname
           actor: ''                  # Default is the GITHUB_ACTOR
-          pre_build_commands: 'pacman -S --noconfirm libvips'     # Installing additional dependencies (Arch Linux)
+          pre_build_commands: pacman -S --noconfirm libvips lcms2 openjpeg2 libpng libwebp libheif imagemagick openslide libjxl poppler-glib
