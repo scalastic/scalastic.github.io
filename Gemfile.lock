@@ -72,9 +72,9 @@ GEM
       mime-types-data (~> 3.2015)
     mime-types-data (3.2022.0105)
     minitest (5.17.0)
-    nokogiri (1.13.10-arm64-darwin)
+    nokogiri (1.14.3-arm64-darwin)
       racc (~> 1.4)
-    nokogiri (1.13.10-x86_64-linux)
+    nokogiri (1.14.3-x86_64-linux)
       racc (~> 1.4)
     objective_elements (1.1.2)
     pathutil (0.16.2)
@@ -114,7 +114,7 @@ DEPENDENCIES
   jekyll-polyglot
   jekyll_picture_tag (~> 2)
   jemoji
-  nokogiri (~> 1.13.10)
+  nokogiri (~> 1.14.3)
   premonition (~> 4.0)
   webrick (~> 1.7)
 
