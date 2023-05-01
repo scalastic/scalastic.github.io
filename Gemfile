@@ -1,9 +1,9 @@
 source 'https://rubygems.org'
 
-gem 'jekyll', '~> 4.2'
+gem 'jekyll', '4.2.2'
 
 group :jekyll_plugins do
-  gem "nokogiri", "~> 1.13.10"
+  gem "nokogiri", "~> 1.14"
   gem 'jekyll-paginate'
   gem 'jemoji'
   gem 'premonition', '~> 4.0'
