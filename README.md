@@ -4,6 +4,18 @@
 
 <a href="{{ site.url }}">![](https://github.com/scalastic/scalastic.github.io/blob/main/assets/img/scalastic.png?raw=true)</a>
 
+## Commandes
+
+- Génération en cours de dev:
+```bash
+bundle exec jekyll server --incremental
+```
+
+- Génération des drafts:
+```bash
+bundle exec jekyll server --watch --drafts
+```
+
 ## Fabriqué avec Jekyll
 
 * Plus d'infos , par ici [Site Officiel de Jekyll](https://jekyllrb.com)

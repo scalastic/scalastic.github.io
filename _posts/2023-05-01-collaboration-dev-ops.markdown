@@ -85,7 +85,7 @@ disponibilité et les performances de leurs systèmes.
 Target, le géant de la vente au détail, a mis en œuvre une approche DevOps pour améliorer la collaboration entre leurs 
 équipes. En établissant des objectifs communs et en permettant des boucles de rétroaction continues, ils ont réussi à 
 accélérer les cycles de livraison et à améliorer la qualité logicielle. Leurs pratiques de collaboration ont entraîné 
-une satisfaction accrue des clients et une meilleure alignement avec les objectifs commerciaux.
+une satisfaction accrue des clients et un meilleur alignement avec les objectifs commerciaux.
 
 ## Techniques spécifiques
 
@@ -95,8 +95,8 @@ l'infrastructure à l'aide du code. Des outils tels que Terraform ou AWS CloudFo
 travailler ensemble, de contrôler les versions de leur code d'infrastructure et de garantir la cohérence du processus 
 de déploiement de l'infrastructure.
 
-### Post-Mortems sans culpabilité
-La réalisation de post-mortems sans culpabilité après des incidents ou des échecs encourage une communication ouverte et
+### Post-Mortems sans blâmes
+La réalisation de post-mortems sans blâmes après des incidents ou des échecs encourage une communication ouverte et
 honnête. Cela aide les équipes à se concentrer sur l'apprentissage des erreurs plutôt que de chercher des coupables. 
 Cette technique favorise la collaboration, l'amélioration continue et la responsabilité partagée.
 
@@ -117,7 +117,7 @@ la collaboration sur l'ensemble du flux de valeur.
 ## Conclusion
 
 Une collaboration efficace entre les équipes de développement et d'exploitation est essentielle pour une implémentation 
-réussie de DevOps. En établissant des objectifs communs, en favorisant les équipes pluridisciplinaires, en promouvant 
+réussie du DevOps. En établissant des objectifs communs, en favorisant les équipes pluridisciplinaires, en promouvant 
 la communication et la transparence, en mettant en place des boucles de rétroaction continues et en automatisant les 
 processus, les organisations peuvent atteindre une collaboration améliorée, des cycles de livraison plus rapides et de 
 meilleurs résultats globaux dans leurs initiatives DevOps. Sans cela, toute pratique DevOps est vouée à l'échec.
