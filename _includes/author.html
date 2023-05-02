@@ -1,7 +1,6 @@
 <div class="page-author">
   <div class="author-pres">
     <div class="author-img">
-      <!-- img class="author-img" src="{{site.baseurl}}/assets/img/{% if site.author-img %}{{site.author-img}}{% endif %}" alt="{{site.author}}" width="80" height="80" -->
       {% picture thumbnail-author {{ "/assets/img/" | prepend: site.baseurl | append : site.author-img}} --alt {{site.author}} --class author-img --width 80 --height 80 %}
     </div>
     <div class="author-info">
