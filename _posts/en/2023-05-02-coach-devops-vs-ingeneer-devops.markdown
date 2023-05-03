@@ -8,7 +8,7 @@ fig-caption: Photo by <a href="https://unsplash.com/@adamjang?utm_source=unsplas
 tags: [DevOps, Coach, Engineer]
 lang: en
 permalink: /coach-devops-vs-engineer-devops/
-status: draft
+status: finished
 ---
 
 In the world of IT, the DevOps methodology has become increasingly popular due to its advantages in terms of 

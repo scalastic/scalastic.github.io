@@ -82,48 +82,37 @@ svg {
   vertical-align: -0.15em;
 }
 
+/* Markdown Table CSS */
 table {
-  border: 1px solid #515151;
-  background-color: #fbfbfb;
   width: 100%;
-  text-align: left;
   border-collapse: collapse;
-}
-table td, table.blueTable th {
-  border: 1px solid #515151;
-  padding: 3px 2px;
-}
-table tbody td {
-  font-size: 14px;
-}
-table tr:nth-child(even) {
-  background: #ecf0f1;
-}
-table thead {
-  background: #515151;
-  /* background: linear-gradient(to bottom, #bed3dc 0%, #b1cad5 66%, #A9C4D1 100%); */
-  border-bottom: 1px solid #515151;
-}
-table thead th {
-  font-size: 14px;
-  font-weight: bold;
-  color: #fafafa;
-  border-left: 1px solid #fafafa;
-}
-table thead th:first-child {
-  border-left: none;
+  border-spacing: 0;
 }
 
-table tfoot {
-  font-size: 14px;
-  font-weight: bold;
-  color: #fff;
-  background: #fafafa;
-  /* background: linear-gradient(to bottom, #dcebf7 0%, #d4e6f6 66%, #D0E4F5 100%); */
-  border-top: 2px solid #444;
+table th,
+table td {
+  padding: 8px;
+  text-align: left;
+  vertical-align: top;
+  border: 1px solid #ccc;
 }
-table tfoot td {
-  font-size: 14px;
+
+table th {
+  background-color: #f2f2f2;
+}
+
+table tr:nth-child(even) {
+  background-color: #f9f9f9;
+}
+
+table tr:hover {
+  background-color: #eaeaea;
+}
+
+/* Optional: Add a scroll bar for tables with many rows */
+table.scrollable {
+  max-height: 300px;
+  overflow-y: auto;
 }
 
 .hide{
