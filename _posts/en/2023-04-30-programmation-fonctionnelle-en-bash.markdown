@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Functional Programming in Bash - Harnessing the Power of Simplicity
+title: "Functional Programming in Bash: Harnessing the Power of Simplicity"
 date: 2023-04-30 15:50:00 +0200
 description: 
 img: functional-programming.jpg

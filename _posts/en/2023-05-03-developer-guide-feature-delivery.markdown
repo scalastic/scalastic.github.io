@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Demystifying Software Development - A Complete Developer's Guide to Make the Right Choices
+title: "Demystifying Software Development: A Complete Developer's Guide to Make the Right Choices"
 date: 2023-05-03 10:28:00 +0200
 description: Explores the common decisions developers face during development, delving into the pros and cons associated with each choice. From code abstraction and refactoring decisions to implementation choices, unit testing, and software design solutions, understanding the trade-offs can help developers navigate these challenges more effectively.
 img: developer-guide-feature-delivery.jpg

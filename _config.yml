@@ -55,7 +55,7 @@ exclude: ["node_modules", "gulpfile.js", "package.json", "yarn.lock", "archive-p
 redirects: yes
 
 #Paginate
-paginate: 5
+paginate: 6
 paginate_path: "/page/:num"
 page_excerpts: true
 timezone: Europe/Paris
