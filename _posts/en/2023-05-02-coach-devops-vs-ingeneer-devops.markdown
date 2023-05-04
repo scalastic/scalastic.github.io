@@ -80,6 +80,8 @@ The DevOps engineer works towards continuous improvement of system performance a
 performance analysis, identify bottlenecks, and implement solutions to optimize deployment times, scalability, and 
 overall infrastructure efficiency.
 
+<hr class="hr-text" data-content="Integration">
+
 ## Integration of DevOps Coach and DevOps Engineer in DevOps Transformation
 
 The DevOps coach and the DevOps engineer work together to facilitate DevOps transformation within an organization. Their

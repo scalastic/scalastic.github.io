@@ -83,7 +83,9 @@ L'ingénieur DevOps travaille à l'amélioration continue des performances des s
 effectuent des analyses de performance, identifient les goulots d'étranglement et mettent en œuvre des solutions pour 
 optimiser les temps de déploiement, la scalabilité et l'efficacité globale des infrastructures.
 
-## Intégration de Coach DevOps et Ingénieur DevOps dans la transformation DevOps
+<hr class="hr-text" data-content="Interactions">
+
+## Interactions du Coach DevOps et de l'Ingénieur DevOps dans la transformation DevOps
 
 Le coach DevOps et l'ingénieur DevOps travaillent de concert pour faciliter la transformation DevOps au sein d'une 
 organisation. Leurs rôles se complètent mutuellement pour atteindre les objectifs de la transition DevOps. Voici comment
