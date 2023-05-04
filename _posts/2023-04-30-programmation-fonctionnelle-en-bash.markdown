@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Programmation fonctionnelle en Bash - Exploitez la puissance de la simplicité
+title: Programmation Fonctionnelle en Bash - Exploitez la Puissance de la Simplicité
 date: 2023-04-30 15:50:00 +0200
 description: 
 img: functional-programming.jpg

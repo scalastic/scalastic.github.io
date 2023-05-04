@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Conditions et politique de confidentialité
+title: Conditions et Politique de Confidentialité
 date: 2022-02-28 00:58:00 +0200
 description: Conditions et politique de confidentialité du site Web de Scalastic
 img: privacy.jpg
@@ -17,6 +17,7 @@ La confidentialité de mes visiteurs est extrêmement importante à mes yeux. Ce
 Tout d'abord, je ne partagerai jamais vos informations personnelles à quiconque sans votre consentement explicite.
 
 Si vous souhaitez désactiver les cookies, vous pouvez le faire :
+
 - Grâce aux options de votre navigateur Web. Des instructions pour ce faire sont disponibles sur le site web spécifique à votre navigateur Web.
 - Ou bien en refusant l'utilisation de cookies lors de l'accès à ce site.
 

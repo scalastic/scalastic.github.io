@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Démystifier le développement logiciel - Un guide complet du développeur pour faire les bons choix
+title: Démystifier le Développement Logiciel - Un Guide Complet du Développeur pour Faire les Bons Choix
 date: 2023-05-03 10:28:00 +0200
 description: Explorez les décisions courantes auxquelles les développeurs sont confrontés pendant le développement, en examinant les avantages et les inconvénients associés à chaque choix. Des décisions d'abstraction et de refactoring du code aux choix d'implémentation, en passant par les tests unitaires et les solutions de conception logicielle, comprendre les compromis peut aider les développeurs à naviguer plus efficacement dans ces défis.
 img: developer-guide-feature-delivery.jpg

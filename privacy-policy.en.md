@@ -17,6 +17,7 @@ The privacy of my visitors is extremely important to me. This privacy policy des
 First of all, I will never share your personal information with anyone without your express consent.
 
 If you want to disable cookies, you can do so:
+
 - Thanks to the options of your web browser. Instructions for this are available on the websites specific to your web browser.
 - Or by refusing the use of cookies when accessing this site.
 

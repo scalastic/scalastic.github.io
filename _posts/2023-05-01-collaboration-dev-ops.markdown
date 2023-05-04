@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Collaboration efficace entre les équipes de développement et les équipes opérationnelles dans le cadre du DevOps
+title: Collaboration Efficace entre les Équipes de Développement et les Équipes Opérationnelles dans le Cadre du DevOps
 date: 2023-05-01 18:40:00 +0200
 description: 
 img: dev-ops-collaboration.jpg
