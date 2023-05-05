@@ -21,9 +21,11 @@
     <div class="page-recomm">
     {%- endif -%}
     <div class="recomm">
-      <a class="recomm" href="{{ site.baseurl }}{{ post.url }}">
+      <a class="recomm-link" href="{{ site.baseurl }}{{ post.url }}">
         <h5>{{ post.title }}</h5>
-        {%- picture thumbnail-article {{ "/assets/img/" | prepend: site.baseurl | append : post.img}} 6:5 center --alt {{ post.title }} -%}
+        <div class="image-container">
+          {%- picture thumbnail-article {{ "/assets/img/" | prepend: site.baseurl | append : post.img}} 6:5 center --alt {{ post.title }} -%}
+        </div>
       </a>
     </div>
     {%- assign maxRelatedCounter = maxRelatedCounter | plus: 1 -%}

@@ -363,34 +363,56 @@ a.card-source.microlink_vanilla {
   }
 }
 
+.recomm,
+.recomm-link,
+.image-container {
+  opacity: 0.8;
+}
+
 .page-recomm {
+  display: flex;
   gap: 4px;
-  align-items: flex-end;
-  justify-items: center;
-  display: grid;
-  grid-template-columns: 1fr 1fr 1fr 1fr;
+  align-items: stretch;
+  justify-content: center;
+
   .recomm {
-    opacity: 0.8;
+    flex-basis: 25%;
     background: $gray;
     color: $dark;
+
     &:hover {
-      opacity: 1;
+        opacity: 1;
+        .recomm-link,
+        .image-container {
+          opacity: 1;
+        }
+      }
+
+    .recomm-link {
+      display: flex;
+      flex-direction: column;
+      height: 100%;
       text-decoration: none;
-    }
-    a > h5 {
-      margin: 10px 10px;
-      text-align: left;
-      text-decoration: none;
-      color: #515151;
-    }
-    img {
-      padding: 10px 10px;
-      max-width: 100%;
-      height: auto;
-      vertical-align: middle;
-      display: inline-block;
-      margin-left: auto;
-      margin-right: auto;
+      padding: 10px;
+
+      h5 {
+        text-align: left;
+        text-decoration: none;
+        color: #515151;
+      }
+
+      .image-container {
+        flex-grow: 1;
+        display: flex;
+        align-items: flex-end;
+
+        img {
+          max-width: 100%;
+          height: auto;
+          vertical-align: bottom;
+          margin: 0 auto;
+        }
+      }
     }
   }
 }
