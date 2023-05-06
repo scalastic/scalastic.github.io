@@ -24,7 +24,7 @@ logicielle, comprendre les compromis peut aider les développeurs à naviguer pl
 
 <hr class="hr-text" data-content="Abstraction">
 
-## Abstraction de code
+## Abstraction de Code
 
 L'abstraction de code consiste à cacher les détails d'implémentation complexes derrière des interfaces plus simples et 
 de niveau supérieur qui encapsulent les détails d'implémentation sous-jacents, permettant aux développeurs de travailler
@@ -35,7 +35,7 @@ logiciels. Elle permet aux développeurs de se concentrer sur les aspects essent
 détails d'implémentation de bas niveau.
 En abstrayant la complexité inutile, les développeurs peuvent créer un code plus lisible, maintenable et réutilisable.
 
-### Comment procéder ?
+### Comment Procéder ?
 
 Selon le langage et la technologie utilisés, il existe plusieurs façons d'atteindre l'abstraction de code :
 - **Classes** : La programmation orientée objet (POO) utilise des classes et des objets pour représenter des entités du 
@@ -51,7 +51,7 @@ avec.
 - **Fonctions** : L'encapsulation d'un ensemble d'instructions dans des fonctions abstrait la logique interne et fournit
 une interface de niveau supérieur pour le reste du programme.
 
-### Avantages et inconvénients
+### Avantages et Inconvénients
 
 Il est important de reconnaître que, bien que l'abstraction offre des avantages, il y a toujours un prix à payer :
 
@@ -63,11 +63,11 @@ Il est important de reconnaître que, bien que l'abstraction offre des avantages
 
 <hr class="hr-text" data-content="Refactoring">
 
-## Décisions de refactoring
+## Décisions de Refactoring
 
 Le refactoring est le processus de restructuration ou d'amélioration du code existant sans en changer le comportement externe. Il vise à améliorer la structure interne, la conception et la qualité globale de la base de code tout en préservant la fonctionnalité et les résultats attendus. L'objectif principal du refactoring est de rendre le code plus lisible, maintenable et efficace.
 
-### Que devez-vous faire ?
+### Que Devez-vous Faire ?
 
 - **Organisation du code** : Le refactoring implique de réarranger les éléments de code pour améliorer son organisation et sa lisibilité. Cela comprend le renommage de variables, de classes ou de fonctions pour avoir des noms plus descriptifs, la réorganisation des blocs de code pour une meilleure fluidité et le regroupement du code lié.
 
@@ -83,7 +83,7 @@ Le refactoring est le processus de restructuration ou d'amélioration du code ex
 
 Le refactoring est un processus itératif qui devrait être réalisé régulièrement tout au long du cycle de développement. Il aide les développeurs à maintenir une base de code propre et bien structurée, ce qui facilite sa compréhension, sa modification et son extension. En refactorant continuellement le code, les développeurs peuvent éviter l'accumulation de dette technique, améliorer la productivité globale et créer une base solide pour le développement futur.
 
-### Avantages et inconvénients
+### Avantages et Inconvénients
 
 Il est crucial de reconnaître que, bien que les décisions de refactoring offrent des avantages, il y a toujours des coûts associés à prendre en compte :
 
@@ -95,11 +95,11 @@ Il est crucial de reconnaître que, bien que les décisions de refactoring offre
 
 <hr class="hr-text" data-content="Implémentation">
 
-## Choix d'implémentation
+## Choix d'Implémentation
 
 Les développeurs sont confrontés à de nombreuses décisions concernant les algorithmes, les structures de données, les bibliothèques et les frameworks tout au long du processus de développement logiciel. Ces décisions jouent un rôle crucial dans la détermination de l'efficacité, de la scalabilité et de la maintenabilité de la solution logicielle.
 
-### Sur quoi cela devrait-il être basé ?
+### Sur Quoi se Baser ?
 
 - **Algorithmes** : Les développeurs doivent choisir les algorithmes appropriés pour résoudre efficacement des problèmes spécifiques. Ils prennent en compte des facteurs tels que la complexité temporelle, la complexité spatiale et la nature du problème lui-même. Ils évaluent différentes approches algorithmiques, analysent leurs avantages et inconvénients, et choisissent celle qui convient le mieux aux exigences du projet.
 
@@ -117,7 +117,7 @@ Les développeurs sont confrontés à de nombreuses décisions concernant les al
 
 Faire les bons choix en ce qui concerne les algorithmes, les structures de données, les bibliothèques et les frameworks nécessite une combinaison d'expertise technique, de compréhension des exigences du projet et de connaissance des tendances actuelles de l'industrie. Cela implique une évaluation soigneuse, des expérimentations et la prise en compte de divers facteurs pour créer des solutions logicielles efficaces, fiables et faciles à maintenir.
 
-### Avantages et inconvénients
+### Avantages et Inconvénients
 
 Il est essentiel de reconnaître que bien que les choix d'implémentation offrent des avantages, ils s'accompagnent toujours de coûts à prendre en compte :
 
@@ -129,11 +129,11 @@ Il est essentiel de reconnaître que bien que les choix d'implémentation offren
 
 <hr class="hr-text" data-content="Test unitaire">
 
-## Mise en œuvre des tests unitaires et de leur couverture
+## Mise en Œuvre des Tests Unitaires et de leur Couverture
 
 Les tests unitaires jouent un rôle crucial dans la garantie de la qualité du code et la prévention des régressions dans le développement logiciel. Ils consistent à écrire des tests automatisés pour des unités de code individuelles, telles que des fonctions, des méthodes ou des classes, afin de vérifier qu'elles se comportent comme prévu.
 
-### Pourquoi est-ce essentiel ?
+### Pourquoi est-ce Essentiel ?
 
 - **Assurance qualité du code** : Les tests unitaires agissent comme une mesure de sécurité, aidant les développeurs à détecter les bugs et les erreurs tôt dans le processus de développement. En écrivant des tests qui couvrent différents scénarios et cas limites, les développeurs peuvent identifier et corriger les problèmes avant qu'ils n'affectent le système dans son ensemble. Les tests unitaires favorisent la qualité du code en veillant au respect des spécifications, en validant le comportement entrée/sortie et en empêchant l'introduction de nouveaux bugs lors des modifications du code.
 
@@ -163,14 +163,14 @@ Il est essentiel de reconnaître que même si la mise en œuvre des tests unitai
 
 <hr class="hr-text" data-content="Design">
 
-## Solutions de conception logicielle
+## Solutions de Conception Logicielle
 
 Le choix de solutions de conception logicielle appropriées est crucial pour garantir la maintenabilité à long terme et
 l'extensibilité d'un système logiciel. Les décisions de conception prises tôt dans le processus de développement
 peuvent avoir un impact significatif sur la facilité de la maintenance future et la capacité à prendre en compte les
 changements et les améliorations futurs.
 
-### Pourquoi est-ce important?
+### Pourquoi est-ce Important?
 
 - **Compréhension du code** : Un système logiciel bien conçu suit des principes et des modèles de conception
   établis, ce qui facilite la compréhension et la navigation dans la base de code. Des solutions de conception claires

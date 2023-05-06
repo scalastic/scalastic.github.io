@@ -24,89 +24,89 @@ transformation DevOps d'une organisation.
 
 <hr class="hr-text" data-content="Coach">
 
-## Le rôle du Coach DevOps
+## Le Rôle du Coach DevOps
 Le coach DevOps est un professionnel chargé de guider, former et soutenir les équipes dans l'adoption des principes et 
 des pratiques de DevOps. Leur rôle principal est de créer un environnement propice à la collaboration et à 
 l'amélioration continue. Voici les principales responsabilités d'un coach DevOps :
 
-### Promouvoir la culture DevOps
+### Promouvoir la Culture DevOps
 Le coach DevOps est chargé de diffuser la culture DevOps au sein de l'organisation. Ils aident les équipes à comprendre 
 les valeurs fondamentales de DevOps telles que la collaboration, la transparence, la responsabilité partagée et 
 l'orientation vers le client.
 
-### Formation et sensibilisation
+### Formation et Sensibilisation
 Le coach DevOps offre une formation et une sensibilisation aux équipes sur les pratiques et les outils de DevOps. Ils 
 aident à renforcer les compétences et les connaissances des membres de l'équipe pour faciliter l'adoption de DevOps.
 
-### Facilitation du changement
+### Facilitation du Changement
 Les coaches DevOps facilitent la transition et le changement en travaillant étroitement avec les équipes pour identifier
 les obstacles, résoudre les problèmes et favoriser l'acceptation des nouvelles pratiques.
 
-### Collaboration interfonctionnelle
+### Collaboration Interfonctionnelle
 Un aspect essentiel de DevOps est la collaboration étroite entre les équipes de développement et d'exploitation. Les 
 coaches DevOps facilitent cette collaboration en encourageant la communication, en éliminant les silos organisationnels 
 et en favorisant la prise de décision collective.
 
-### Évaluation et amélioration continue
+### Évaluation et Amélioration Continue
 Les coaches DevOps évaluent les performances de l'organisation en matière de DevOps, identifient les domaines à 
 améliorer et recommandent des ajustements. Ils utilisent des métriques et des indicateurs pour évaluer l'efficacité de 
 la transformation DevOps.
 
 <hr class="hr-text" data-content="Ingénieur">
 
-## Le rôle de l'Ingénieur DevOps
+## Le Rôle de l'Ingénieur DevOps
 L'ingénieur DevOps est un expert technique qui se concentre sur la mise en place et la gestion des infrastructures et 
 des outils nécessaires à la pratique de DevOps. Voici un aperçu des responsabilités d'un ingénieur DevOps :
 
-### Automatisation de l'infrastructure
+### Automatisation de l'Infrastructure
 L'ingénieur DevOps conçoit et met en place des infrastructures automatisées, telles que des environnements de 
 développement, des systèmes de déploiement, des pipelines d'intégration continue et de déploiement continu. Ils 
 utilisent des outils d'automatisation pour améliorer l'efficacité et la reproductibilité des déploiements.
 
-### Gestion des outils DevOps
+### Gestion des Outils DevOps
 L'ingénieur DevOps est responsable de la sélection, de la configuration et de la gestion des outils et des technologies 
 utilisés dans l'écosystème DevOps. Cela peut inclure des outils de gestion des versions, des outils de déploiement 
 automatisé, des outils de surveillance et des plateformes de conteneurisation.
 
-### Sécurité et conformité
+### Sécurité et Conformité
 L'ingénieur DevOps intègre des pratiques de sécurité et de conformité tout au long du cycle de vie des applications et 
 des infrastructures. Ils s'assurent que les contrôles de sécurité appropriés sont mis en place et que les normes de 
 conformité sont respectées.
 
-### Résolution des problèmes et gestion des incidents
+### Résolution des Problèmes et Gestion des Incidents
 En tant qu'expert technique, l'ingénieur DevOps joue un rôle essentiel dans la résolution des problèmes et la gestion 
 des incidents liés aux infrastructures et aux outils DevOps. Ils sont chargés de diagnostiquer et de résoudre les 
 problèmes opérationnels pour garantir une disponibilité et des performances optimales.
 
-### Optimisation des performances
+### Optimisation des Performances
 L'ingénieur DevOps travaille à l'amélioration continue des performances des systèmes et des processus DevOps. Ils 
 effectuent des analyses de performance, identifient les goulots d'étranglement et mettent en œuvre des solutions pour 
 optimiser les temps de déploiement, la scalabilité et l'efficacité globale des infrastructures.
 
 <hr class="hr-text" data-content="Interactions">
 
-## Interactions du Coach DevOps et de l'Ingénieur DevOps dans la transformation DevOps
+## Interactions du Coach DevOps et de l'Ingénieur DevOps dans la Transformation DevOps
 
 Le coach DevOps et l'ingénieur DevOps travaillent de concert pour faciliter la transformation DevOps au sein d'une 
 organisation. Leurs rôles se complètent mutuellement pour atteindre les objectifs de la transition DevOps. Voici comment
 ils s'intègrent :
 
-### Collaboration étroite
+### Collaboration Étroite
 Le coach DevOps et l'ingénieur DevOps travaillent en étroite collaboration pour aligner les processus, les outils et les
 pratiques avec la culture DevOps. Ils partagent leur expertise respective pour garantir une adoption harmonieuse et 
 efficace de DevOps.
 
-### Formation et sensibilisation
+### Formation et Sensibilisation
 Le coach DevOps forme les équipes sur les principes et les pratiques de DevOps, tandis que l'ingénieur DevOps fournit 
 une formation technique spécifique sur les outils et les technologies DevOps. Ensemble, ils créent un environnement 
 d'apprentissage complet pour les membres de l'équipe.
 
-### Gestion du changement
+### Gestion du Changement
 Le coach DevOps facilite le changement culturel et organisationnel, tandis que l'ingénieur DevOps s'assure que les 
 changements techniques sont mis en œuvre de manière fluide. Ils travaillent ensemble pour minimiser les perturbations et
 résoudre les problèmes qui surviennent pendant la transformation.
 
-### Mesure et amélioration
+### Mesure et Amélioration
 Le coach DevOps définit les métriques et les indicateurs pour évaluer les progrès de la transformation DevOps, tandis 
 que l'ingénieur DevOps fournit les données techniques nécessaires pour mesurer les performances et identifier les 
 opportunités d'amélioration.

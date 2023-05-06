@@ -25,26 +25,26 @@ dans les scripts Bash, permettant ainsi un code plus propre, une modularité am�
 
 <hr class="hr-text" data-content="Bénéfices">
 
-## Avantages de la programmation fonctionnelle en Bash
+## Avantages de la Programmation Fonctionnelle en Bash
 La programmation fonctionnelle apporte plusieurs avantages à la programmation en Bash, notamment :
 
-1. **Amélioration de la lisibilité** : En se concentrant sur des fonctions concises, autonomes et à usage unique, la 
+1. **Amélioration de la Lisibilité** : En se concentrant sur des fonctions concises, autonomes et à usage unique, la 
 programmation fonctionnelle favorise un code plus facile à lire et à comprendre, ce qui le rend plus maintenable 
 dans le temps.
 
-2. **Modularité et réutilisabilité** : Les fonctions en programmation fonctionnelle sont conçues pour être composables et 
+2. **Modularité et Réutilisabilité** : Les fonctions en programmation fonctionnelle sont conçues pour être composables et 
 réutilisables. Cela vous permet de construire des scripts complexes en combinant des fonctions plus petites et 
 autonomes, favorisant ainsi la modularité et la réutilisabilité du code.
 
-3. **Moins d'effets secondaires** : La programmation fonctionnelle décourage l'utilisation de l'état mutable et encourage 
+3. **Moins d'Effets Secondaires** : La programmation fonctionnelle décourage l'utilisation de l'état mutable et encourage 
 l'immuabilité. Cela réduit la probabilité d'introduire des effets secondaires, ce qui facilite les tests et la 
 compréhension des scripts.
 
 <hr class="hr-text" data-content="Concepts">
 
-## Concepts de programmation fonctionnelle en Bash
+## Concepts de Programmation Fonctionnelle en Bash
 
-### Fonctions pures
+### Fonctions Pures
    Les fonctions pures sont la base de la programmation fonctionnelle. Elles prennent des paramètres d'entrée et 
    produisent une sortie sans aucun effet secondaire. En Bash, nous pouvons créer des fonctions pures en veillant à ce 
    qu'elles n'utilisent que des paramètres d'entrée et des variables locales, sans modifier l'état global ni dépendre 
@@ -54,14 +54,14 @@ Exemple :
 {% highlight bash %}
 #!/bin/bash
 
-### Fonction pure pour calculer le carré d'un nombre
+# Fonction pure pour calculer le carré d'un nombre
 carre() {
   local num=$1
   echo $((num * num))
 }
 {% endhighlight %}
 
-### Fonctions d'ordre supérieur
+### Fonctions d'Ordre Supérieur
    Les fonctions d'ordre supérieur prennent une ou plusieurs fonctions en tant que paramètres d'entrée ou renvoient une 
    fonction en sortie. En Bash, nous pouvons transmettre des fonctions en tant qu'arguments ou les stocker dans des 
    variables, ce qui nous permet de créer des fonctions d'ordre supérieur.

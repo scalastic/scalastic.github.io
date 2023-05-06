@@ -25,7 +25,7 @@ in DevOps.
 
 <hr class="hr-text" data-content="Practices">
 
-## Some relevant practices
+## Some Relevant Practices
 
 ### Establish Shared Goals and Objectives
 To ensure effective collaboration, it is essential to align the goals and objectives of both development and operations 
