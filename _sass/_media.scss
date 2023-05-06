@@ -1,7 +1,5 @@
-
-
 /* Medium Devices, Desktops */
-@media only screen and (min-width : 881) {
+@media only screen and (min-width : 1120) {
   .post-container {
     display: grid;
     grid-template-columns: 1fr;
@@ -28,7 +26,7 @@
 }
 
 /* Tablets */
-@media only screen and (max-width : 880px) and (min-width : 551px) {
+@media only screen and (max-width : 1119px) and (min-width : 620px) {
   .sidebar {
     position: relative;
     display: flex;
@@ -107,7 +105,7 @@
 }
 
 /* Phone */
-@media only screen and (max-width : 550px) {
+@media only screen and (max-width : 619px) {
   h1, h2, h3, h4, h5, h6, h7 {
     text-align: center;
   }
@@ -178,8 +176,16 @@
     display: none;
   }
   .page-recomm {
-    grid-template-columns: 1fr 1fr;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: stretch;
+    gap: 4px;
+    .recomm {
+      flex-basis: 40%;
+    }
   }
+
   .article-navigation {
     flex-wrap: wrap;
     margin-bottom: 25px;
