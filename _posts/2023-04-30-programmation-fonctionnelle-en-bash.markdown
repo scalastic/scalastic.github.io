@@ -82,7 +82,9 @@ le "comment" du code.
 ## Fonctions de Base d'un Langage Fonctionnel
 
 Les fonctions de base d'un langage fonctionnel varient d'un langage à l'autre, mais il existe généralement quelques 
-fonctions couramment utilisées dans la plupart des langages fonctionnels. Voici quelques exemples de fonctions de base :
+fonctions couramment utilisées dans la plupart des langages fonctionnels. D'ailleurs, ce sont pour la plupart des 
+fonctions d'ordre supérieur, c'est-à-dire des fonctions qui peuvent prendre d'autres fonctions en tant que paramètres 
+et/ou renvoyer des fonctions en tant que résultats. Voici quelques exemples de fonctions de base :
 
 1. **map** : Applique une fonction à chaque élément d'une liste ou d'une structure de données similaire, renvoyant une 
 nouvelle liste contenant les résultats.
