@@ -20,7 +20,7 @@ figure.highlight {
         code {
             background: $background;
             display: block;
-            line-height: 1.5;
+            line-height: 1.2;
             text-rendering: optimizeSpeed;
             flex: 0 0 auto;
             /* Use a counter to generate the line numbers */
@@ -43,7 +43,7 @@ figure.highlight {
                 min-width: 40px;
                 text-align: center;
                 color: #f8f8f2;
-                font-weight: 600;
+                font-weight: 300;
                 background: $background;
                 &[data-lang="zsh"] {
                   content: "%_ Zsh";

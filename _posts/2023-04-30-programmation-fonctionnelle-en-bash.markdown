@@ -23,10 +23,94 @@ dans les scripts Bash, permettant ainsi un code plus propre, une modularité am�
 * TOC
 {:toc}
 
+<hr class="hr-text" data-content="Concepts">
+
+## Rappels des concepts de la programmation fonctionnelle
+
+La programmation fonctionnelle est un paradigme de programmation basé sur l'utilisation de fonctions au sens 
+mathématique comme élément central du développement logiciel. Voici quelques concepts clés de la programmation 
+fonctionnelle.
+
+### Fonctions Pures
+
+Les fonctions pures sont des fonctions (au sens mathématique) qui ne modifient pas l'état global et produisent toujours
+le même résultat pour les mêmes entrées. Elles n'ont pas d'effets de bord indésirables, ce qui les rend prévisibles et
+faciles à comprendre.
+
+### Immutabilité des Données
+
+L'immutabilité est le principe selon lequel les données ne peuvent pas être modifiées une fois qu'elles sont créées. Au 
+lieu de cela, de nouvelles données sont créées lors des transformations. Cela permet d'éviter les effets de bord et 
+facilite le raisonnement sur le comportement des fonctions.
+
+### Fonctions d'Ordre Supérieur
+
+Les fonctions d'ordre supérieur sont des fonctions qui peuvent prendre d'autres fonctions en tant qu'arguments ou les 
+retourner en tant que résultats. Elles permettent une abstraction puissante et la réutilisation de code en permettant de
+manipuler des fonctions comme des valeurs de première classe.
+
+### Récursivité
+
+La récursivité est une technique où une fonction s'appelle elle-même pour résoudre un problème de manière itérative au 
+lieu d'utiliser des boucles. Elle permet de résoudre des problèmes complexes en les décomposant en problèmes plus petits
+et répétitifs. La récursivité est souvent utilisée pour parcourir des structures de données.
+
+### Composition de Fonctions
+
+La composition de fonctions consiste à combiner plusieurs fonctions pour former de nouvelles fonctions plus complexes.
+Cela permet de créer des pipelines de traitement de données où la sortie d'une fonction devient l'entrée de la suivante.
+La composition de fonctions favorise une approche modulaire et déclarative du développement.
+
+### Décomposition en Fonctions plus Petites
+
+La programmation fonctionnelle encourage la décomposition de problèmes complexes en fonctions plus petites et 
+spécialisées. Cela favorise la réutilisation de code, améliore la lisibilité et facilite la maintenance.
+
+### Évaluation Différée
+
+C'est un autre des concepts clés de la programmation fonctionnelle. L'évaluation différée, également connue sous le nom 
+de "lazy evaluation" est une approche dans laquelle les expressions ne sont évaluées que lorsque leur valeur est 
+réellement nécessaire. Cela permet d'économiser des ressources en évitant d'évaluer des expressions inutiles.
+
+
+Pour résumer, ces concepts clés de la programmation fonctionnelle permettent de créer un code plus lisible, prévisible, modulaire et 
+réutilisable. Ils favorisent une approche déclarative du développement, en se concentrant sur le "quoi" plutôt que sur 
+le "comment" du code.
+
+<hr class="hr-text" data-content="Fonctions de Base">
+
+## Fonctions de Base d'un Langage Fonctionnel
+
+Les fonctions de base d'un langage fonctionnel varient d'un langage à l'autre, mais il existe généralement quelques 
+fonctions couramment utilisées dans la plupart des langages fonctionnels. Voici quelques exemples de fonctions de base :
+
+1. **map** : Applique une fonction à chaque élément d'une liste ou d'une structure de données similaire, renvoyant une 
+nouvelle liste contenant les résultats.
+
+2. **filter** : Filtre les éléments d'une liste en fonction d'une condition spécifiée par une fonction, renvoyant une 
+nouvelle liste ne contenant que les éléments qui satisfont la condition.
+
+3. **reduce (ou fold)** : Combines les éléments d'une liste en appliquant une opération cumulative. Par exemple, une 
+somme, un produit ou une concaténation.
+
+4. **zip** : Combine deux listes (ou plus) en une liste de paires, prenant un élément de chaque liste à chaque fois.
+
+5. **curry** : Transforme une fonction prenant plusieurs arguments en une séquence de fonctions, chaque fonction 
+n'acceptant qu'un seul argument à la fois.
+
+6. **compose** : Permet de composer plusieurs fonctions ensemble pour former une nouvelle fonction. Les sorties d'une 
+fonction deviennent les entrées de la fonction suivante.
+
+Ces fonctions de base permettent de manipuler des données de manière fonctionnelle, en évitant, par exemple, les boucles
+et les variables modifiables. Par conséquent, si nous parvenons à implémenter de telles fonctions en Bash, nous devrions
+pouvoir programmer suivant les concepts fonctionnels.
+
 <hr class="hr-text" data-content="Bénéfices">
 
-## Avantages de la Programmation Fonctionnelle en Bash
-La programmation fonctionnelle apporte plusieurs avantages à la programmation en Bash, notamment :
+## Avantages de la Programmation Fonctionnelle dans les scripts Bash
+
+La programmation fonctionnelle apporte plusieurs avantages à la programmation en Bash qui, le plus souvent, est utilisée
+en suivant le paradigme procédural :
 
 1. **Amélioration de la Lisibilité** : En se concentrant sur des fonctions concises, autonomes et à usage unique, la 
 programmation fonctionnelle favorise un code plus facile à lire et à comprendre, ce qui le rend plus maintenable 
@@ -37,18 +121,19 @@ réutilisables. Cela vous permet de construire des scripts complexes en combinan
 autonomes, favorisant ainsi la modularité et la réutilisabilité du code.
 
 3. **Moins d'Effets Secondaires** : La programmation fonctionnelle décourage l'utilisation de l'état mutable et encourage 
-l'immuabilité. Cela réduit la probabilité d'introduire des effets secondaires, ce qui facilite les tests et la 
+l'immutabilité. Cela réduit la probabilité d'introduire des effets secondaires, ce qui facilite grandement les tests et la 
 compréhension des scripts.
 
 <hr class="hr-text" data-content="Concepts">
 
-## Concepts de Programmation Fonctionnelle en Bash
+## Concepts de Programmation Fonctionnelle appliqués à Bash
 
-### Fonctions Pures
-   Les fonctions pures sont la base de la programmation fonctionnelle. Elles prennent des paramètres d'entrée et 
-   produisent une sortie sans aucun effet secondaire. En Bash, nous pouvons créer des fonctions pures en veillant à ce 
-   qu'elles n'utilisent que des paramètres d'entrée et des variables locales, sans modifier l'état global ni dépendre 
-   de dépendances externes.
+### Fonctions Pures en Bash
+
+Les fonctions pures sont donc la base de la programmation fonctionnelle. Elles prennent des paramètres d'entrée et 
+produisent une sortie sans aucun effet secondaire. En Bash, nous pouvons créer des fonctions pures en veillant à ce 
+qu'elles n'utilisent que des paramètres d'entrée et des variables locales, sans modifier l'état global ni dépendre 
+de dépendances externes.
 
 Exemple :
 {% highlight bash %}
@@ -59,12 +144,48 @@ carre() {
   local num=$1
   echo $((num * num))
 }
+
+# Exemple d'utilisation
+result=$(carre 2)
+
+echo "$result" 
+# Sortie : 4
 {% endhighlight %}
 
-### Fonctions d'Ordre Supérieur
-   Les fonctions d'ordre supérieur prennent une ou plusieurs fonctions en tant que paramètres d'entrée ou renvoient une 
-   fonction en sortie. En Bash, nous pouvons transmettre des fonctions en tant qu'arguments ou les stocker dans des 
-   variables, ce qui nous permet de créer des fonctions d'ordre supérieur.
+### Immutabilité des Données en Bash
+
+L'immutabilité implique que les données ne peuvent pas être modifiées une fois qu'elles sont créées. En Bash, cela peut 
+être réalisé en évitant de modifier directement les variables existantes et en favorisant la création de nouvelles 
+variables lors des transformations. Cela reste donc de la responsabilité du développeur.
+
+Il existe toutefois, dans Bash, l'instruction `declare -r` pour déclarer des constantes, c'est-à-dire des variables 
+immutables.
+
+Voyons un exemple de son utilisation:
+
+{% highlight bash %}
+#!/bin/bash
+
+my_function() {
+  local local_var="Local"
+  declare -r read_only_var="Read-only"
+
+  local_var="Modified"
+  read_only_var="Modified"
+}
+
+my_function
+# Sortie : bash: read_only_var : variable en lecture seule
+{% endhighlight %}
+
+On voit dans cet exemple que la variable déclarée `local` n'est pas immutable tandis que celle déclarée en lecture seule
+`declare -r` est bien immutable.
+
+### Fonctions d'Ordre Supérieur en Bash
+
+Les fonctions d'ordre supérieur prennent une ou plusieurs fonctions en tant que paramètres d'entrée ou renvoient une 
+fonction en sortie. En Bash, nous pouvons transmettre des fonctions en tant qu'arguments ou les stocker dans des 
+variables, ce qui nous permet de créer des fonctions d'ordre supérieur.
 
 Exemple :
 {% highlight bash %}
@@ -72,7 +193,6 @@ Exemple :
 
 # Fonction d'ordre supérieur pour appliquer une fonction donnée 
 # à chaque élément d'un tableau
-
 map() {
   local func=$1
   local array=("${@:2}")
@@ -93,17 +213,18 @@ carre() {
 
 array=(1 2 3 4 5)
 result=($(map carre "${array[@]}"))
-echo "${result[@]}"  # Sortie: 1 4 9 16 25
-
+echo "${result[@]}" 
+# Sortie : 1 4 9 16 25
 {% endhighlight %}
 
 
-### Récursivité
+### Récursivité en Bash
 
-   La récursivité est une technique puissante en programmation fonctionnelle. Bash, bien qu'il ne soit pas optimisé 
-   pour la récursivité, peut tout de même la gérer efficacement pour certains cas d'utilisation. La récursivité vous 
-   permet de résoudre des problèmes en les décomposant en sous-problèmes plus petits, ce qui conduit à un code plus 
-   concis et expressif.
+La récursivité est une technique puissante en programmation fonctionnelle. Bash, bien qu'il ne soit pas optimisé 
+pour la récursivité, peut tout de même la gérer efficacement pour certains cas d'utilisation. Cependant, comme la récursivité 
+en Bash peut être coûteuse en termes de ressources, il est donc important de faire attention à la complexité de 
+l'algorithme. La récursivité vous permet de résoudre des problèmes en les décomposant en sous-problèmes plus petits, ce 
+qui conduit à un code plus concis et expressif.
 
 Exemple :
 {% highlight bash %}
@@ -122,13 +243,91 @@ factorielle() {
 }
 
 # Exemple d'utilisation
-echo $(factorielle 5) # Sortie : 120
-
+echo $(factorielle 5) 
+# Sortie : 120
 {% endhighlight %}
 
 <hr class="hr-text" data-content="Conclusion">
 
+### Composition de Fonctions en Bash
+
+La composition est un concept fondamental en programmation fonctionnelle qui consiste à combiner plusieurs fonctions 
+pour créer une nouvelle fonction. L'idée est de prendre le résultat d'une fonction et de l'utiliser comme entrée pour 
+une autre fonction, formant ainsi une chaîne de transformations. Cela permet de diviser un problème complexe en petites 
+étapes plus simples et de les relier entre elles de manière fluide.
+
+Exemple :
+{% highlight bash %}
+#!/bin/bash
+
+# Fonction 1 : Convertir le texte en majuscules
+to_uppercase() {
+  echo "$1" | tr '[:lower:]' '[:upper:]'
+}
+
+# Fonction 2 : Ajouter un préfixe au texte
+add_prefix() {
+  echo "Prefix $1"
+}
+
+# Fonction 3 : Afficher le texte final
+display_text() {
+  echo "Texte final : $1"
+}
+
+# Composition des fonctions
+compose_functions() {
+  local result="$1"
+  shift
+  for func in "$@"; do
+    result="$($func "$result")"
+  done
+  echo "$result"
+}
+
+# Utilisation de la composition de fonctions
+text="exemple de texte"
+
+result=$(compose_functions "$text" to_uppercase add_prefix display_text)
+
+echo "$result" 
+# Sortie: Texte final : Prefix EXEMPLE DE TEXTE
+{% endhighlight %}
+
+### Évaluation Différée en Bash
+
+En Bash, bien que ce ne soit pas une caractéristique native du langage, il est possible d'adopter une approche simple 
+pour simuler l'évaluation lazy : l'utilisation de fonctions génératrices. Plutôt que de générer et stocker toutes les 
+valeurs d'une séquence, on pourra générer les valeurs à la demande, lorsqu'elles sont nécessaires, en appelant la fonction.
+
+Exemple d'évaluation différée :
+{% highlight bash %}
+#!/bin/bash
+
+# Fonction lazy : Calcule et retourne la liste des nombres pairs jusqu'à un certain seuil
+get_even_numbers_lazy() {
+  local threshold=$1
+  local numbers=()
+  local current=0
+
+  while (( current < threshold )); do
+    numbers+=($current)
+    current=$((current + 2))
+  done
+
+  echo "${numbers[@]}"
+}
+
+# Utilisation de la fonction lazy
+numbers=$(get_even_numbers_lazy 10)
+
+echo "Les nombres pairs jusqu'à 10 : ${numbers[@]}" 
+# Sortie : Les nombres pairs jusqu'à 10 : 0 2 4 6 8
+{% endhighlight %}
+
+
 ## Conclusion
+
 Bien que Bash soit principalement un langage impératif, les concepts de programmation fonctionnelle peuvent être 
 appliqués efficacement pour écrire des scripts plus propres et plus modulaires. En exploitant les fonctions pures, les 
 fonctions d'ordre supérieur et la récursivité, vous pouvez tirer parti de la simplicité et de la puissance de la 
