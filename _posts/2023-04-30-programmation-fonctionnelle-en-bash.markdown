@@ -327,6 +327,151 @@ echo "Les nombres pairs jusqu'à 10 : ${numbers[@]}"
 # Sortie : Les nombres pairs jusqu'à 10 : 0 2 4 6 8
 {% endhighlight %}
 
+## Fonction de Base de la Programmation Fonctionnelle en Bash
+
+### Map
+
+{% highlight bash %}
+#!/bin/bash
+
+# Définition de la fonction map
+map() {
+  local -n input_list=$1
+  local -r transform_fn=$2
+  
+  local mapped_list=()
+  for element in "${input_list[@]}"; do
+    mapped_list+=("$("$transform_fn" "$element")")
+  done
+  
+  echo "${mapped_list[@]}"
+}
+
+# Exemple de fonction de transformation
+square() {
+  local input=$1
+  echo "$((input * input))"
+}
+
+declare -a my_list=(1 2 3 4 5)
+mapped_list=$(map my_list square)
+
+# Affichage du résultat
+echo "Liste d'origine: ${my_list[@]}"
+echo "Liste transformée: ${mapped_list[@]}"
+
+# Sortie : Liste d'origine: 1 2 3 4 5
+# Sortie : Liste transformée: 1 4 9 16 25
+{% endhighlight %}
+
+### Filter
+
+{% highlight bash %}
+#!/bin/bash
+
+# Définition de la fonction filter
+filter() {
+  local -n input_list=$1
+  local -r predicate=$2
+  
+  local filtered_list=()
+  for element in "${input_list[@]}"; do
+    if "$predicate" "$element"; then
+      filtered_list+=("$element")
+    fi
+  done
+  
+  echo "${filtered_list[@]}"
+}
+
+# Exemple de fonction filtrante
+is_even() {
+  local input=$1
+  ((input % 2 == 0))
+}
+
+declare -a my_list=(1 2 3 4 5)
+filtered_list=$(filter my_list is_even)
+
+# Affichage du résultat
+echo "Liste d'origine: ${my_list[@]}"
+echo "Liste filtrée (éléments pairs): ${filtered_list[@]}"
+
+# Sortie : Liste d'origine: 1 2 3 4 5
+# Sortie : Liste filtrée (éléments pairs): 2 4
+{% endhighlight %}
+
+### Reduce
+
+{% highlight bash %}
+#!/bin/bash
+
+# Définition de la fonction reduce
+reduce() {
+  local -n input_list=$1
+  local -r accumulate_fn=$2
+  local initial_value=$3
+  
+  local accumulator=$initial_value
+  for element in "${input_list[@]}"; do
+    accumulator="$("$accumulate_fn" "$accumulator" "$element")"
+  done
+  
+  echo "$accumulator"
+}
+
+# Exemple de fonction d'agrégation
+sum() {
+  local accumulator=$1
+  local element=$2
+  echo "$((accumulator + element))"
+}
+
+declare -a my_list=(1 2 3 4 5)
+result=$(reduce my_list sum 0)
+
+# Affichage du résultat
+echo "Liste d'origine: ${my_list[@]}"
+echo "Résultat de la réduction (somme): $result"
+
+# Sortie : Liste d'origine: 1 2 3 4 5
+# Sortie : Résultat de la réduction (somme): 15
+{% endhighlight %}
+
+### Zip
+
+{% highlight bash %}
+#!/bin/bash
+
+# Définition de la fonction zip
+zip() {
+  local -n input_list1=$1
+  local -n input_list2=$2
+  
+  local zipped_list=()
+  local length=${#input_list1[@]}
+  
+  for ((i=0; i<length; i++)); do
+    zipped_list+=("${input_list1[$i]},${input_list2[$i]}")
+  done
+  
+  echo "${zipped_list[@]}"
+}
+
+# Exemple d'utilisation
+declare -a list1=("a" "b" "c")
+declare -a list2=("x" "y" "z")
+zipped_list=$(zip list1 list2)
+
+# Affichage du résultat
+echo "Liste 1: ${list1[@]}"
+echo "Liste 2: ${list2[@]}"
+echo "Liste zippée: ${zipped_list[@]}"
+
+# Sortie : Liste 1: a b c
+# Sortie : Liste 2: x y z
+# Sortie : Liste zippée: a,x b,y c,z
+{% endhighlight %}
 
 ## Conclusion
 
