@@ -92,7 +92,7 @@ nouvelle liste contenant les résultats.
 2. **filter** : Filtre les éléments d'une liste en fonction d'une condition spécifiée par une fonction, renvoyant une 
 nouvelle liste ne contenant que les éléments qui satisfont la condition.
 
-3. **reduce (ou fold)** : Combines les éléments d'une liste en appliquant une opération cumulative. Par exemple, une 
+3. **reduce (ou fold)** : Combine les éléments d'une liste en appliquant une opération cumulative. Par exemple, une 
 somme, un produit ou une concaténation.
 
 4. **zip** : Combine deux listes (ou plus) en une liste de paires, prenant un élément de chaque liste à chaque fois.
@@ -160,8 +160,9 @@ L'immutabilité implique que les données ne peuvent pas être modifiées une fo
 être réalisé en évitant de modifier directement les variables existantes et en favorisant la création de nouvelles 
 variables lors des transformations. Cela reste donc de la responsabilité du développeur.
 
-Il existe toutefois, dans Bash, l'instruction `declare -r` pour déclarer des constantes, c'est-à-dire des variables 
-immutables.
+Il existe toutefois, dans Bash, l'instruction `local` pour déclarer une variable locale à une fonction. C'est une 
+pratique courante en programmation fonctionnelle pour éviter les effets de bord et maintenir l'encapsulation des 
+données. L'option `-r` permet de définir une variable immutable, c'est-à-dire une constante.
 
 Voyons un exemple de son utilisation:
 
@@ -169,10 +170,10 @@ Voyons un exemple de son utilisation:
 #!/bin/bash
 
 my_function() {
-  local local_var="Local"
-  declare -r read_only_var="Read-only"
+  local var="Local"
+  local -r read_only_var="Read-only"
 
-  local_var="Modified"
+  var="Modified"
   read_only_var="Modified"
 }
 
@@ -180,8 +181,8 @@ my_function
 # Sortie : bash: read_only_var : variable en lecture seule
 {% endhighlight %}
 
-On voit dans cet exemple que la variable déclarée `local` n'est pas immutable tandis que celle déclarée en lecture seule
-`declare -r` est bien immutable.
+On voit dans cet exemple que la variable déclarée `local` n'est pas immutable tandis que celle déclarée avec 
+`local -r` est bien immutable.
 
 ### Fonctions d'Ordre Supérieur en Bash
 
@@ -248,8 +249,6 @@ factorielle() {
 echo $(factorielle 5) 
 # Sortie : 120
 {% endhighlight %}
-
-<hr class="hr-text" data-content="Conclusion">
 
 ### Composition de Fonctions en Bash
 
@@ -472,6 +471,8 @@ echo "Liste zippée: ${zipped_list[@]}"
 # Sortie : Liste 2: x y z
 # Sortie : Liste zippée: a,x b,y c,z
 {% endhighlight %}
+
+<hr class="hr-text" data-content="Conclusion">
 
 ## Conclusion
 
