@@ -2,7 +2,7 @@
 layout: post
 title: "Programmation Fonctionnelle en Bash : Exploitez la Puissance de la Simplicité"
 date: 2023-04-30 15:50:00 +0200
-description: 
+description: "Découvrez la puissance de la programmation fonctionnelle en Bash : principes, fonctions et exemples du code. Améliorez vos scripts avec simplicité."
 img: functional-programming.jpg
 fig-caption: Photo de <a href="https://unsplash.com/de/@mediaecke?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">MediaEcke</a> sur <a href="https://unsplash.com/fr/photos/QGdmkyLK7jo?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Unsplash</a>
 tags: [FP, Bash, DevOps, Scripting]
@@ -164,7 +164,7 @@ Il existe toutefois, dans Bash, l'instruction `local` pour déclarer une variabl
 pratique courante en programmation fonctionnelle pour éviter les effets de bord et maintenir l'encapsulation des 
 données. L'option `-r` permet de définir une variable immutable, c'est-à-dire une constante.
 
-Voyons un exemple de son utilisation:
+Voyons un exemple de son utilisation :
 
 {% highlight bash %}
 #!/bin/bash
@@ -173,8 +173,8 @@ my_function() {
   local var="Local"
   local -r read_only_var="Read-only"
 
-  var="Modified"
-  read_only_var="Modified"
+  var="Modified"           # Modification d'une variable locale
+  read_only_var="Modified" # Test de modification d'une variable immutable
 }
 
 my_function
