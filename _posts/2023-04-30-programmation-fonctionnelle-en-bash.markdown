@@ -2,7 +2,7 @@
 layout: post
 title: "Programmation Fonctionnelle en Bash : Exploitez la Puissance de la Simplicité"
 date: 2023-04-30 15:50:00 +0200
-description: "Découvrez la puissance de la programmation fonctionnelle en Bash : principes, fonctions et exemples du code. Améliorez vos scripts avec simplicité."
+description: "Découvrez la puissance de la programmation fonctionnelle en Bash : principes, fonctions et exemples de code. Améliorez vos scripts avec simplicité."
 img: functional-programming.jpg
 fig-caption: Photo de <a href="https://unsplash.com/de/@mediaecke?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">MediaEcke</a> sur <a href="https://unsplash.com/fr/photos/QGdmkyLK7jo?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Unsplash</a>
 tags: [FP, Bash, DevOps, Scripting]

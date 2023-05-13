@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Mentions légales
-date: 2021-03-01 00:00:00 +0200
+date: 2023-05-13 00:00:00 +0200
 description: Mentions légales du site
 img: informations-legales.jpg
 fig-caption: Photo de <a href="https://unsplash.com/@nahakiole?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Robin Glauser</a> sur <a href="https://unsplash.com/collections/8291752/tr-01-01?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Unsplash</a>
@@ -79,17 +79,28 @@ liés au Site.
 En France, les données personnelles sont notamment protégées par la loi n° 78-87 du 6 janvier 1978, la loi n° 2004-801 
 du 6 août 2004, l'article L. 226-13 du Code pénal et la Directive Européenne du 24 octobre 1995.
 
-SCALASTIC EURL s'engage à respecter la confidentialité et la protection de vos données personnelles conformément aux 
-lois et réglementations en vigueur. Pour plus d'informations sur la collecte et le traitement de vos données 
-personnelles, veuillez consulter notre politique de confidentialité.
+SCALASTIC EURL s'engage à respecter la confidentialité et la protection de vos données personnelles conformément aux
+lois et réglementations en vigueur.
+
+Ce site ne récolte aucune donnée personnelle. Nous attachons une grande importance à la confidentialité et à la 
+protection des données de nos visiteurs. Ainsi, nous n'utilisons aucun cookie ni ne suivons la navigation de nos 
+internautes.
+
+Veuillez noter que bien que nous ne récoltions pas de données personnelles, les journaux serveurs de l'hébergeur du site
+enregistrent automatiquement des informations telles que les adresses IP, les requêtes HTTP, les horodatages et d'autres
+données liées à l'activité du site, afin d'assurer le bon fonctionnement du serveur et de détecter toute activité 
+suspecte ou malveillante. Cependant, nous n'accédons pas à ces données sauf dans des cas exceptionnels où cela serait 
+nécessaire pour des raisons de sécurité ou de conformité légale, et même dans ces situations, l'accès est strictement 
+limité et soumis à des mesures de confidentialité rigoureuses.
 
 ## 8. Cookies
 
-Le Site peut utiliser des cookies pour améliorer votre expérience de navigation. Les cookies sont de petits
-fichiers texte stockés sur votre ordinateur par votre navigateur web. Ils ne contiennent aucune information personnelle 
-identifiable. Vous avez la possibilité de refuser l'utilisation des cookies en configurant les paramètres de votre 
-navigateur. Cependant, veuillez noter que certaines fonctionnalités du Site peuvent ne pas être disponibles ou ne pas 
-fonctionner correctement si vous désactivez les cookies.
+Ce site n'utilise aucun cookie. Un cookie est un petit fichier texte stocké sur votre appareil lors de votre visite sur 
+un site web. Les cookies sont largement utilisés pour faciliter et améliorer votre expérience de navigation, ainsi que 
+pour collecter des informations sur votre utilisation du site.
+
+Cependant, nous tenons à souligner que le Site ne place aucun cookie sur votre appareil. Nous respectons votre vie 
+privée et nous nous engageons à ne pas recueillir d'informations personnelles vous concernant.
 
 ## 9. Modification des mentions légales
 
@@ -106,4 +117,4 @@ tribunaux français seront seuls compétents.
 Pour toute question ou demande concernant les mentions légales du Site, veuillez nous contacter à l'adresse email 
 suivante : contact@scalastic.io.
 
-Dernière mise à jour : 04 mai 2023
+Dernière mise à jour : 13 mai 2023

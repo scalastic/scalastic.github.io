@@ -27,13 +27,6 @@ social:
 
 search: true
 
-webmaster_verifications:
-  google: kt9V77LN_e6lPj1sb3RTOiZDGqNyfoHBchbh1oDgftQ
-  yandex: 586e50fdf1e71514
-
-# Disqus
-discus-identifier: scalastic # add your discus identifier
-
 # Build Settings
 markdown: kramdown
 kramdown:

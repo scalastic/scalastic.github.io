@@ -2,7 +2,7 @@
 layout: post
 title: "Demystifying Software Development: A Complete Developer's Guide to Make the Right Choices"
 date: 2023-05-03 10:28:00 +0200
-description: Explores the common decisions developers face during development, delving into the pros and cons associated with each choice. From code abstraction and refactoring decisions to implementation choices, unit testing, and software design solutions, understanding the trade-offs can help developers navigate these challenges more effectively.
+description: "Explore common decisions in software development: abstractions, refactoring, testing, design. Understand the pros and cons to navigate effectively."
 img: developer-guide-feature-delivery.jpg
 fig-caption: Photo by <a href="https://unsplash.com/@kellysikkema?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Kelly Sikkema</a> on <a href="https://unsplash.com/fr/photos/r077pfFsdaU?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Unsplash</a>
 tags: [Development, Guide, Practice, Abstraction, Refactoring, Unit-Test, Software-Design, DevOps]

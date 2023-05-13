@@ -2,7 +2,7 @@
 layout: post
 title: "Démystifier le Développement Logiciel : Un Guide Complet du Développeur pour Faire les Bons Choix"
 date: 2023-05-03 10:28:00 +0200
-description: Explorez les décisions courantes auxquelles les développeurs sont confrontés pendant le développement, en examinant les avantages et les inconvénients associés à chaque choix. Des décisions d'abstraction et de refactoring du code aux choix d'implémentation, en passant par les tests unitaires et les solutions de conception logicielle, comprendre les compromis peut aider les développeurs à naviguer plus efficacement dans ces défis.
+description: "Découvrez les décisions courantes en développement logiciel : abstractions, refactoring, tests, conception. Comprenez les avantages et inconvénients pour mieux naviguer. "
 img: developer-guide-feature-delivery.jpg
 fig-caption: Photo de <a href="https://unsplash.com/@kellysikkema?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Kelly Sikkema</a> sur <a href="https://unsplash.com/fr/photos/r077pfFsdaU?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Unsplash</a>
 tags: [Development, Guide, Practice, Abstraction, Refactoring, Unit-Test, Software-Design, DevOps]
