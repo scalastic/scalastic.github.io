@@ -2,7 +2,7 @@
 
 # Source Code of Scalastic Website
 
-<a href="https://scalastic.io">![](https://github.com/scalastic/scalastic.github.io/blob/main/assets/img/scalastic.png?raw=true)</a>
+<a href="https://scalastic.io/en">![](assets/img/scalastic_home.png)</a>
 
 ## About
 
