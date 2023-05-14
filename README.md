@@ -78,12 +78,12 @@ bundle exec jekyll server --watch --drafts --future --verbose
 - [Bootstrap 4](https://getbootstrap.com/docs/4.6/getting-started/introduction/): a popular CSS Framework for developing responsive and mobile-first websites.
 - [Font Awesome 5](https://fontawesome.com/v5.15/how-to-use/on-the-web/setup/using-package-managers): a popular icon set and toolkit.
 - [Google Fonts](https://fonts.google.com): a library of 1,000 free, open-source fonts.
-- [highlight.js](https://highlightjs.org): a syntax highlighter written in JavaScript.
 - [Compress HTML](https://github.com/penibelst/jekyll-compress-html): a plugin that compresses HTML files.
+- [Code snippet highlighting](https://jekyllrb.com/docs/liquid/tags/#code-snippet-highlighting): a Jekyll integrated syntax highlighter (reworked to look like [Carbon Now](https://carbon.now.sh/) images).
 
 ## Uses Jekyll Themes
 
-- [Flexible Jekyll](https://github.com/artemsheludko/flexible-jekyll): a simple and clean theme for Jekyll
+- [Flexible Jekyll](https://github.com/artemsheludko/flexible-jekyll): a simple and clean theme for Jekyll (However, tweaked to my taste)
 
 ## GitHub
 

@@ -155,6 +155,12 @@
       }
     }
   }
+  .code-container {
+      position: relative;
+      min-width: 90px;
+      max-width: 600px;
+      padding: 20px 5px;
+  }
   .highlight {
     margin-inline-start: 5px;
     margin-inline-end: 5px;
