@@ -4,7 +4,7 @@ title: "Demystifying Software Development: A Complete Developer's Guide to Make 
 date: 2023-05-03 10:28:00 +0200
 description: "Explore common decisions in software development: abstractions, refactoring, testing, design. Understand the pros and cons to navigate effectively."
 img: developer-guide-feature-delivery.jpg
-fig-caption: Photo by <a href="https://unsplash.com/@kellysikkema?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Kelly Sikkema</a> on <a href="https://unsplash.com/fr/photos/r077pfFsdaU?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Unsplash</a>
+fig-caption: Photo by <a href="https://unsplash.com/@cdd20?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">愚木混株 cdd20</a> on <a href="https://unsplash.com/fr/photos/QDHb81lUpbY?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Unsplash</a>
 tags: [Development, Guide, Practice, Abstraction, Refactoring, Unit-Test, Software-Design, DevOps]
 lang: en
 permalink: /complete-developer-guide/

@@ -4,7 +4,7 @@ title: "Démystifier le Développement Logiciel : Un Guide Complet du Développe
 date: 2023-05-03 10:28:00 +0200
 description: "Découvrez les décisions courantes en développement logiciel : abstractions, refactoring, tests, conception. Comprenez les avantages et inconvénients pour mieux naviguer."
 img: developer-guide-feature-delivery.jpg
-fig-caption: Photo de <a href="https://unsplash.com/@kellysikkema?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Kelly Sikkema</a> sur <a href="https://unsplash.com/fr/photos/r077pfFsdaU?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Unsplash</a>
+fig-caption: Photo de <a href="https://unsplash.com/@cdd20?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">愚木混株 cdd20</a> sur <a href="https://unsplash.com/fr/photos/QDHb81lUpbY?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Unsplash</a>
 tags: [Development, Guide, Practice, Abstraction, Refactoring, Unit-Test, Software-Design, DevOps]
 lang: fr
 permalink: /complete-developer-guide/
