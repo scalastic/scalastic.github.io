@@ -274,7 +274,7 @@ la capacité à prendre en compte des changements futurs.
   fonctionnalité partagée peut être réutilisée dans différents modules, ce qui augmente l'efficacité du développement.
 
 - **Scalabilité** : Les applications doivent souvent pouvoir gérer une montée en charge. Les solutions de conception qui
-- prennent en charge la scalabilité permettent au système de gérer des charges
+  prennent en charge la scalabilité permettent au système de gérer des charges
   de travail, des volumes de données et des demandes d'utilisateurs croissants sans nécessiter de modifications majeures.
   En choisissant des solutions de conception appropriées, les développeurs peuvent s'assurer que le système peut être
   mis à l'échelle sans compromettre sa stabilité, ses performances ou sa maintenabilité.
