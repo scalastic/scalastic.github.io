@@ -47,3 +47,50 @@
     outline: none;
   }
 }
+
+.search-recomm {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px;
+  align-items: stretch;
+  justify-content: center;
+
+  .recomm,
+  .recomm-link,
+  .image-container {
+    opacity: 1;
+  }
+
+  .recomm {
+    flex-basis: 25%;
+    background: $gray;
+    color: $dark;
+
+    .recomm-link {
+      display: flex;
+      flex-direction: column;
+      height: 100%;
+      text-decoration: none;
+      padding: 10px;
+
+      h5 {
+        text-align: left;
+        text-decoration: none;
+        color: #515151;
+      }
+
+      .image-container {
+        flex-grow: 1;
+        display: flex;
+        align-items: flex-end;
+
+        img {
+          max-width: 100%;
+          height: auto;
+          vertical-align: bottom;
+          margin: 0 auto;
+        }
+      }
+    }
+  }
+}

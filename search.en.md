@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Search articles and keywords
+title: Searching for Articles by Keywords
 date: 2021-07-18 00:00:00 +0200
 description: Full-text search in articles' contents and their keywords
 img: page-search.jpg
@@ -20,7 +20,7 @@ permalink: /search/
           <input id="search-input" class="search-input" type="search" placeholder="Type your search..." autofocus>
         </form>
       </div>
-      <div id="search-result" class="page-recomm"></div>
+      <div id="search-result" class="search-recomm"></div>
     </div>
   </div>
 </article>
@@ -31,7 +31,7 @@ SimpleJekyllSearch({
   searchInput: document.getElementById('search-input'),
   resultsContainer: document.getElementById('search-result'),
   json: '/en/search.json',
-  searchResultTemplate: '<div class="recomm"><a class="recomm" href="{url}"><h5>{title}</h5>{img}</a></div>',
+  searchResultTemplate: '<div class="recomm"><a class="recomm-link" href="{url}"><h5>{title}</h5><div class="image-container">{img}</div></a></div>',
   noResultsText: 'No result found.',
   limit: 20,
   fuzzy: false,
