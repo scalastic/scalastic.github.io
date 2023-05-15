@@ -8,11 +8,11 @@ sitemap:
   {% for post in site.posts %}
     {% unless post.published == false or page.sitemap == false %}
       {% for tongue in site.languages %}
-        {% if tongue == site.default_lang%}   	
+        {% if tongue == site.default_lang%}
 	<url>
 	  <loc>{{ site.url }}{{ post.url }}</loc>
-	  {% if post.sitemap.lastmod %}
-	    <lastmod>{{ post.sitemap.lastmod | date: "%Y-%m-%d" }}</lastmod>
+	  {% if post.last_modified_at %}
+	    <lastmod>{{ post.last_modified_at | date_to_xmlschema }}</lastmod>
 	  {% elsif post.date %}
 	    <lastmod>{{ post.date | date_to_xmlschema }}</lastmod>
 	  {% else %}
@@ -32,8 +32,8 @@ sitemap:
         {% else %}
 	<url>
 	  <loc>{{ site.url }}/{{ tongue }}{{ post.url }}</loc>
-	  {% if post.sitemap.lastmod %}
-	    <lastmod>{{ post.sitemap.lastmod | date: "%Y-%m-%d" }}</lastmod>
+	  {% if post.last_modified_at %}
+	    <lastmod>{{ post.last_modified_at | date_to_xmlschema }}</lastmod>
 	  {% elsif post.date %}
 	    <lastmod>{{ post.date | date_to_xmlschema }}</lastmod>
 	  {% else %}
