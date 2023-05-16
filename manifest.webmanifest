@@ -12,17 +12,17 @@ sitemap:
   "scope": "/",
   "icons": [
     {
-      "src": "/favicon.png",
+      "src": "/favicon-36.png",
       "type": "image/png",
       "sizes": "32x32"
     },
     {
-      "src": "/apple-touch-icon.png",
+      "src": "/favicon-120-precomposed.png",
       "type": "image/png",
       "sizes": "120x120"
     },
     {
-      "src": "/apple-touch-icon-180x180.png",
+      "src": "/favicon-180-precomposed.png",
       "type": "image/png",
       "sizes": "180x180"
     }
