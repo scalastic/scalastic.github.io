@@ -26,7 +26,7 @@
 }
 
 /* Tablets */
-@media only screen and (max-width : 1119px) and (min-width : 620px) {
+@media only screen and (max-width : 1119px) and (min-width : 770px) {
   .sidebar {
     position: relative;
     display: flex;
@@ -105,7 +105,7 @@
 }
 
 /* Phone */
-@media only screen and (max-width : 619px) {
+@media only screen and (max-width : 769px) {
   h1, h2, h3, h4, h5, h6, h7 {
     text-align: center;
   }
@@ -191,8 +191,9 @@
     flex-wrap: wrap;
     align-items: stretch;
     gap: 4px;
+    justify-content: space-around;
     .recomm {
-      flex-basis: 40%;
+      flex-basis: 49%;
     }
   }
 

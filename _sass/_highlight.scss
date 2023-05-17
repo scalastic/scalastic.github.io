@@ -8,7 +8,7 @@ $background: #515151;
     position: relative;
     min-width: 90px;
     max-width: 970px;
-    padding: 30px 56px;
+    padding: 30px 30px;
     height: 100%;
 
     display: -webkit-box;
@@ -38,10 +38,14 @@ $background: #515151;
     background: $background;
     border: none;
     padding-bottom: 5px;
-    -webkit-border-radius: 5px;
-    -moz-border-radius: 5px;
-    border-radius: 5px;
-    box-shadow: 0 20px 68px rgba(0, 0, 0, 0.55);
+    -webkit-border-radius: 10px;
+    -moz-border-radius: 10px;
+    border-radius: 10px;
+    overflow: hidden;
+    &:hover {
+        transform: translate(0px, -4px);
+        box-shadow: 0 15px 45px -10px rgba(10, 16, 34, .2);
+      }
 }
 
 .window-controls {
