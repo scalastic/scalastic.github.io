@@ -3,7 +3,7 @@ name: Build and Deploy to Github Pages
 on:
   push:
     branches:
-      - main  # Here source code branch is `main`, it could be other branch
+      - fix/github-actions-rpc-failed  # Here source code branch is `main`, it could be other branch
 
 jobs:
   build_and_deploy:
