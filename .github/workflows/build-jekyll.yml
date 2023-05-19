@@ -3,13 +3,15 @@ name: Build and Deploy to Github Pages
 on:
   push:
     branches:
-      - main  # Here source code branch is `main`, it could be other branch
+      - fix/github-actions-rpc-failed  # Here source code branch is `main`, it could be other branch
 
 jobs:
   build_and_deploy:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
+        with:
+          lfs: 'true'
 
       # Use GitHub Actions' cache to cache dependencies on servers
       - uses: actions/cache@v3
@@ -32,4 +34,4 @@ jobs:
           bundler_ver: '>=0'         # Default is latest bundler version
           cname: 'scalastic.io'      # Default is to not use a cname
           actor: ''                  # Default is the GITHUB_ACTOR
-          pre_build_commands: pacman -S --noconfirm libvips lcms2 openjpeg2 libpng libwebp libheif imagemagick openslide libjxl poppler-glib
+          pre_build_commands: git config --global http.version HTTP/1.1; pacman -S --noconfirm git-lfs libvips lcms2 openjpeg2 libpng libwebp libheif imagemagick openslide libjxl poppler-glib
