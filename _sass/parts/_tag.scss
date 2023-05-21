@@ -17,22 +17,13 @@
 .tags {
   margin: 0;
   padding: 10px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
   li {
     display: inline-block;
     margin: 5px;
     list-style: none;
-    a {
-      text-decoration: none;
-      color: $dark-blue;
-      display: inline-block;
-      padding: 5px 10px;
-      border: 1px solid $gray;
-      background-color: $lightgray;
-      transition: all .3s;
-      &:hover {
-        background-color: $gray;
-      }
-    }
   }
 }
 
@@ -52,4 +43,49 @@
       }
     }
   }
+}
+
+a.tag {
+    color: #adb5bd;
+    margin-right: 0.5rem;
+    margin-bottom: 0.5rem;
+    align-items: center;
+    border-radius: 0.375em;
+    border: 1px solid #adb5bd;
+    display: inline-flex;
+    line-height: 1.5;
+    padding-left: 0.75em;
+    padding-right: 0.75em;
+    white-space: nowrap;
+    .number {
+        background: #adb5bd;
+        color: $white;
+        text-align: center;
+        border: none;
+        border-radius: 9999px;
+        display: inline-block;
+        flex-grow: 0;
+        flex-shrink: 0;
+        font-size: 0.8em;
+        height: 20px;
+        max-height: 20px;
+        max-width: 20px;
+        min-height: 20px;
+        min-width: 20px;
+        outline: 0;
+        position: relative;
+        vertical-align: top;
+        width: 20px;
+        margin-left: 0.25rem;
+        margin-right: -0.375rem;
+    }
+    &:hover {
+      text-decoration: none;
+      color: $white;
+      background: #adb5bd;
+      .number {
+        background: $white;
+        color: #adb5bd;
+      }
+    }
 }
