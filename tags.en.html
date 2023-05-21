@@ -1,8 +1,8 @@
 ---
 layout: post
-title: Site tags
+title: Site Tags Compilation
 date: 2021-08-08 00:00:00 +0200
-description: Site tags list
+description: Site Tags Compilation
 img: tags-page.jpg
 fig-caption: Photo by <a href="https://unsplash.com/@pjmergulhao?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Paulo Mergulhão</a> on <a href="https://unsplash.com/s/photos/stickers?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Unsplash</a>
 lang: en
@@ -15,9 +15,9 @@ permalink: /tags/
 <section class="blog-tags">
   <ul class="tags">
 <!--  cycles through tag list and creates header row of all tags used in site with accompanying per-tag counts...-->
-  {% for this_word in tag_words %}
-    <li ><a href="#{{ this_word | cgi_escape }}" class="tag">{{ this_word }} <span>({{ site.tags[this_word].size }})</span></a></li>
-  {% endfor %}
+    {% for this_word in tag_words %}
+    <li ><a class="tag" href="#{{ this_word | cgi_escape }}" class="tag">{{ this_word }} <span class="number">{{ site.tags[this_word].size }}</span></a></li>
+    {% endfor %}
   </ul>
 <!--cycles through tag list and creates subheader for each tag name...-->
   {% for this_word in tag_words %}
