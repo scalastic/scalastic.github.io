@@ -5,9 +5,10 @@ sitemap:
 ---
 
 // Imports
+@import 'variables';
 @import 'normalize';
 @import 'highlight';
-@import 'variables';
+
 
 *, *::after, *::before {
   box-sizing: border-box;
@@ -23,7 +24,7 @@ body {
   font-size: 1rem;
   font-size: 19px;
   font-weight: 400;
-  background-color: #fbfbfb;
+  background-color: $body-background;
   margin: 0;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
@@ -57,7 +58,7 @@ blockquote {
   padding-left: 1.1rem;
   margin-left: 1rem;
   font-style: italic;
-  color: #ada8a8;
+  color: $discreet-color;
 }
 
 pre {
@@ -94,22 +95,23 @@ table td {
   padding: 8px;
   text-align: left;
   vertical-align: top;
-  border: 1px solid #ccc;
+  border: 1px solid $discreet-color;
 }
 
 table th {
-  background-color: #f2f2f2;
+  color: $body-background;
+  background-color: $discreet-color;
 }
 
 table tr:nth-child(even) {
-  background-color: #f9f9f9;
+  background-color: $inset-backgroung;
 }
 
 table tr:hover {
-  background-color: #eaeaea;
+  color: $body-background;
+  background-color: $discreet-color;
 }
 
-/* Optional: Add a scroll bar for tables with many rows */
 table.scrollable {
   max-height: 300px;
   overflow-y: auto;
@@ -126,20 +128,20 @@ table.scrollable {
 }
 
 .post, .article-page {
-  background-color: #fbfbfb;
+  background-color: $body-background;
   width: 100%;
 }
-
+/*
 ::-moz-selection {
   background: rgba(209, 193, 177, 0.8);
-  color: $white;
+  color: $body-background;
 }
 
 ::selection {
   background: rgba(209, 193, 177, 0.8);
-  color: $white;
+  color: $body-background;
 }
-
+*/
 .clearfix::before, .clearfix::after {
   content: "";
   display: table;
@@ -163,9 +165,9 @@ table.scrollable {
 
 /* - - - - - - - - - - Review Styles - - - - - - - - - - */
 :root {
-  --microlink-background-color: #fbfbfb;
-  --microlink-hover-background-color: #fbfbfb;
-  --microlink-color: #515151;
+  --microlink-background-color: $body-background;
+  --microlink-hover-background-color: $body-background;
+  --microlink-color: $body-color;
 }
 
 @import 'parts/review';

@@ -1,8 +1,14 @@
 /* Block code, highlight */
 
-$background: #515151;
+$background: $body-color;
 
-.highlighter-rouge {color: whitesmoke; font-weight: 400; border: 1px solid $background; border-radius: 3px; padding: 0.1rem 0.5rem;}
+.highlighter-rouge {
+    color: whitesmoke;
+    font-weight: 400;
+    border: 1px solid $background;
+    border-radius: 3px;
+    padding: 0.1rem 0.5rem;
+}
 
 .code-container {
     position: relative;
@@ -66,8 +72,6 @@ figure.highlight {
 
     min-width: inherit;
     z-index: 1;
-
-
 
     pre {
         border-radius: 5px;

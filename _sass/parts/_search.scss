@@ -14,7 +14,7 @@
 
 .search-icon {
   width: 50px;
-  color: #A9AAAB;
+  color: $discreet-color;
   position: absolute;
   top: 0;
   bottom: 0;
@@ -30,9 +30,9 @@
   background: rgba(255,255,255,0.95);
   font-size: 1.1875rem;
   border-radius: 50px;
-  color: #A9AAAB;
+  color: $discreet-color;
   border-style: solid;
-  border-color: #515151;
+  border-color: $body-color;
   font-style: normal;
   padding-left: 40px;
   box-sizing: border-box;
@@ -63,8 +63,9 @@
 
   .recomm {
     flex-basis: 25%;
-    background: $gray;
-    color: $dark;
+    background: $inset-backgroung;
+    border-radius: 10px;
+    color: $emphasis-color;
 
     .recomm-link {
       display: flex;
@@ -76,7 +77,7 @@
       h5 {
         text-align: left;
         text-decoration: none;
-        color: #515151;
+        color: $body-color;
       }
 
       .image-container {
@@ -88,6 +89,7 @@
           max-width: 100%;
           height: auto;
           vertical-align: bottom;
+          border-radius: 10px;
           margin: 0 auto;
         }
       }
