@@ -14,8 +14,8 @@ status: finished
 Naviguer dans les subtilités du développement logiciel requiert une compréhension approfondie de divers concepts et 
 pratiques. Cet article explore les décisions courantes auxquelles les développeurs sont confrontés lors du développement
 de fonctionnalités, en examinant les avantages et les inconvénients associés à chaque choix. Des décisions d'abstraction
-et de refactoring du code aux choix d'implémentation, en passant par les tests unitaires et les solutions de conception 
-logicielle, comprendre les compromis peut aider les développeurs à naviguer plus efficacement dans ces défis.
+et de refactoring aux choix d'implémentation, en passant par les tests unitaires et les solutions de conception 
+logicielle, comprendre les compromis envisageables peut aider les développeurs à naviguer plus efficacement dans ces défis.
 
 <hr class="hr-text" data-content="Plan">
 
