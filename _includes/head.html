@@ -109,6 +109,9 @@
       font-display: swap;
       src: url("/assets/fonts/nunito-regular.woff2") format("woff2");
     }
-    </style>
+  </style>
+  <script>
+      localStorage.getItem('darkMode') === 'true' && document.documentElement.setAttribute('data-mode', 'dark');
+  </script>
   <link rel="stylesheet" href="{{ '/assets/css/main.css' | prepend: site.baseurl }}" >
 </head>

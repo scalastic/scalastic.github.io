@@ -319,8 +319,8 @@
   }
 
   .page-metadata {
-    color: $discreet-color;
-    fill: $discreet-color;
+    color: var(--discreet-color);
+    fill: var(--discreet-color);
     margin-left: auto;
     margin-right: auto;
     margin-top: 25px;
@@ -346,7 +346,7 @@
     text-align: left;
   }
   a {
-    color: #3e64ff;
+    color: var(--link-color);
     border: none;
     padding: 0;
     -webkit-box-shadow: none;
@@ -440,7 +440,7 @@
   padding: 0;
   margin: 0;
   max-height: 500px;
-  background-color: $body-background;
+  background-color: var(--body-background);
   border-radius: 10px;
   overflow: hidden;
   animation: bounce 0.8s linear;
@@ -497,7 +497,7 @@
     content: '';
     // use the linear-gradient for the fading effect
     // use a solid background color for a solid bar
-    background: linear-gradient(to right, transparent, #818078, transparent);
+    background: linear-gradient(to right, transparent, var(--body-color), transparent);
     position: absolute;
     left: 0;
     top: 50%;
@@ -513,14 +513,14 @@
     padding: 0 .5em;
     line-height: 1.5em;
     // this is really the only tricky part, you need to specify the background color of the container element...
-    color: #818078;
-    background-color: #fcfcfa;
+    color: var(--body-color);
+    background-color: var(--body-background);
   }
 }
 
 a.card-source.microlink_vanilla {
   &:after {
-    background-color: $body-background;
+    background-color: var(--body-background);
     content: "";
   }
   &:hover {
@@ -540,7 +540,7 @@ a.card-source.microlink_vanilla {
     transition: all .3s ease;
     &:hover {
       transform: translate(0px, -2px);
-      box-shadow: 0 15px 45px -10px rgba(10, 16, 34, .2);
+      box-shadow: 0 15px 45px -10px rgba(var(--shadow-color-flashy), .2);
     }
   }
 }
@@ -580,12 +580,12 @@ a.card-source.microlink_vanilla {
       display: flex;
       .social-item {
         svg {
-          color: $discreet-color;
-          fill: $discreet-color;
+          color: var(--discreet-color);
+          fill: var(--discreet-color);
         }
         a {
-          color: $discreet-color;
-          fill: $discreet-color;
+          color: var(--discreet-color);
+          fill: var(--discreet-color);
           padding-right: 6px;
           display: inline;
           font-size: 25px;
@@ -629,7 +629,7 @@ a.card-source.microlink_vanilla {
       line-height: 18px;
       text-transform: uppercase;
       font-size: 13px;
-      color: $discreet-color;
+      color: var(--discreet-color);
       margin-bottom: 6px;
     }
     h2.name {
@@ -645,7 +645,7 @@ a.card-source.microlink_vanilla {
       font-size: 16px;
       letter-spacing: 0px;
       margin: 0px;
-      color: $discreet-color;
+      color: var(--discreet-color);
     }
   }
   .author-desc {
@@ -656,7 +656,7 @@ a.card-source.microlink_vanilla {
     flex-wrap: wrap;
     font-size: 18px;
     line-height: 24px;
-    color: $discreet-color;
+    color: var(--discreet-color);
     opacity: 0.9;
   }
 }
@@ -675,9 +675,9 @@ a.card-source.microlink_vanilla {
 
   .recomm {
     flex-basis: 25%;
-    background: $inset-backgroung;
+    background: var(--inset-background);
     border-radius: 10px;
-    color: $emphasis-color;
+    color: var(--emphasis-color);
 
     &:hover {
         opacity: 1;
@@ -697,7 +697,7 @@ a.card-source.microlink_vanilla {
       h5 {
         text-align: left;
         text-decoration: none;
-        color: $body-color;
+        color: var(--body-color);
       }
 
       .image-container {
@@ -723,6 +723,6 @@ a.card-source.microlink_vanilla {
   flex-wrap: wrap;
   padding: 10px 10px;
   margin: 50px 50px;
-  border: 3px solid $discreet-color;
+  border: 3px solid var(--discreet-color);
   border-radius: 5px;
 }

@@ -1,7 +1,7 @@
 
 a.card-preview.microlink_vanilla {
   &:after {
-    background-color: $body-background;
+    background-color: var(--body-background);
     content: "";
   }
   &:hover {
@@ -21,7 +21,7 @@ a.card-preview.microlink_vanilla {
     transition: all .3s ease;
     &:hover {
       transform: translate(0px, -2px);
-      box-shadow: 0 15px 45px -10px rgba(10, 16, 34, .2);
+      box-shadow: 0 15px 45px -10px rgba(var(--shadow-color-flashy), .2);
     }
   }
 }
