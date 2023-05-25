@@ -5,10 +5,90 @@ sitemap:
 ---
 
 // Imports
-@import 'variables';
+//@import 'variables';
 @import 'normalize';
 @import 'highlight';
 
+:root {
+    --body-background: #fbfbfb;
+    --body-color: #515151;
+    --inset-background: #E0E0E0;
+    --emphasis-color: #333030;
+    --discreet-color: #b4b4b4;
+    --shadow-color-flashy: 10, 16, 34;
+    --shadow-color: #0a1022;
+    --link-color: #3e64ff;
+    --code-background: #747474;
+    --code-color: #fbfbfb;
+}
+html[data-mode='dark'] {
+    --body-background: #515151;
+    --body-color: #fbfbfb;
+    --inset-background: #747474;
+    --emphasis-color: #a0a0a0;
+    --discreet-color: #b4b4b4;
+    --shadow-color-flashy: 245, 239, 245;
+    --shadow-color: #4974f6;
+    --link-color: #3e8bff;
+    --code-background: #747474;
+    --code-color: #fbfbfb;
+}
+
+.dark-mode-switcher {
+  display: flex;
+  align-content: center;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  input[type="checkbox"] {
+    opacity: 0;
+    width: 0;
+    height: 0;
+  }
+  .dark-mode-switch {
+    border: 1px solid var(--body-color);
+    border-radius: 50px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 4px;
+    position: relative;
+    width: 55px;
+    background-color: var(--body-background);
+    .ball {
+      background-color: var(--body-color);
+      border-radius: 50%;
+      position: absolute;
+      top: 4px;
+      left: 4px;
+      height: 20px;
+      width: 20px;
+      transform: translateX(0);
+    }
+    svg {
+      fill: var(--body-color);
+    }
+    &.dark {
+      .ball {
+        transform: translateX(25px);
+      }
+    }
+    &.animated {
+      .ball {
+        transition: transform 0.2s ease-out;
+      }
+    }
+  }
+}
+
+/*
+.dark-mode-switcher {
+  display: none;
+  @include media-breakpoint-up(md) {
+    display: inline-flex;
+  }
+}
+*/
 
 *, *::after, *::before {
   box-sizing: border-box;
@@ -19,12 +99,12 @@ html {
 }
 
 body {
-  color: $body-color;
+  color: var(--body-color);
   font-family: 'Nunito Sans',sans-serif;
   font-size: 1rem;
   font-size: 19px;
   font-weight: 400;
-  background-color: $body-background;
+  background-color: var(--body-background);
   margin: 0;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
@@ -33,6 +113,11 @@ body {
 h1, h2, h3, h4, h4, h6 {
   font-family: 'metropolisbold',sans-serif;
   font-weight: 400;
+}
+
+h1 img {
+    fill: var(--body-color);
+    stroke: var(--body-color);
 }
 
 img {
@@ -58,7 +143,7 @@ blockquote {
   padding-left: 1.1rem;
   margin-left: 1rem;
   font-style: italic;
-  color: $discreet-color;
+  color: var(--discreet-color);
 }
 
 pre {
@@ -95,21 +180,21 @@ table td {
   padding: 8px;
   text-align: left;
   vertical-align: top;
-  border: 1px solid $discreet-color;
+  border: 1px solid var(--discreet-color);
 }
 
 table th {
-  color: $body-background;
-  background-color: $discreet-color;
+  color: var(--body-background);
+  background-color: var(--discreet-color);
 }
 
 table tr:nth-child(even) {
-  background-color: $inset-backgroung;
+  background-color: var(--inset-background);
 }
 
 table tr:hover {
-  color: $body-background;
-  background-color: $discreet-color;
+  color: var(--body-background);
+  background-color: var(--discreet-color);
 }
 
 table.scrollable {
@@ -128,18 +213,18 @@ table.scrollable {
 }
 
 .post, .article-page {
-  background-color: $body-background;
+  background-color: var(--body-background);
   width: 100%;
 }
 /*
 ::-moz-selection {
   background: rgba(209, 193, 177, 0.8);
-  color: $body-background;
+  color: var(--body-background);
 }
 
 ::selection {
   background: rgba(209, 193, 177, 0.8);
-  color: $body-background;
+  color: var(--body-background);
 }
 */
 .clearfix::before, .clearfix::after {
@@ -165,9 +250,9 @@ table.scrollable {
 
 /* - - - - - - - - - - Review Styles - - - - - - - - - - */
 :root {
-  --microlink-background-color: $body-background;
-  --microlink-hover-background-color: $body-background;
-  --microlink-color: $body-color;
+  --microlink-background-color: var(--body-background);
+  --microlink-hover-background-color: var(--body-background);
+  --microlink-color: var(--body-color);
 }
 
 @import 'parts/review';
