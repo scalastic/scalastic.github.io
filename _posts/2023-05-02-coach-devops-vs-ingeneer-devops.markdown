@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Coach DevOps et Ingénieur DevOps : Comprendre leurs Rôles et Contributions dans la Transformation DevOps"
+title: "Coach DevOps et Ingénieur DevOps : Comprendre leurs Rôles dans une Transformation DevOps"
 date: 2023-05-02 08:00:00 +0200
 description: Explorez les rôles et les contributions des coachs DevOps et des ingénieurs DevOps dans la transformation DevOps. Découvrez leurs responsabilités et leur impact.
 img: coach-devops-vs-engineer-devops.jpg

@@ -1,0 +1,718 @@
+---
+layout: post
+title: "Commandes Git Essentielles : Passez de Débutant à Expert"
+date: 2023-05-28 15:47:00 +0200
+description: "Devenez expert en Git et apprenez à utiliser les commandes add, stash, commit, branch, checkout, cherry-pick, reset, revert, rebase, log, HEAD"
+img: tuto-git.jpg
+fig-caption: Photo de <a href="https://unsplash.com/fr/@barkernotbaker?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">James Barker</a> sur <a href="https://unsplash.com/fr/photos/v3-zcCWMjgM?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Unsplash</a>
+tags: [Git, Tutorial, DevOps, Dev, Practice]
+lang: fr
+permalink: /complete-git-guide/
+status: finished
+---
+
+Dans ce guide des commandes Git, nous explorerons les concepts essentiels nécessaires pour maîtriser l'outil de contrôle
+de version le plus utilisé au monde. Bien que la plupart des développeurs se contentent des commandes de base, nous 
+verrons des situations concrètes où l'utilisation des fonctionnalités avancées de Git peut faire 
+gagner du temps, résoudre des problèmes complexes, améliorer votre processus de travail et surtout, faire de vous un 
+développeur serein et expert dans le maniement de Git.
+
+<hr class="hr-text" data-content="Sommaire">
+
+* TOC
+{:toc}
+
+<hr class="hr-text" data-content="Présentation">
+
+## Présentation de Git
+
+Git a été développé par Linus Torvalds en 2005 pour répondre aux besoins spécifiques du développement du noyau Linux. À 
+l'époque, les systèmes de contrôle de version existants étaient lents et inefficaces pour gérer un projet de la taille 
+et de la complexité du noyau Linux. Ainsi, Torvalds a entrepris de créer un outil qui soit rapide, distribué et capable 
+de gérer efficacement les branches de développement parallèles.
+
+Depuis lors, Git est devenu l'outil de contrôle de version de facto dans l'industrie du développement logiciel. Sa 
+flexibilité, sa rapidité et sa puissance en font un choix incontournable pour les équipes de développement collaboratif.
+
+> info "Installation"
+> Si ce n'était déjà fait, reportez-vous à la page suivante pour installer Git : [https://git-scm.com/downloads](https://git-scm.com/downloads){:target="_blank" rel="noopener noreferrer nofollow"}.
+
+<hr class="hr-text" data-content="Concepts">
+
+## Les Concepts Clés de Git
+
+Git repose sur plusieurs concepts clés qui le rendent puissant et flexible. Comprendre ces concepts vous aidera à 
+mieux appréhender son fonctionnement et à utiliser Git de manière efficace.
+
+### Le Commit
+
+Le commit est l'élément central de Git. Il enregistre un instantané complet des changements apportés à votre code. Du 
+point de vue de Git, l'historique de votre code est une succession de commits liés entre eux comme vous pouvez le voir 
+dans cette représentation :
+
+<figure class="article">
+  {% picture {{site.baseurl}}/assets/img/git-commits-basic.jpg --alt Liens entre commits de Git %}
+  <figcaption>Représentation des enchainements de Commits.</figcaption>
+</figure>
+
+- Chaque commit fait référence au commit précédent.
+- Il ne stocke que le delta par rapport au commit précédent.
+- Ce delta peut être les modifications d'un fichier, mais aussi l'ajout, le déplacement ou la suppression d'un fichier.
+
+Le commit est la partie visible de la structure de représentation interne de Git. Pour information, il existe d'autres 
+objets qui servent à stocker les changements dans le code, mais de notre point, en tant qu'utilisateur de Git, le commit 
+est l'objet que nous manipulerons.
+
+### Le Hash
+
+- Lorsque vous effectuez un commit, Git crée un identifiant unique pour ce commit, généralement appelé "hash" ou "SHA".
+- Ce hash est basé sur le contenu du commit, y compris les modifications apportées aux fichiers, l'auteur, le message de 
+commit et d'autres métadonnées.
+- Il sert à identifier de manière univoque ce commit dans l'historique du projet.
+
+Voici un exemple d'affichage de commits avec, en début de ligne, leur hash respectif :
+
+{% highlight hash %}
+8634ee6 (HEAD -> main, origin/main, origin/HEAD) feat: Adds dark theme 🖤 (#32)
+aae8242 fix: CSS on phones
+d9bb54f refacto: Big CSS uniformization and refacto 🌟
+4c77908 refacto: Tags, search results and animation on articles (#31)
+fec3121 refacto: Adjusted image size, cropping, and resolution 📺
+cd6a213 fix: GitHub Actions error RPC failed; HTTP 408 curl 18 HTTP/2 (#29)
+{% endhighlight %}
+
+### Les Branches
+
+Les commits de Git permettent donc de suivre l'historique de votre projet de manière claire et structurée. Cependant, 
+ils permettent aussi de travailler sur différentes lignes de développement de manière isolée. C'est ce qu'on appelle
+les branches.
+
+Regardons leur formalisation dans un historique de commits :
+
+<figure class="article">
+  {% picture {{site.baseurl}}/assets/img/git-branches-basic.jpg --alt Commits formant des branches %}
+  <figcaption>Commits formant 2 branches.</figcaption>
+</figure>
+
+- On constate que l'enchainement de ces commits forme 2 branches sur lesquelles il est possible de travailler à plusieurs 
+fonctionnalités ou correctifs simultanément.
+- Nous verrons plus tard comment Git permet de réconcilier ces branches grâce notamment aux commits.
+
+> info "Bonne Pratique"
+> L'utilisation de commits réguliers et significatifs est une pratique recommandée avec Git. Cela permet d'avoir un 
+> historique clair, facilitant la collaboration, le débogage et le suivi des modifications. Les commits constituent une 
+> forme de documentation de l'évolution de votre projet, aidant les développeurs à comprendre l'historique des changements
+> et à revenir à des états précédents si nécessaire.
+
+### Les Différents Espaces
+
+Dernier concept à connaître, les espaces de Git. Un espace est une zone de travail spécifique où Git stocke les 
+différentes versions des fichiers de votre projet. Comprendre cette dernière notion va vous permettre de savoir quelle 
+commande appliquer et dans quel cas, que ce soit pour gérer les modifications en cours, préparer des commits ou naviguer
+entre les différentes versions de votre code.
+
+Voyons les 5 zones que gère Git :
+
+<figure class="article">
+  {% picture {{site.baseurl}}/assets/img/git-concepts.jpg --alt Concepts clés de Git %}
+  <figcaption>Représentation des différents espaces de Git ainsi que des actions de quelques commandes</figcaption>
+</figure>
+
+1. La **Stash** ou la **Stash Area** :
+
+   La stash area est une zone spéciale où vous pourrez demander à Git de stocker
+temporairement des modifications de votre espace de travail. La stash area vous offre la flexibilité de passer à une
+autre branche, de travailler sur une autre tâche ou d'effectuer des tests sans avoir à créer de commit.
+
+2. Le **Wokspace** ou l'**Espace de Travail** :
+
+   L'espace de travail est le répertoire où vous travaillez sur vos fichiers. Il contient les versions actuelles des 
+fichiers et est modifié à mesure que vous effectuez des changements dans votre code.
+
+3. L'**Index** ou la **Staging Area** :
+
+   L'index est un espace intermédiaire entre l'espace de travail et les commits. Il fonctionne comme une zone de 
+préparation où vous sélectionnez les modifications spécifiques à inclure dans le prochain commit.
+
+4. Le **Local Repository** :
+
+   C'est votre référentiel local où Git stocke l'historique complet de votre projet, y compris tous les commits, les 
+branches, les tags et les informations de configuration. Il s'agit de la copie locale de votre code source Git, sur 
+laquelle vous travaillez et effectuez des opérations de versioning.
+
+   L'utilisation du référentiel local vous permet d'effectuer des opérations de manière autonome, sans avoir besoin 
+d'une connexion réseau, avant de les synchroniser avec des référentiels distants si nécessaire.
+
+5. Le **Remote Repository** :
+
+   Le remote représente un référentiel distant où vous pouvez stocker votre code, comme un dépôt Git sur une plateforme 
+d'hébergement telle que GitHub ou GitLab. Le remote est utilisé pour faciliter la collaboration avec d'autres 
+développeurs et partager votre code et synchroniser les changements entre membres de l'équipe.
+
+En comprenant ces concepts, vous serez en mesure de naviguer plus efficacement dans l'historique de votre projet, 
+d'organiser votre travail avec les branches, de préparer vos commits avec l'index et de collaborer avec d'autres 
+développeurs en utilisant les remotes.
+
+<hr class="hr-text" data-content="Base">
+
+## Les Commandes de Base de Git
+
+Maintenant que nous comprenons les concepts de Git, plongeons dans les commandes de base qui vous permettront de 
+gérer efficacement votre code source.
+
+### Création d'un Dépôt Git avec `git init` ou `git clone`
+
+- Premier cas de figure, votre projet n'est pas géré sous Git :
+
+   Pour commencer à utiliser Git dans votre projet, vous devez en initialiser un. Cela se fait en utilisant la commande
+`git init` dans le répertoire racine de votre projet. Par exemple :
+
+{% highlight git %}
+$ cd /chemin/vers/mon_projet
+$ git init
+{% endhighlight %}
+
+- Deuxième cas de figure, votre projet se trouve déjà dans un dépôt distant Git :
+
+   La plupart du temps un dépôt distant existe déjà et vous souhaitez le récupérer en local. Il vous suffit de faire un 
+`git clone <URL DE MON REPO>` pour le télécharger sur votre poste en local.
+
+{% highlight git %}
+$ cd /chemin/vers/un_répertoire
+$ git clone https://github.com/progit/progit2.git
+{% endhighlight %}
+
+### Ajout de Fichiers avec la Commande `git add`
+
+Une fois que vous avez initialisé un dépôt Git, vous pouvez ajouter des fichiers à l'index de Git en utilisant la 
+commande `git add`. Cela permet à Git de suivre les modifications de ces fichiers. Par exemple, pour ajouter tous les 
+fichiers modifiés dans votre répertoire de travail à l'index, vous pouvez exécuter la commande suivante :
+
+{% highlight git %}
+$ git add .
+{% endhighlight %}
+
+### Enregistrement des Modifications avec `git commit`
+
+Une fois que vous avez ajouté les fichiers à l'index, vous pouvez enregistrer les modifications en créant un commit à 
+l'aide de la commande `git commit`. Chaque commit représente un instantané de l'état de votre projet à un moment donné. 
+Par exemple, pour créer un commit avec un message descriptif, vous pouvez utiliser la commande suivante :
+
+{% highlight git %}
+$ git commit -m "Ajout de la fonctionnalité ..."
+{% endhighlight %}
+
+### Utilisation de `git stash` pour Mettre de Côté des Modifications Temporaires
+
+Parfois, vous pouvez avoir des modifications non terminées dans votre espace de travail, mais vous devez rapidement 
+passer à une autre tâche ou à une autre branche. Dans de tels cas, vous pouvez utiliser la commande `git stash` pour 
+mettre de côté temporairement vos modifications. Par exemple :
+
+{% highlight git %}
+$ git stash
+{% endhighlight %}
+
+L'exemple ci-dessus met de côté vos modifications dans la zone temporaire appelé stash. Une fois vos modifications 
+"mises de côté", vous pouvez passer à une autre tâche ou changer de branche.
+
+Maintenant, supposons que vous avez terminé cette tâche et que vous souhaitez 
+reprendre vos modifications "mises de côté". Vous pouvez les appliquer dans votre répertoire de travail en utilisant la 
+commande `git stash pop`. Cette commande applique automatiquement la dernière stash et la supprime de la liste des 
+stashes. Par exemple :
+
+{% highlight git %}
+$ git stash pop
+{% endhighlight %}
+
+Cette commande applique la dernière stash et restaure vos modifications dans votre répertoire de travail. Vous pouvez 
+maintenant continuer à travailler sur vos anciennes modifications.
+
+L'utilisation de `git stash` et `git stash pop` vous permet de mettre de côté temporairement vos modifications en cours,
+puis de les réappliquer facilement lorsque vous êtes prêt à y revenir. Cela vous offre une flexibilité précieuse lors de
+la gestion de vos tâches et de vos branches de développement.
+
+## La Gestion des Branches et des Fusions
+
+L'une des fonctionnalités puissantes de Git est sa capacité à gérer des branches de développement parallèles. La gestion
+des branches et des fusions est une compétence clé à acquérir pour un développement efficace.
+
+Voyons comment Git facilite cette gestion.
+
+> warning "Spoiler Alert"
+> A la fin de cet article, je vous recommande un superbe outil pour vous exercer aux commandes Git tout en visualisant 
+> les actions sur les branches et commits. Les copies d'écran suivantes sont justement réalisées avec cet outil
+> [https://learngitbranching.js.org/](https://learngitbranching.js.org/){:target="_blank" rel="noopener noreferrer nofollow"}.
+
+### Création de Branches avec `git branch` et `git checkout`
+
+- Vous pouvez créer une nouvelle branche dans votre dépôt Git en utilisant la commande `git branch`. Par exemple, pour 
+créer une branche nommée "feat/new-functionality", vous pouvez exécuter :
+
+{% highlight git %}
+$ git branch feat/new-functionality
+{% endhighlight %}
+
+  Pour vous déplacer vers cette nouvelle branche, vous utiliserez la commande `git checkout`. Par exemple :
+
+{% highlight git %}
+$ git checkout feat/new-functionality
+{% endhighlight %}
+
+   Vous êtes maintenant sur la branche "feature/nouvelle-fonctionnalite" et vous pouvez commencer à effectuer des 
+   modifications spécifiques à cette fonctionnalité.
+
+- Une autre manière plus rapide serait d'entrer la commande `git checkout -b` qui crée la branche et vous place 
+directement dessus après l'avoir créée :
+
+{% highlight git %}
+$ git checkout -b feat/new-functionality
+{% endhighlight %}
+
+### Fusion de branches avec `git merge`
+
+Lorsque vous avez terminé de développer une fonctionnalité ou de corriger un bogue dans une branche, il est temps de 
+fusionner ces modifications avec une autre branche, souvent la branche principale (par exemple, `main` ou `master`). 
+C'est là que la commande `git merge` intervient.
+
+Pour fusionner une branche dans une autre, vous pouvez exécuter la commande `git merge` en spécifiant la branche que 
+vous souhaitez fusionner. Par exemple, pour fusionner la branche "feature/nouvelle-fonctionnalite" dans la branche 
+principale, vous pouvez utiliser la commande suivante :
+
+{% highlight git %}
+git checkout main
+git merge feature/nouvelle-fonctionnalite
+{% endhighlight %}
+
+Git tentera automatiquement de fusionner les modifications de la branche spécifiée dans la branche actuelle. Si des 
+conflits surviennent, Git vous informera et vous devrez résoudre ces conflits manuellement.
+
+### Résolution de conflits de fusion
+
+Lorsqu'il y a des conflits entre les modifications apportées dans les branches à fusionner, Git ne peut pas résoudre 
+automatiquement ces conflits. Dans ce cas, vous devrez résoudre les conflits manuellement.
+
+Git marquera les zones en conflit dans les fichiers concernés, vous permettant de voir les différences et de choisir les
+modifications à conserver. Une fois que vous avez résolu les conflits, vous devez ajouter les fichiers modifiés à 
+l'index en utilisant `git add`, puis effectuer un commit pour finaliser la fusion.
+
+### Suppression des branches fusionnées
+
+Après avoir fusionné une branche et vérifié que les modifications ont été intégrées avec succès, vous pouvez supprimer 
+la branche fusionnée pour garder votre historique de projet propre.
+
+Pour supprimer une branche fusionnée, vous pouvez utiliser la commande `git branch` avec l'option `-d` suivie du nom de 
+la branche. Par exemple, pour supprimer la branche "feature/nouvelle-fonctionnalite" après sa fusion, vous pouvez 
+exécuter :
+
+{% highlight git %}
+git branch -d feature/nouvelle-fonctionnalite
+{% endhighlight %}
+
+### Exécution de `git cherry-pick` pour Appliquer des Commits Spécifiques
+
+Parfois, vous pouvez avoir besoin d'appliquer uniquement certains commits d'une branche à une autre. Dans de tels cas, 
+vous pouvez utiliser la commande `git cherry-pick`. Par exemple, pour appliquer le commit avec le hash "abcdef" à 
+la branche actuelle, vous pouvez exécuter :
+
+{% highlight git %}
+$ git cherry-pick abcdef
+{% endhighlight %}
+
+Cela appliquera le commit spécifié à la branche actuelle, créant ainsi une copie du commit sur cette branche :
+
+<figure class="article">
+  {% picture {{site.baseurl}}/assets/img/git-cherry-pick.jpg --alt Cherry-pick de C2 %}
+  <figcaption>Cherry-pick du commit C2 de la branche feature vers la branche bugfix.</figcaption>
+</figure>
+
+### Réinitialisation d'une Branche avec `git reset`
+
+Si vous avez besoin de revenir à un état précédent de votre branche, vous pouvez utiliser la commande `git reset`. Par 
+exemple, pour réinitialiser la branche actuelle à un commit spécifique, vous pouvez exécuter :
+
+{% highlight git %}
+$ git reset <commit>
+{% endhighlight %}
+
+Cela ramènera votre branche à l'état du commit spécifié, en annulant tous les commits ultérieurs (notez bien que le 
+commit n'est pas supprimé) :
+
+<figure class="article">
+  {% picture {{site.baseurl}}/assets/img/git-reset.jpg --alt Reset de C3 %}
+  <figcaption>Reset du commit C3 de la branche feature</figcaption>
+</figure>
+
+### Annulation de Modifications avec `git revert`
+
+Si vous souhaitez annuler un ou plusieurs commits spécifiques tout en conservant une trace de cette annulation dans 
+l'historique, vous pouvez utiliser la commande `git revert`. Par exemple, pour annuler le dernier commit, vous pouvez 
+exécuter :
+
+{% highlight git %}
+$ git revert HEAD
+{% endhighlight %}
+
+Cela créera un nouveau commit qui annule les modifications apportées par le commit précédent :
+
+<figure class="article">
+  {% picture {{site.baseurl}}/assets/img/git-revert.jpg --alt Revert du commit C3 %}
+  <figcaption>Revert du commit C3 ce qui crée un nouveau commit C3'</figcaption>
+</figure>
+
+La gestion des branches est une fonctionnalité clé de Git, vous permettant de travailler efficacement sur différentes 
+fonctionnalités ou correctifs en parallèle. Les commandes `git branch`, `git checkout`, `git cherry-pick`, `git reset` 
+et `git revert` vous offrent la flexibilité nécessaire pour gérer les branches et les modifications de manière optimale.
+
+## Le Rebasage et la Relecture de l'Historique
+
+Le rebasage (rebase en anglais) est une fonctionnalité avancée de Git qui permet de modifier l'historique des commits. 
+Dans cette partie, nous explorerons le rebasage ainsi que d'autres commandes utiles pour examiner et naviguer dans 
+l'historique de votre dépôt.
+
+### Compréhension du Rebase et son Utilisation avec `git rebase`
+
+Le rebasage vous permet de réorganiser les commits de votre branche pour les replacer sur une autre branche ou pour les 
+réorganiser de manière linéaire. Cela peut être utile pour garder un historique de commits propre et facile à suivre. 
+Pour effectuer un rebasage interactif, utilisez la commande `git rebase -i`. Par exemple :
+
+{% highlight git %}
+$ git rebase -i <branche-de-destination>
+{% endhighlight %}
+
+Cette commande ouvrira un éditeur avec une liste des commits que vous pouvez réorganiser ou modifier selon vos besoins :
+
+<figure class="article">
+  {% picture {{site.baseurl}}/assets/img/git-rebase.jpg --alt Rebase pour intervertir C3 et C4 %}
+  <figcaption>Rebase pour intervertir C3 et C4 de la branche feature</figcaption>
+</figure>
+
+### Exploration de l'Historique des Commits avec `git log`
+
+- La commande `git log` vous permet d'examiner l'historique des commits de votre dépôt. Par défaut, elle affiche les 
+informations essentielles comme l'auteur, la date et le message du commit. Par exemple :
+
+{% highlight git %}
+$ git log
+
+commit 8634ee6a55086f6cf4ff7fa0ee4bbceb283d7c2c (HEAD -> main, origin/main, origin/HEAD)
+Author: Jean-Jerome Levy <jeanjerome@users.noreply.github.com>
+Date:   Thu May 25 23:54:03 2023 +0200
+
+    feat: Adds dark theme 🖤 (#32)
+
+commit aae82424db11ad31a6aba2cb0c27a264e177b9a1
+Author: Jean-Jerome Levy <jeanjerome@users.noreply.github.com>
+Date:   Wed May 24 20:41:20 2023 +0200
+
+    fix: CSS on phones
+
+commit d9bb54f71bd3bf609cfd6ccfcfdd8df14bf5f06b
+Author: Jean-Jerome Levy <jeanjerome@users.noreply.github.com>
+Date:   Tue May 23 22:59:36 2023 +0200
+
+    refacto: Big CSS uniformization and refacto 🌟
+...
+{% endhighlight %}
+
+  Cette commande affiche une liste détaillée de tous les commits, du plus récent au plus ancien, vous permettant ainsi de 
+suivre l'évolution de votre code.
+
+- Il est possible de formater l'affichage des logs afin de n'afficher que ce qui nous intéresse. Pour avoir par exemple
+un affichage compact, entrez `git log --oneline` :
+
+{% highlight git %}
+$ git log --oneline
+
+8634ee6 feat: Adds dark theme 🖤 (#32)
+aae8242 fix: CSS on phones
+d9bb54f refacto: Big CSS uniformization and refacto 🌟
+...
+{% endhighlight %}
+
+> info "git et vi"
+> Git utilise `vi` pour interagir avec l'utilisateur. Pensez aux commandes :
+> - `ESC : q` pour sortir,
+> - `ESC : i` pour éditer,
+> - `ESC : x` pour quitter en enregistrant,
+> - `ESC : s/x/y/g` pour remplacer tous les x par des y,...
+
+### Utilisation du Pointeur `HEAD` pour se Déplacer dans l'Historique
+
+Le pointeur `HEAD` est un pointeur spécial qui fait référence au commit actuel dans votre dépôt. Vous pouvez l'utiliser 
+pour vous déplacer dans l'historique des commits. Par exemple, pour afficher les détails du commit actuel, vous pouvez 
+exécuter :
+
+{% highlight git %}
+$ git show HEAD
+
+commit 8634ee6a55086f6cf4ff7fa0ee4bbceb283d7c2c
+Author: Jean-Jerome Levy <jeanjerome@users.noreply.github.com>
+Date:   Thu May 25 23:54:03 2023 +0200
+
+    feat: Adds dark theme 🖤 (#32)
+
+diff --git a/_includes/head.html b/_includes/head.html
+index bf20ecf..2c3823d 100755
+--- a/_includes/head.html
++++ b/_includes/head.html
+@@ -109,6 +109,9 @@
+font-display: swap;
+src: url("/assets/fonts/nunito-regular.woff2") format("woff2");
+}
+-    </style>
++  </style>
++  <script>
++      localStorage.getItem('darkMode') === 'true' && document.documentElement.setAttribute('data-mode', 'dark');
++  </script>
+...
+{% endhighlight %}
+
+Cette commande affichera les informations détaillées du commit actuel, y compris les modifications apportées.
+
+### Les Opérateurs Spéciaux `^` et `~` pour Référencer des Commits Spécifiques
+
+Les opérateurs `^` et `~` vous permettent de référencer des commits spécifiques en utilisant des notations relatives. 
+
+Par exemple, 
+- `^` fait référence au commit parent (le précédent),
+- `~` fait référence au commit précédent le parent (l'avant-dernier).
+
+Par exemple, pour afficher les détails du commit parent direct du commit actuel, vous pouvez utiliser :
+
+{% highlight git %}
+$ git show HEAD^
+{% endhighlight %}
+
+Ces opérateurs sont utiles pour naviguer rapidement dans l'historique des commits sans avoir à connaître leurs 
+identifiants précis.
+
+Le rebasage et la relecture de l'historique sont des fonctionnalités avancées de Git qui vous permettent de gérer et de 
+structurer votre historique de commits de manière efficace. Les commandes `git rebase`, `git log`, `HEAD^` et `HEAD~` 
+vous offrent les outils nécessaires pour explorer, manipuler et comprendre l'historique de votre dépôt Git.
+
+## Le Contrôle des Versions avec Git
+
+L'un des aspects fondamentaux de Git est son système de contrôle de version, qui vous permet de gérer les différentes 
+versions de votre projet de manière efficace. Dans cette partie, nous explorerons les commandes pour comparer les 
+différences entre les versions, récupérer des versions antérieures et gérer les branches distantes.
+
+### Comparaison des Différences avec `git diff`
+
+La commande `git diff` vous permet de visualiser les différences entre les versions du code source. Par exemple, pour 
+afficher les modifications entre l'état actuel et le dernier commit, vous pouvez exécuter :
+
+{% highlight git %}
+$ git diff HEAD
+
+diff --git a/_posts/2023-05-28-tuto-git.markdown b/_posts/2023-05-28-tuto-git.markdown
+new file mode 100644
+index 0000000..22b5ca1
+--- /dev/null
++++ b/_posts/2023-05-28-tuto-git.markdown
+@@ -0,0 +1,509 @@
++---
++layout: post
++title: "Guide Complet de Git : Maîtrisez ses Commandes Essentielles"
+{% endhighlight %}
+
+Cette commande affiche les lignes modifiées, ajoutées ou supprimées entre les deux versions. Ici, elle m'indique que 
+j'ai ajouté un nouveau fichier et me donne son contenu.
+
+### Récupération des Versions Antérieures avec `git checkout`
+
+Si vous avez besoin de revenir à une version antérieure de votre projet, vous pouvez utiliser la commande `git checkout`
+.
+
+Par exemple, pour revenir à un commit spécifique avec l'identifiant "abcdef", vous pouvez exécuter :
+
+{% highlight git %}
+$ git checkout abcdef
+{% endhighlight %}
+
+Cela mettra votre répertoire de travail dans l'état de ce commit, vous permettant de travailler avec cette version 
+spécifique.
+
+<figure class="article">
+  {% picture {{site.baseurl}}/assets/img/git-checkout.jpg --alt Checkout vers main pour créer un branche bugfix %}
+  <figcaption>Checkout sur main pour pouvoir créer un branche bugfix</figcaption>
+</figure>
+
+### Gestion des Branches Distantes avec `git push` et `git pull`
+
+Git vous permet de travailler avec des dépôts distants, tels que ceux hébergés sur des plateformes comme GitHub ou 
+GitLab. Pour pousser vos modifications locales vers un dépôt distant, utilisez la commande `git push`. Par exemple :
+
+{% highlight git %}
+$ git push origin feat/my-feature
+{% endhighlight %}
+
+Cette commande envoie les modifications de votre branche locale vers la branche correspondante sur le dépôt distant.
+
+Pour récupérer les modifications effectuées sur le dépôt distant et les fusionner dans votre branche locale, utilisez la
+commande `git pull`. Par exemple :
+
+{% highlight git %}
+$ git pull origin bugfix/the-fix
+{% endhighlight %}
+
+Cette commande récupère les modifications de la branche correspondante sur le dépôt distant et les fusionne 
+automatiquement dans votre branche locale.
+
+Ces commandes vous permettent de synchroniser votre dépôt local avec les dépôts distants, facilitant ainsi le travail 
+collaboratif et le suivi des versions.
+
+## Scénarios avancés de manipulation de l'historique avec Git
+
+Dans ce tutoriel, notre objectif principal est de vous apprendre à gérer les cas que nous allons aborder dans ce 
+chapitre. Vous allez appliquer les notions que nous venons d'explorer pour manipuler l'historique des commits et 
+résoudre des problèmes complexes auxquels tout développeur est confronté dans ses projets.
+
+En acquérant ces compétences, vous deviendrez un développeur expérimenté, vous démarquant de ceux qui se contentent des 
+commandes basiques de Git.
+
+### Comment réécrire plusieurs commits en un seul ?
+
+Pour réécrire plusieurs commits en un seul, vous pouvez utiliser la commande `git rebase -i <commit>` où `<commit>` est 
+le commit précédent à ceux que vous souhaitez réécrire.
+
+Voici les étapes à suivre :
+
+1. Tout d'abord, utilisez la commande `git log --oneline` pour identifier le nombre de commits que vous souhaitez 
+réécrire en un seul en comptant le dernier commit.
+
+2. Une fois ce nombre identifié, procéder au rebase. Par exemple, si vous voulez réécrire les trois derniers commits, 
+utilisez `git rebase -i HEAD~3`. Cela ouvrira l'éditeur de texte par défaut avec une liste des commits à réécrire.
+
+2. Dans l'éditeur de texte, remplacez le mot `pick` (ou `p`) par `squash` ou simplement `s` pour les 
+commits que vous souhaitez fusionner en un seul. Par exemple, si vous avez trois commits et que vous souhaitez les 
+réécrire en un seul, vous modifierez les deuxième et troisième commits en utilisant `squash` ou `s`. Là encore, la 
+connaissance des commandes vi pourra vous faciliter la tâche: `ESC : s/p/s/g`
+
+3. Enregistrez et fermez l'éditeur de texte (via la commande de vi `ESC : x`). Une autre fenêtre d'éditeur s'ouvrira 
+pour vous permettre de modifier le message du commit final. Vous pouvez conserver le message du premier commit ou le 
+modifier selon vos besoins.
+
+4. Enregistrez et fermez également cette fenêtre d'éditeur. Git effectuera alors le rebase et fusionnera les commits 
+sélectionnés en un seul commit.
+
+Assurez-vous de comprendre les implications du rebase, car il modifie l'historique des commits. Si vous avez déjà poussé
+ces commits vers un référentiel distant, vous devrez effectuer une `git push --force` pour mettre à jour le référentiel 
+distant avec le nouvel historique réécrit.
+
+Notez que la réécriture d'un historique partagé peut avoir des conséquences pour les autres développeurs
+travaillant sur le même projet.
+
+> warning "Attention"
+> - Il est important de communiquer avec votre équipe et de suivre les meilleures 
+> pratiques de collaboration lors de la réécriture des commits.
+> - En général, il est recommandé de procéder de la sorte lorsqu'on travaille seul, sur sa branche.
+
+### Modifier le message d'un commit
+
+Il peut arriver que vous committiez un message incorrect, incomplet ou mal formaté. Dans de tels cas, Git offre une 
+solution simple pour modifier le message d'un commit précédent. Voici comment procéder.
+
+#### Modifier le message du dernier commit
+
+1. Utilisez la commande `git commit --amend` suivi de l'option `-m` et du nouveau message que vous souhaitez utiliser :
+
+{% highlight git %}
+git commit --amend -m "Nouveau message du commit"
+{% endhighlight %}
+  
+  Cela modifiera le message du dernier commit en utilisant le nouveau message spécifié.
+
+#### Modifier le message d'un commit plus ancien
+
+1. Si vous souhaitez modifier le message d'un commit plus ancien, vous pouvez utiliser la commande 
+`git rebase -i <commit>` où `<commit>` est le commit précédent celui que vous voulez modifier. 
+
+{% highlight git %}
+git rebase -i HEAD~3
+{% endhighlight %}
+
+2. Dans l'éditeur de texte qui s'ouvre, remplacez "pick" par "reword" ou simplement "r" devant le commit dont vous 
+souhaitez modifier le message. Cela ouvrira l'éditeur de texte avec une liste des commits. Modifiez le mot "pick" en 
+"reword" ou "r" devant le commit approprié, puis enregistrez et fermez l'éditeur.
+
+3. Une fois que vous avez modifié le message du commit, enregistrez les modifications et fermez l'éditeur. Git 
+effectuera alors le rebase et vous permettra de modifier le message du commit sélectionné.
+
+Il est important de noter que si vous avez déjà poussé le commit dont vous modifiez le message, vers un référentiel 
+distant, vous devrez effectuer un `git push --force` pour mettre à jour le référentiel distant avec le nouveau message.
+
+La possibilité de modifier le message d'un commit précédent vous permet de corriger les erreurs ou d'améliorer la clarté
+des messages pour un historique de commits plus précis et informatif.
+
+> warning "Attention"
+> - Assurez-vous de communiquer avec les autres développeurs travaillant sur le même projet, car cela peut affecter leur 
+> historique de commits.
+> - En général, il est recommandé de procéder de la sorte lorsqu'on travaille seul, sur sa branche.
+
+### Modifier les fichiers d'un commit précédent
+
+Il peut arriver que vous ayez besoin de modifier les fichiers d'un commit précédent dans Git. Cela peut être dû à une 
+erreur de contenu, à l'oubli de certains fichiers ou à d'autres raisons nécessitant des modifications rétroactives. 
+Bien que Git encourage à préserver l'intégrité de l'historique des commits, il existe des méthodes pour apporter des 
+modifications à des commits passés.
+
+Voici quelques étapes pour modifier les fichiers d'un commit précédent :
+
+1. Utilisez la commande `git rebase -i <commit>` où `<commit>` est le commit précédent auquel vous souhaitez apporter 
+des modifications. Cela ouvrira l'éditeur de texte avec la liste des commits dans l'ordre chronologique inverse.
+
+2. Localisez le commit que vous souhaitez modifier et remplacez le mot "pick" devant ce commit par "edit". Enregistrez 
+les modifications et fermez l'éditeur.
+
+3. Git effectuera alors le rebase et mettra en pause le processus après avoir appliqué le commit que vous souhaitez 
+modifier.
+
+4. Utilisez la commande `git checkout <commit> -- <fichier>` pour extraire la version du fichier spécifique à modifier 
+du commit précédent.
+  Par exemple, `git checkout HEAD~1 -- fichier.txt` extrait la version de `fichier.txt` du commit précédent.
+
+5. Modifiez le fichier selon vos besoins en effectuant les changements nécessaires.
+
+6. Une fois les modifications apportées, utilisez la commande `git add <fichier>` pour mettre à jour les modifications 
+dans l'index de Git.
+
+7. Utilisez la commande `git commit --amend` pour créer un nouveau commit avec les modifications apportées. Vous pouvez 
+modifier le message de commit si nécessaire.
+
+8. Répétez les étapes 4 à 7 pour chaque fichier que vous souhaitez modifier dans ce commit.
+
+9. Lorsque vous avez terminé de modifier les fichiers, utilisez la commande `git rebase --continue` pour poursuivre le 
+rebase et appliquer les modifications.
+
+Il est important de noter que si vous avez déjà poussé le commit dont vous modifiez les fichiers vers un référentiel 
+distant, vous devrez effectuer une force-poussée (`git push --force`) pour mettre à jour le référentiel distant avec les
+modifications.
+
+La possibilité de modifier les fichiers d'un commit précédent vous permet de corriger des erreurs ou d'apporter des 
+modifications rétroactives lorsque cela est nécessaire. Cependant, soyez prudent lors de la modification de l'historique
+des commits, car cela peut entraîner des incohérences et des conflits s'il est mal utilisé.
+
+> warning "Attention"
+> - Assurez-vous de communiquer avec les autres développeurs travaillant sur le même projet, car cela peut affecter leur
+> historique de commits.
+> - En général, il est recommandé de procéder de la sorte lorsqu'on travaille seul, sur sa branche.
+
+
+## Conclusion
+
+Nous avons parcouru les concepts essentiels de Git et exploré un ensemble de commandes clés pour vous aider à maîtriser 
+cet outil puissant. En comprenant les commits, les espaces de travail, l'index, la stash et les référentiels local et 
+distant, vous êtes maintenant prêt à optimiser votre travail et à tirer le meilleur parti de Git.
+
+Si vous souhaitez approfondir vos connaissances sur Git, je vous recommande de consulter les ressources suivantes :
+
+- [Official Git Documentation](https://git-scm.com/doc){:target="_blank" rel="noopener noreferrer nofollow"} : La documentation officielle de Git, traduite en plusieurs 
+langues, est une source fiable, complète et très claire pour en apprendre davantage sur les fonctionnalités avancées 
+de Git.
+
+- [Learn Git Branching](https://learngitbranching.js.org/){:target="_blank" rel="noopener noreferrer nofollow"} : Une application web, dont le code est disponible sur GitHub,
+qui propose des tutoriels interactifs et qui permettent de visualiser l'action d'une commande sur les branches et les 
+commits de votre Git. Je vous recommande d'aller y tester vos nouvelles connaissances.
+
+En explorant ces ressources supplémentaires et en continuant à pratiquer, vous pourrez approfondir votre compréhension 
+de Git et devenir un expert.

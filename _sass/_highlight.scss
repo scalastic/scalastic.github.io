@@ -41,6 +41,7 @@ $background: var(--code-background);
 }
 
 .code-window {
+    min-width: 250px;
     background: var(--code-background);
     border: none;
     padding-bottom: 5px;

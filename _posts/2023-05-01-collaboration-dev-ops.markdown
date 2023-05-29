@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Boostez votre DevOps : Des Pratiques Éprouvées pour des Résultats Garantis"
+title: "Boostez votre DevOps : Des Pratiques Éprouvées pour ne pas Sombrer"
 date: 2023-05-01 18:40:00 +0200
 description: Optimisez votre DevOps avec des pratiques éprouvées. Découvrez les stratégies essentielles pour améliorer votre collaboration et votre efficacité.
 img: dev-ops-collaboration.jpg
