@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Towards DevOps Excellence: Explore Docker Image Update Automation"
+title: "Towards DevOps Excellence: Explore Docker Update Automation"
 date: 2023-05-04 23:07:00 +0200
 description: Automate updates of your Docker images using DevOps CI/CD to maintain security, stability, and performance of your applications.
 img: update-docker-image.jpg

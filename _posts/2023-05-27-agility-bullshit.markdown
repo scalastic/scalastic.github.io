@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Démasquer le Bullshit dans l'Agilité : Quand les Développeurs sont Lésés"
+title: "Démasquez le Bullshit dans l'Agilité pour ne plus vous Faire Entuber"
 date: 2023-05-27 12:19:00 +0200
 description: Découvrez les réalités cachées derrière l'agilité en entreprise. Abus, illusion d'autonomie, horaires de travail excessifs... Une lecture essentielle pour démystifier l'agilité et promouvoir un environnement de travail équilibré et éthique.
 img: agility-bullshit.jpg

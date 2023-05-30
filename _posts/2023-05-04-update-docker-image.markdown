@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Vers l'Excellence DevOps : Découvrez l'Automatisation des Mises à Jour d'Images Docker"
+title: "Vers l'Excellence DevOps : Découvrez l'Automatisation des Mises à Jour Docker"
 date: 2023-05-04 23:07:00 +0200
 description: Automatisez les mises à jour de vos images Docker avec des CI/CD DevOps pour maintenir la sécurité, la stabilité et les performances de vos applications. 
 img: update-docker-image.jpg

@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Unmasking the Bullshit in Agility: When Developers Are Slighted"
+title: "Unmask the Bullshit in Agility to Stop Getting Screwed Over"
 date: 2023-05-27 12:19:00 +0200
 description: Discover the hidden realities behind agility in the workplace. Abuse, illusion of autonomy, excessive working hours... An essential read to demystify agility and promote a balanced and ethical work environment.
 img: agility-bullshit.jpg
