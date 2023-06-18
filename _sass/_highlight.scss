@@ -8,6 +8,7 @@ $background: var(--code-background);
     border: 1px solid var(--code-background);
     border-radius: 3px;
     padding: 0.1rem 0.5rem;
+    word-break: break-all;
 }
 
 .code-container {
