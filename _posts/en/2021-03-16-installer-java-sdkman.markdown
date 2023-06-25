@@ -1,82 +1,128 @@
 ---
 layout: post
-title: Install Java with SDKMAN
+title: "SDKMAN: Install Multiple JDK Versions and Much More!"
 date: 2021-03-16 11:44:00 +2
-description: Learn to install and use several versions of Java with SDKMAN. Walkthrough for MacOS, Windows and Linux.
+description: Learn to install and use several versions of Java with SDKMAN. Walkthrough for macOS, Windows and Linux.
 img: sdkman-post.jpg
 fig-caption: Photo by <a href="https://unsplash.com/@vikramstudio46?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">vikram sundaramoorthy</a> on <a href="https://unsplash.com/s/photos/superman?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Unsplash</a>
-tags: [Sdkman, Java, GraalVM, macOS, Tool]
+tags: [SDKMAN, Java, JDK, GraalVM, macOS, Tool]
 lang: en
 permalink: /installer-java-sdkman/
 ---
 
-Owner of a Mac, it happens to me, on the occasion of the release of a new version of macOS (when it is stable), to erase everything on my computer, to start from scratch and to do a famous `clean install`. Then comes the tedious task of reinstalling all the tools necessary for my work.
+When a new stable version of macOS becomes available, there are times when I decide to perform a clean reinstall of my 
+computer. After this process, it becomes necessary to reinstall all the essential tools for my work, which can be quite 
+tedious.
 
-This is the opportunity to present SDKMAN, a utility that will allow you to combine several versions of JDKs on your computer ... and not only!
+In this context, SDKMAN comes into play as a highly practical utility that goes beyond simply managing multiple versions
+of JDKs on your computer.
 
-<hr class="hr-text" data-content="Content">
+<hr class="hr-text" data-content="Summary">
 
 * TOC
 {:toc}
 
 <hr class="hr-text" data-content="SDKMAN!">
 
-## SDKMAN, the tool you need!
+## An Essential Tool: SDKMAN
 
-Among the undeniable advantages of the tool, I would cite:
+SDKMAN, short for "Software Development Kit Manager," is an invaluable tool for Java developers who wish to effectively 
+manage JDK (Java Development Kit) versions. It greatly simplifies the management of different JDK versions, providing 
+straightforward control over your Java development environment.
 
-- Simple installation of your JDKs
-- The ease of changing JDK version
-- The ability to define a default SDK in a directory/project
+The advantages of SDKMAN for JDK version management include:
+
+1. **Easy Installation**: SDKMAN streamlines the JDK installation process by automating it. No more searching for 
+downloads or dealing with tedious manual configurations and installations. With just a few simple commands, SDKMAN takes
+care of everything.
+
+2. **Version Management**: With SDKMAN, you can install multiple JDK versions simultaneously on your system. This allows
+you to easily switch between different versions based on your project requirements.
+
+3. **Flexibility and Adaptability**: SDKMAN offers a wide range of JDK versions, including both stable releases and the 
+latest development versions. You can choose the version that best suits your project, considering specific features or 
+compatibility requirements.
+
+4. **Simplified Updates**: SDKMAN makes updating your JDK a breeze. The tool notifies you about new available versions 
+and enables quick and hassle-free installations.
+
+5. **Cross-Platform Compatibility**: Whether you're working on macOS, Windows, or Linux, SDKMAN adapts to your 
+environment. It ensures a consistent and seamless experience, regardless of the operating system you're using.
+
+In summary, SDKMAN is a powerful and essential tool for Java developers. It simplifies JDK version management, keeping 
+you up-to-date with the latest features and preventing compatibility issues. Whether you're a seasoned developer or just
+starting out, SDKMAN gives you full control over your Java development environment, allowing you to work efficiently and
+without hassle.
 
 <hr class="hr-text" data-content="Installation">
 
-## Installing SDKMAN
+## SDKMAN Installation
 
-You can find on the [official SDKMAN page!](https://sdkman.io/install){:target="_blank" rel="noopener noreferrer nofollow"}, the procedure to follow.
-In my case, I followed the default procedure:
+To take advantage of the benefits offered by SDKMAN, it is essential to install it correctly on your system. Here are 
+the detailed instructions for installing SDKMAN on macOS, Windows, and Linux:
 
-1. Open a terminal and run the following command:
-	{% highlight zsh %}% curl -s "https://get.sdkman.io" | bash{% endhighlight %}
+### Installation on macOS and Linux:
 
+1. Open your terminal.
 
-1. Open a new terminal and run:
-   {% highlight zsh %}% source "~/.sdkman/bin/sdkman-init.sh"{% endhighlight %}
+2. Execute the following command to download the SDKMAN installation script:
+   {% highlight shell %}curl -s "https://get.sdkman.io" | bash{% endhighlight %}
 
-That's it!
+3. Wait for the script to be downloaded and installed.
 
-The tool installs under `$ HOME / .sdkman` and adds the config lines. in the `.bashrc`, `.bash_profile` and `.zshrc` files if you also have ZSH.
-{% highlight zsh %}
-#THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
-export SDKMAN_DIR="/Users/jeanjerome/.sdkman"
-[[ -s "/Users/jeanjerome/.sdkman/bin/sdkman-init.sh" ]] && source "/Users/jeanjerome/.sdkman/bin/sdkman-init.sh"
-{% endhighlight %}
+4. After installation, execute the following command to load SDKMAN into your current session:
+   {% highlight shell %}source "$HOME/.sdkman/bin/sdkman-init.sh"{% endhighlight %}
 
-All the installations of your SDKs will now be done under the SDKMAN directory `~ / .sdkman`.
+5. To verify if SDKMAN has been successfully installed, type the following command:
+   {% highlight shell %}sdk version{% endhighlight %}
+
+### Installation on Windows:
+
+1. Go to the official SDKMAN website at the following address: [https://sdkman.io/install](https://sdkman.io/install){:target="_blank" rel="noopener noreferrer nofollow"}.
+
+2. On Windows, a Bash terminal is required. Depending on your case, copy the installation command provided on the website.
+
+3. Open your command prompt.
+
+4. Paste the command into your command prompt and press Enter to execute it.
+
+5. Wait for the installation to complete.
+
+6. Once the installation is finished, close and reopen your command prompt.
+
+7. To verify if SDKMAN has been successfully installed, type the
+
+following command:
+    {% highlight bat %}sdk version{% endhighlight %}
+
+Congratulations! You have now installed SDKMAN on your system. You are ready to enjoy its powerful features for JDK version management.
+
+> info "Note"
+> All SDK installations will now be done in the `~/.sdkman` directory.
 
 <hr class="hr-text" data-content="JDK">
 
-## Installing a JDK
+## JDK Installation
 
-Now is the time to install your first JDK. The choice is important! Not for your computer because, with this tool, it will only see fire. No, the choice is important to you and you are probably wondering which JDK to start with ...
+Once you have successfully installed SDKMAN, you can proceed with the installation of a specific JDK using this tool.
 
-Take some time to think about it and let's see some SDKMAN commands already.
+Take a moment to think about it, and let's explore some SDKMAN commands.
 
 ### Candidate vs Version
 
-As the name suggests, SDKMAN allows you to install SDKs ... and Java is just one of the potential candidates.
+As the name suggests, SDKMAN allows you to install SDKs, and Java is just one of the potential `candidate`'s.
 
-You must therefore already choose the SDK (candidate) to install.
+So, first, you need to choose the SDK (candidate) to install.
 
 #### Candidate
 
-To see the list of SDKs/candidate, run the following command:
+To see the list of available SDK/candidates, use the following command:
 {% highlight zsh %}% sdk list {% endhighlight %}
 
-> note "Note"
-> Type `q` to exit the list
+> info "Note"
+> Type `q` to exit the list.
 
-You see that it is possible to install a lot of things. To name a few:
+You can see that there are many things you can install. Just to name a few:
 - Gradle
 - Groovy
 - Java
@@ -90,12 +136,12 @@ You see that it is possible to install a lot of things. To name a few:
 
 #### Version
 
-Well, the candidate we are interested in is `Java`. Now let's take a look at its available versions.
+Now, let's focus on the candidate we're interested in: `Java`. Let's see the versions that SDKMAN offers us.
 
-Let's ask SDKMAN:
+To do that, let's query SDKMAN:
 {% highlight zsh %}% sdk list java{% endhighlight %}
 
-Here is the list I get:
+Here is the list I obtained:
 
 {% highlight output %}
 ================================================================================
@@ -182,14 +228,14 @@ For my part, I install two others:
 % sdk install java 11.0.2-open
 {% endhighlight %}
 
-<hr class="hr-text" data-content="JDK choice">
+<hr class="hr-text" data-content="JDK Selection">
 
-## Select a JDK
+## JDK Selection
 
-Now let's see how to select a version of Java.
+Let's now see how to select a specific version of Java.
 
 
-### Let's display the current version
+### Displaying the Current Version
 
 Let's see what the `sdk` command tells us:
 
@@ -208,7 +254,7 @@ OpenJDK 64-Bit Server VM GraalVM CE 21.0.0.2 (build 11.0.10+8-jvmci-21.0-b06, mi
 {% endhighlight %}
 
 
-### Let's display the installed versions
+### Displaying Installed Versions
 
 {% highlight output %}
 % sdk list java
@@ -262,14 +308,14 @@ Use the Identifier for installation:
 ================================================================================
 {% endhighlight %}
 
-### Let's change version
+### Switching Versions
 
 {% highlight zsh %}
 % sdk use java 11.0.10.j9-adpt
 Using java version 11.0.10.j9-adpt in this shell.
 {% endhighlight %}
 
-Then let's check with Java
+Let's verify with Java:
 
 {% highlight zsh %}
 % java --version
@@ -281,15 +327,15 @@ OMR      - 741e94ea8
 JCL      - 0a86953833 based on jdk-11.0.10+9)
 {% endhighlight %}
 
-And There you go...
-
+And there you have it...
 
 <hr class="hr-text" data-content="Conclusion">
 
-## For further
+## Taking It Further
 
-You will find at this address [https://sdkman.io/usage](https://sdkman.io/usage){:target="_blank" rel="noopener noreferrer nofollow"}, other commands that you might be useful, in particular the `env` command [https://sdkman.io/usage#env](https://sdkman.io/usage#env){:target="_blank" rel="noopener noreferrer nofollow"}.
+You can find additional useful commands at this address: [https://sdkman.io/usage](https://sdkman.io/usage){:target="_blank" rel="noopener noreferrer nofollow"}, 
+including the `env` command: [https://sdkman.io/usage#env](https://sdkman.io/usage#env){:target="_blank" rel="noopener noreferrer nofollow"}.
 
-Now it's your turn.
+Now it's your turn to explore further.
 
-Cheers ...
+Cheers...

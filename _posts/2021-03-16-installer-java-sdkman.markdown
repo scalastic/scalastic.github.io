@@ -1,18 +1,21 @@
 ---
 layout: post
-title: Installer Java avec SDKMAN
+title: "SDKMAN : Installez plusieurs versions de JDK et bien plus encore !"
 date: 2021-03-16 11:44:00 +2
-description: Apprendre à installer et utiliser plusieurs versions de Java avec SDKMAN. Procédure pas à pas pour MacOS, Windows et Linux.
+description: Apprendre à installer et utiliser plusieurs versions de Java avec SDKMAN. Procédure pas à pas pour macOS, Windows et Linux.
 img: sdkman-post.jpg
 fig-caption: Photo de <a href="https://unsplash.com/@vikramstudio46?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">vikram sundaramoorthy</a> sur <a href="https://unsplash.com/s/photos/superman?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Unsplash</a>
-tags: [Sdkman, Java, GraalVM, macOS, Tool]
+tags: [SDKMAN, Java, JDK, GraalVM, macOS, Tool]
 lang: fr
 permalink: /installer-java-sdkman/
 ---
 
-Possesseur d'un Mac, il m'arrive, à l'occasion de la sortie d'une nouvelle version de macOS (lorsqu'elle est stable), de tout effacer sur mon ordi, de repartir de zéro et faire un fameux `clean install`. Reste ensuite la fastidieuse tâche de réinstaller tous les outils nécesaires à mon travail. 
+Lorsqu'une nouvelle version stable de macOS est disponible, il peut arriver que je décide de procéder à une 
+réinstallation complète de mon ordinateur, communément appelée "clean install". Après cette opération, il devient 
+nécessaire de réinstaller tous les outils indispensables à mon travail, ce qui peut s'avérer fastidieux.
 
-C'est l'occasion de vous présenter SDKMAN, un utilitaire qui va vous permettre de faire cohabiter plusieurs versions de JDKs sur votre ordi... et pas seulement !
+C'est dans ce contexte que SDKMAN, un utilitaire très pratique et qui va bien au-delà de la simple gestion de plusieurs 
+versions de JDKs sur votre ordinateur.
 
 <hr class="hr-text" data-content="Plan">
 
@@ -21,44 +24,89 @@ C'est l'occasion de vous présenter SDKMAN, un utilitaire qui va vous permettre 
 
 <hr class="hr-text" data-content="SDKMAN!">
 
-## SDKMAN, l'outil qu'il te faut !
+## Un outil essentiel : SDKMAN
 
-Parmi les avantages indéniables de l'outil, je citerais :
+SDKMAN, acronyme de "Software Development Kit Manager", est un outil intéressant pour les développeurs Java qui souhaitent
+gérer efficacement les versions du JDK (Java Development Kit). Il simplifie grandement la gestion des différentes
+versions du JDK, offrant ainsi un contrôle simple de l'environnement de développement Java.
 
-- Une installation simple de vos JDKs
-- La facilité pour changer de version de JDK
-- La possibilité de définir un SDK par défaut dans un répertoire / projet
+Les avantages de SDKMAN, pour la gestion des versions de JDK, sont :
+
+1. **Une installation aisée** : SDKMAN facilite l'installation du JDK en automatisant le processus. Plus besoin de
+   rechercher les téléchargements, les configurations ou les installations manuelles fastidieuses. SDKMAN se charge de
+   tout, en quelques commandes simples.
+
+2. **Une gestion des versions** : Avec SDKMAN, il est possible d'installer plusieurs versions de JDK simultanément sur votre
+   système. Vous pouvez ainsi basculer facilement entre les différentes versions selon les besoins de votre projet.
+
+3. **Une souplesse et flexibilité** : SDKMAN propose une vaste gamme de versions de JDK, incluant à la fois les versions
+   stables et les versions de développement les plus récentes. Vous pouvez choisir la version qui convient le mieux à votre
+   projet, en fonction des fonctionnalités spécifiques requises ou des exigences de compatibilité.
+
+4. **Des mises à jour simplifiées** : Grâce à SDKMAN, la mise à jour de votre JDK devient un jeu d'enfant. L'outil vous
+   informe des nouvelles versions disponibles et vous permet de les installer rapidement, sans tracas.
+
+5. **Plateformes multiples** : Que vous travailliez sur macOS, Windows ou Linux, SDKMAN s'adapte à votre environnement.
+   Il garantit une expérience homogène et cohérente, indépendamment du système d'exploitation utilisé.
+
+En résumé, SDKMAN est un outil puissant et essentiel pour les développeurs Java. Il simplifie la gestion des versions de
+JDK, vous permettant ainsi de rester à jour avec les dernières fonctionnalités et d'éviter les problèmes
+d'incompatibilité. Que vous soyez un développeur chevronné ou débutant, SDKMAN vous offre un contrôle total sur votre
+environnement de développement Java, vous permettant de travailler de manière efficace et sans tracas.
 
 <hr class="hr-text" data-content="Installation">
 
 ## Installation de SDKMAN
 
-Vous pouvez retrouver sur la [page officielle de SDKMAN!](https://sdkman.io/install){:target="_blank" rel="noopener noreferrer nofollow"}, la procédure à suivre.
-Dans mon cas, j'ai suivi la procédure par défaut :
+Pour profiter des avantages offerts par SDKMAN, il est essentiel de l'installer 
+correctement sur votre système. Voici les instructions détaillées pour installer SDKMAN sur macOS, Windows et Linux :
 
-1. Ouvrez un terminal et lancez la commande suivante :
-	{% highlight zsh %}% curl -s "https://get.sdkman.io" | bash{% endhighlight %}
+### Installation sur macOS et Linux:
 
+1. Ouvrez votre terminal.
 
-1. Ouvrez un nouveau terminal et exécutez :
-	{% highlight zsh %}% source "~/.sdkman/bin/sdkman-init.sh"{% endhighlight %}
+2. Exécutez la commande suivante pour télécharger le script d'installation de SDKMAN :
+   {% highlight shell %}curl -s "https://get.sdkman.io" | bash{% endhighlight %}
 
-That's it! 
+3. Attendez que le téléchargement et l'installation du script soient terminés.
 
-L'outil s'installe sous `$HOME/.sdkman` et ajoute les lignes de config. dans les fichiers `.bashrc`, `.bash_profile` et `.zshrc` si vous avez aussi ZSH.
- {% highlight zsh %}
-#THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
-export SDKMAN_DIR="/Users/jeanjerome/.sdkman"
-[[ -s "/Users/jeanjerome/.sdkman/bin/sdkman-init.sh" ]] && source "/Users/jeanjerome/.sdkman/bin/sdkman-init.sh"
-{% endhighlight %}
+4. Après l'installation, exécutez la commande suivante pour charger SDKMAN dans votre session en cours :
+   {% highlight shell %}source "$HOME/.sdkman/bin/sdkman-init.sh"{% endhighlight %}
 
-Toutes les installations de vos SDKs se feront désormais sous le répertoire de SDKMAN `~/.sdkman`.
+5. Pour vérifier si SDKMAN a été installé avec succès, tapez la commande suivante :
+   {% highlight shell %}sdk version{% endhighlight %}
+
+### Installation sur Windows :
+
+1. Accédez au site officiel de SDKMAN à l'adresse suivante : [https://sdkman.io/install](https://sdkman.io/install){:target="_blank" rel="noopener noreferrer nofollow"}.
+
+2. Sous Windows, il est nécessaire d'avoir un terminal Bash. En fonction de votre cas, copiez la commande d'installation
+indiquée sur le site.
+
+3. Ouvrez votre invite de commandes.
+
+4. Collez la commande dans votre invite de commandes et appuyez sur Entrée pour l'exécuter.
+
+5. Attendez que l'installation soit terminée.
+
+6. Une fois l'installation terminée, fermez et rouvrez votre invite de commandes.
+
+7. Pour vérifier si SDKMAN a été installé avec succès, tapez la commande suivante :
+   {% highlight Bat %}sdk version{% endhighlight %}
+
+Félicitations ! Vous avez maintenant installé SDKMAN sur votre système. Vous êtes prêt à profiter des fonctionnalités 
+puissantes qu'il offre pour la gestion des versions de JDK.
+
+> info "Note"
+> Toutes les installations de SDKs se feront désormais dans le répertoire `~/.sdkman`.
+
 
 <hr class="hr-text" data-content="JDK">
 
 ## Installation d'un JDK
 
-C'est le moment d'installer votre premier JDK. Le choix est important ! Non pas pour votre ordi car, avec cet outil, il n'y verra que du feu. Non, le choix est important pour vous et vous vous demandez sûrement par quel JDK commencer...
+Une fois que vous avez installé SDKMAN avec succès, vous pouvez procéder à l'installation d'un JDK spécifique en 
+utilisant cet outil.
 
 Prenez le temps de réfléchir et voyons déjà quelques commandes de SDKMAN.
 
@@ -73,10 +121,10 @@ Il faut donc déjà choisir le SDK (candidate) à installer.
 Pour voir la liste des SDK/candidate, lancez la commande suivante :
 {% highlight zsh %}% sdk list {% endhighlight %}
 
-> note "Note"
+> info "Note"
 > Tapez `q` pour sortir de la liste
 
-Vous voyez qu'il est possible d'installer pas mal de chose. Pour en citer quelques uns :
+Vous voyez qu'il est possible d'installer pas mal de choses. Pour n'en citer que quelque uns :
 - Gradle
 - Groovy
 - Java
@@ -90,9 +138,9 @@ Vous voyez qu'il est possible d'installer pas mal de chose. Pour en citer quelqu
 
 #### Version
 
-Bon, le candidat qui nous interresse, c'est `Java`. Voyons à présent ses versions disponibles.
+Bon, le candidat qui nous intéresse, c'est `Java`. Voyons à présent les versions que nous propose SDKMAN.
 
-Interrogeons SDKMAN :
+Pour cela, interrogeons SDKMAN :
 {% highlight zsh %}% sdk list java{% endhighlight %}
 
 Voici la liste que j'obtiens :
@@ -144,15 +192,16 @@ Available Java Versions
 ================================================================================
 {% endhighlight %}
 
-### Installation réelle du JDK
+### Actual JDK Installation
 
-Faites vos jeux... moi, c'est fait ! Comme je travaille sur le build de code Java en code natif en ce moment, je choisis `GraalVM` en version `11` et je sélectionne son identifier `21.0.0.2.r11-grl`. A vous de jouer.
+Place your bets... I've made mine! Since I'm currently working on native Java code compilation, I'm choosing `GraalVM` 
+version `11` and selecting its identifier `21.0.0.2.r11-grl`. Now it's your turn.
 
-Pour l'installer, je lance la commande :
+To install it, I execute the following command:
 
-{% highlight zsh %} % sdk install java 21.0.0.2.r11-grl{% endhighlight %}
+{% highlight bash %}sdk install java 21.0.0.2.r11-grl{% endhighlight %}
 
-Ce qui me donne en sortie, le processus d'installation
+This will initiate the installation process, and the output will be:
 
 {% highlight output %}
 Downloading: java 21.0.0.2.r11-grl
@@ -173,7 +222,8 @@ Done installing!
 Setting java 21.0.0.2.r11-grl as default.
 {% endhighlight %}
 
-Done! Non, pas encore... J'ai besoin d'autres JDKs pour effectuer des comparaisons. D'ailleurs, c'est bien pour cela que nous avons installé cet outil.
+Done! Non, pas encore... J'ai besoin d'autres JDKs pour effectuer des comparaisons. D'ailleurs, c'est bien pour cela que
+nous avons installé cet outil, pour pouvoir installer plusieurs JDKs.
 
 Pour ma part, j'en installe deux autres :
 
@@ -186,7 +236,7 @@ Pour ma part, j'en installe deux autres :
 
 ## Sélection d'un JDK
 
-Voyons à présent comment sélectionner une version de Java.
+Voyons à présent comment sélectionner une version spécifique de Java.
 
 
 ### Affichons la version en cours
@@ -288,7 +338,9 @@ Et voilà...
 
 ## Pour aller plus loin
 
-Vous trouverez à cette adresse [https://sdkman.io/usage](https://sdkman.io/usage){:target="_blank" rel="noopener noreferrer nofollow"}, d'autres commandes qui pourraient vous être utiles notamment la commande `env` [https://sdkman.io/usage#env](https://sdkman.io/usage#env){:target="_blank" rel="noopener noreferrer nofollow"}.
+Vous trouverez à cette adresse [https://sdkman.io/usage](https://sdkman.io/usage){:target="_blank" rel="noopener noreferrer nofollow"}, 
+d'autres commandes qui pourraient vous être utiles notamment la commande `env` 
+[https://sdkman.io/usage#env](https://sdkman.io/usage#env){:target="_blank" rel="noopener noreferrer nofollow"}.
 
 A vous de jouer à présent.
 
