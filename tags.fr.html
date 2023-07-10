@@ -23,11 +23,15 @@ permalink: /tags/
   {% for this_word in tag_words %}
   <h2 id="{{ this_word | cgi_escape }}">{{ this_word }}</h2>
 <!--  lists all posts corresponding to specific tag...-->
-    {% for post in site.tags[this_word] %}{% if post.title != null %}
-    <div class="tag-list">
+  <ul>
+  {% for post in site.tags[this_word] %}{% if post.title != null %}
+    <li>
+      <div class="tag-list">
         <span><a href="{{ site.baseurl }}{{ post.url }}">{{ post.title }}</a></span>
         <small><span>| {{ post.date | i18n_date: site.active_lang }}</span></small>
-    </div>
+      </div>
+    </li>
     {% endif %}{% endfor %}
+  </ul>
   {% endfor %}
 </section>
