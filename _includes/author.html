@@ -1,7 +1,7 @@
 <div class="page-author">
   <div class="author-pres">
     <div class="author-img">
-      {% picture thumbnail-author {{ "/assets/img/" | prepend: site.baseurl | append : site.author-img}} --alt {{site.author}} --class author-img --width 80 --height 80 %}
+      {% picture thumbnail-author {{ "/assets/img/" | prepend: site.baseurl | append : site.author-img}} center 1:1 --alt {{site.author}} --class author-img --width 80 --height 80 %}
     </div>
     <div class="author-info">
         <p class="intro">{{ site.data.i18n.written-by }}</p>

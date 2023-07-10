@@ -8,7 +8,14 @@ sitemap:
 {% for post in paginator.posts %}
 <article class="post">
   {% if post.img %}
-    {% picture thumbnail-home {{ "/assets/img/" | prepend: site.baseurl | append : post.img}} 3:2 entropy --link {{post.url | prepend: site.baseurl}} --alt {{post.title}} %}
+    {%
+      picture
+      thumbnail-home
+      {{ "/assets/img/" | prepend: site.baseurl | append : post.img}} 1:1 center
+      tablet: {{ "/assets/img/" | prepend: site.baseurl | append : post.img}} 3:2 center
+      --link {{post.url | prepend: site.baseurl}}
+      --alt {{post.title}}
+    %}
   {% else %}
   {% endif %}
   <div class="post-content">

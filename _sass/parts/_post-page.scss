@@ -710,6 +710,9 @@ a.card-source.microlink_vanilla {
         text-align: left;
         text-decoration: none;
         color: var(--body-color);
+        word-break: break-word;
+        hyphens: auto;
+        hyphenate-character: '-';
       }
 
       .image-container {

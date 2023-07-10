@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Git Branch Workflows: A Survey of Possibilities"
+title: "Git Branch Management: Exploring the Realm of Possibilities"
 date: 2023-07-08 09:58:00 +0200
 description: "Explore Git branch management models to optimize your workflow: Git Flow, GitHub Flow, Trunk Based Flow, Forking Workflow, and more."
 img: git-workflows.jpg
