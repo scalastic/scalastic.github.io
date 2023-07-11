@@ -1,83 +1,35 @@
 # _data/picture.yml
 
-# These are used in several places. You likely want to enter whatever CSS media queries your site
-# uses here.
 media_queries:
   mobile: 'max-width : 769px'
-  tablet: 'max-width : 1119px'
-  desktop: 'min-width : 1120px'
+  tablet: '(max-width : 1119px) and (min-width : 770px)'
+  desktop: 'min-width: 1120'
 
 presets:
-  # This entry is purely an example. It is not the default JPT preset, nor is it available as a
-  # built-in.
   default:
-    formats: [avif, webp, original] # Order matters!
-    base_width: 970 # Image widths, in pixels.
-    pixel_ratios: [1,2]
-    fallback_width: 970
-    # The sizes attribute is both important, and impossible to offer good defaults for. You need to
-    # learn about it. Short version: Web browsers parse web pages line-by-line. When they run into
-    # an external asset they must download, they start that process immediately, without waiting to
-    # finish rendering the page. This means that at the point in time when the browser must decide
-    # which image to download, it has no clue how large that image will be on the page. The sizes
-    # attribute is how we tell it.
-    #
-    # If you do not provide this, the web browser will assume the image is 100vw (100% the width of
-    # the viewport.)
-    #
-    # This doesn't have to be pixel-perfect, just close enough for the browser to make a good
-    # choice. Keys are media queries defined above, values are how large the image will be when
-    # that media query is true. You can't use % (percentage width of the parent container) for the
-    # same reason we have to do this at all.
-    sizes:
-      tablet: 80vw
+    formats: [ avif, webp, original ]
+    widths: [ 400, 850, 1600]
+    link_source: false
+    dimension_attributes: true
 
-    # Size is unconditional; provided either after all conditional sizes (above) or alone. If you
-    # only have a 'size' (no 'sizes'), and it's a constant (px, em, or rem), you should use a
-    # pixel-ratio srcset.
-    size: 970px
+  top-article:
+    formats: [avif, webp, original]
+    widths: [ 400, 970, 1940 ]
+    link_source: false
+    dimension_attributes: true
 
-    link_source: false # wrap images in a link to the original source image.
-    dimension_attributes: true # Page reflow begone!
-
-    # You can add any HTML attribute you like, to any HTML element which JPT creates:
-    attributes:
-    # parent refers to the outermost tag; <picture> if it's present, otherwise the <img>.
-    #parent: 'data-downloadable="true"'
-    #picture: 'class="article" data-volume="11"'
-    #img: 'class="some-other-class"'
-    #a: 'class="image-link"'
-
-  # You can use this as jpt-webp. All following presets follow the same pattern.
   webp:
     formats: [webp, original]
 
-  # Avif is the new hotness coming down the pipe. Browser support is bad and they are slow to
-  # generate, but you get good file sizes even compared to webp of similar quality.
   avif:
     formats: [avif, webp, original]
 
-  # Your build times will suffer, but everyone is happy.
   loaded:
     formats: [avif, webp, original]
     dimension_attributes: true
 
-  # This is an example of how you would create a 'multiplier' based srcset; useful when an image
-  # will always be the same size on all screens (icons, graphics, thumbnails, etc), but you'd like
-  # to supply higher resolution images to devices with higher pixel ratios.
-  top-image-post:
-    base_width: 970 # How wide the 1x image should be.
-    pixel_ratios: [1, 2] # Which multipliers to target.
-    fallback_width: 970 # The default is 800, which is probably too big.
-    formats: [avif, webp, original]
-    link_source: false
-    dimension_attributes: true
-
   thumbnail-home:
-    # phone: 348, tablet: 474, desktop: 222
-    base_width: 380 # How wide the 1x image should be.
-    pixel_ratios: [1, 2] # Which multipliers to target.
-    fallback_width: 380 # The default is 800, which is probably too big.
+    widths: [ 220, 480, 960 ]
     formats: [avif, webp, original]
     link_source: true
     dimension_attributes: true
@@ -86,42 +38,18 @@ presets:
 
   thumbnail-article:
     base_width: 300
-    pixel_ratios: [1,2] # Which multipliers to target.
-    fallback_width: 300 # The default is 800, which is probably too big.
+    pixel_ratios: [1,2]
+    fallback_width: 300
     formats: [avif, webp, original]
     link_source: false
     dimension_attributes: false
 
   thumbnail-author:
     base_width: 100
-    pixel_ratios: [1,2] # Which multipliers to target.
-    fallback_width: 100 # The default is 800, which is probably too big.
+    pixel_ratios: [1,2]
+    fallback_width: 100
     formats: [avif, webp, original]
     link_source: false
     dimension_attributes: true
     attributes:
       img: 'class="author-img"'
-
-  # Another pixel-ratio example.
-  avatar:
-    # Say your layout demands a square:
-    crop: 1:1
-    base_width: 100
-    pixel_ratios: [1]
-    fallback_width: 100
-
-  # Here's an example of how you'd configure JPT to work with something like lazyload:
-  # https://github.com/verlok/lazyload
-  # Remember to add a sizes attribute, unless it's close to 100vw all the time.
-  lazy:
-    markup: data_auto
-    formats: [avif, webp, original]
-    noscript: true # add a fallback image inside a <noscript> tag.
-    attributes:
-      parent: class="lazy"
-
-  # This is an example of how you'd get a single generated image, a URL, and nothing else.
-  direct:
-    markup: direct_url
-    fallback_format: jpg
-    fallback_width: 970

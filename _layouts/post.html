@@ -8,8 +8,9 @@ layout: main
       <figure>
         {%
           picture
-          top-image-post
+          top-article
           {{ "/assets/img/" | prepend: site.baseurl | append : page.img}} 16:9 center
+          tablet: {{ "/assets/img/" | prepend: site.baseurl | append : page.img}} 16:9 center
           mobile: {{ "/assets/img/" | prepend: site.baseurl | append : page.img}} 4:3 center
           --alt {{page.title}} --class page-image
         %}
