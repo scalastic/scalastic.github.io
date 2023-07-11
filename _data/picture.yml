@@ -3,7 +3,7 @@
 media_queries:
   mobile: 'max-width : 769px'
   tablet: 'max-width : 1119px'
-  desktop: 'min-width: 1120'
+  desktop: 'min-width: 1120px'
 
 presets:
   default:
