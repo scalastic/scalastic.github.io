@@ -116,6 +116,27 @@
       padding: 5px 0px;
     }
   }
+  .page-content p, li {
+    word-break: break-word;
+    hyphens: auto;
+    hyphenate-character: '-';
+  }
+  .article {
+      display: block;
+      margin-block-start: 1em;
+      margin-block-end: 1em;
+      margin-inline-start: 0px;
+      margin-inline-end: 0px;
+  }
+
+  .article-page {
+    a {
+      overflow-wrap: break-word;
+      word-wrap: break-word;
+      word-break: break-word;
+      hyphens: auto;
+    }
+  }
 
   .sidebar {
     position: relative;
