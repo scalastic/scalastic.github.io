@@ -81,15 +81,6 @@ html[data-mode='dark'] {
   }
 }
 
-/*
-.dark-mode-switcher {
-  display: none;
-  @include media-breakpoint-up(md) {
-    display: inline-flex;
-  }
-}
-*/
-
 *, *::after, *::before {
   box-sizing: border-box;
 }

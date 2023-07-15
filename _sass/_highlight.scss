@@ -143,6 +143,9 @@ figure.highlight {
 
 .highlight {
   background-color: var(--code-background);
+  max-height: 550px; /* Change to your desired max height */
+  overflow-y: scroll;
+  margin-right: 10px;
 
   .hll {
     background-color: #49483e;
