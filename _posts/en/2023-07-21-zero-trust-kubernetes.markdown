@@ -180,7 +180,9 @@ prove their identity. This typically includes combinations of passwords, tokens,
 authentication factors.
 
 1. **Role-Based Access Control (RBAC):** RBAC defines specific roles for users and services, granting appropriate access
-privileges based on their responsibilities. This restricts resource access only to authorized users.
+privileges based on their responsibilities. This restricts resource access only to authorized users
+([The Definitive Guide to Role-Based Access Control](https://www.strongdm.com/rbac){:target="_blank" rel="noopener noreferrer nofollow"}).
+
 
 1. **Data Encryption:** Encryption is used to protect data in transit and at rest. It ensures that even in case of a 
 security breach, data remains unintelligible to unauthorized individuals.
@@ -265,7 +267,8 @@ Secrets functionality and by integrating encrypted storage solutions.
 1. **Using Certificates:** Certificates play a crucial role in encrypting communications. They enable the authentication
 of nodes and services, ensuring that only legitimate entities can communicate within the cluster. Digital certificates 
 are based on a Public Key Infrastructure (PKI) and ensure the integrity of communications by verifying the identity of 
-the involved parties (2-way TLS).
+the involved parties
+([mutualTLS or mTLS](https://medium.com/double-pointer/ssl-vs-tls-vs-mtls-f5e836fe6b6d){:target="_blank" rel="noopener noreferrer nofollow"}).
 
 1. **Regular Key Rotation:** Regular key rotation is a recommended security practice to minimize risks in case of key 
 compromise. By regularly changing the encryption keys used to secure communications, the exposure time in case of key 

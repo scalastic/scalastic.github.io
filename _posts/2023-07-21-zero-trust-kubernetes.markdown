@@ -187,7 +187,8 @@ combinaisons de mots de passe, de jetons, d'empreintes biométriques, ou d'autre
 
 1. **Autorisation basée sur le rôle (RBAC) :** RBAC définit des rôles spécifiques pour les utilisateurs et les services,
 accordant ainsi des privilèges d'accès appropriés en fonction des responsabilités de chacun. Cela limite l'accès à des 
-ressources uniquement aux utilisateurs autorisés.
+ressources uniquement aux utilisateurs autorisés
+([The Definitive Guide to Role-Based Access Control](https://www.strongdm.com/rbac){:target="_blank" rel="noopener noreferrer nofollow"}).
 
 1. **Chiffrement des données :** Le chiffrement est utilisé pour protéger les données en transit et au repos. Il 
 garantit que même en cas de violation de la sécurité, les données restent inintelligibles pour les personnes non 
@@ -281,7 +282,8 @@ intégrant des solutions de stockage chiffré.
 1. **Utilisation de certificats :** Les certificats jouent un rôle essentiel dans le chiffrement des communications. Ils
 permettent l'authentification des nœuds et des services, assurant ainsi que seules les entités légitimes peuvent 
 communiquer dans le cluster. Les certificats numériques sont basés sur une infrastructure à clés publiques (PKI) et 
-garantissent l'intégrité des communications en vérifiant l'identité des parties impliquées (2-way TLS).
+garantissent l'intégrité des communications en vérifiant l'identité des parties impliquées 
+([mutualTLS ou mTLS](https://medium.com/double-pointer/ssl-vs-tls-vs-mtls-f5e836fe6b6d){:target="_blank" rel="noopener noreferrer nofollow"}).
 
 1. **Rotation régulière des clés :** La rotation régulière des clés est une pratique de sécurité recommandée pour 
 minimiser les risques en cas de compromission d'une clé. En changeant régulièrement les clés de chiffrement utilisées 
