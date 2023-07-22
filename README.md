@@ -2,19 +2,19 @@
 
 # Source Code of Scalastic Website
 
-<a href="https://scalastic.io/en">![](assets/img/scalastic_home.png)</a>
+<a href="https://scalastic.io/en">![](assets/img/scalastic_home.gif)</a>
 
 ## About
 
 - This is the source code of the Scalastic website
-- It is built with Jekyll 4.2.2
+- It is built with Jekyll 4.3.2
 - It is deployed with GitHub Actions
 - It is hosted on GitHub Pages
 
 ## Requirements
 
-- Ruby 2.7.2
-- Bundler 2.2.3
+- Ruby 3.2.2
+- Bundler 2.4.10
 
 ## Installation
 
@@ -37,7 +37,7 @@ bundle exec jekyll build
 - Development build:
 
 ```bash
-bundle exec jekyll server --incremental
+bundle exec jekyll server --watch
 ```
 
 - Development build included drafts:
