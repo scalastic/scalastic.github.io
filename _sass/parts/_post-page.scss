@@ -5,7 +5,13 @@
 .page-header {
   text-align: center;
   margin: 10px 0;
+
   .page-title {
+    :first-child::before {
+      content: '';
+      min-height: 20px;
+      display: block;
+    }
     font-weight: 400;
     margin: 0 0 10px;
     line-height: 1.3;
