@@ -73,6 +73,16 @@
         opacity: .9;
     }
   }
+  .page-cover-image {
+    position: relative;
+
+    img.page-image {
+      width: 100%;
+      height: auto;
+      display: block;
+      object-fit: cover;
+    }
+  }
 }
 
 .article-navigation {
