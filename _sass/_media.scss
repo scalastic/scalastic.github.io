@@ -23,6 +23,9 @@
       }
     }
   }
+  img.page-image {
+    aspect-ratio: 16/9;
+  }
 }
 
 /* Tablets */
@@ -90,6 +93,10 @@
 
   .contact-title, .copyright, .nonmobile, .dark-mode-switcher {
     display: none;
+  }
+
+  img.page-image {
+    aspect-ratio: 16/9;
   }
 
   .article-navigation {
@@ -160,6 +167,11 @@
       margin-bottom: 10px;
     }
   }
+
+  img.page-image {
+    aspect-ratio: 4/3;
+  }
+
   .post-container {
     display: grid;
     grid-template-columns: 1fr;

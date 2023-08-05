@@ -119,6 +119,10 @@ img {
   margin-left: auto;
   margin-right: auto;
   border-radius: 10px;
+  .page-image {
+    max-width: 100%;
+    height: auto;
+  }
 }
 
 img + em {
