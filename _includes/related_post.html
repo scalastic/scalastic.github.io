@@ -24,7 +24,12 @@
       <a class="recomm-link" href="{{ site.baseurl }}{{ post.url }}">
         <h5>{{ post.title }}</h5>
         <div class="image-container">
-          {%- picture thumbnail-article {{ "/assets/img/" | prepend: site.baseurl | append : post.img}} 6:5 center --alt {{ post.title }} -%}
+          {%- picture
+            thumbnail-article
+            {{ "/assets/img/" | prepend: site.baseurl | append : post.img}} 6:5 center
+            --alt {{ post.title }}
+            --img width="300" height="250"
+          -%}
         </div>
       </a>
     </div>
