@@ -17,6 +17,10 @@ presets:
     widths: [ 400, 970, 1940 ]
     link_source: false
     dimension_attributes: true
+    sizes:
+      mobile: calc(100vw - 20px)
+      tablet: calc(100vw - 20px)
+      desktop: 970px
 
   webp:
     formats: [webp, original]
