@@ -205,7 +205,7 @@ and [Linkerd](https://linkerd.io/2.13/features/){:target="_blank" rel="noopener 
 functionality that's nearly akin to Network Policies, coupled with other features such as encrypting traffic between 
 Pods, load balancing, rate limiting, and more.
 
-> **Cyclonus**
+> info "Cyclonus"
 > [Cyclonus](https://github.com/mattfenwick/cyclonus){:target="_blank" rel="noopener noreferrer nofollow"} is a fuzz 
 > testing tool that explores hundreds of Network Policy configuration scenarios and assesses the compliance of your 
 > Container Network Interface (CNI) provider.
