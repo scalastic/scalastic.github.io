@@ -5,7 +5,7 @@ date: 2023-07-21 12:34:00 +0200
 description: "Découvrez comment renforcer la sécurité de votre cluster Kubernetes avec l'architecture Zero Trust. Méthodes, outils et bonnes pratiques expliqués."
 img: zero-trust-kubernetes.jpg
 fig-caption: Photo de Jean-Jérôme Lévy
-tags: [Kubernetes, ZeroTrust, Cybersécurité, AIOps]
+tags: [Kubernetes, ZeroTrust, Cybersecurity, AIOps]
 lang: fr
 permalink: /zero-trust-kubernetes/
 status: finished
@@ -15,7 +15,7 @@ La sécurité informatique est un enjeu majeur dans le paysage technologique en 
 prolifération des menaces numériques, les approches traditionnelles basées sur la confiance implicite ne sont plus 
 suffisantes pour protéger nos systèmes. C'est là que le concept de Zero Trust entre en jeu.
 
-Le Zero Trust, ou "confiance zéro", est un modèle de sécurité qui considère que toute tentative d'accès au réseau ou aux
+Le Zero Trust, ou "Confiance Zéro", est un modèle de sécurité qui considère que toute tentative d'accès au réseau ou aux
 ressources doit être vérifiée, quel que soit l'emplacement de l'utilisateur ou de l'appareil. En d'autres termes, aucune
 entité ne peut être présumée comme sûre sans vérification explicite.
 
@@ -39,7 +39,7 @@ autorisés et de compromissions de données.
 
 ## Comprendre les Principes de Base de Zero Trust
 
-Le concept de Zero Trust, ou "confiance zéro", est une approche révolutionnaire en matière de sécurité informatique qui 
+Le concept de Zero Trust, ou "Confiance Zéro", est une approche révolutionnaire en matière de sécurité informatique qui 
 se démarque des méthodes traditionnelles basées sur la confiance implicite. Contrairement aux modèles de sécurité 
 conventionnels qui octroient généralement des privilèges étendus aux utilisateurs et appareils internes, le Zero Trust 
 adopte une approche plus rigoureuse et prudente.
@@ -51,7 +51,7 @@ ressources doit être vérifiée de manière explicite et continue, indépendamm
 l'appareil. Autrement dit, aucune entité n'est présumée comme étant sûre par défaut. Pour accéder aux ressources, 
 l'utilisateur ou l'appareil doit être authentifié, autorisé et régulièrement réévalué tout au long de la session.
 
-Le Zero Trust repose sur les principes fondamentaux suivants :
+Le Zero Trust repose sur les principes de base suivants :
 
 1. **Micro-segmentation** : Les réseaux et les systèmes sont divisés en segments plus petits et distincts. Chaque 
 segment est traité comme un périmètre de sécurité isolé, limitant ainsi la surface d'attaque en cas de compromission.
@@ -95,7 +95,7 @@ réponse rapide aux menaces potentielles, minimisant ainsi les dégâts en cas d
 4. **Compliance améliorée** : En renforçant la sécurité de Kubernetes grâce à une architecture Zero Trust, les 
 organisations peuvent mieux répondre aux exigences de conformité réglementaire et éviter des sanctions coûteuses.
 
-<hr class="hr-text" data-content="Évaluations">
+<hr class="hr-text" data-content="État des Lieux">
 
 ## Évaluer la Sécurité de votre Cluster Kubernetes Existant
 
@@ -159,7 +159,6 @@ conformément aux meilleures pratiques de sécurité ([https://github.com/aquase
 1. **kube-hunter :** Un autre outil open-source qui effectue des tests d'intrusion dans votre cluster pour identifier 
 les vulnérabilités potentielles ([https://github.com/aquasecurity/kube-hunter](https://github.com/aquasecurity/kube-hunter){:target="_blank" rel="noopener noreferrer nofollow"}).
 
-
 1. **Vérification manuelle :** Effectuez des audits manuels des politiques d'accès, des rôles, des autorisations et des 
 configurations réseau pour identifier les éventuelles faiblesses.
 
@@ -208,6 +207,16 @@ Pour chaque zone de confiance, définissez des politiques de segmentation strict
 politiques déterminent quelles entités sont autorisées à communiquer entre elles et avec quel niveau d'accès. Vous pouvez 
 limiter les communications entre certaines zones et spécifier des règles spécifiques pour autoriser ou refuser les 
 connexions.
+
+Les solutions de Service Mesh telles qu'[Istio](https://istio.io/latest/docs/ops/best-practices/security/){:target="_blank" rel="noopener noreferrer nofollow"}
+et [Linkerd](https://linkerd.io/2.13/features/){:target="_blank" rel="noopener noreferrer nofollow"} offrent une 
+fonctionnalité presque similaire à celle des Network Policies, associée à d'autres caractéristiques comme le 
+chiffrement du trafic entre les Pods, l'équilibrage de charge, la limitation du débit, etc.
+
+> info "Cyclonus"
+> [Cyclonus](https://github.com/mattfenwick/cyclonus){:target="_blank" rel="noopener noreferrer nofollow"} est un outil 
+> de test de fuzzing qui examine des centaines de scénarios de configuration de Network Policy et évalue la conformité 
+> de votre fournisseur CNI (Container Network Interface).
 
 ### Mécanismes d'Authentification et d'Autorisation pour Renforcer la Sécurité
 
@@ -272,10 +281,10 @@ les nœuds et les services interagissent constamment. TLS utilise des certificat
 et établir des connexions sécurisées via des canaux chiffrés. Cela empêche les attaquants d'intercepter et de lire les 
 données en transit.
 
-1. **Chiffrement des données au repos :** Le chiffrement des données au repos concerne la protection des données 
-stockées dans les volumes persistents, les bases de données et autres supports de stockage du cluster. Kubernetes 
-propose des fonctionnalités de chiffrement des données au repos à l'aide de la fonctionnalité Kubernetes Secrets et en 
-intégrant des solutions de stockage chiffré.
+1. **Chiffrement des données au repos :** Le chiffrement des données au repos, incluant la protection des données 
+stockées dans les volumes persistants, les bases de données, et autres supports de stockage du cluster, est essentiel. 
+Kubernetes propose des fonctionnalités de chiffrement des données au repos en utilisant la fonctionnalité Kubernetes 
+Secrets et en intégrant des solutions de stockage chiffré, telles que [HashiCorp Vault](https://www.vaultproject.io/){:target="_blank" rel="noopener noreferrer nofollow"}.
 
 ### Avantages de l'Utilisation de Certificats et de la Rotation Régulière des Clés
 

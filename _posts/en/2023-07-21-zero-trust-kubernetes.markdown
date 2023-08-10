@@ -90,7 +90,7 @@ potential threats, minimizing the impact of incidents.
 4. **Improved Compliance**: By strengthening Kubernetes security through a Zero Trust architecture, organizations can 
 better meet regulatory compliance requirements and avoid costly penalties.
 
-<hr class="hr-text" data-content="Assessment">
+<hr class="hr-text" data-content="Inventory">
 
 ## Assessing the Security of Your Existing Kubernetes Cluster
 
@@ -200,6 +200,16 @@ For each trust zone, define strict segmentation policies using Network Policies.
 are allowed to communicate with each other and with what level of access. You can restrict communications between 
 certain zones and specify specific rules to allow or deny connections.
 
+Service Mesh solutions like [Istio](https://istio.io/latest/docs/ops/best-practices/security/){:target="_blank" rel="noopener noreferrer nofollow"} 
+and [Linkerd](https://linkerd.io/2.13/features/){:target="_blank" rel="noopener noreferrer nofollow"} provide 
+functionality that's nearly akin to Network Policies, coupled with other features such as encrypting traffic between 
+Pods, load balancing, rate limiting, and more.
+
+> **Cyclonus**
+> [Cyclonus](https://github.com/mattfenwick/cyclonus){:target="_blank" rel="noopener noreferrer nofollow"} is a fuzz 
+> testing tool that explores hundreds of Network Policy configuration scenarios and assesses the compliance of your 
+> Container Network Interface (CNI) provider.
+
 ### Authentication and Authorization Mechanisms to Enhance Security
 
 1. **Certificate-Based Authentication:** Instead of relying solely on passwords, certificate-based authentication uses 
@@ -258,9 +268,10 @@ and is crucial in a Kubernetes environment, where nodes and services interact co
 to authenticate nodes and establish secure connections through encrypted channels, preventing attackers from 
 intercepting and reading data in transit.
 
-1. **Encryption at Rest:** Encryption at rest involves protecting data stored in persistent volumes, databases, and 
-other storage media in the cluster. Kubernetes provides features for data encryption at rest using the Kubernetes 
-Secrets functionality and by integrating encrypted storage solutions.
+1. **Encryption of Data at Rest:** Data at rest encryption, including the protection of data stored in persistent 
+volumes, databases, and other storage mediums within the cluster, is vital. Kubernetes offers features for encrypting 
+data at rest by utilizing the Kubernetes Secrets functionality and integrating with encrypted storage solutions, such as
+[HashiCorp Vault](https://www.vaultproject.io/){:target="_blank" rel="noopener noreferrer nofollow"}.
 
 ### Benefits of Using Certificates and Regular Key Rotation
 
