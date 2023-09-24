@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Le Futur du DevOps : Comment l'IA va Transformer l'Industrie Logicielle"
-date: 2023-09-22 00:11:00 +0200
+date: 2023-09-24 12:23:00 +0200
 description: "Découvrez comment l'intelligence artificielle (IA) redéfinit l'avenir du DevOps et de l'industrie logicielle. Explorez les tendances de l'IA dans le DevOps."
 img: future-devops-with-ai.jpg
 fig-caption: Photo de Javier Ideami sur <a href="https://losslandscape.com">losslandscape.com</a>

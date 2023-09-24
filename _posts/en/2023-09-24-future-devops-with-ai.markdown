@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "The Future of DevOps: How AI Will Transform the Software Industry"
-date: 2023-09-22 00:11:00 +0200
+date: 2023-09-24 12:23:00 +0200
 description: "Discover how Artificial Intelligence (AI) is redefining the future of DevOps and the software industry. Explore AI trends in DevOps."
 img: future-devops-with-ai.jpg
 fig-caption: Photo by Javier Ideami on <a href="https://losslandscape.com">losslandscape.com</a>
