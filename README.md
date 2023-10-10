@@ -37,25 +37,25 @@ bundle exec jekyll build
 - Development build:
 
 ```bash
-bundle exec jekyll server --watch
+bundle exec jekyll server --incremental
 ```
 
 - Development build included drafts:
 
 ```bash
-bundle exec jekyll server --watch --drafts
+bundle exec jekyll server --incremental --drafts
 ```
 
 - Development build included drafts and future posts:
 
 ```bash
-bundle exec jekyll server --watch --drafts --future
+bundle exec jekyll server --incremental --drafts --future
 ```
 
 - Development build included drafts, future posts and verbose output:
 
 ```bash
-bundle exec jekyll server --watch --drafts --future --verbose
+bundle exec jekyll server --incremental --drafts --future --verbose
 ```
 
 ## Jekyll
