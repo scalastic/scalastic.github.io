@@ -590,11 +590,14 @@ a.card-source.microlink_vanilla {
     }
     .social-right {
       width: 25%;
-      /* flex-direction: column; */
-      flex-wrap: nowrap;
-      align-content: center;
+      flex-direction: row;
+      flex-wrap: wrap;
+      align-content: space-evenly;
       justify-content: center;
       align-items:center;
+      .social-item {
+        padding: 6px 6px;
+      }
     }
   }
 }
