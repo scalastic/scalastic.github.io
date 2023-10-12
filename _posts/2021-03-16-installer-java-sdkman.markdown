@@ -79,11 +79,12 @@ correctement sur votre système. Voici les instructions détaillées pour instal
    {% highlight shell %}sdk version{% endhighlight %}
 
 6. Vous devriez voir :
-   {% highlight shell %} 
-   SDKMAN!
-   script: 5.18.2
-   native: 0.4.2
-   {% endhighlight %}
+
+{% highlight shell %}
+SDKMAN!
+script: 5.18.2
+native: 0.4.2
+{% endhighlight %}
 
 ### Installation sur Windows :
 
@@ -97,7 +98,8 @@ Félicitations ! Vous avez maintenant installé SDKMAN sur votre système. Vous 
 puissantes qu'il offre pour la gestion des versions de JDK.
 
 > info "Note"
-> Toutes les installations de SDKs se feront désormais dans le répertoire `~/.sdkman`.
+> Toutes les installations de SDK seront désormais effectuées sous votre répertoire HOME, qui se trouve dans `~/.sdkman`
+> sur les systèmes d'exploitation compatibles avec Linux.
 
 
 <hr class="hr-text" data-content="JDK">
@@ -297,17 +299,6 @@ Maintenant, c'est à votre tour. Pour l'installer, j'exécute la commande suivan
 {% highlight zsh %} % sdk install java 20.0.2-graalce{% endhighlight %}
 
 Cela lancera le processus d'installation, et la sortie sera :
-
-### Actual JDK Installation
-
-Place your bets... I've made mine! Since I'm currently working on Spring Boot 3 and native Java code compilation, I'm choosing `GraalVM CE` 
-version `20.0.2` and selecting its identifier `20.0.2-graalce`. Now it's your turn.
-
-To install it, I execute the following command:
-
-{% highlight bash %}sdk install java 21.0.0.2.r11-grl{% endhighlight %}
-
-This will initiate the installation process, and the output will be:
 
 {% highlight output %}
 Downloading: java 20.0.2-graalce
