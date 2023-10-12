@@ -77,12 +77,14 @@ the detailed instructions for installing SDKMAN on macOS, Windows, and Linux:
 
 5. To verify if SDKMAN has been successfully installed, type the following command:
    {% highlight shell %}sdk version{% endhighlight %}
+
 6. You should see:
-      {% highlight shell %}
-      SDKMAN!
-      script: 5.18.2
-      native: 0.4.2
-      {% endhighlight %}
+
+{% highlight shell %}
+SDKMAN!
+script: 5.18.2
+native: 0.4.2
+{% endhighlight %}
 
 ### Installation on Windows:
 

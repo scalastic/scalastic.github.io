@@ -79,11 +79,12 @@ correctement sur votre système. Voici les instructions détaillées pour instal
    {% highlight shell %}sdk version{% endhighlight %}
 
 6. Vous devriez voir :
-   {% highlight shell %} 
-   SDKMAN!
-   script: 5.18.2
-   native: 0.4.2
-   {% endhighlight %}
+
+{% highlight shell %}
+SDKMAN!
+script: 5.18.2
+native: 0.4.2
+{% endhighlight %}
 
 ### Installation sur Windows :
 
