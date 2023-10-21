@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Mentions légales
-date: 2023-05-13 00:00:00 +0200
+date: 2023-10-22 00:00:00 +0200
 description: Mentions légales du site
 img: informations-legales.jpg
 fig-caption: Photo de <a href="https://unsplash.com/@nahakiole?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Robin Glauser</a> sur <a href="https://unsplash.com/collections/8291752/tr-01-01?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Unsplash</a>
@@ -27,7 +27,7 @@ Le Site est édité par SCALASTIC EURL.
 
 - Raison sociale : SCALASTIC EURL
 - Numéro SIRET : 80216458200016
-- Adresse : 209 boulevard Raspail, 75014 Paris, France
+- Adresse : 137 boulevard Saint-Michel, 75005 Paris, France
 - Email : contact@scalastic.io
 
 ## 2. Directeur de la publication
@@ -117,4 +117,4 @@ tribunaux français seront seuls compétents.
 Pour toute question ou demande concernant les mentions légales du Site, veuillez nous contacter à l'adresse email 
 suivante : contact@scalastic.io.
 
-Dernière mise à jour : 13 mai 2023
+Dernière mise à jour : 22 octobre 2023

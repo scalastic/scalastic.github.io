@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Legal Notice
-date: 2023-05-13 00:00:00 +0200
+date: 2023-10-22 00:00:00 +0200
 description: Legal Notice of the website
 img: informations-legales.jpg
 fig-caption: Photo by <a href="https://unsplash.com/@nahakiole?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Robin Glauser</a> on <a href="https://unsplash.com/collections/8291752/tr-01-01?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Unsplash</a>
@@ -26,7 +26,7 @@ The Site is published by SCALASTIC EURL.
 
 - Company name: SCALASTIC EURL
 - SIRET number: 80216458200016
-- Address: 209 Boulevard Raspail, 75014 Paris, France
+- Address: 137 boulevard Saint-Michel, 75005 Paris, France
 - Email: contact@scalastic.io
 
 ## 2. Publication Director
@@ -110,4 +110,4 @@ courts shall have exclusive jurisdiction.
 For any questions or inquiries regarding the legal notice of the Site, please contact us at the following email address:
 contact@scalastic.io.
 
-Last updated: May 13, 2023
+Last update: October 22, 2023
