@@ -1,0 +1,2 @@
+User-agent: *
+Sitemap: https://scalastic.io/sitemap.xml
