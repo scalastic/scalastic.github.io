@@ -14,8 +14,8 @@ Lorsqu'une nouvelle version stable de macOS est disponible, il peut arriver que 
 réinstallation complète de mon ordinateur, communément appelée "clean install". Après cette opération, il devient 
 nécessaire de réinstaller tous les outils indispensables à mon travail, ce qui peut s'avérer fastidieux.
 
-C'est dans ce contexte que SDKMAN, un utilitaire très pratique et qui va bien au-delà de la simple gestion de plusieurs 
-versions de JDKs sur votre ordinateur.
+C'est dans ce contexte que SDKMAN entre en jeu en tant qu'utilitaire extrêmement pratique et qui va au-delà de la simple
+gestion de plusieurs versions de JDK sur votre ordinateur.
 
 <hr class="hr-text" data-content="Plan">
 
