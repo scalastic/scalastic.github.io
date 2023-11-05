@@ -5,6 +5,40 @@
       
         
 	<url>
+	  <loc>https://scalastic.io/hexagonal-architecture/</loc>
+	  
+	    <lastmod>2023-11-03T13:53:00+01:00</lastmod>
+	  
+	  
+	    <changefreq>monthly</changefreq>
+	  
+	  
+	    <priority>0.5</priority>
+	  
+	</url>
+        
+      
+        
+	<url>
+	  <loc>https://scalastic.io/en/hexagonal-architecture/</loc>
+	  
+	    <lastmod>2023-11-03T13:53:00+01:00</lastmod>
+	  
+	  
+	    <changefreq>monthly</changefreq>
+	  
+	  
+	    <priority>0.5</priority>
+	  
+	</url>
+        
+      
+    
+  
+    
+      
+        
+	<url>
 	  <loc>https://scalastic.io/installer-java-sdkman/</loc>
 	  
 	    <lastmod>2023-10-10T20:57:00+02:00</lastmod>
@@ -1439,7 +1473,7 @@
     <url>
       <loc>https://scalastic.io/</loc>
       
-        <lastmod>2023-10-31T10:17:32+01:00</lastmod>
+        <lastmod>2023-11-06T00:44:41+01:00</lastmod>
       
       
         <changefreq>weekly</changefreq>
@@ -1454,7 +1488,7 @@
     <url>
       <loc>https://scalastic.io/en/</loc>
       
-        <lastmod>2023-10-31T10:17:32+01:00</lastmod>
+        <lastmod>2023-11-06T00:44:41+01:00</lastmod>
       
       
         <changefreq>weekly</changefreq>
@@ -1585,7 +1619,7 @@
     <url>
       <loc>https://scalastic.io/page/2/</loc>
       
-        <lastmod>2023-10-31T10:17:32+01:00</lastmod>
+        <lastmod>2023-11-06T00:44:41+01:00</lastmod>
       
       
         <changefreq>weekly</changefreq>
@@ -1600,7 +1634,7 @@
     <url>
       <loc>https://scalastic.io/en/page/2/</loc>
       
-        <lastmod>2023-10-31T10:17:32+01:00</lastmod>
+        <lastmod>2023-11-06T00:44:41+01:00</lastmod>
       
       
         <changefreq>weekly</changefreq>
@@ -1619,7 +1653,7 @@
     <url>
       <loc>https://scalastic.io/page/3/</loc>
       
-        <lastmod>2023-10-31T10:17:32+01:00</lastmod>
+        <lastmod>2023-11-06T00:44:41+01:00</lastmod>
       
       
         <changefreq>weekly</changefreq>
@@ -1634,7 +1668,7 @@
     <url>
       <loc>https://scalastic.io/en/page/3/</loc>
       
-        <lastmod>2023-10-31T10:17:32+01:00</lastmod>
+        <lastmod>2023-11-06T00:44:41+01:00</lastmod>
       
       
         <changefreq>weekly</changefreq>
@@ -1653,7 +1687,7 @@
     <url>
       <loc>https://scalastic.io/page/4/</loc>
       
-        <lastmod>2023-10-31T10:17:32+01:00</lastmod>
+        <lastmod>2023-11-06T00:44:41+01:00</lastmod>
       
       
         <changefreq>weekly</changefreq>
@@ -1668,7 +1702,7 @@
     <url>
       <loc>https://scalastic.io/en/page/4/</loc>
       
-        <lastmod>2023-10-31T10:17:32+01:00</lastmod>
+        <lastmod>2023-11-06T00:44:41+01:00</lastmod>
       
       
         <changefreq>weekly</changefreq>
@@ -1687,7 +1721,7 @@
     <url>
       <loc>https://scalastic.io/page/5/</loc>
       
-        <lastmod>2023-10-31T10:17:32+01:00</lastmod>
+        <lastmod>2023-11-06T00:44:41+01:00</lastmod>
       
       
         <changefreq>weekly</changefreq>
@@ -1702,7 +1736,7 @@
     <url>
       <loc>https://scalastic.io/en/page/5/</loc>
       
-        <lastmod>2023-10-31T10:17:32+01:00</lastmod>
+        <lastmod>2023-11-06T00:44:41+01:00</lastmod>
       
       
         <changefreq>weekly</changefreq>
@@ -1721,7 +1755,7 @@
     <url>
       <loc>https://scalastic.io/page/6/</loc>
       
-        <lastmod>2023-10-31T10:17:32+01:00</lastmod>
+        <lastmod>2023-11-06T00:44:41+01:00</lastmod>
       
       
         <changefreq>weekly</changefreq>
@@ -1736,7 +1770,7 @@
     <url>
       <loc>https://scalastic.io/en/page/6/</loc>
       
-        <lastmod>2023-10-31T10:17:32+01:00</lastmod>
+        <lastmod>2023-11-06T00:44:41+01:00</lastmod>
       
       
         <changefreq>weekly</changefreq>
@@ -1755,7 +1789,7 @@
     <url>
       <loc>https://scalastic.io/page/7/</loc>
       
-        <lastmod>2023-10-31T10:17:32+01:00</lastmod>
+        <lastmod>2023-11-06T00:44:41+01:00</lastmod>
       
       
         <changefreq>weekly</changefreq>
@@ -1770,7 +1804,41 @@
     <url>
       <loc>https://scalastic.io/en/page/7/</loc>
       
-        <lastmod>2023-10-31T10:17:32+01:00</lastmod>
+        <lastmod>2023-11-06T00:44:41+01:00</lastmod>
+      
+      
+        <changefreq>weekly</changefreq>
+      
+      
+        <priority>0.5</priority>
+      
+    </url>  
+        
+      
+    
+  
+    
+      
+        
+    <url>
+      <loc>https://scalastic.io/page/8/</loc>
+      
+        <lastmod>2023-11-06T00:44:41+01:00</lastmod>
+      
+      
+        <changefreq>weekly</changefreq>
+      
+      
+        <priority>0.5</priority>
+      
+    </url>
+        
+      
+        
+    <url>
+      <loc>https://scalastic.io/en/page/8/</loc>
+      
+        <lastmod>2023-11-06T00:44:41+01:00</lastmod>
       
       
         <changefreq>weekly</changefreq>
