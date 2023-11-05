@@ -72,7 +72,7 @@ commit et d'autres métadonnées.
 
 Voici un exemple d'affichage de commits avec, en début de ligne, leur hash respectif :
 
-{% highlight hash %}
+{% highlight bash %}
 8634ee6 (HEAD -> main, origin/main, origin/HEAD) feat: Adds dark theme 🖤 (#32)
 aae8242 fix: CSS on phones
 d9bb54f refacto: Big CSS uniformization and refacto 🌟

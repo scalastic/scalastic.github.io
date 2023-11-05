@@ -34,4 +34,4 @@ jobs:
           bundler_ver: '>=0'         # Default is latest bundler version
           cname: 'scalastic.io'      # Default is to not use a cname
           actor: ''                  # Default is the GITHUB_ACTOR
-          pre_build_commands: pacman-key --init; pacman -S --noconfirm git-lfs libvips lcms2 openjpeg2 libpng libwebp libheif imagemagick openslide libjxl poppler-glib
+          pre_build_commands: pacman-key --init; pacman -S --noconfirm git-lfs libvips lcms2 openjpeg2 libpng libwebp libheif=1.16.2 imagemagick openslide libjxl poppler-glib
