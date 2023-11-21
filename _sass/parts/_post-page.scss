@@ -12,7 +12,7 @@
       min-height: 20px;
       display: block;
     }
-    font-weight: 400;
+    font-weight: 800;
     margin: 0 0 10px;
     line-height: 1.3;
     -webkit-animation: 4s wobble linear;
@@ -671,7 +671,7 @@ a.card-source.microlink_vanilla {
 .recomm,
 .recomm-link,
 .image-container {
-  opacity: 0.8;
+  opacity: 1;
 }
 
 .page-recomm {
@@ -687,7 +687,7 @@ a.card-source.microlink_vanilla {
     color: var(--emphasis-color);
 
     &:hover {
-        opacity: 1;
+        opacity: 1.2;
         .recomm-link,
         .image-container {
           opacity: 1;
@@ -702,6 +702,7 @@ a.card-source.microlink_vanilla {
       padding: 10px;
 
       h5 {
+        font-weight: 800;
         text-align: left;
         text-decoration: none;
         color: var(--body-color);
