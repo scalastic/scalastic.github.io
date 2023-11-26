@@ -1,15 +1,17 @@
 <div class="page-author">
-  <div class="author-pres">
-    <div class="author-img">
-      {% picture thumbnail-author {{ "/assets/img/" | prepend: site.baseurl | append : site.author-img}} center 1:1 --alt {{site.author}} --class author-img --width 80 --height 80 %}
+      <div class="author-pres">
+        <div class="author-img">
+            {% picture thumbnail-author {{ "/assets/img/" | prepend: site.baseurl | append : site.author-img}} center 1:1 --alt {{site.author}} --class author-img --width 80 --height 80 %}
+        </div>
+        <div class="author-info">
+            <p class="intro">{{ site.data.i18n.written-by }}</p>
+            <a href="{{ '/jean-jerome-levy/' | prepend: site.baseurl }}">
+            <h2 class="name">{{ site.data.i18n.author-name }}</h2>
+            </a>
+            <p class="title">{{ site.data.i18n.author-job }}</p>
+        </div>
+      </div>
+    <div class="author-desc">
+        <p>{{ site.data.i18n.author-desc }}</p>
     </div>
-    <div class="author-info">
-        <p class="intro">{{ site.data.i18n.written-by }}</p>
-        <h2 class="name">{{ site.data.i18n.author-name }}</h2>
-        <p class="title">{{ site.data.i18n.author-job }}</p>
-    </div>
-  </div>
-  <div class="author-desc">
-    <p>{{ site.data.i18n.author-desc }}</p>
-  </div>
 </div>

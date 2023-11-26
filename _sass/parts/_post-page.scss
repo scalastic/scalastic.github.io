@@ -605,9 +605,8 @@ a.card-source.microlink_vanilla {
 .page-author {
   padding-bottom: 30px;
   margin: 10px 0px;
-  border-bottom: 1px solid #a0a0a0;
+  border-bottom: 1px solid var(--emphasis-color);
   display: flex;
-  margin: 0 -12px;
   justify-content: space-between;
   p { 
     margin: 0;
@@ -630,6 +629,11 @@ a.card-source.microlink_vanilla {
     p {
       padding-left: 102px;
     }
+    a {
+      color: var(--body-color);
+      text-decoration: none;
+      position: relative;
+   }
     .intro {
       padding-left: 102px;
       letter-spacing: 0.077em;
@@ -645,7 +649,6 @@ a.card-source.microlink_vanilla {
       line-height: 28px;
       letter-spacing: 0px;
       margin: 0px;
-
     }
     .title {
       padding-left: 102px;
