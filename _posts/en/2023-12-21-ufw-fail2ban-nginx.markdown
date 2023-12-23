@@ -5,7 +5,7 @@ date: 2023-12-23 18:34:00 +0100
 description: "The ultimate guide to securing your Nginx server on Ubuntu with Fail2ban and UFW. Practical tips for an infallible defense."
 img: ufw-fail2ban-nginx.jpg
 fig-caption: Picture of <a href="#">DALL•E</a> about <a href="https://www.fortnite.com/">Fortnite</a>
-tags: [UFW, Fail2ban, Nginx, Security, DevSecOps]
+tags: [UFW, Fail2ban, Nginx, Security, Cybersecurity, DevSecOps]
 lang: en
 permalink: /ufw-fail2ban-nginx/
 status: finished
@@ -558,8 +558,8 @@ The following script provides this visibility, categorized by jail:
 
 {% highlight bash %}
 for jail in $(sudo fail2ban-client status | grep 'Jail list:' | sed 's/.*://;s/,//g'); do
-echo "Jail: $jail";
-sudo fail2ban-client status $jail | grep 'Banned IP';
+  echo "Jail: $jail";
+  sudo fail2ban-client status $jail | grep 'Banned IP';
 done
 {% endhighlight %}
 

@@ -5,7 +5,7 @@ date: 2023-12-23 18:34:00 +0100
 description: "Guide ultime pour sécuriser votre serveur Nginx sur Ubuntu avec Fail2ban et UFW. Astuces pratiques pour une défense infaillible."
 img: ufw-fail2ban-nginx.jpg
 fig-caption: Illustration de <a href="#">DALL•E</a> en rapport avec <a href="https://www.fortnite.com/">Fortnite</a>
-tags: [UFW, Fail2ban, Nginx, Security, DevSecOps]
+tags: [UFW, Fail2ban, Nginx, Security, Cybersecurity, DevSecOps]
 lang: fr
 permalink: /ufw-fail2ban-nginx/
 status: finished
@@ -572,8 +572,8 @@ Le script suivant fournit cette visibilité, classée par jail :
 
 {% highlight bash %}
 for jail in $(sudo fail2ban-client status | grep 'Jail list:' | sed 's/.*://;s/,//g'); do
-echo "Jail: $jail";
-sudo fail2ban-client status $jail | grep 'Banned IP';
+  echo "Jail: $jail";
+  sudo fail2ban-client status $jail | grep 'Banned IP';
 done
 {% endhighlight %}
 
@@ -1675,8 +1675,8 @@ bannissement des IP malveillantes avec la gestion rigoureuse du trafic réseau.
 La mise en place de ces outils n'est que le début d'un processus continu de sécurisation. Il est essentiel de maintenir 
 ces systèmes à jour, d'ajuster régulièrement les configurations en fonction des nouvelles menaces et de surveiller 
 constamment les journaux pour détecter les tentatives d'intrusion. Les analyses de données démontrent clairement 
-l'importance de ces outils dans la détection et le blocage d'une multitude de tentatives d'accès non autorisées, venant 
-de partout dans le monde.
+l'importance de ces outils dans la détection et le blocage d'une multitude de tentatives d'accès non autorisées, 
+provenant de divers coins du globe.
 
 Enfin, gardez à l'esprit que la sécurité est une pratique évolutive. Les menaces changent constamment, et nos méthodes 
 de défense doivent s'adapter en conséquence. N'hésitez pas à explorer de nouveaux outils, à partager vos connaissances 
