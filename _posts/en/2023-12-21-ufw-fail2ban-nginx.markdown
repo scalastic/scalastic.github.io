@@ -4,7 +4,7 @@ title: "Turn Your Nginx Server into a Fortress with Fail2ban and UFW"
 date: 2023-12-23 18:34:00 +0100
 description: "The ultimate guide to securing your Nginx server on Ubuntu with Fail2ban and UFW. Practical tips for an infallible defense."
 img: ufw-fail2ban-nginx.jpg
-fig-caption: Picture of <a href="#">DALL•E</a> about <a href="https://www.fortnite.com/">Fortnite</a>
+fig-caption: Illustration by <a href="#">DALL•E</a> on a <a href="https://www.fortnite.com/">Fortnite</a> theme
 tags: [UFW, Fail2ban, Nginx, Security, Cybersecurity, DevSecOps]
 lang: en
 permalink: /ufw-fail2ban-nginx/
@@ -63,6 +63,12 @@ server environment that is not only resistant to the most common attacks but als
 <hr class="hr-text" data-content="Installation">
 
 ## Basic Installation and Configuration
+
+<figure class="article">
+  {% picture {{site.baseurl}}/assets/img/ufw-fail2ban-nginx-basic-installation.jpeg --alt Quite an interesting illustration of a server setup by DALL·E %}
+  <figcaption>Quite an interesting illustration of a server setup by DALL·E</figcaption>
+</figure>
+
 
 While the following instructions are specific to Ubuntu Linux distribution, the principles and commands
 are largely transferable to other Linux systems. With minor adaptations, these steps can be applied to various
@@ -203,6 +209,11 @@ Status
 
 ## Advanced Configuration of UFW
 
+<figure class="article">
+  {% picture {{site.baseurl}}/assets/img/ufw-fail2ban-nginx-ufw-config.jpeg --alt Allegorical or even wacky illustration of UFW by DALL·E %}
+  <figcaption>Allegorical or even wacky illustration of UFW by DALL·E</figcaption>
+</figure>
+
 We will apply the principle of least privilege by defaulting to blocking all incoming and outgoing connections,
 and only allowing the necessary traffic for specific services. By following this principle, we minimize the risks
 associated with unauthorized access or exploitation of vulnerabilities, ensuring that only essential ports and
@@ -281,13 +292,18 @@ sudo ufw limit 22/tcp comment 'Allow 6 connections over 30 seconds'
 
 {% highlight bash %}
 sudo ufw delete allow in 22/tcp
-sudo ufw allow from 192.168.0.0 to any port 22
+sudo ufw allow from 192.168.0.0/16 to any port 22 proto tcp
 {% endhighlight %}
 
 
 <hr class="hr-text" data-content="Fail2ban Configuration">
 
 ## Advanced Configuration of Fail2ban
+
+<figure class="article">
+  {% picture {{site.baseurl}}/assets/img/ufw-fail2ban-nginx-fail2ban-config.jpeg --alt Amphetamine-fueled illustration of Fail2ban by DALL·E %}
+  <figcaption>Amphetamine-fueled illustration of Fail2ban by DALL·E</figcaption>
+</figure>
 
 ### Step 8: List Preconfigured Filters on Your Server
 
@@ -550,6 +566,11 @@ You will find multiple filters for Fail2ban on the internet, tailored to the ser
 
 ## Visualization and Analysis of Bans
 
+<figure class="article">
+  {% picture {{site.baseurl}}/assets/img/ufw-fail2ban-nginx-fail2ban-visualization.jpeg --alt Surprisingly wise illustration of 'visualization and analysis' by DALL·E %}
+  <figcaption>Surprisingly wise illustration of 'visualization and analysis' by DALL·E</figcaption>
+</figure>
+
 ### Data Extraction
 
 To effectively understand and analyze Fail2Ban's security actions, it's useful to have an overview of the banned IP addresses.
@@ -742,8 +763,8 @@ cat "$CITY_FILE" | count_occurrences | sort_occurrences
 #### Interpretation of Blocked Scans by Country
 
 <figure class="article">
-  <img src="{{site.baseurl}}/assets/img/ufw-fail2ban-nginx-top-scans-by-country.jpg" alt="Top 20 countries with the highest number of scans" />
-  <figcaption>Top 20 countries with the highest number of scans</figcaption>
+  {% picture {{site.baseurl}}/assets/img/ufw-fail2ban-nginx-top-scans-by-country.jpeg --alt Top 20 countries with the highest number of scans %}
+  <figcaption>Top 20 Countries with the highest number of scans</figcaption>
 </figure>
 
 - **1. High Scanning Activity in the United States (US)**
@@ -1161,8 +1182,8 @@ access attempts.
 #### Interpretation of Blocked Scans by Organization
 
 <figure class="article">
-  <img src="{{site.baseurl}}/assets/img/ufw-fail2ban-nginx-top-scans-by-organization.jpg" alt="Top 20 organizations with the highest number of scans" />
-  <figcaption>Top 20 organizations with the highest number of scans</figcaption>
+  {% picture {{site.baseurl}}/assets/img/ufw-fail2ban-nginx-top-scans-by-organization.jpeg --alt Top 20 organizations with the highest number of scans %}
+  <figcaption>Top 20 Organizations with the highest number of scans</figcaption>
 </figure>
 
 - **1. Google LLC (AS396982)**
@@ -1626,8 +1647,8 @@ illustrates the complexity of the online security ecosystem.
 #### Interpretation of Blocked Scans Statistics by City
 
 <figure class="article">
-  <img src="{{site.baseurl}}/assets/img/ufw-fail2ban-nginx-top-scans-by-city.jpg" alt="Top 20 cities with the highest number of scans" />
-  <figcaption>Top 20 cities with the highest number of scans</figcaption>
+  {% picture {{site.baseurl}}/assets/img/ufw-fail2ban-nginx-top-scans-by-city.jpeg --alt Top 20 cities with the highest number of scans %}
+  <figcaption>Top 20 Cities with the highest number of scans</figcaption>
 </figure>
 
 - **1. San Francisco (314 Occurrences)**

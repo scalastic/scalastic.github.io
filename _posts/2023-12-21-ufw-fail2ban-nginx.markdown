@@ -4,7 +4,7 @@ title: "Transformez Votre Serveur Nginx en Forteresse avec Fail2ban et UFW"
 date: 2023-12-23 18:34:00 +0100
 description: "Guide ultime pour sécuriser votre serveur Nginx sur Ubuntu avec Fail2ban et UFW. Astuces pratiques pour une défense infaillible."
 img: ufw-fail2ban-nginx.jpg
-fig-caption: Illustration de <a href="#">DALL•E</a> en rapport avec <a href="https://www.fortnite.com/">Fortnite</a>
+fig-caption: Illustration de <a href="#">DALL•E</a> sur un thème <a href="https://www.fortnite.com/">Fortnite</a>
 tags: [UFW, Fail2ban, Nginx, Security, Cybersecurity, DevSecOps]
 lang: fr
 permalink: /ufw-fail2ban-nginx/
@@ -67,6 +67,11 @@ adaptable à des menaces émergentes.
 <hr class="hr-text" data-content="Installation">
 
 ## Installation et Configuration de Base
+
+<figure class="article">
+  {% picture {{site.baseurl}}/assets/img/ufw-fail2ban-nginx-basic-installation.jpeg --alt Illustration plutôt intéressante d'une installation de serveur par DALL·E %}
+  <figcaption>Illustration plutôt intéressante d'une installation de serveur par DALL·E</figcaption>
+</figure>
 
 Bien que les instructions suivantes soient spécifique à une distribution Linux Ubuntu, les principes et les 
 commandes sont largement transposables à d'autres systèmes Linux. Avec de légères adaptations, ces étapes peuvent être 
@@ -211,6 +216,11 @@ Status
 
 ## Configuration avancée de UFW
 
+<figure class="article">
+  {% picture {{site.baseurl}}/assets/img/ufw-fail2ban-nginx-ufw-config.jpeg --alt Illustration allégorique, voire déjantée de UFW par DALL·E %}
+  <figcaption>Illustration allégorique, voire déjantée de UFW par DALL·E</figcaption>
+</figure>
+
 Nous allons appliquer le principe du moindre privilège en blocant par défaut toutes les connexions entrantes et 
 sortantes, et en n'autorisant que les flux nécessaires pour les services spécifiques. En suivant ce principe, on 
 minimise les risques liés à l'accès non autorisé ou à l'exploitation de vulnérabilités, en assurant que seuls les ports 
@@ -289,13 +299,17 @@ sudo ufw limit 22/tcp comment 'Autorise 6 connexions sur 30 secondes'
 
 {% highlight bash %}
 sudo ufw delete allow in 22/tcp
-sudo ufw allow from 192.168.0.0 to any port 22
+sudo ufw allow from 192.168.0.0/16 to any port 22 proto tcp
 {% endhighlight %}
 
 <hr class="hr-text" data-content="Configuration de Fail2ban">
 
 ## Configuration avancée de Fail2ban
 
+<figure class="article">
+  {% picture {{site.baseurl}}/assets/img/ufw-fail2ban-nginx-fail2ban-config.jpeg --alt Illustration sous amphétamines de Fail2ban par DALL·E %}
+  <figcaption>Illustration sous amphétamines de Fail2ban par DALL·E</figcaption>
+</figure>
 
 ### Étape 8 : Lister les filtres préconfigurés sur votre serveur
 
@@ -563,6 +577,11 @@ Vous trouverez sur internet de multiples filtres pour Fail2ban adaptés aux serv
 
 ## Visualisation et Analyse des Bannissements
 
+<figure class="article">
+  {% picture {{site.baseurl}}/assets/img/ufw-fail2ban-nginx-fail2ban-visualization.jpeg --alt Illustration étonnamment sage de la « visualisation et analyse » par DALL·E %}
+  <figcaption>Illustration étonnamment sage de la « visualisation et analyse » par DALL·E</figcaption>
+</figure>
+
 ### Extraction des Données
 
 Pour comprendre et analyser efficacement les actions de sécurité de Fail2Ban, il est utile d'avoir un aperçu des 
@@ -756,8 +775,8 @@ cat "$CITY_FILE" | count_occurrences | sort_occurrences
 #### Interprétation de Scans Bloqués par Pays
 
 <figure class="article">
-  <img src="{{site.baseurl}}/assets/img/ufw-fail2ban-nginx-top-scans-by-country.jpg" alt="Top 20 des pays effectuant le plus grand nombre de scans" />
-  <figcaption>Top 20 des pays effectuant le plus grand nombre de scans</figcaption>
+  {% picture {{site.baseurl}}/assets/img/ufw-fail2ban-nginx-top-scans-by-country.jpeg --alt Top 20 des Pays effectuant le plus grand nombre de scans %}
+  <figcaption>Top 20 des Pays effectuant le plus grand nombre de scans</figcaption>
 </figure>
 
 - **1. Activité de Scanning Elevée aux États-Unis (US)**
@@ -1171,8 +1190,8 @@ contre les tentatives d'accès non autorisées ou malveillantes.
 #### Interprétation des Scans bloqués par Organisation
 
 <figure class="article">
-  <img src="{{site.baseurl}}/assets/img/ufw-fail2ban-nginx-top-scans-by-organization.jpg" alt="Top 20 des organisations effectuant le plus grand nombre de scans" />
-  <figcaption>Top 20 des organisations effectuant le plus grand nombre de scans</figcaption>
+  {% picture {{site.baseurl}}/assets/img/ufw-fail2ban-nginx-top-scans-by-organization.jpeg --alt Top 20 des Organisations effectuant le plus grand nombre de scans %}
+  <figcaption>Top 20 des Organisations effectuant le plus grand nombre de scans</figcaption>
 </figure>
 
 - **1. Google LLC (AS396982)**
@@ -1629,8 +1648,8 @@ entreprises de télécommunications, montre la complexité de l'écosystème de 
 #### Interprétation des Statistiques de Scans Bloqués par Ville
 
 <figure class="article">
-  <img src="{{site.baseurl}}/assets/img/ufw-fail2ban-nginx-top-scans-by-city.jpg" alt="Top 20 des villes effectuant le plus grand nombre de scans" />
-  <figcaption>Top 20 des villes effectuant le plus grand nombre de scans</figcaption>
+  {% picture {{site.baseurl}}/assets/img/ufw-fail2ban-nginx-top-scans-by-city.jpeg --alt Top 20 des Villes effectuant le plus grand nombre de scans %}
+  <figcaption>Top 20 des Villes effectuant le plus grand nombre de scans</figcaption>
 </figure>
 
 - **1. San Francisco (314 Occurrences)**

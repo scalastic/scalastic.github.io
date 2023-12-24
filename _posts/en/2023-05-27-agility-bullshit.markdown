@@ -5,7 +5,7 @@ date: 2023-05-27 12:19:00 +0200
 description: Discover the hidden realities behind agility in the workplace. Abuse, illusion of autonomy, excessive working hours... An essential read to demystify agility and promote a balanced and ethical work environment.
 img: agility-bullshit.jpg
 fig-caption: Photo by <a href="https://unsplash.com/@tandemxvisuals?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Tandem X Visuals</a> on <a href="https://unsplash.com/fr/photos/5QrHm5RIpII?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Unsplash</a>
-tags: [Agility, DevOps, Leadership, Well-Being]
+tags: [Agile, DevOps, Leadership, Well-Being]
 lang: en
 permalink: /agility-bullshit/
 status: finished
@@ -50,7 +50,7 @@ realistically, employees can feel overwhelmed and overworked, leading to burnout
 ### The Importance of Transparency and Honest Communication
 
 It is therefore crucial to promote transparency and honest communication from the start, highlighting the realities and 
-challenges that agile teams may face. Exaggerated promises should be avoided, and realistic expectation management 
+challenges that Agile teams may face. Exaggerated promises should be avoided, and realistic expectation management 
 should be put in place. It is also important to provide adequate support to developers, giving them the necessary 
 resources to cope with difficulties and recognizing their successes and efforts.
 
@@ -62,7 +62,7 @@ ensuring that developers are not exploited in its name.
 ## The Tyranny of Velocity
 
 One of the common pitfalls of agility is the excessive focus on velocity at the expense of work quality and employee 
-well-being. In many agile environments, velocity has become a standalone objective, closely measured and monitored. This
+well-being. In many Agile environments, velocity has become a standalone objective, closely measured and monitored. This
 creates constant pressure on teams to increase their velocity, disregarding other important aspects of software 
 development.
 
@@ -85,7 +85,7 @@ placed on delivering high-quality features rather than mere quantity. Teams shou
 time to perform tasks correctly, adhering to good development practices. It is also crucial to foster a work environment
 that takes into account employee well-being, avoiding work overload and maintaining a healthy work-life balance.
 
-Furthermore, in some agile teams, it is even common not to measure velocity at all. Other factors such as customer 
+Furthermore, in some Agile teams, it is even common not to measure velocity at all. Other factors such as customer 
 satisfaction, product quality, and team health are taken into account. By adopting a thoughtful approach to agility, we 
 can mitigate the detrimental effects of velocity and create a healthier and more effective work environment.
 
@@ -94,11 +94,11 @@ can mitigate the detrimental effects of velocity and create a healthier and more
 ## The Illusion of Autonomy
 
 Agility is often presented as a means to provide teams with greater autonomy. However, it is all too common for this 
-autonomy to be an illusion, masking micromanagement practices that go against the agile spirit.
+autonomy to be an illusion, masking micromanagement practices that go against the Agile spirit.
 
 ### How Agility can be Used to Mask Micromanagement Practices
 
-In many cases, agile teams are assigned specific goals and tasks, only to be subjected to strict directives on how they 
+In many cases, Agile teams are assigned specific goals and tasks, only to be subjected to strict directives on how they 
 should be carried out. Team members may find themselves with little room for decision-making and exercising their 
 creativity. This approach limits their actual autonomy and reduces them to mere task executors.
 
@@ -108,7 +108,7 @@ motivation, and depriving employees of it can lead to decreased productivity and
 
 ### How to Foster Genuine Autonomy in Agile Teams
 
-To promote genuine autonomy in agile teams, it is essential to establish an environment of trust. Managers and leaders 
+To promote genuine autonomy in Agile teams, it is essential to establish an environment of trust. Managers and leaders 
 must demonstrate transparency and open communication, explaining goals and expectations while allowing teams the freedom
 to choose how to achieve them. It is important to create a space where team members can express their ideas, take 
 initiatives, and make their own decisions.
@@ -137,7 +137,7 @@ lead to burnout, an imbalance between work and personal life, as well as deterio
 overall quality of life. Employees constantly feel pressured to immediately respond to demands, even outside 
 scheduled working hours.
 
-It is important to maintain a healthy work-life balance, even in an agile environment. This requires establishing clear 
+It is important to maintain a healthy work-life balance, even in an Agile environment. This requires establishing clear 
 boundaries in terms of working hours and availability. Employees should be encouraged to disconnect and rest to maintain
 their well-being and long-term productivity.
 
@@ -160,7 +160,7 @@ decision-making.
 
 ### How Agility can be Used to Avoid Managerial Responsibilities
 
-In some cases, managers may hide behind agile principles to avoid making difficult decisions or confronting problems. 
+In some cases, managers may hide behind Agile principles to avoid making difficult decisions or confronting problems. 
 They may transfer the responsibility onto the teams, leaving them to fend for themselves without providing the necessary
 guidance and support. This creates an environment where teams feel abandoned, and communication and collaboration are 
 hindered.
@@ -171,7 +171,7 @@ managers, which affects collaboration and individual commitment.
 
 ### The Importance of Genuine Agile Management and Engaged Leadership
 
-To prevent this disengagement of managers, it is crucial to promote genuine agile management and engaged leadership. 
+To prevent this disengagement of managers, it is crucial to promote genuine Agile management and engaged leadership. 
 Managers should be encouraged to take on their management responsibilities and play an active role in the team's 
 success. This involves providing a clear vision, setting goals, and defining realistic expectations for team members.
 

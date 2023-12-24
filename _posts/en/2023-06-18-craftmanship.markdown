@@ -5,7 +5,7 @@ date: 2023-06-18 23:57:00 +0200
 description: "Discover the importance of Craftsmanship in software development and DevOps. Technical excellence, collaboration, and key skills for quality results."
 img: craftmanship.jpg
 fig-caption: Photo by <a href="https://unsplash.com/@flotography_91?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">FotoFlo</a> on <a href="https://unsplash.com/fr/photos/_eiEesMgOxA?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Unsplash</a>
-tags: [Craftsmanship, Développement, DevOps, TDD, Pair-Programming, CICD, FP, Waterfall, Agile]
+tags: [Craftsmanship, Development, TDD, "Pair Programming", DevOps, Waterfall, Agile]
 lang: en
 permalink: /craftmanship/
 status: finished
@@ -68,7 +68,7 @@ unnecessary features and complexities, favoring a minimalist approach that resul
 
 - **Flexibility** is also an essential value of Craftsmanship. Practitioners of Craftsmanship acknowledge that user 
 needs and project requirements can evolve over time. Therefore, they aim to create flexible software capable of easily 
-adapting to changes and market evolutions. This translates into modular architecture, well-structured code, and agile 
+adapting to changes and market evolutions. This translates into modular architecture, well-structured code, and Agile 
 development processes such as Continuous Integration (CI) and Continuous Deployment (CD).
 
 Compared to other development approaches such as the Waterfall model or Agile methodologies, Craftsmanship stands out 
