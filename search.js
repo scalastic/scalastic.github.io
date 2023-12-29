@@ -307,6 +307,41 @@ function decodeBase64 (data) {
     }
 }
 
+function getQueryParams(url) {
+    var queryParams = {};
+    var parser = document.createElement('a');
+    parser.href = url;
+    var query = parser.search.substring(1);
+    var vars = query.split('&');
+    for (var i = 0; i < vars.length; i++) {
+        var pair = vars[i].split('=');
+        queryParams[pair[0]] = decodeURIComponent(pair[1]);
+    }
+    return queryParams;
+}
+
+document.addEventListener('DOMContentLoaded', function() {
+    var queryParams = getQueryParams(window.location.href);
+    var searchInput = document.getElementById('search-input');
+    if (queryParams.q) {
+        var decodedQuery = decodeURIComponent(queryParams.q.replace(/\+/g, ' '));
+        searchInput.value = decodedQuery;
+        // Trigger the input event programmatically
+        var event = new Event('input', {
+            bubbles: true,
+            cancelable: true,
+        });
+        setTimeout(function() {
+            var event = new Event('input', {
+                bubbles: true,
+                cancelable: true,
+            });
+            searchInput.dispatchEvent(event);
+            triggerSearch(decodedQuery);
+        }, 500); // 500 milliseconds delay
+    }
+});
+
 var _$src_8 = {};
 (function (window) {
   'use strict'

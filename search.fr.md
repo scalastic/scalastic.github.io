@@ -25,7 +25,7 @@ permalink: /search/
   </div>
 </article>
 
-<script src="/search.min.js" type="text/javascript"></script>
+<script src="/search.js" type="text/javascript"></script>
 <script>
 SimpleJekyllSearch({
   searchInput: document.getElementById('search-input'),
