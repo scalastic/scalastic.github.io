@@ -5,7 +5,7 @@ date: 2023-07-21 12:34:00 +0200
 description: "Découvrez comment renforcer la sécurité de votre cluster Kubernetes avec l'architecture Zero Trust. Méthodes, outils et bonnes pratiques expliqués."
 img: zero-trust-kubernetes.jpg
 fig-caption: Photo de Jean-Jérôme Lévy
-tags: [Kubernetes, ZeroTrust, Cybersecurity, AIOps]
+tags: [Kubernetes, ZeroTrust, Cybersecurity, AI]
 lang: fr
 permalink: /zero-trust-kubernetes/
 status: finished
