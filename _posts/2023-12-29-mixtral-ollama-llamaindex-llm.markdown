@@ -45,7 +45,7 @@ sont au cœur des modèles d'IA en vogue actuellement :
   d'utiliser ces nouvelles informations et de fournir des réponses plus contextuelles.
 
 - **LangChain** : C'est un framework de développement, dédié aux LLM. Il permet de combiner une grande variété de 
-  modèles de langage dont les LLM avec des sources externes ou des composants de saisie pour l'utilisateur. Il est 
+  modèles de langage dont les LLM, avec des sources externes ou des composants de saisie pour l'utilisateur. Il est 
   devenu de facto le framework open source le plus utilisé dans les applications utilisant des LLM. 
 
 - **Token** : Il représente l'unité de base dans le traitement du langage par les modèles d'IA. Il peut représenter un 
@@ -62,7 +62,7 @@ sont au cœur des modèles d'IA en vogue actuellement :
 ## Les Concepts derrière Mixtral 8x7B
 
 **Mixtral 8x7B** est un LLM de type Mixture-of-Experts (MoE). Il fonctionne en dirigeant chaque token vers 2 des 8 groupes 
-d'experts qui constitue le modèle. Les sorties de ces experts sont ensuite combinées pour obtenir le résultat final, 
+d'experts qui constituent le modèle. Les sorties de ces experts sont ensuite combinées pour obtenir le résultat final, 
 optimisant ainsi le traitement et la génération de la réponse.
 
 Chaque expert au sein du modèle Mixtral 8x7B dispose d'environ 7 milliards de paramètres, ce qui explique le nom du 
