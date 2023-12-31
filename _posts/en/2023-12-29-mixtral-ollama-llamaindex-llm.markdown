@@ -175,7 +175,7 @@ print(response)
 ### Step 4: Querying the Model
 
 {% highlight bash %}
-pip install requirements.txt
+pip install -r requirements.txt
 python reference_test.py
 {% endhighlight %}
 
@@ -284,7 +284,7 @@ print(response)
 ### Step 6: Querying the New Model
 
 {% highlight bash %}
-pip install requirements.txt
+pip install -r requirements.txt
 python specialized_test.py
 {% endhighlight %}
 

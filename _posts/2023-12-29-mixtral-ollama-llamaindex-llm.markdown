@@ -174,7 +174,7 @@ print(response)
 ### Étape 4 : Interrogation du Modèle
 
 {% highlight bash %}
-pip install requirements.txt
+pip install -r requirements.txt
 python reference_test.py
 {% endhighlight %}
 
@@ -285,7 +285,7 @@ print(response)
 ### Étape 6 : Interrogation du Nouveau Modèle
 
 {% highlight bash %}
-pip install requirements.txt
+pip install -r requirements.txt
 python specialized_test.py
 {% endhighlight %}
 
