@@ -230,7 +230,7 @@ Spring Boot 3.2](https://docs.spring.io/spring-boot/docs/current/reference/htmls
 
 {% highlight bash %}
 mkdir ./data
-curl -o spring-boot-reference.pdf https://docs.spring.io/spring-boot/docs/3.2.1/reference/pdf/spring-boot-reference.pdf
+curl -o ./data/spring-boot-reference.pdf https://docs.spring.io/spring-boot/docs/3.2.1/reference/pdf/spring-boot-reference.pdf
 {% endhighlight %}
 
 - Ajoutons de nouvelles dépendances à notre projet dans le fichier `requirements.txt` :

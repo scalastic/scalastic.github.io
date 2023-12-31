@@ -230,7 +230,7 @@ specific information related to the new targeted context, in our example, the [S
 
 {% highlight bash %}
 mkdir ./data
-curl -o spring-boot-reference.pdf https://docs.spring.io/spring-boot/docs/3.2.1/reference/pdf/spring-boot-reference.pdf
+curl -o ./data/spring-boot-reference.pdf https://docs.spring.io/spring-boot/docs/3.2.1/reference/pdf/spring-boot-reference.pdf
 {% endhighlight %}
 
 - Add new dependencies to our project in the `requirements.txt` file:
