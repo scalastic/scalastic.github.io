@@ -160,11 +160,9 @@ from llama_index.llms import Ollama
 llm = Ollama(model="mixtral")
 
 prompt = (
-"Crée une classe Java de base pour démarrer une application Spring Boot 3.2. "
-"La classe doit inclure les annotations nécessaires pour définir un point "
-"d'entrée de l'application Spring Boot et doit comporter une méthode main. "
-"Ajoute également un commentaire pour expliquer brièvement chaque annotation "
-"utilisée."
+  "Crée une classe de contrôleur REST en Java pour une application Spring Boot 3.2. "
+  "Cette classe doit gérer des requêtes GET et POST, et inclure des annotations "
+  "de sécurité de te de configuration."
 )
 
 response = llm.complete(prompt)
@@ -178,39 +176,46 @@ pip install -r requirements.txt
 python reference_test.py
 {% endhighlight %}
 
-Nous obtenons la réponse de Mixtral :
+Voici ce que Mixtral nous renvoie :
 
-{% highlight bash %}
- ```java
-package com.example;
+> Comme Spring Boot 3.2 n'est pas encore sorti, je vais créer une classe de contrôleur REST pour la dernière version stable de Spring Boot (2.6.x) en utilisant Java 8. Voici un exemple simple d'une classe de contrôleur REST pour gérer des requêtes GET et POST avec des annotations de sécurité et de configuration :
+>
+{% highlight java %}
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.access.prepost.PreAuthorize;
+import org.springframework.web.bind.annotation.*;
 
-import org.springframework.boot.SpringApplication;
-import org.springframework.boot.autoconfigure.SpringBootApplication;
+@RestController
+@RequestMapping("/api/example")
+@PreAuthorize("hasRole('ROLE_USER')") // Annotation de sécurité de base
+public class ExampleController {
 
-@SpringBootApplication // (1)
-public class Application {
+    private final ExampleService exampleService;
 
-    public static void main(String[] args) {
-        SpringApplication.run(Application.class, args); // (2)
+    @Autowired
+    public ExampleController(ExampleService exampleService) {
+        this.exampleService = exampleService;
+    }
+
+    // Endpoint GET
+    @GetMapping
+    public Object getAll() {
+        return exampleService.getAll();
+    }
+
+    // Endpoint POST
+    @PostMapping
+    public Object create(@RequestBody ExampleDto exampleDto) {
+        return exampleService.create(exampleDto);
     }
 }
-
-// (1) @SpringBootApplication est une annotation composée de trois autres annotations :
-// - @Configuration indique que la classe contient des définitions de beans et des configurations 
-// pour le contexte Spring.
-// - @EnableAutoConfiguration permet à Spring Boot de configurer automatiquement l\'application 
-// en fonction des dépendances présentes sur la classpath.
-// - @ComponentScan recherche et enregistre tous les composants (classes annotées avec @Component,
-// @Service, @Controller etc.) dans le package courant et ses sous-packages.
-//
-// (2) run(...) est une méthode statique de SpringApplication qui démarre l\'exécution de 
-// l\'application Spring Boot en utilisant la configuration spécifiée.
-```
-
-**Note:** Spring Boot 3.2 n\'est pas encore sorti, il s\'agit donc d\'une version future 
-et les annotations peuvent changer dans les versions futures de Spring Boot. Le code 
-ci-dessus est basé sur la version actuelle de Spring Boot (2.6.x).
 {% endhighlight %}
+>
+> Cet exemple suppose que vous avez une `ExampleService` qui gère les requêtes métier et retourne des objets `Object` ou `List<Object>`.
+>
+> Pour Spring Boot 3.2 (lorsque cette version sera disponible), il est possible que certaines dépendances ou annotations changent, mais l'idée générale restera la même : mapper les requêtes HTTP sur des méthodes de la classe de contrôleur et utiliser des annotations pour configurer le comportement du contrôleur.
+>
+> Notez également que dans cet exemple, j'ai inclus une annotation `@PreAuthorize` au niveau de la classe, ce qui signifie que toute requête vers les endpoints de cette classe nécessitera une authentification et l'utilisateur devra avoir le rôle "ROLE_USER". Vous pouvez modifier cela en fonction des besoins de votre application.
 
 Mixtral 8x7B a généré du code basé sur Spring Boot 2.6.x car c'est la version disponible dans les données qui ont permis
 d'entraîner le modèle. La version 3.2 de Spring Boot n'étant sortie que récemment, elle n'avait pas été incluse dans ces 
@@ -272,11 +277,9 @@ index = VectorStoreIndex.from_documents(documents, service_context=service_conte
 # Querying the index with a specific question
 query_engine = index.as_query_engine()
 prompt = (
-"Crée une classe Java de base pour démarrer une application Spring Boot 3.2. "
-"La classe doit inclure les annotations nécessaires pour définir un point "
-"d'entrée de l'application Spring Boot et doit comporter une méthode main. "
-"Ajoute également un commentaire pour expliquer brièvement chaque annotation "
-"utilisée."
+  "Crée une classe de contrôleur REST en Java pour une application Spring Boot 3.2. "
+  "Cette classe doit gérer des requêtes GET et POST, et inclure des annotations "
+  "de sécurité et de configuration."
 )
 response = query_engine.query(prompt)
 print(response)
@@ -289,48 +292,63 @@ pip install -r requirements.txt
 python specialized_test.py
 {% endhighlight %}
 
-Nous obtenons une tout autre réponse de Mixtral :
+Voici ce que Mixtral nous répond à présent :
 
-{% highlight bash %}
-Here's a basic Java class for starting a Spring Boot 3.2 application with the necessary annotations and 
-a `main` method. I've also added comments to briefly explain each annotation used:
+> Here's an example of a Java-based REST controller class with the specified requirements for a Spring Boot 3.2 application:
 
-```java
-package com.example.myapplication;
+{% highlight java %}
+import java.time.Duration;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.Configuration;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
+import org.springframework.security.access.prepost.PreAuthorize;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.client.RestTemplate;
+import org.springframework.web.client.RestTemplateBuilder;
 
-import org.springframework.boot.SpringApplication;
-import org.springframework.boot.autoconfigure.SpringBootApplication;
-
-/**
- * This is the main class for our Spring Boot application. It includes the following annotations:
- * 1. @SpringBootApplication: This is a convenience annotation that combines the functionality of
- *    @Configuration, @EnableAutoConfiguration, and @ComponentScan. It implicitly defines a base
- *    "search package" for certain items, such as Spring Data JPA entities.
- * 2. @EnableAutoConfiguration: This annotation is used to trigger the auto-configuration mechanism.
- *    It guesses and creates appropriate beans based on the classpath and the configuration settings.
- * 3. @ComponentScan: This annotation tells Spring to scan the package of this class for any Spring
- *    components, services, repositories, or configurations and register them as beans in the application context.
- */
-@SpringBootApplication
-public class MyApplication {
+@Configuration(proxyBeanMethods = false)
+@RestController
+public class MyRestController {
     
-    /**
-     * The main method is the entry point of our application. When we run the Java compiled bytecode,
-     * it's actually executing this method which will initialize and run our Spring Boot application.
-     * @param args command-line arguments passed to the application
-     */
-    public static void main(String[] args) {
-        SpringApplication.run(MyApplication.class, args);
+    private final RestTemplate restTemplate;
+    
+    @Autowired
+    public MyRestController(RestTemplateBuilder builder) {
+        this.restTemplate = builder
+                .setConnectTimeout(Duration.ofSeconds(5))
+                .setReadTimeout(Duration.ofSeconds(2))
+                .build();
+    }
+    
+    @GetMapping("/public-data")
+    public ResponseEntity<String> getPublicData() {
+        return new ResponseEntity<>("Public data", HttpStatus.OK);
+    }
+    
+    @PostMapping("/private-data")
+    @PreAuthorize("hasRole('ROLE_USER')")
+    public ResponseEntity<String> postPrivateData(@RequestBody String request) {
+        // Process the private data here
+        return new ResponseEntity<>("Private data saved", HttpStatus.CREATED);
     }
 }
-```
-
-Replace `com.example.myapplication` with your desired package structure for your project. You can 
-also customize other settings and add additional beans or configuration based on your needs.
 {% endhighlight %}
+>
+> This example includes:
+>
+> * A REST controller (`@RestController`) with two endpoints: one for GET requests (public), and another for POST requests (private).
+> * Annotations for Spring Security to restrict access to the `/private-data` endpoint.
+> * A custom `RestTemplateBuilder` configuration at the class level with a constructor dependency injection.
+> * The controller uses constructor-based dependency injection instead of field-based to ensure proper initialization and testability.
 
-La réponse du modèle spécialisé fournit à présent une classe Java de base pour démarrer une 
-application Spring Boot 3.2.
+Le modèle spécialisé propose désormais un contrôleur REST pour Spring Boot 3.2. La réponse est en anglais, reflétant la 
+langue de la documentation utilisée pour sa formation. L'implémentation s'avère plus élaborée que la précédente. 
+Cependant, je n'ai pas vérifié ce code ni confirmé s'il est spécifique à Spring Boot 3. L'objectif était de tester la 
+capacité de spécialisation du modèle, plutôt que la véracité exacte du code généré.
 
 
 <hr class="hr-text" data-content="Conclusion">
