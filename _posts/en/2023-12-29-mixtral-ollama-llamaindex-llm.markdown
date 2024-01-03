@@ -105,6 +105,8 @@ ollama run mixtral
 - During the first execution, Ollama will download the Mixtral 8x7B model, which is 26 GB in size. The download time
   will depend on your internet connection.
 - It is necessary for your system to have at least 48 GB of RAM to efficiently run Mixtral 8x7B.
+- In this scenario, choosing a Mac Apple Silicon with its unified memory presents a significant advantage, as it 
+provides the GPU with access to a vast amount of memory, thereby enhancing its processing capabilities.
 
 <hr class="hr-text" data-content="Benchmark Test">
 
@@ -149,9 +151,6 @@ of different data sources.
 
 {% highlight python %}
 llama-index
-qdrant_client
-torch
-transformers
 {% endhighlight %}
 
 - **reference_test.py** :
@@ -245,9 +244,9 @@ curl -o ./data/spring-boot-reference.pdf https://docs.spring.io/spring-boot/docs
 {% highlight python %}
 llama-index
 qdrant_client
-torch
-transformers
 pypdf
+transformers
+torch
 {% endhighlight %}
 
 - Implement the specialization script to inject the PDF into the MixTral 8x7B model, `specialized_test.py`.
@@ -270,7 +269,8 @@ vector_store = QdrantVectorStore(client=client, collection_name="springboot")
 storage_context = StorageContext.from_defaults(vector_store=vector_store)
 
 # Initializing the Large Language Model (LLM) with Ollama
-llm = Ollama(model="mixtral")
+# The request_timeout may need to be adjusted depending on the system's performance capabilities
+llm = Ollama(model="mixtral", request_timeout=120.0)
 service_context = ServiceContext.from_defaults(llm=llm, embed_model="local")
 
 # Creating the index, which includes embedding the documents into the vector store

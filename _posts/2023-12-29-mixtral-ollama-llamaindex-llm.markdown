@@ -103,6 +103,8 @@ ollama run mixtral
 - Lors de la première exécution, Ollama téléchargera le modèle Mixtral 8x7B, qui a une taille de 26 Go. La durée du 
 téléchargement dépendra de votre connexion Internet.
 - Il est nécessaire que votre système dispose d'au moins 48 Go de mémoire RAM pour exécuter efficacement Mixtral 8x7B.
+- Dans ce scénario, opter pour un Mac Apple Silicon avec sa mémoire unifiée présente un grand avantage, 
+puisque cela offre au GPU un accès à une vaste quantité de mémoire, améliorant ainsi ses capacités de traitement.
 
 <hr class="hr-text" data-content="Test de Référence">
 
@@ -147,9 +149,6 @@ de différentes sources de données.
 
 {% highlight python %}
 llama-index
-qdrant_client
-torch
-transformers
 {% endhighlight %}
 
 - **reference_test.py** :
@@ -162,7 +161,7 @@ llm = Ollama(model="mixtral")
 prompt = (
   "Crée une classe de contrôleur REST en Java pour une application Spring Boot 3.2. "
   "Cette classe doit gérer des requêtes GET et POST, et inclure des annotations "
-  "de sécurité de te de configuration."
+  "de sécurité et de configuration."
 )
 
 response = llm.complete(prompt)
@@ -243,9 +242,9 @@ curl -o ./data/spring-boot-reference.pdf https://docs.spring.io/spring-boot/docs
 {% highlight python %}
 llama-index
 qdrant_client
-torch
-transformers
 pypdf
+transformers
+torch
 {% endhighlight %}
 
 - Implémentons le script de spécialisation afin d'injecter le PDF dans le modèle MixTral 8x7B, `specialized_test.py`. 
@@ -268,7 +267,8 @@ vector_store = QdrantVectorStore(client=client, collection_name="springboot")
 storage_context = StorageContext.from_defaults(vector_store=vector_store)
 
 # Initializing the Large Language Model (LLM) with Ollama
-llm = Ollama(model="mixtral")
+# The request_timeout may need to be adjusted depending on the system's performance capabilities
+llm = Ollama(model="mixtral", request_timeout=120.0)
 service_context = ServiceContext.from_defaults(llm=llm, embed_model="local")
 
 # Creating the index, which includes embedding the documents into the vector store
@@ -348,7 +348,7 @@ public class MyRestController {
 Le modèle spécialisé propose désormais un contrôleur REST pour Spring Boot 3.2. La réponse est en anglais, reflétant la 
 langue de la documentation utilisée pour sa formation. L'implémentation s'avère plus élaborée que la précédente. 
 Cependant, je n'ai pas vérifié ce code ni confirmé s'il est spécifique à Spring Boot 3. L'objectif était de tester la 
-capacité de spécialisation du modèle, plutôt que la véracité exacte du code généré.
+capacité de spécialisation du modèle, plutôt que l'exactitude du code généré.
 
 
 <hr class="hr-text" data-content="Conclusion">
