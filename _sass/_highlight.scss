@@ -56,18 +56,30 @@ $background: var(--code-background);
       }
 }
 
-.window-controls {
+.window-header {
     position: relative;
     top: 9px;
-    margin-left: 14px;
-    margin-right: 0px;
     z-index: 2;
     text-align: initial;
+    height: 28.5px;
+
+    .window-controls {
+        float: left;
+        margin-left: 14px;
+        margin-right: 0px;
+    }
+
+    .window-copy {
+        color: #fbfbfb;
+        fill: #fbfbfb;
+        float: right;
+        margin-right: 14px;
+        cursor: pointer;
+    }
 }
 
 figure.highlight {
     position: relative;
-
 
     margin-block-start: 0;
     margin-inline-start: 0px;
