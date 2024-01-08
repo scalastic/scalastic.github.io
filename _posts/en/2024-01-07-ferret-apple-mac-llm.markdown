@@ -265,7 +265,7 @@ Responses vary but remain consistent with the image and likely depend on the sel
 ### Test 3: The Living Room
 
 - Choose the third image (the living room).
-- Submit the prompt without drawing by clicking on the `Submit` button next to the prompt `What are the things I should be cautious about when I visit here? Tell me the coordinates in response.`
+- Submit the prompt without drawing by clicking on the `Submit` button next to the prompt `Describe the image in details.`
 - Ferret begins to respond...
 
 <figure class="article">

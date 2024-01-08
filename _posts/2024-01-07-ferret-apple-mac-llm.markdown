@@ -262,7 +262,7 @@ Les réponses varient, mais restent cohérentes avec l'image et dépendent sans 
 ### Test 3 : Le salon
 
 - Choisissez la troisième image (le salon).
-- Soumettez le prompt sans dessiner en cliquant sur le bouton `Soumettre` en face du prompt `What are the things I should be cautious about when I visit here? Tell me the coordinates in response.`
+- Soumettez le prompt sans dessiner en cliquant sur le bouton `Soumettre` en face du prompt `Describe the image in details.`
 - Ferret commence à nous répondre...
 
 <figure class="article">
