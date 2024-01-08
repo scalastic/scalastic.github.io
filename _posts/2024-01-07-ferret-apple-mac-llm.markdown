@@ -23,7 +23,7 @@ Ferret a été développé en utilisant les cartes graphiques très performantes
 disponible sur [GitHub](https://github.com/apple/ml-ferret){:target="_blank" rel="noopener noreferrer nofollow"} ne fonctionne donc pas sur les produits de la Pomme.
 
 Voyons comment y remédier et testons les capacités et la réactivité de cette toute première version de Ferret sur nos 
-machines "Made by Apple".
+machines "Designed by Apple".
 
 <hr class="hr-text" data-content="Sommaire">
 
@@ -48,7 +48,7 @@ substantielle de mémoire GPU est nécessaire. Nos tests ont été réalisés su
 
 ## Installation de Ferret
 
-### Étape 1 : Configurer de Git
+### Étape 1 : Configurer Git
 
 Commencez par installer Git Large File Storage (LFS) pour gérer les tailles importantes des fichiers dont nous allons
 avoir besoin :
@@ -100,7 +100,7 @@ Placez le modèle Vicuna dans le répertoire `./model` à la racine du projet :
 {% highlight shell %}
 mkdir -p ./model
 git lfs install
-git clone https://huggingface.co/lmsys/vicuna-13b-v1.3 model
+git clone https://huggingface.co/lmsys/vicuna-13b-v1.3 model/vicuna-13b-v1.3
 {% endhighlight %}
 
 Patientez pendant le téléchargement du modèle.
@@ -112,7 +112,7 @@ Apple fournit un fichier avec les différences entre les poids de Vicuna et Ferr
 {% highlight shell %}
 mkdir -p ./delta
 curl -o ./delta/ferret-13b-delta.zip https://docs-assets.developer.apple.com/ml-research/models/ferret/ferret-13b/ferret-13b-delta.zip
-unzip ./delta/ferret-13b-delta.zip
+unzip ./delta/ferret-13b-delta.zip -d ./delta
 {% endhighlight %}
 
 Cette étape peut prendre un peu de temps.
@@ -163,6 +163,7 @@ Lancez la démo avec ces commandes dans trois terminaux séparés :
 Démarrez le contrôleur :
 
 {% highlight shell %}
+conda activate ferret
 python -m ferret.serve.controller --host 0.0.0.0 --port 10000
 {% endhighlight %}
 
@@ -178,6 +179,7 @@ Attendez le message indiquant que le contrôleur est opérationnel : `Uvicorn ru
 Lancez le serveur web :
 
 {% highlight shell %}
+conda activate ferret
 python -m ferret.serve.gradio_web_server --controller http://localhost:10000 --model-list-mode reload --add_region_feature
 {% endhighlight %}
 
@@ -193,6 +195,7 @@ Attendez que s'affiche la ligne `Running on local URL:  http://0.0.0.0:7860` :
 Exécutez le worker de modèle :
 
 {% highlight shell %}
+conda activate ferret
 python -m ferret.serve.model_worker --host 0.0.0.0 --controller http://localhost:10000 --port 40000 --worker http://localhost:40000 --model-path ./model/ferret-13b-v1-3 --add_region_feature
 {% endhighlight %}
 

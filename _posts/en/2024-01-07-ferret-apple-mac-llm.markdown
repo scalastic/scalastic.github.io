@@ -24,7 +24,7 @@ available on [GitHub](https://github.com/apple/ml-ferret){:target="_blank" rel="
 work on Apple's products.
 
 Let's see how to remedy this and test the capabilities and responsiveness of this very first version of Ferret on our
-"Made by Apple" machines.
+"Designed by Apple" machines.
 
 
 <hr class="hr-text" data-content="Summary">
@@ -103,7 +103,7 @@ Place the Vicuna model in the `./model` directory at the root of the project:
 {% highlight shell %}
 mkdir -p ./model
 git lfs install
-git clone https://huggingface.co/lmsys/vicuna-13b-v1.3 model
+git clone https://huggingface.co/lmsys/vicuna-13b-v1.3 model/vicuna-13b-v1.3
 {% endhighlight %}
 
 Wait for the model to download.
@@ -116,7 +116,7 @@ Apple provides a file with the differences between the weights of Vicuna and Fer
 {% highlight shell %}
 mkdir -p ./delta
 curl -o ./delta/ferret-13b-delta.zip https://docs-assets.developer.apple.com/ml-research/models/ferret/ferret-13b/ferret-13b-delta.zip
-unzip ./delta/ferret-13b-delta.zip
+unzip ./delta/ferret-13b-delta.zip -d ./delta
 {% endhighlight %}
 
 This step may take some time.
@@ -166,6 +166,7 @@ Launch the demo with these commands in three separate terminals:
 Start the controller:
 
 {% highlight shell %}
+conda activate ferret
 python -m ferret.serve.controller --host 0.0.0.0 --port 10000
 {% endhighlight %}
 
@@ -182,6 +183,7 @@ Wait for the message indicating that the controller is operational: `Uvicorn run
 Launch the web server:
 
 {% highlight shell %}
+conda activate ferret
 python -m ferret.serve.gradio_web_server --controller http://localhost:10000 --model-list-mode reload --add_region_feature
 {% endhighlight %}
 
@@ -197,6 +199,7 @@ Wait for the line `Running on local URL:  http://0.0.0.0:7860` to appear:
 Execute the model worker:
 
 {% highlight shell %}
+conda activate ferret
 python -m ferret.serve.model_worker --host 0.0.0.0 --controller http://localhost:10000 --port 40000 --worker http://localhost:40000 --model-path ./model/ferret-13b-v1-3 --add_region_feature
 {% endhighlight %}
 
