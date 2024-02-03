@@ -18,8 +18,8 @@ langage naturel, offrant des capacités uniques en termes de compréhension et d
 puissant que GPT-4 d’OpenAI au dire d'Apple, cette avancée promet d'enrichir les appareils de la firme, notamment en améliorant 
 l'interprétation des données et peut-être même de Siri.
 
-Ironie du sort, bien qu'Apple ait arrêté d'utiliser et de supporter les produits de NVidia depuis 2016, son modèle 
-Ferret a été développé en utilisant les cartes graphiques très performantes de NVidia, les A100. Le code source 
+Ironie du sort, bien qu'Apple ait arrêté d'utiliser et de supporter les produits de NVIDIA depuis 2016, son modèle 
+Ferret a été développé en utilisant les cartes graphiques très performantes de NVIDIA, les A100. Le code source 
 disponible sur [GitHub](https://github.com/apple/ml-ferret){:target="_blank" rel="noopener noreferrer nofollow"} ne fonctionne donc pas sur les produits de la Pomme.
 
 Voyons comment y remédier et testons les capacités et la réactivité de cette toute première version de Ferret sur nos 
@@ -34,15 +34,15 @@ machines "Designed by Apple".
 
 ## CUDA, MPS et Prérequis
 
-La plus grande adhérence du code de Ferret réside dans son utilisation de CUDA, le framework pour GPU de NVidia.
+La plus grande adhérence du code de Ferret réside dans son utilisation de CUDA, le framework pour GPU de NVIDIA.
 Heureusement, la librairie utilisée est PyTorch qui a été portée et optimisée pour les GPU Apple Silicon. Le portage vers
-l'architecture Metal d'Apple sera d'autant plus simple.
+l'API Metal d'Apple et son framework Metal Performance Shaders (MPS) sera d'autant plus simple.
 
 L'autre point à noter est la documentation sommaire sur l'installation et l'utilisation de Ferret sur le site de GitHub,
 preuve s'il en est, qu'Apple réserve son modèle LLM uniquement aux chercheurs comme le précise ses conditions d'utilisation.
 
 Alors cherchons ensemble comment faire tourner ce Ferret sur nos Mac. Pour cela, gardons en tête qu'une quantité
-substantielle de mémoire GPU est nécessaire. Nos tests ont été réalisés sur un MacBook Pro avec 64 Go de mémoire.
+substantielle de mémoire GPU est nécessaire. Nos tests ont été réalisés sur un MacBook Pro M1 Max doté de 64 Go de mémoire.
 
 <hr class="hr-text" data-content="Installation">
 
@@ -60,13 +60,15 @@ git lfs install
 
 ### Étape 2 : Télécharger le Code Source de Ferret
 
-Le code officiel de Ferret est disponible sur [https://github.com/apple/ml-ferret](https://github.com/apple/ml-ferret){:target="_blank" rel="noopener noreferrer nofollow"}. J'ai adapté ce code pour les
-processeurs Silicon et le framework Metal Performance Shaders (MPS) d'Apple, disponible sur [https://github.com/jeanjerome/ml-ferret/tree/silicon](https://github.com/jeanjerome/ml-ferret/tree/silicon){:target="_blank" rel="noopener noreferrer nofollow"} :
+J'ai adapté le code de Ferret pour les processeurs Silicon et le framework Metal Performance Shaders (MPS) d'Apple. Il 
+est disponible sur [https://github.com/jeanjerome/ml-ferret/tree/silicon](https://github.com/jeanjerome/ml-ferret/tree/silicon){:target="_blank" rel="noopener noreferrer nofollow"} :
 
 - La branche **_main_** contient le code d'origine d'Apple.
 - La branche **_silicon_** contient ma version adaptée.
 
-Cette structuration facilite la comparaison entre les deux versions. Pour cloner le code :
+Cette structuration facilite la comparaison entre les deux versions.
+
+Pour télécharger le code :
 
 {% highlight shell %}
 git clone https://github.com/jeanjerome/ml-ferret
@@ -144,7 +146,7 @@ Applying delta: 100%|███████████████████�
 Saving target model
 {% endhighlight %}
 
-Vous venez d'installer Ferret sur votre Mac.
+Vous venez d'installer Ferret sur votre Mac !
 
 
 <hr class="hr-text" data-content="Démarrage">
@@ -170,8 +172,8 @@ python -m ferret.serve.controller --host 0.0.0.0 --port 10000
 Attendez le message indiquant que le contrôleur est opérationnel : `Uvicorn running on http://0.0.0.0:10000 (Press CTRL+C to quit)`
 
 <figure class="article">
-  {% picture {{site.baseurl}}/assets/img/ferret-starting-controller.png --alt Démarrage du controleur %}
-  <figcaption>Démarrage du controleur</figcaption>
+  {% picture {{site.baseurl}}/assets/img/ferret-starting-controller.png --alt Démarrage du contrôleur %}
+  <figcaption>Démarrage du contrôleur</figcaption>
 </figure>
 
 ### Étape 8 : Deuxième Terminal
@@ -242,7 +244,7 @@ Les réponses varient, mais restent cohérentes avec l'image et dépendent sans 
 - **Essai 2** : `The object [457, 283, 817, 701] is a dog, and the object [318, 498, 464, 707] is a ferret. The dog and the ferret appear to be sitting together in the snow, suggesting a friendly interaction or companionship.`
 
 > info "Limitations"
-> Ferret peut consommer beaucoup de mémoire, et il peut être nécessaire de redémarrer le modèle entre deux tests.
+> Ferret peut consommer beaucoup de mémoire, et il peut être nécessaire de redémarrer le worker de modèle entre deux tests.
 > Sur mon MacBook M1 Max et ses 64 Go, 62 Go de RAM étaient utilisées, 2 Go de fichiers mis en cache et 20 Go pour le 
 > fichier d'échange.
 
@@ -278,22 +280,123 @@ Les réponses varient, mais restent cohérentes avec l'image et dépendent sans 
 
 Pas de solution donc pour mon MacBook Pro, les 80 Go occupés par Ferret ne suffisent pas...
 
+### Bilan des Tests
+
+Après cette série de tests, il est clair que Ferret démontre une capacité impressionnante à analyser et décrire une 
+image et à le retranscrire en langage naturel, offrant de nouvelles possibilités. Cependant, il est également 
+apparu que Ferret peut être sujet à des problèmes de consommation élevée de mémoire, particulièrement lors de traitements 
+prolongés, entraînant des lenteurs notables lorsque la mémoire commence à être compressée, voire des plantages.
+
+<figure class="article">
+  {% picture {{site.baseurl}}/assets/img/ferret-test-metrics.jpg --alt Ressources consommées par Ferret %}
+  <figcaption>Ressources consommées par Ferret</figcaption>
+</figure>
+
+Lorsque Ferret fonctionne normalement, l’utilisation du GPU atteint des pics allant jusqu’à 90%, signe que l’activité du
+réseau de neurones a bien lieu dans cette partie du SoC (System on Chip). Par contraste, l’activité du CPU se maintient 
+à un niveau stable, autour de 20%.
+
+Cependant, l’analyse du suivi des consommations de ressources de Ferret révèle que les périodes de ralentissement dans 
+les réponses du modèle coïncident avec les phases de compression de la mémoire en RAM. L’activité du GPU baisse alors 
+aux alentours de 20% tandis que celle du CPU se maintient autour de 20%. Le problème semble donc résider dans la 
+mémoire, et on peut penser que le système effectue du swapping ou compresse/décompresse la mémoire faute de suffisamment
+de RAM disponible pour le modèle et ses traitements.
+
+<hr class="hr-text" data-content="Ferret Allégé">
+
+## Optimisation du Modèle Ferret pour les Appareils Apple
+
+Suite à l'analyse de l'installation et des essais du format 13B, il devient évident qu'Apple doit relever 
+le défi d'adapter son modèle pour le faire fonctionner de façon optimale sur ses Macs et ses iPhones. Pour cela, Apple 
+envisagerait diverses stratégies, selon les rumeurs et les informations disponibles sur internet. Certaines de 
+ces stratégies sont déjà bien établies, tandis que d'autres proviennent directement de ses laboratoires de recherche :
+
+### Quantification du Modèle (Quantization)
+La quantification réduit la précision des poids du modèle, diminuant ainsi sa taille et sa consommation de ressources 
+sans compromettre significativement la performance des prédictions. Alors que les modèles traditionnels peuvent utiliser des poids représentés par des
+nombres à virgule flottante de 32 bits (float32), la quantification réduit cette précision à des formats plus
+compacts, tels que 16 bits (float16) ou même 8 bits (int8). Cela est particulièrement avantageux pour les iPhones, où l'espace 
+de stockage et la capacité de calcul sont plus limités qu'un Mac.
+
+La disponibilité d'une version 7B de Ferret en est l'illustration. 
+
+> info "Installation de la Version 7B de Ferret"
+> Si vous avez déjà suivi les étapes pour installer le format 13B de Ferret, l'installation de la version 7B sera 
+> grandement simplifiée. La majorité des étapes d'installation restent identiques, à une exception près : il n'est pas 
+> nécessaire de recréer un environnement virtuel.
+> Pour installer Ferret 7B, relancez les commandes en remplaçant tous les `13` par des `7`.
+
+### Sparsification et Élagage (Pruning) du Modèle
+Ce sont deux techniques liées de compression de modèle. Elles visent à optimiser les réseaux de neurones en réduisant 
+leur complexité, par exemple en diminuant le nombre de neurones ou en supprimant des connexions ayant des poids proches 
+de zéro sans compromettre significativement les performances.
+
+### Distillation du Modèle
+C'est une technique d'optimisation de modèles. Elle consiste à transférer la connaissance d'un 
+grand modèle complexe (le modèle "professeur") à un modèle plus petit et plus simple (le modèle "étudiant"). L'objectif 
+est d'apprendre au modèle étudiant à reproduire les performances du modèle professeur tout en étant plus léger et 
+rapide à exécuter et en préservant la qualité des prédictions.
+
+### Déploiement Fractionné (Split)
+C'est une méthode où les tâches de calcul d'un modèle sont partagées entre les appareils locaux et le cloud. Cette 
+approche permet de tirer parti des capacités de calcul du cloud pour les opérations lourdes tout en effectuant des 
+tâches plus légères localement. Cependant, cette stratégie semble peu probable pour Apple, qui privilégie des solutions 
+entièrement locales ou des optimisations internes. Apple vise à maintenir la confidentialité et la sécurité des données 
+de l'utilisateur en minimisant la dépendance au cloud.
+
+### Utilisation Avancée de la Mémoire Flash
+Dans un article récemment publié par des chercheurs de la Pomme
+[LLM in a flash: Efficient Large Language Model Inference with Limited Memory](https://arxiv.org/pdf/2312.11514.pdf){:target="_blank" rel="noopener noreferrer nofollow"}
+on peut voir qu'Apple envisage d'utiliser la mémoire flash pour stocker les paramètres des modèles. Ces paramètres sont 
+ensuite dynamiquement transférés vers la DRAM lors de l'inférence, réduisant ainsi le volume de données échangées et 
+accélérant le traitement sur des dispositifs avec peu de DRAM, comme les iPhones. Cette approche, combinée à
+l'utilisation de techniques de gestion de données innovantes, telles que le fenêtrage (windowing) et le regroupement 
+lignes-colonnes (row-column bundling), optimise encore davantage la quantité de données à transférer et indirectement la
+vitesse d'inférence.
 
 <hr class="hr-text" data-content="Conclusion">
 
 ## Conclusion
 
-En conclusion, l'intégration de Ferret, le dernier né des modèles LLM d'Apple, sur les machines équipées de processeurs 
+En résumé, l'intégration de Ferret, le dernier-né des modèles LLM d'Apple, sur les machines équipées de processeurs 
 Apple Silicon, représente une avancée notable dans le domaine de l'intelligence artificielle. Malgré quelques défis 
-inhérents à l'adaptation du code initial, qui était conçu pour les GPU NVidia, les efforts de portage vers 
-l'architecture Metal d'Apple ont été très simples.
+inhérents à l'adaptation du code initial, conçu pour les GPU NVIDIA, les efforts de portage vers l'architecture Metal 
+d'Apple ont été très simples.
 
-L'installation et le déploiement de Ferret, bien qu'exigeant en termes de mémoire et de ressources, ouvrent des 
-perspectives passionnantes pour les utilisateurs de Mac. Les démonstrations fournies avec le code source illustrent la 
-puissance et la polyvalence de Ferret, capable d'analyser et d'interpréter des données visuelles et textuelles de 
-manière approfondie.
+Cette avancée soulève des questions passionnantes sur la manière dont Apple exécutera son modèle de langage multimodal 
+sur des appareils aux ressources plus limitées comme les iPhones.
 
-Il est important de noter que cette implémentation de Ferret, malgré sa puissance, reste gourmande en ressources, 
-particulièrement en mémoire vive. Nul doute qu'Apple va, à présent, adapter son nouveau modèle à ses 
-machines et notamment aux iPhones. Son potentiel pour améliorer les applications existantes et en créer de nouvelles est
-immense, et on peut s'attendre à ce que sa prochaine évolution apporte encore plus d'innovations et de fonctionnalités.
+Nul doute qu'Apple a déjà trouvé le moyen de faire fonctionner son Ferret sur ses iPhones, en exploitant des techniques 
+d'optimisation avancées. La capacité d'Apple à adapter de manière efficace des technologies de pointe à ses appareils 
+montre leur maîtrise de l'IA dans leur écosystème matériel et logiciel. Il sera intéressant de voir comment ces 
+développements influenceront l'expérience utilisateur dans nos iPhones et Macs et quels seront les nouveaux usages 
+qu'Apple introduira dans notre quotidien. Les rumeurs parlent d'une interface utilisateur complètement renouvelée dans 
+iOS 18 ! Nous en saurons sûrement plus lors de la WWDC 2024 en juin prochain.
+
+## Les +
+
+| Avantages de Ferret               | Description                                                                                                                                                                               |
+|-----------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| Capacités Multimodales            | Combinaison de la vision par ordinateur et du traitement du langage naturel pour une compréhension et une analyse enrichies du texte et des images.                                       |
+| Performance Améliorée             | Capacité à exécuter des tâches complexes avec une efficacité accrue.                                                                                                                      |
+| Interaction Utilisateur Optimisée | Amélioration de l'interaction avec les utilisateurs grâce à une meilleure compréhension du langage naturel, de l'environnement extérieur et à des réponses plus précises.                 |
+| Potentiel d'Innovation            | Ouverture vers de nouvelles possibilités pour des applications innovantes dans divers domaines tels que la traduction, l'assistance vocale, la réalité augmentée et la réalité virtuelle. |
+
+## Les -
+
+| Inconvénients de Ferret      | Description                                                                                                                                   |
+|------------------------------|-----------------------------------------------------------------------------------------------------------------------------------------------|
+| Complexité Technique         | La mise en œuvre et l'optimisation du modèle peuvent être complexes pour une utilisation sur des iPhones.                                     |
+| Besoins en Ressources        | Même optimisé, le modèle nécessitera toujours des ressources significatives en termes de traitement et de mémoire.                            |
+| Limites d'Intégration        | L'intégration avec l'écosystème existant d'applications iOS pourrait être une vrai défis.                                                     |
+| Consommation d'Énergie       | L'utilisation avancée d'IA peut entraîner une augmentation de la consommation d'énergie, affectant l'autonomie de la batterie.                |
+| Problèmes de Confidentialité | La gestion des données et la confidentialité peuvent être des préoccupations, en particulier dans les applications sensibles à la vie privée. |
+
+## Usages
+
+| Fonctionnalité Potentielle de Ferret dans iOS et MacOS | Description et Impact                                                                                                                                                          |
+|--------------------------------------------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| Traduction Instantanée                                 | Amélioration significative de la traduction de textes en temps réel grâce aux capacités avancées d'apprentissage profond. Peut s'intégrer à toutes les Apps de Safari à Pages. |
+| Assistant Vocal Optimisé                               | Amélioration de Siri (enfin !) pour une meilleure compréhension du langage naturel et des interactions plus naturelles et efficaces.                                           |
+| Réalité Augmentée et Virtuelle                         | Enrichissement des expériences de réalité augmentée et virtuelle via une analyse d'image et de scène plus sophistiquée dans les Apps Photos et Appareil photo.                 |
+| Assistance générative de texte et d'images             | Extraction des paroles dans Apple Music (avec traduction), aide à la génération de texte et d'images dans Apple Pages et Keynote ou encore assistant de code dans Xcode.       |
