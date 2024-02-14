@@ -9,7 +9,7 @@ group :jekyll_plugins do
   gem 'premonition', '~> 4.0'
   gem 'jekyll-last-modified-at', '~> 1.1'
   gem 'jekyll-polyglot', '~> 1.7'
-  gem 'jekyll_picture_tag', '~> 2.0'
+  gem 'jekyll_picture_tag', '~> 2.1'
   gem 'addressable', '~> 2.8'
 end
 
