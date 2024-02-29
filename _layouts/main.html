@@ -24,14 +24,14 @@ layout: default
       </div>
       <div class="language-switcher">
         {% if site.active_lang == "fr" %}
-        <input type="radio" id="toggle-french" name="toggle" value="fr" checked/>
+        <input type="radio" id="toggle-french" name="toggle" value="fr" checked>
         <label for="toggle-french" aria-label="{{ site.data.i18n.aria-francais-selected }}">Français</label>
-        <input type="radio" id="toggle-english" name="toggle" value="en" onclick="window.location.assign( '{{site.baseurl}}/en{{page.url}}' );" />
+        <input type="radio" id="toggle-english" name="toggle" value="en" onclick="window.location.assign( '{{site.baseurl}}/en{{page.url}}' );">
         <label for="toggle-english" aria-label="{{ site.data.i18n.aria-english }}">English</label>
         {% else %}
-        <input type="radio" id="toggle-french" name="toggle" value="fr" onclick="window.location.assign( '{{site.baseurl}}{{page.url}}' );"/>
+        <input type="radio" id="toggle-french" name="toggle" value="fr" onclick="window.location.assign( '{{site.baseurl}}{{page.url}}' );">
         <label for="toggle-french" aria-label="{{ site.data.i18n.aria-francais }}">Français</label>
-        <input type="radio" id="toggle-english" name="toggle" value="en" checked />
+        <input type="radio" id="toggle-english" name="toggle" value="en" checked>
         <label for="toggle-english" aria-label="{{ site.data.i18n.aria-english-selected }}">English</label>
         {% endif %}
       </div>
