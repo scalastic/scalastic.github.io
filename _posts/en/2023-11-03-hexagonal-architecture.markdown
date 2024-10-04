@@ -5,7 +5,7 @@ date: 2023-11-06 00:28:00 +0200
 description: "Explore hexagonal architecture, an approach that isolates business logic for scalable and robust applications."
 img: hexagonal-architecture.jpg
 fig-caption: Photo by <a href="https://unsplash.com/photos/hsg538WrP0Y?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">drmakete lab</a> on <a href="https://unsplash.com/photos/hsg538WrP0Y?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Unsplash</a>
-tags: [Hexagonal, Clean, Architecture, DDD, SOLID, Craftsmanship]
+tags: [Hexagonal-Architecture, Clean-Architecture, DDD, SOLID, Craftsmanship]
 lang: en
 permalink: /hexagonal-architecture/
 status: finished
