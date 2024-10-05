@@ -11,7 +11,7 @@ permalink: /hexagonal-architecture-domain/
 status: finished
 ---
 
-Although it has existed for many years, **Hexagonal Architecture** has recently gained significant traction. At the core 
+Although it has existed for many years, **Hexagonal Architecture** has been experiencing significant growth recently. At the core 
 of this architecture is the **Domain**: it plays a central role by encapsulating business logic and ensuring a clear 
 separation between functional and technical concerns.
 
@@ -62,8 +62,8 @@ public interface UserApiPort {
 
 - **Naming and responsibility distinctions:**
 
-    - Inbound interfaces are often named with the **`ApiPort`** suffix, reflecting their role as an application
-      programming interface (API) for offered operations.
+    - Inbound interfaces can be named with the **`ApiPort`** suffix, reflecting their role as application interfaces 
+  (API) for the provided operations.
     - They focus on the **functional logic** and **services** the application provides to users.
 
 - **Handling return values and exceptions:**
@@ -110,8 +110,8 @@ public interface UserSpiPort {
 
 - **Naming and responsibility distinctions:**
 
-    - Outbound interfaces are often named with the **`SpiPort`** suffix, indicating their role as a **Service Provider
-      Interface** (SPI).
+    - Outbound interfaces can be named with the **`SpiPort`** suffix, indicating their role as **Service Provider 
+  Interface** or SPI.
     - They focus on the **technical details** required for the domain to function, without involving business logic.
 
 - **Handling return values and exceptions:**
@@ -193,6 +193,10 @@ public class BusinessRuleViolationException extends RuntimeException {
 These exceptions allow the domain to clearly signal to the calling layers that a business rule violation has occurred,
 without exposing internal technical details.
 
+> info "Note"
+> The use of `RuntimeException` (unchecked exceptions) simplifies the code by avoiding the explicit declaration of 
+> exceptions while allowing their automatic propagation to the adapters for centralized handling of business errors.
+
 ### Can the Domain Focus Solely on Business Errors?
 
 Ideally, the domain should concentrate exclusively on **business errors**. Technical errors, such as database, network,
@@ -243,38 +247,7 @@ Outbound ports, such as **`UserSpiPort`**, define how the domain interacts with 
 > The domain should be protected from technical exceptions arising from SPI adapters to maintain its independence from
 > technical details.
 
-### Handling Technical Errors Impacting Business Logic
-
-Although the domain should not generally handle technical errors, some technical errors may have a direct impact on
-business logic and must therefore be considered by the domain.
-
-**Cases where the domain must account for technical errors:**
-
-- **Integrity constraint violations**: If a database uniqueness constraint is violated, it could indicate that the
-  domain did not properly enforce a business rule. The technical adapter can then transform this technical exception
-  into a business exception for the domain to handle.
-- **Critical unavailability**: If an SPI adapter signals to the domain that an essential resource is unavailable, the
-  domain must decide how to handle this situation (e.g., by canceling the ongoing operation).
-
-**How should the domain respond?**
-
-- **Raise appropriate business exceptions**: The domain may raise a generic business exception, such as
-  `DomainOperationException`, to signal that an operation cannot be completed due to a technical issue with business
-  impact.
-- **Decide on actions to take**: The domain can choose to cancel an operation, queue a request, or trigger compensation
-  mechanisms.
-
-### Conclusion on Exception Handling in the Domain
-
-The domain's primary responsibility is to handle **business exceptions**, ensuring that business rules and constraints
-are respected. It should raise clear and specific exceptions when these rules are violated, allowing external adapters
-to handle errors appropriately.
-
-While the domain should remain independent of **technical errors**, it cannot entirely ignore them when they directly
-impact business logic. In such cases, the domain must be informed of these issues abstractly (e.g., through optional
-returns or generic business exceptions) so it can make appropriate decisions.
-
-**Summary of responsibilities:**
+### In Summary
 
 - **The domain**:
 
@@ -554,7 +527,7 @@ public class User {
     - **External dependency**: Introduces an additional dependency.
     - **Hidden magic**: The generated code is not visible, which can complicate debugging.
 
-### Recommendations for Best Practices
+### Recommendations
 
 After evaluating the different options, here are clear recommendations:
 
@@ -662,7 +635,7 @@ between SPI, domain, and API.
 - **Clarity in Error Handling**: Technical errors do not cross layers, and clients receive consistent messages.
 - **Flexibility**: The technical implementation of the SPI can be changed without impacting the domain or API.
 
-### Recommendations and Best Practices
+### Best Practices
 
 - **Do Not Expose SPI Technical Types to the Domain**: The domain should work with business objects and not depend on
   specific technical types.
@@ -675,8 +648,6 @@ between SPI, domain, and API.
 <hr class="hr-text" data-content="Validation">
 
 ## 6. Data Validation
-
-#### Component Responsible for Data Validation
 
 In hexagonal architecture, data validation can occur at multiple levels, but the **business service** is primarily
 responsible for **business validations**. However, **input adapters** (e.g., REST controllers or application services)
@@ -772,13 +743,27 @@ needed by each layer.
   adapters.
 
   *Example*: A **`UserDto`** used to transfer user data via a REST API contains only the necessary information (ID,
-  name), while the **`User`** domain object encapsulates more complex behaviors and business rules.
+  name, address), while the **`User`** domain object encapsulates more complex behaviors and business rules.
+
+  {% highlight java %}
+  public class User {
+    private Long id;
+    private String name;
+    private String email;
+    private Address address; // Class that contains the user's address information
+    private List<Order> orders; // List of orders placed by the user
+    
+    // Constructors, getters, and setters...
+  }
+  {% endhighlight %}
 
   {% highlight java %}
   public class UserDto {
-      private Long id;
-      private String name;
-      // Getters and Setters
+    private Long id;
+    private String name;
+    private String address; // Address represented as a string (e.g., "123 Main St, City, Country")
+    
+    // Constructors, getters, and setters...
   }
   {% endhighlight %}
 
@@ -791,13 +776,29 @@ needed by each layer.
 
   {% highlight java %}
   public class UserDtoMapper {
-      public User toDomain(UserDto dto) {
-          return new User(dto.getId(), dto.getName());
-      }
+    // Method to convert a DTO into a domain object
+    public User toDomain(UserDto dto) {
+        Address address = parseAddress(dto.getAddress()); // Convert the address from String to an Address object
+        return new User(dto.getId(), dto.getName(), dto.getEmail(), address, new ArrayList<>());
+    }
 
-      public UserDto toDto(User user) {
-          return new UserDto(user.getId(), user.getName());
-      }
+    // Method to convert a domain object into a DTO
+    public UserDto toDto(User user) {
+        String address = formatAddress(user.getAddress()); // Convert the Address object to a String
+        return new UserDto(user.getId(), user.getName(), user.getEmail(), address);
+    }
+
+    // Utility method to transform an address string into an Address object
+    private Address parseAddress(String address) {
+        // Assumes the address is in the form "123 Main St, City, Country"
+        String[] parts = address.split(", ");
+        return new Address(parts[0], parts[1], parts[2]);
+    }
+
+    // Utility method to format an Address object into a string
+    private String formatAddress(Address address) {
+        return String.format("%s, %s, %s", address.getStreet(), address.getCity(), address.getCountry());
+    }
   }
   {% endhighlight %}
 
@@ -837,17 +838,27 @@ complexity and requires additional effort to maintain the mappers and DTOs.
 
 <hr class="hr-text" data-content="Packages">
 
-## 8. Domain Package Organization
+## 8. Organization of Domain Packages
 
-A clear and well-defined package organization helps avoid design mistakes and properly identify each system component.
-By isolating the domain in an independent module, we ensure that it is not polluted by technical dependencies or
-external frameworks. This separation maintains the domain's integrity, protecting its business logic from technical
-aspects while facilitating the evolution of the architecture over time.
+A clear and well-structured organization of packages helps avoid design mistakes and clearly identify each component of 
+the system. By isolating the domain in an independent module, we ensure that it remains free from technical dependencies
+or external frameworks. This separation helps maintain the integrity of the domain by protecting its business logic from
+technical concerns, while facilitating the evolution of the architecture over time.
 
-In a hexagonal architecture, this modular structure ensures that responsibilities are well-defined between the domain,
-the ports (inbound and outbound), and the services, promoting clear decoupling and a coherent code organization.
+Within a hexagonal architecture, this modular structure ensures that responsibilities are clearly defined between the 
+domain, the ports (inbound and outbound), and the services, thus promoting clear decoupling and coherent code 
+organization.
 
-#### Example Package Structure for the "user" Use Case
+> info "Package by Layer vs. Package by Feature"
+> - The **Package by Layer** approach organizes classes by their technical role, grouping them by the architecture's 
+> cross-cutting layers.
+> - The **Package by Feature** approach organizes classes by functionality or use case.
+
+For a modern architecture aimed at flexibility and the ability to evolve rapidly (such as hexagonal architecture), 
+**Package by Feature** is recommended as it guarantees better separation of concerns and facilitates the transformation 
+of features into autonomous services.
+
+#### An Example of Package Structure for the "user" Use Case
 
 {% highlight txt %}
 domain/
@@ -870,48 +881,50 @@ domain/
 
 ### Class and Interface Details
 
-1. **Package `common.exceptions`**:
-    - This package contains the **business exceptions** common to the entire domain. These exceptions signal business
-      rule violations or the absence of resources. They are specific to the domain and should be distinguished from
-      technical exceptions, which deal with infrastructure aspects (database, network, etc.).
-    - The goal is to centralize business exceptions, ensuring that the domain remains coherent and well-encapsulated.
-      These exceptions are raised when business rules are violated or essential resources are missing.
+1. **Package `domain.common.exceptions`**:
+    - This package contains common business exceptions to signal rule violations or resource absence, distinct from 
+   technical exceptions.
+    - The goal is to centralize these exceptions to maintain domain consistency and encapsulation.
 
-2. **Package `port.inbound`**:
-    - The inbound ports package contains interfaces that define the **use cases** exposed by the application to external
-      adapters (e.g., REST controllers or user interfaces). These interfaces describe the **functional operations**
-      offered by the domain without exposing its internal logic.
-    - The role of inbound ports is to act as contracts between external layers and business logic. These interfaces
-      focus on use cases (creation, retrieval, update, deletion of entities, etc.).
+2. **Package `domain.user`**:
+   - The `domain.user` package groups all elements related to the "user" business domain. By isolating all relevant 
+   classes, interfaces, and services within this single package, several advantages are achieved:
 
-3. **Package `port.outbound`**:
-    - Outbound ports define the **technical interfaces** through which the domain accesses external systems such as
-      databases, third-party services, or external APIs. These interfaces contain no business logic but define how to
-      retrieve or store data in external systems.
-    - The domain uses these interfaces to delegate **technical tasks** (persistence, data retrieval, external service
-      calls) while remaining independent of underlying technologies. This maintains infrastructure flexibility.
+     - **Ease of Identification**: The `domain.user` package brings together everything related to the "user" domain in 
+     one place. This simplifies understanding and navigating the code, as it's easy to locate components associated with
+     this business entity.
 
-4. **Package `service`**:
-    - The service package contains the **business implementations** that orchestrate operations for inbound and
-      outbound ports. These services encapsulate the **business logic** specific to the use cases and use outbound
-      ports to delegate technical operations.
-    - Business services implement the interfaces defined in inbound ports while ensuring that business rules and
-      invariants are respected. They do not contain any technical logic (like database access), which is delegated via
-      outbound ports.
+     - **Modularity and Reusability**: By isolating the `domain.user` package, it becomes **modular**. This makes the 
+     system extensible, as new behaviors and services specific to `user` can be added without impacting other parts of 
+     the domain.
 
-This organization structures the code while respecting the principles of **separation of concerns** and **decoupling**
-between business and technical layers, ensuring a modular and easily maintainable architecture.
+     - **Ease of Relocation and Maintenance**: Since the `domain.user` package is isolated, it can easily be moved, 
+     restructured, or even extracted into another project. For instance, if the `user` entity were to be externalized as
+     an independent microservice, it would be relatively simple to do so, as all related classes and interfaces are 
+     already well encapsulated within a single package.
 
-### Benefits of This Organization
+     - **Business Context Consistency**: Grouping all parts related to `user` within a single package helps preserve 
+     **business context consistency**. All objects, services, ports (inbound and outbound) remain encapsulated within a 
+     single context, helping to avoid circular dependencies and ensuring a clear separation of concerns.
 
-1. **Modularity and Clarity**:
-    - Business logic is well-isolated in the **`domain`** package, while inbound and outbound interfaces are clearly
-      separated in the **`port`** package. This improves the clarity and structure of the code, adhering to hexagonal
-      architecture principles.
+3. **Package `domain.user.port.inbound`**:
+    - The inbound ports package contains interfaces defining use cases exposed to external adapters.
+    - These interfaces serve as contracts between external layers and business logic, describing the functional 
+   operations of the domain without exposing its internal logic.
 
-2. **Decoupling**:
-    - API ports (inbound) and SPI ports (outbound) ensure a decoupling between business logic and technical
-      implementation details (such as persistence), allowing for changes in implementation without impacting the domain.
+4. **Package `domain.user.port.outbound`**:
+    - Outbound ports define technical interfaces allowing the domain to access external systems (databases, third-party 
+   services, etc.).
+    - They delegate technical tasks while maintaining the domain's independence from underlying technologies, ensuring 
+   infrastructure flexibility.
+
+5. **Package `domain.user.service`**:
+    - The services package contains business implementations that orchestrate inbound and outbound port operations.
+    - These services implement inbound interfaces, ensure business logic, and delegate technical operations to outbound 
+   ports.
+
+This organization allows the code to be structured according to the principles of **separation of concerns** and 
+**decoupling** between business and technical layers, thus ensuring a modular and easily maintainable architecture.
 
 <hr class="hr-text" data-content="Conclusion">
 

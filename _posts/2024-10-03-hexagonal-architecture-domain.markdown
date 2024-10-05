@@ -11,7 +11,7 @@ permalink: /hexagonal-architecture-domain/
 status: finished
 ---
 
-Bien qu'elle existe depuis de nombreuses années, l'**Architecture Hexagonale** connait un réel essort ces derniers temps. Au
+Bien qu'elle existe depuis de nombreuses années, l'**Architecture Hexagonale** connait un réel essor ces derniers temps. Au
 cœur de cette architecture se trouve le **Domaine** : il y joue un rôle central en encapsulant la logique métier et en 
 assurant une séparation claire entre les préoccupations fonctionnelles et techniques.
 
@@ -63,7 +63,7 @@ public interface UserApiPort {
 
 - **Différences de nommage et de responsabilité :**
 
-  - Les interfaces inbound sont souvent nommées avec le suffixe **`ApiPort`**, reflétant leur rôle d'interface 
+  - Les interfaces inbound peuvent être nommées avec le suffixe **`ApiPort`**, reflétant leur rôle d'interface 
   applicative (API) pour les opérations offertes.
   - Elles se concentrent sur la **logique fonctionnelle** et les **services** que l'application fournit aux utilisateurs.
 
@@ -115,7 +115,7 @@ public interface UserSpiPort {
 
 - **Différences de nommage et de responsabilité :**
 
-  - Les interfaces outbound sont souvent nommées avec le suffixe **`SpiPort`**, indiquant leur rôle de **Service 
+  - Les interfaces outbound peuvent être nommées avec le suffixe **`SpiPort`**, indiquant leur rôle de **Service 
   Provider Interface** ou SPI.
   - Elles se concentrent sur les **détails techniques** nécessaires au domaine pour fonctionner, sans inclure de logique
   métier.
@@ -200,6 +200,11 @@ public class BusinessRuleViolationException extends RuntimeException {
 Ces exceptions permettent au domaine de signaler clairement aux couches appelantes qu'une violation des règles métier a 
 eu lieu, sans exposer les détails techniques internes.
 
+> info "Note"
+> L'utilisation de `RuntimeException` (unchecked exceptions) simplifie le code en évitant la déclaration explicite des 
+> exceptions tout en permettant leur propagation automatique jusqu'aux adaptateurs pour une gestion centralisée des 
+> erreurs métier.
+
 ### Le Domaine Peut-il se Limiter Uniquement aux Erreurs Métier ?
 
 Idéalement, le domaine devrait se concentrer exclusivement sur les **erreurs métier**. Les erreurs techniques, telles 
@@ -252,27 +257,7 @@ exemple, une base de données).
 > Le domaine doit être protégé des exceptions techniques provenant des adaptateurs SPI pour maintenir son indépendance 
 > vis-à-vis des détails techniques.
 
-### Gestion des Erreurs Techniques Impactant le Métier
-
-Bien que le domaine ne doive pas gérer les erreurs techniques en général, certaines erreurs techniques peuvent avoir un impact direct sur la logique métier et doivent donc être considérées par le domaine.
-
-**Cas où le domaine doit tenir compte des erreurs techniques :**
-
-- **Violations de contraintes d'intégrité** : Si une contrainte d'unicité en base de données est violée, cela peut signifier que le domaine n'a pas appliqué correctement une règle métier. L'adaptateur technique peut alors transformer cette exception technique en une exception métier que le domaine peut traiter.
-- **Indisponibilité critique** : Si un adaptateur SPI signale au domaine qu'une ressource essentielle est indisponible, le domaine doit décider comment gérer cette situation (par exemple, en annulant l'opération en cours).
-
-**Comment le domaine doit-il réagir ?**
-
-- **Lever des exceptions métier appropriées** : Le domaine peut lever une exception métier générique, comme `DomainOperationException`, pour signaler qu'une opération ne peut pas être effectuée en raison d'un problème technique ayant un impact métier.
-- **Décider des actions à entreprendre** : Le domaine peut choisir d'annuler une opération, de mettre en file d'attente une demande, ou de déclencher des mécanismes de compensation.
-
-### Conclusion sur la Gestion des Exceptions dans le Domaine
-
-Le domaine a la responsabilité principale de gérer les **exceptions métier**, en veillant à ce que les règles et contraintes métier soient respectées. Il doit lever des exceptions claires et spécifiques lorsque ces règles sont violées, ce qui permet aux adaptateurs externes de gérer les erreurs de manière appropriée.
-
-Bien que le domaine doive rester indépendant des **erreurs techniques**, il ne peut pas les ignorer totalement lorsque celles-ci ont un impact direct sur la logique métier. Dans de tels cas, le domaine doit être informé de ces problèmes de manière abstraite (par exemple, via des retours optionnels ou des exceptions métier génériques) pour pouvoir prendre des décisions appropriées.
-
-**Synthèse des responsabilités :**
+### En Résumé
 
 - **Le domaine** :
 
@@ -542,7 +527,7 @@ public class User {
   - **Dépendance externe** : Introduit une dépendance supplémentaire.
   - **Magie cachée** : Le code généré n'est pas visible, ce qui peut compliquer le débogage.
 
-### Recommandations sur les Bonnes Pratiques
+### Recommandations
 
 Après avoir évalué les différentes options, voici des préconisations claires :
 
@@ -657,7 +642,7 @@ l'évolutivité.
 reçoivent des messages cohérents.
 - **Flexibilité** : Permet de changer l'implémentation technique du SPI sans impacter le domaine ou l'API.
 
-### Recommandations et Bonnes Pratiques
+### Bonnes Pratiques
 
 - **Ne pas Exposer les Types Techniques du SPI au Domaine** : Le domaine doit travailler avec des objets métier et ne 
 pas dépendre des types techniques spécifiques.
@@ -670,8 +655,6 @@ retours que le domaine peut interpréter.
 <hr class="hr-text" data-content="Validation">
 
 ## 6. Validation des Données
-
-#### Composant responsable de la validation des données
 
 Dans une architecture hexagonale, la validation des données peut être effectuée à plusieurs niveaux, mais le **service 
 métier** est le principal responsable des **validations métier**. Cependant, les **adaptateurs d'entrée** (par 
@@ -771,16 +754,31 @@ facilitant l'adaptation aux formats de données spécifiques à chaque couche.
     exposée aux adaptateurs externes.
     
     *Exemple* : Un **`UserDto`** utilisé pour transmettre les données d'un utilisateur via une API REST ne contient que 
-    les informations nécessaires (ID, nom), tandis que l'objet métier **`User`** encapsule des comportements et des règles 
+    les informations nécessaires (ID, nom, adresse), tandis que l'objet métier **`User`** encapsule des comportements et des règles 
     métier plus complexes.
     
-    {% highlight java %}
-    public class UserDto {
-       private Long id;
-       private String name;
-       // Getters and Setters
-    }
-    {% endhighlight %}
+
+  {% highlight java %}
+  public class User {
+      private Long id;
+      private String name;
+      private String email;
+      private Address address; // Classe qui contient les informations d'adresse de l'utilisateur
+      private List<Order> orders; // Liste des commandes passées par l'utilisateur
+    
+      // Constructeurs, getters et setters...
+  }
+  {% endhighlight %}
+
+  {% highlight java %}
+  public class UserDto {
+      private Long id;
+      private String name;
+      private String address; // Adresse représentée sous forme de chaîne de caractères (ex: "123 Main St, City, Country")
+    
+      // Constructeurs, getters et setters...
+  }
+  {% endhighlight %}
 
 - **Adaptation aux Formats de Données** :
 
@@ -790,17 +788,33 @@ facilitant l'adaptation aux formats de données spécifiques à chaque couche.
 
     *Exemple* : Un **`UserDtoMapper`** peut convertir un `UserDto` en objet métier `User` et vice-versa.
     
-    {% highlight java %}
-    public class UserDtoMapper {
-      public User toDomain(UserDto dto) {
-          return new User(dto.getId(), dto.getName());
-      }
-    
-      public UserDto toDto(User user) {
-          return new UserDto(user.getId(), user.getName());
-      }
+  {% highlight java %}
+  public class UserDtoMapper {
+    // Méthode pour convertir un DTO en objet de domaine
+    public User toDomain(UserDto dto) {
+        Address address = parseAddress(dto.getAddress()); // Conversion de l'adresse sous forme de String vers un objet Address
+        return new User(dto.getId(), dto.getName(), dto.getEmail(), address, new ArrayList<>());
     }
-    {% endhighlight %}
+
+    // Méthode pour convertir un objet de domaine en DTO
+    public UserDto toDto(User user) {
+        String address = formatAddress(user.getAddress()); // Conversion de l'objet Address en String
+        return new UserDto(user.getId(), user.getName(), user.getEmail(), address);
+    }
+
+    // Méthode utilitaire pour transformer une chaîne d'adresse en objet Address
+    private Address parseAddress(String address) {
+        // Suppose que l'adresse est sous forme de "123 Main St, City, Country"
+        String[] parts = address.split(", ");
+        return new Address(parts[0], parts[1], parts[2]);
+    }
+
+    // Méthode utilitaire pour formater un objet Address en une chaîne de caractères
+    private String formatAddress(Address address) {
+        return String.format("%s, %s, %s", address.getStreet(), address.getCity(), address.getCountry());
+    }
+  }
+  {% endhighlight %}
 
 - **Protection du Domaine** :
 
@@ -852,6 +866,15 @@ Dans le cadre d’une architecture hexagonale, cette structure modulaire assure 
 définies entre le domaine, les ports (inbound et outbound) et les services, favorisant ainsi un découplage clair et une 
 organisation cohérente du code.
 
+> info "Package by Layer vs. Package by Feature"
+> - L'approche **Package by Layer** consiste à organiser les classes par leur rôle technique, en les regroupant par
+    > couches transversales de l'architecture.
+> - L'approche **Package by Feature** consiste à organiser les classes par fonctionnalité ou cas d'utilisation.
+
+Pour une architecture moderne, orientée vers la flexibilité et la capacité à évoluer rapidement (comme l'architecture
+hexagonale), le **Package by Feature** est recommandé, car il garantit une meilleure séparation des préoccupations
+et facilite la transformation de fonctionnalités en services autonomes.
+
 #### Un Exemple de Structure des Packages pour le cas d'utilisation "user"
 
 {% highlight txt %}
@@ -875,53 +898,53 @@ domain/
 
 ### Détails des Classes et Interfaces
 
-1. **Package `common.exceptions`** :
-    - Ce package contient les **exceptions métier** communes à l'ensemble du domaine. Elles sont utilisées pour signaler
-   des violations de règles métier ou l'absence de ressources. Ces exceptions sont spécifiques au domaine et doivent 
-   être distinguées des exceptions techniques, qui, elles, concernent les aspects d'infrastructure (base de données, 
-   réseau, etc.).
-    - L'objectif est de centraliser les exceptions métier, de sorte que le domaine reste cohérent et bien encapsulé. Ces
-   exceptions sont levées lorsque des règles métier sont violées ou que des ressources essentielles manquent.
+1. **Package `domain.common.exceptions`** :
+    - Le package contient des exceptions métier communes pour signaler des violations de règles ou l'absence de 
+   ressources, distinctes des exceptions techniques.
+    - L'objectif est de centraliser ces exceptions pour maintenir la cohérence et l'encapsulation du domaine.
 
-2. **Package `port.inbound`** :
-    - Le package des ports inbound contient les interfaces définissant les **cas d'utilisation** exposés par 
-   l'application aux adaptateurs externes (par exemple, les contrôleurs REST ou les interfaces utilisateur). Ces 
-   interfaces sont responsables de décrire les **opérations fonctionnelles** offertes par le domaine, sans exposer sa 
-   logique interne.
-    - Le rôle des ports inbound est d'agir comme des contrats entre les couches externes et la logique métier. Ces 
-   interfaces se concentrent sur les cas d'utilisation (création, récupération, mise à jour, suppression d'entités, etc.).
+2. **Package `domain.user`** :
+   - Le package `domain.user` regroupe l'ensemble des éléments liés au domaine métier "user". En isolant toutes les 
+   classes, interfaces, et services pertinents dans ce package unique, plusieurs avantages sont obtenus :
 
-3. **Package `port.outbound`** :
-    - Les ports outbound définissent les **interfaces techniques** par lesquelles le domaine accède aux systèmes 
-   externes, tels que les bases de données, les services tiers ou les APIs externes. Ces interfaces ne contiennent pas 
-   de logique métier mais définissent comment obtenir ou stocker des données dans des systèmes externes.
-    - Le domaine utilise ces interfaces pour déléguer les **tâches techniques** (persistance, récupération de données, 
-   appels à des services externes), tout en restant indépendant des technologies sous-jacentes. Cela permet de maintenir
-   la flexibilité de l'infrastructure.
+     - **Facilité d'Identification** : Le package `domain.user` permet de regrouper tout ce qui est lié au domaine 
+     "user" en un seul endroit. Cela simplifie la compréhension et la navigation dans le code, car il est facile de 
+     repérer les composants associés à cette entité métier.
 
-4. **Package `service`** :
-    - Le package des services contient les **implémentations métier** qui orchestrent les opérations des ports inbound 
-   et outbound. Ces services encapsulent la **logique métier** propre aux cas d'utilisation, et utilisent les ports 
-   outbound pour déléguer les opérations techniques.
-    - Les services métier implémentent les interfaces définies dans les ports inbound, tout en assurant que les règles 
-   et invariants métier sont respectés. Ils ne contiennent aucune logique technique (comme l'accès aux bases de données), 
-   qui est déléguée via les ports outbound.
+     - **Modularité et Réutilisabilité** : En isolant le package `domain.user`, celui-ci devient **modulaire**. Cela 
+     facilite l'extensibilité du système, car de nouveaux comportements et services spécifiques à `user` peuvent être 
+     ajoutés sans impacter les autres parties du domaine.
+
+     - **Facilité de Déplacement et Maintenance** : Puisque le package `domain.user` est isolé, il peut facilement être 
+     déplacé, restructuré, ou même extrait vers un autre projet. Par exemple, si l'entité `user` devait être 
+     externalisée en tant que microservice indépendant, il serait relativement simple de le faire car toutes les classes
+     et interfaces liées sont déjà bien encapsulées dans un package unique.
+
+     - **Cohérence du Contexte Métier** : Regrouper toutes les parties liées à `user` dans un seul package permet de 
+     préserver la **cohérence du contexte métier**. Tous les objets, services, ports (inbound et outbound) restent 
+     encapsulés dans un seul contexte, ce qui aide à éviter les dépendances circulaires et à garantir une séparation 
+     claire des préoccupations.
+
+3. **Package `domain.user.port.inbound`** :
+    - Le package des ports inbound contient des interfaces définissant les cas d'utilisation exposés aux adaptateurs externes.
+    - Ces interfaces servent de contrat entre les couches externes et la logique métier, décrivant les opérations 
+   fonctionnelles du domaine sans exposer sa logique interne.
+
+4. **Package `domain.user.port.outbound`** :
+    - Les ports outbound définissent des interfaces techniques permettant au domaine d'accéder aux systèmes externes 
+   (bases de données, services tiers, etc.).
+    - Ils délèguent les tâches techniques tout en maintenant l'indépendance du domaine vis-à-vis des technologies 
+   sous-jacentes, assurant ainsi la flexibilité de l'infrastructure.
+
+5. **Package `domain.user.service`** :
+    - Le package des services contient les implémentations métier qui orchestrent les opérations des ports inbound et 
+   outbound.
+   - Ces services implémentent les interfaces inbound, assurent la logique métier et délèguent les opérations techniques
+   aux ports outbound.
 
 Cette organisation permet de structurer le code en respectant les principes de **séparation des préoccupations** et 
 **découplage** entre les couches métier et techniques, garantissant ainsi une architecture modulaire et facilement 
 maintenable.
-
-### Avantages de cette Organisation
-
-1. **Modularité et Clarté** :
-    - La logique métier est bien isolée dans le package **`domain`**, tandis que les interfaces inbound et outbound 
-   sont clairement séparées dans le package **`port`**. Cela améliore la clarté et la structure du code, tout en 
-   respectant les principes de l'architecture hexagonale.
-
-3. **Découplage** :
-    - Les ports API (inbound) et SPI (outbound) assurent un découplage entre la logique métier et les détails 
-   d'implémentation technique (comme la persistance), ce qui facilite les changements d'implémentation sans impacter 
-   le domaine.
 
 <hr class="hr-text" data-content="Conclusion">
 
