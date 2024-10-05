@@ -1,5 +1,5 @@
 /* Medium Devices, Desktops */
-@media only screen and (min-width : 1120) {
+@media only screen and (min-width: 1120px) {
   .post-container {
     display: grid;
     grid-template-columns: 1fr;
@@ -29,7 +29,7 @@
 }
 
 /* Tablets */
-@media only screen and (max-width : 1119px) and (min-width : 770px) {
+@media only screen and (max-width: 1119px) and (min-width: 770px) {
   .sidebar {
     position: relative;
     display: flex;
@@ -38,7 +38,7 @@
     width: 100%;
     padding: 10px;
     background-color: var(--body-background);
-    box-shadow: 0 1px 1px 0 rgba(var(--shadow-color-flashy), .15);
+    box-shadow: 0 1px 1px 0 rgba(var(--shadow-color-flashy), 0.15);
     input.toggle[type="radio"]:checked + label {
       cursor: default;
       color: var(--body-background);
@@ -112,7 +112,7 @@
 }
 
 /* Phone */
-@media only screen and (max-width : 769px) {
+@media only screen and (max-width: 769px) {
   h1, h2, h3, h4, h5, h6, h7 {
     text-align: center;
   }
@@ -143,6 +143,14 @@
       word-break: break-word;
       hyphens: auto;
     }
+
+    table {
+      display: block;
+      width: 100%;
+      overflow-x: auto;
+      -webkit-overflow-scrolling: touch; /* Pour un défilement fluide sur iOS */
+      border-collapse: collapse; /* Pour une meilleure présentation */
+    }
   }
 
   .sidebar {
@@ -153,7 +161,7 @@
     width: 100%;
     padding: 10px;
     background-color: var(--body-background);
-    box-shadow: 0 1px 1px 0 rgba(var(--shadow-color-flashy), .15);
+    box-shadow: 0 1px 1px 0 rgba(var(--shadow-color-flashy), 0.15);
 
     input.toggle[type="radio"]:checked + label {
       cursor: default;
@@ -256,5 +264,4 @@
   .leaflet-control-zoom {
     display: none;
   }
-
 }
