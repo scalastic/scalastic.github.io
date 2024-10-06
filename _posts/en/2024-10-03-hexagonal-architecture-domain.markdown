@@ -745,8 +745,8 @@ needed by each layer.
   *Example*: A **`UserDto`** used to transfer user data via a REST API contains only the necessary information (ID,
   name, address), while the **`User`** domain object encapsulates more complex behaviors and business rules.
 
-  {% highlight java %}
-  public class User {
+{% highlight java %}
+public class User {
     private Long id;
     private String name;
     private String email;
@@ -754,18 +754,18 @@ needed by each layer.
     private List<Order> orders; // List of orders placed by the user
     
     // Constructors, getters, and setters...
-  }
-  {% endhighlight %}
+}
+{% endhighlight %}
 
-  {% highlight java %}
-  public class UserDto {
+{% highlight java %}
+public class UserDto {
     private Long id;
     private String name;
     private String address; // Address represented as a string (e.g., "123 Main St, City, Country")
     
     // Constructors, getters, and setters...
-  }
-  {% endhighlight %}
+}
+{% endhighlight %}
 
 - **Adapting to Data Formats**:
 
@@ -774,8 +774,8 @@ needed by each layer.
 
   *Example*: A **`UserDtoMapper`** can convert a `UserDto` into a `User` domain object and vice versa.
 
-  {% highlight java %}
-  public class UserDtoMapper {
+{% highlight java %}
+public class UserDtoMapper {
     // Method to convert a DTO into a domain object
     public User toDomain(UserDto dto) {
         Address address = parseAddress(dto.getAddress()); // Convert the address from String to an Address object
@@ -799,8 +799,8 @@ needed by each layer.
     private String formatAddress(Address address) {
         return String.format("%s, %s, %s", address.getStreet(), address.getCity(), address.getCountry());
     }
-  }
-  {% endhighlight %}
+}
+{% endhighlight %}
 
 - **Domain Protection**:
 
@@ -860,7 +860,7 @@ of features into autonomous services.
 
 #### An Example of Package Structure for the "user" Use Case
 
-{% highlight txt %}
+{% highlight ascii %}
 domain/
 ├── common/
 │   └── exceptions/

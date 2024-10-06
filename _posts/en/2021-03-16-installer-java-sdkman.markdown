@@ -63,24 +63,30 @@ the detailed instructions for installing SDKMAN on macOS, Windows, and Linux:
 
 ### Installation on macOS and Linux:
 
-1. Open your terminal.
+- **Step 1**: Open your terminal.
 
-2. Execute the following command to download the SDKMAN installation script:
-   {% highlight shell %}curl -s "https://get.sdkman.io" | bash{% endhighlight %}
+- **Step 2**: Execute the following command to download the SDKMAN installation script:
+{% highlight shell %}
+curl -s "https://get.sdkman.io" | bash
+{% endhighlight %}
 
-3. Wait for the script to be downloaded and installed.
+- **Step 3**: Wait for the script to be downloaded and installed.
 
-4. After installation:
+- **Step 4**: After installation:
    - Load a new terminal session
    - Or execute the following command to load SDKMAN into your current session:
-     {% highlight shell %}source "$HOME/.sdkman/bin/sdkman-init.sh"{% endhighlight %}
-
-5. To verify if SDKMAN has been successfully installed, type the following command:
-   {% highlight shell %}sdk version{% endhighlight %}
-
-6. You should see:
-
 {% highlight shell %}
+source "$HOME/.sdkman/bin/sdkman-init.sh"
+{% endhighlight %}
+
+- **Step 5**:  To verify if SDKMAN has been successfully installed, type the following command:
+{% highlight shell %}
+sdk version
+{% endhighlight %}
+
+You should see:
+
+{% highlight output %}
 SDKMAN!
 script: 5.18.2
 native: 0.4.2
@@ -116,7 +122,9 @@ So, first, you need to choose the SDK (candidate) to install.
 #### Candidate
 
 To see the list of available SDK/candidates, use the following command:
-{% highlight zsh %}% sdk list {% endhighlight %}
+{% highlight shell %}
+sdk list
+{% endhighlight %}
 
 > info "Note"
 > Type `q` to exit the list.
@@ -138,7 +146,9 @@ You can see that there are many things you can install. Just to name a few:
 Now, let's focus on the candidate we're interested in: `Java`. Let's see the versions that SDKMAN offers us.
 
 To do that, let's query SDKMAN:
-{% highlight zsh %}% sdk list java{% endhighlight %}
+{% highlight shell %}
+sdk list java
+{% endhighlight %}
 
 Here is the list I obtained:
 
@@ -292,7 +302,9 @@ Place your bets ... me, it's done! As I am working on the build of Java code in 
 
 It's your turn. To install it, I run the command:
 
-{% highlight zsh %} % sdk install java 20.0.2-graalce{% endhighlight %}
+{% highlight shell %}
+sdk install java 20.0.2-graalce
+{% endhighlight %}
 
 Which gives me the output, the installation process
 
@@ -318,9 +330,12 @@ Done! No, not yet ... I need more JDKs for comparison. Moreover, this is why we 
 
 For my part, I install two others:
 
-{% highlight zsh %}
-% sdk install java 21.fx-librca
-% sdk install java 23.r20-nik
+{% highlight shell %}
+sdk install java 21.fx-librca
+{% endhighlight %}
+
+{% highlight shell %}
+sdk install java 23.r20-nik
 {% endhighlight %}
 
 <hr class="hr-text" data-content="JDK Selection">
@@ -334,14 +349,14 @@ Let's now see how to select a specific version of Java.
 
 Let's see what the `sdk` command tells us:
 
-{% highlight zsh %}
+{% highlight output %}
 % sdk current java
 Using java version 20.0.2-graalce
 {% endhighlight %}
 
 And let's see what `java` tells us:
 
-{% highlight zsh %}
+{% highlight output %}
 % java --version               
 openjdk 20.0.2 2023-07-18
 OpenJDK Runtime Environment GraalVM CE 20.0.2+9.1 (build 20.0.2+9-jvmci-23.0-b15)
@@ -351,13 +366,13 @@ OpenJDK 64-Bit Server VM GraalVM CE 20.0.2+9.1 (build 20.0.2+9-jvmci-23.0-b15, m
 
 ### Displaying Installed Versions
 
-{% highlight output %}
-% sdk list java
+{% highlight shell %}
+sdk list java
 {% endhighlight %}
 
 ### Switching Versions
 
-{% highlight zsh %}
+{% highlight output %}
 % sdk use java 21.fx-librca
 
 Using java version 21.fx-librca in this shell.
@@ -365,7 +380,7 @@ Using java version 21.fx-librca in this shell.
 
 Let's verify with Java:
 
-{% highlight zsh %}
+{% highlight output %}
 % java --version
 
 openjdk 21 2023-09-19 LTS

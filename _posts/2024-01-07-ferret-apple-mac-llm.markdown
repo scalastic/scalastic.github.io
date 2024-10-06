@@ -133,7 +133,7 @@ python -m ferret.model.apply_delta \
 
 Suivez les logs pour confirmer le bon déroulement de l'opération :
 
-{% highlight shell %}
+{% highlight log %}
 /opt/homebrew/Caskroom/miniconda/base/envs/ferret/lib/python3.10/site-packages/bitsandbytes/cextension.py:34: UserWarning: The installed version of bitsandbytes was compiled without GPU support. 8-bit optimizers, 8-bit multiplication, and GPU quantization are unavailable.
 warn("The installed version of bitsandbytes was compiled without GPU support. "
 'NoneType' object has no attribute 'cadam32bit_grad_fp32'

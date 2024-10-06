@@ -319,7 +319,7 @@ echo "Even numbers up to 10: ${numbers[@]}"
 
 ## Basic Function of Functional Programming in Bash
 
-### Map
+### The Map Function
 
 {% highlight bash %}
 #!/bin/bash
@@ -354,7 +354,7 @@ echo "Transformed list: ${mapped_list[@]}"
 # Output: Transformed list: 1 4 9 16 25
 {% endhighlight %}
 
-### Filter
+### The Filter Function
 
 {% highlight bash %}
 #!/bin/bash
@@ -391,7 +391,7 @@ echo "Filtered list (even elements): ${filtered_list[@]}"
 # Output: Filtered list (even elements): 2 4
 {% endhighlight %}
 
-### Reduce
+### The Reduce Function
 
 {% highlight bash %}
 #!/bin/bash
@@ -428,7 +428,7 @@ echo "Reduction result (sum): $result"
 # Output: Reduction result (sum): 15
 {% endhighlight %}
 
-### Zip
+### The Zip Function
 
 {% highlight bash %}
 #!/bin/bash

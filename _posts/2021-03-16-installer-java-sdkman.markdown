@@ -63,24 +63,28 @@ correctement sur votre système. Voici les instructions détaillées pour instal
 
 ### Installation sur macOS et Linux:
 
-1. Ouvrez votre terminal.
+- **&Eacute;tape 1** : Ouvrez votre terminal.
 
-2. Exécutez la commande suivante pour télécharger le script d'installation de SDKMAN :
-   {% highlight shell %}curl -s "https://get.sdkman.io" | bash{% endhighlight %}
+- **&Eacute;tape 2** : Exécutez la commande suivante pour télécharger le script d'installation de SDKMAN :
+{% highlight shell %}curl -s "https://get.sdkman.io" | bash{% endhighlight %}
 
-3. Attendez que le téléchargement et l'installation du script soient terminés.
+- **&Eacute;tape 3** : Attendez que le téléchargement et l'installation du script soient terminés.
 
-4. Après l'installation :
+- **&Eacute;tape 4** : Après l'installation :
    - Lancez un nouveau terminal
    - Ou exécutez la commande suivante pour charger SDKMAN dans votre session en cours :
-     {% highlight shell %}source "$HOME/.sdkman/bin/sdkman-init.sh"{% endhighlight %}
-
-5. Pour vérifier si SDKMAN a été installé avec succès, tapez la commande suivante :
-   {% highlight shell %}sdk version{% endhighlight %}
-
-6. Vous devriez voir :
-
 {% highlight shell %}
+source "$HOME/.sdkman/bin/sdkman-init.sh"
+{% endhighlight %}
+
+- **&Eacute;tape 5** : Pour vérifier si SDKMAN a été installé avec succès, tapez la commande suivante :
+{% highlight shell %}
+sdk version
+{% endhighlight %}
+
+Vous devriez voir :
+
+{% highlight output %}
 SDKMAN!
 script: 5.18.2
 native: 0.4.2
@@ -120,7 +124,9 @@ Il faut donc déjà choisir le SDK (candidate) à installer.
 #### Candidate
 
 Pour voir la liste des SDK/candidate, lancez la commande suivante :
-{% highlight zsh %}% sdk list {% endhighlight %}
+{% highlight shell %}
+sdk list
+{% endhighlight %}
 
 > info "Note"
 > Tapez `q` pour sortir de la liste
@@ -142,7 +148,9 @@ Vous voyez qu'il est possible d'installer pas mal de choses. Pour n'en citer que
 Bon, le candidat qui nous intéresse, c'est `Java`. Voyons à présent les versions que nous propose SDKMAN.
 
 Pour cela, interrogeons SDKMAN :
-{% highlight zsh %}% sdk list java{% endhighlight %}
+{% highlight shell %}
+sdk list java
+{% endhighlight %}
 
 Voici la liste que j'obtiens :
 
@@ -296,7 +304,9 @@ de code Java natif, je choisis `GraalVM CE` version `20.0.2` et je sélectionne 
 
 Maintenant, c'est à votre tour. Pour l'installer, j'exécute la commande suivante :
 
-{% highlight zsh %} % sdk install java 20.0.2-graalce{% endhighlight %}
+{% highlight shell %}
+sdk install java 20.0.2-graalce
+{% endhighlight %}
 
 Cela lancera le processus d'installation, et la sortie sera :
 
@@ -323,9 +333,12 @@ nous avons installé cet outil, pour pouvoir installer plusieurs JDKs.
 
 Pour ma part, j'en installe deux autres :
 
-{% highlight zsh %}
-% sdk install java 21.fx-librca
-% sdk install java 23.r20-nik
+{% highlight shell %}
+sdk install java 21.fx-librca
+{% endhighlight %}
+
+{% highlight shell %}
+sdk install java 23.r20-nik
 {% endhighlight %}
 
 <hr class="hr-text" data-content="Choix du JDK">
@@ -339,14 +352,14 @@ Voyons à présent comment sélectionner une version spécifique de Java.
 
 Voyons ce que nous dit la commande `sdk` :
 
-{% highlight zsh %}
+{% highlight output %}
 % sdk current java
 Using java version 20.0.2-graalce
 {% endhighlight %}
 
 Et voyons ce que nous dit `java` :
 
-{% highlight zsh %}
+{% highlight output %}
 % java --version               
 openjdk 20.0.2 2023-07-18
 OpenJDK Runtime Environment GraalVM CE 20.0.2+9.1 (build 20.0.2+9-jvmci-23.0-b15)
@@ -356,13 +369,13 @@ OpenJDK 64-Bit Server VM GraalVM CE 20.0.2+9.1 (build 20.0.2+9-jvmci-23.0-b15, m
 
 ### Affichons les versions installées
 
-{% highlight output %}
-% sdk list java
+{% highlight shell %}
+sdk list java
 {% endhighlight %}
 
 ### Changeons de version
 
-{% highlight zsh %}
+{% highlight output %}
 % sdk use java 21.fx-librca
 
 Using java version 21.fx-librca in this shell.
@@ -370,7 +383,7 @@ Using java version 21.fx-librca in this shell.
 
 Puis vérifions avec Java
 
-{% highlight zsh %}
+{% highlight output %}
 % java --version
 
 openjdk 21 2023-09-19 LTS

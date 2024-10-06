@@ -99,12 +99,13 @@ $background: var(--code-background);
         border: none;
         cursor: pointer;
         opacity: 0.5;
-        transition: opacity 200ms ease-in-out;
+        transition: transform 200ms ease-in-out;
         background: none;
         box-shadow: none;
 
         &:hover {
           opacity: 0.8;
+          transform: scale(1.1);
         }
 
         .without-check {
@@ -215,18 +216,23 @@ figure.highlight {
   }
   .cm {
     color: #c5c5c5;
+    font-style: italic;
   }
   .cp {
     color: #c5c5c5;
+    font-style: italic;
   }
   .c1 {
     color: #c5c5c5;
+    font-style: italic;
   }
   .cs {
     color: #c5c5c5;
+    font-style: italic;
   }
   .c, .ch, .cd, .cpf {
     color: #c5c5c5;
+    font-style: italic;
   }
   .err {
     color: #960050;
@@ -374,6 +380,23 @@ figure.highlight {
   }
   .o {
     color: #79aaff;
+  }
+  .k { // Mots-clés
+      color: #66d9ef;
+      font-weight: bold;
+  }
+  .n { // Noms (variables, fonctions)
+      color: #f1fa8c;
+  }
+  .s { // Chaînes de caractères
+      color: #f8f8f2; // Texte blanc
+      font-style: italic;
+  }
+  .p { // Ponctuation
+      color: #8be9fd; // Couleur cyan
+  }
+  .o { // Opérateurs
+      color: #ffb86c; // Orange
   }
   /* End Of Specialized Style : see rougify style */
 

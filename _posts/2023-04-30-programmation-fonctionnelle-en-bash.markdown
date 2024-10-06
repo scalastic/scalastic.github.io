@@ -328,7 +328,7 @@ echo "Les nombres pairs jusqu'à 10 : ${numbers[@]}"
 
 ## Fonction de Base de la Programmation Fonctionnelle en Bash
 
-### Map
+### La Fonction Map
 
 {% highlight bash %}
 #!/bin/bash
@@ -363,7 +363,7 @@ echo "Liste transformée: ${mapped_list[@]}"
 # Sortie : Liste transformée: 1 4 9 16 25
 {% endhighlight %}
 
-### Filter
+### La Fonction Filter
 
 {% highlight bash %}
 #!/bin/bash
@@ -400,7 +400,7 @@ echo "Liste filtrée (éléments pairs): ${filtered_list[@]}"
 # Sortie : Liste filtrée (éléments pairs): 2 4
 {% endhighlight %}
 
-### Reduce
+### La Fonction Reduce
 
 {% highlight bash %}
 #!/bin/bash
@@ -437,7 +437,7 @@ echo "Résultat de la réduction (somme): $result"
 # Sortie : Résultat de la réduction (somme): 15
 {% endhighlight %}
 
-### Zip
+### La Fonction Zip
 
 {% highlight bash %}
 #!/bin/bash

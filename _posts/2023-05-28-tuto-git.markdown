@@ -72,7 +72,7 @@ commit et d'autres métadonnées.
 
 Voici un exemple d'affichage de commits avec, en début de ligne, leur hash respectif :
 
-{% highlight bash %}
+{% highlight output %}
 8634ee6 (HEAD -> main, origin/main, origin/HEAD) feat: Adds dark theme 🖤 (#32)
 aae8242 fix: CSS on phones
 d9bb54f refacto: Big CSS uniformization and refacto 🌟
@@ -167,9 +167,9 @@ gérer efficacement votre code source.
    Pour commencer à utiliser Git dans votre projet, vous devez en initialiser un. Cela se fait en utilisant la commande
 `git init` dans le répertoire racine de votre projet. Par exemple :
 
-{% highlight git %}
-$ cd /chemin/vers/mon_projet
-$ git init
+{% highlight shell %}
+cd /chemin/vers/mon_projet
+git init
 {% endhighlight %}
 
 - Deuxième cas de figure, votre projet se trouve déjà dans un dépôt distant Git :
@@ -177,9 +177,9 @@ $ git init
    La plupart du temps un dépôt distant existe déjà et vous souhaitez le récupérer en local. Il vous suffit de faire un 
 `git clone <URL DE MON REPO>` pour le télécharger sur votre poste en local.
 
-{% highlight git %}
-$ cd /chemin/vers/un_répertoire
-$ git clone https://github.com/progit/progit2.git
+{% highlight shell %}
+cd /chemin/vers/un_répertoire
+git clone https://github.com/progit/progit2.git
 {% endhighlight %}
 
 ### Ajout de Fichiers avec la Commande `git add`
@@ -188,8 +188,8 @@ Une fois que vous avez initialisé un dépôt Git, vous pouvez ajouter des fichi
 commande `git add`. Cela permet à Git de suivre les modifications de ces fichiers. Par exemple, pour ajouter tous les 
 fichiers modifiés dans votre répertoire de travail à l'index, vous pouvez exécuter la commande suivante :
 
-{% highlight git %}
-$ git add .
+{% highlight shell %}
+git add .
 {% endhighlight %}
 
 ### Enregistrement des Modifications avec `git commit`
@@ -198,8 +198,8 @@ Une fois que vous avez ajouté les fichiers à l'index, vous pouvez enregistrer 
 l'aide de la commande `git commit`. Chaque commit représente un instantané de l'état de votre projet à un moment donné. 
 Par exemple, pour créer un commit avec un message descriptif, vous pouvez utiliser la commande suivante :
 
-{% highlight git %}
-$ git commit -m "Ajout de la fonctionnalité ..."
+{% highlight shell %}
+git commit -m "Ajout de la fonctionnalité ..."
 {% endhighlight %}
 
 ### Utilisation de `git stash` pour Mettre de Côté des Modifications Temporaires
@@ -208,8 +208,8 @@ Parfois, vous pouvez avoir des modifications non terminées dans votre espace de
 passer à une autre tâche ou à une autre branche. Dans de tels cas, vous pouvez utiliser la commande `git stash` pour 
 mettre de côté temporairement vos modifications. Par exemple :
 
-{% highlight git %}
-$ git stash
+{% highlight shell %}
+git stash
 {% endhighlight %}
 
 L'exemple ci-dessus met de côté vos modifications dans la zone temporaire appelé stash. Une fois vos modifications 
@@ -220,8 +220,8 @@ reprendre vos modifications "mises de côté". Vous pouvez les appliquer dans vo
 commande `git stash pop`. Cette commande applique automatiquement la dernière stash et la supprime de la liste des 
 stashes. Par exemple :
 
-{% highlight git %}
-$ git stash pop
+{% highlight shell %}
+git stash pop
 {% endhighlight %}
 
 Cette commande applique la dernière stash et restaure vos modifications dans votre répertoire de travail. Vous pouvez 
@@ -248,14 +248,14 @@ Voyons comment Git facilite cette gestion.
 - Vous pouvez créer une nouvelle branche dans votre dépôt Git en utilisant la commande `git branch`. Par exemple, pour 
 créer une branche nommée "feat/new-functionality", vous pouvez exécuter :
 
-{% highlight git %}
-$ git branch feat/new-functionality
+{% highlight shell %}
+git branch feat/new-functionality
 {% endhighlight %}
 
   Pour vous déplacer vers cette nouvelle branche, vous utiliserez la commande `git checkout`. Par exemple :
 
-{% highlight git %}
-$ git checkout feat/new-functionality
+{% highlight shell %}
+git checkout feat/new-functionality
 {% endhighlight %}
 
    Vous êtes maintenant sur la branche "feature/nouvelle-fonctionnalite" et vous pouvez commencer à effectuer des 
@@ -264,8 +264,8 @@ $ git checkout feat/new-functionality
 - Une autre manière plus rapide serait d'entrer la commande `git checkout -b` qui crée la branche et vous place 
 directement dessus après l'avoir créée :
 
-{% highlight git %}
-$ git checkout -b feat/new-functionality
+{% highlight shell %}
+git checkout -b feat/new-functionality
 {% endhighlight %}
 
 ### Fusion de branches avec `git merge`
@@ -278,7 +278,7 @@ Pour fusionner une branche dans une autre, vous pouvez exécuter la commande `gi
 vous souhaitez fusionner. Par exemple, pour fusionner la branche "feature/nouvelle-fonctionnalite" dans la branche 
 principale, vous pouvez utiliser la commande suivante :
 
-{% highlight git %}
+{% highlight shell %}
 git checkout main
 git merge feature/nouvelle-fonctionnalite
 {% endhighlight %}
@@ -304,7 +304,7 @@ Pour supprimer une branche fusionnée, vous pouvez utiliser la commande `git bra
 la branche. Par exemple, pour supprimer la branche "feature/nouvelle-fonctionnalite" après sa fusion, vous pouvez 
 exécuter :
 
-{% highlight git %}
+{% highlight shell %}
 git branch -d feature/nouvelle-fonctionnalite
 {% endhighlight %}
 
@@ -314,8 +314,8 @@ Parfois, vous pouvez avoir besoin d'appliquer uniquement certains commits d'une 
 vous pouvez utiliser la commande `git cherry-pick`. Par exemple, pour appliquer le commit avec le hash "abcdef" à 
 la branche actuelle, vous pouvez exécuter :
 
-{% highlight git %}
-$ git cherry-pick abcdef
+{% highlight shell %}
+git cherry-pick abcdef
 {% endhighlight %}
 
 Cela appliquera le commit spécifié à la branche actuelle, créant ainsi une copie du commit sur cette branche :
@@ -330,8 +330,8 @@ Cela appliquera le commit spécifié à la branche actuelle, créant ainsi une c
 Si vous avez besoin de revenir à un état précédent de votre branche, vous pouvez utiliser la commande `git reset`. Par 
 exemple, pour réinitialiser la branche actuelle à un commit spécifique, vous pouvez exécuter :
 
-{% highlight git %}
-$ git reset <commit>
+{% highlight shell %}
+git reset <commit>
 {% endhighlight %}
 
 Cela ramènera votre branche à l'état du commit spécifié, en annulant tous les commits ultérieurs (notez bien que le 
@@ -348,8 +348,8 @@ Si vous souhaitez annuler un ou plusieurs commits spécifiques tout en conservan
 l'historique, vous pouvez utiliser la commande `git revert`. Par exemple, pour annuler le dernier commit, vous pouvez 
 exécuter :
 
-{% highlight git %}
-$ git revert HEAD
+{% highlight shell %}
+git revert HEAD
 {% endhighlight %}
 
 Cela créera un nouveau commit qui annule les modifications apportées par le commit précédent :
@@ -375,8 +375,8 @@ Le rebasage vous permet de réorganiser les commits de votre branche pour les re
 réorganiser de manière linéaire. Cela peut être utile pour garder un historique de commits propre et facile à suivre. 
 Pour effectuer un rebasage interactif, utilisez la commande `git rebase -i`. Par exemple :
 
-{% highlight git %}
-$ git rebase -i <branche-de-destination>
+{% highlight shell %}
+git rebase -i <branche-de-destination>
 {% endhighlight %}
 
 Cette commande ouvrira un éditeur avec une liste des commits que vous pouvez réorganiser ou modifier selon vos besoins :
@@ -391,7 +391,7 @@ Cette commande ouvrira un éditeur avec une liste des commits que vous pouvez r�
 - La commande `git log` vous permet d'examiner l'historique des commits de votre dépôt. Par défaut, elle affiche les 
 informations essentielles comme l'auteur, la date et le message du commit. Par exemple :
 
-{% highlight git %}
+{% highlight output %}
 $ git log
 
 commit 8634ee6a55086f6cf4ff7fa0ee4bbceb283d7c2c (HEAD -> main, origin/main, origin/HEAD)
@@ -420,7 +420,7 @@ suivre l'évolution de votre code.
 - Il est possible de formater l'affichage des logs afin de n'afficher que ce qui nous intéresse. Pour avoir par exemple
 un affichage compact, entrez `git log --oneline` :
 
-{% highlight git %}
+{% highlight output %}
 $ git log --oneline
 
 8634ee6 feat: Adds dark theme 🖤 (#32)
@@ -442,7 +442,7 @@ Le pointeur `HEAD` est un pointeur spécial qui fait référence au commit actue
 pour vous déplacer dans l'historique des commits. Par exemple, pour afficher les détails du commit actuel, vous pouvez 
 exécuter :
 
-{% highlight git %}
+{% highlight output %}
 $ git show HEAD
 
 commit 8634ee6a55086f6cf4ff7fa0ee4bbceb283d7c2c
@@ -479,8 +479,8 @@ Par exemple,
 
 Par exemple, pour afficher les détails du commit parent direct du commit actuel, vous pouvez utiliser :
 
-{% highlight git %}
-$ git show HEAD^
+{% highlight shell %}
+git show HEAD^
 {% endhighlight %}
 
 Ces opérateurs sont utiles pour naviguer rapidement dans l'historique des commits sans avoir à connaître leurs 
@@ -501,7 +501,7 @@ différences entre les versions, récupérer des versions antérieures et gérer
 La commande `git diff` vous permet de visualiser les différences entre les versions du code source. Par exemple, pour 
 afficher les modifications entre l'état actuel et le dernier commit, vous pouvez exécuter :
 
-{% highlight git %}
+{% highlight output %}
 $ git diff HEAD
 
 diff --git a/_posts/2023-05-28-tuto-git.markdown b/_posts/2023-05-28-tuto-git.markdown
@@ -525,8 +525,8 @@ Si vous avez besoin de revenir à une version antérieure de votre projet, vous 
 
 Par exemple, pour revenir à un commit spécifique avec l'identifiant "abcdef", vous pouvez exécuter :
 
-{% highlight git %}
-$ git checkout abcdef
+{% highlight shell %}
+git checkout abcdef
 {% endhighlight %}
 
 Cela mettra votre répertoire de travail dans l'état de ce commit, vous permettant de travailler avec cette version 
@@ -542,8 +542,8 @@ spécifique.
 Git vous permet de travailler avec des dépôts distants, tels que ceux hébergés sur des plateformes comme GitHub ou 
 GitLab. Pour pousser vos modifications locales vers un dépôt distant, utilisez la commande `git push`. Par exemple :
 
-{% highlight git %}
-$ git push origin feat/my-feature
+{% highlight shell %}
+git push origin feat/my-feature
 {% endhighlight %}
 
 Cette commande envoie les modifications de votre branche locale vers la branche correspondante sur le dépôt distant.
@@ -551,8 +551,8 @@ Cette commande envoie les modifications de votre branche locale vers la branche 
 Pour récupérer les modifications effectuées sur le dépôt distant et les fusionner dans votre branche locale, utilisez la
 commande `git pull`. Par exemple :
 
-{% highlight git %}
-$ git pull origin bugfix/the-fix
+{% highlight shell %}
+git pull origin bugfix/the-fix
 {% endhighlight %}
 
 Cette commande récupère les modifications de la branche correspondante sur le dépôt distant et les fusionne 
@@ -616,7 +616,7 @@ solution simple pour modifier le message d'un commit précédent. Voici comment 
 
 1. Utilisez la commande `git commit --amend` suivi de l'option `-m` et du nouveau message que vous souhaitez utiliser :
 
-{% highlight git %}
+{% highlight shell %}
 git commit --amend -m "Nouveau message du commit"
 {% endhighlight %}
   
@@ -627,7 +627,7 @@ git commit --amend -m "Nouveau message du commit"
 1. Si vous souhaitez modifier le message d'un commit plus ancien, vous pouvez utiliser la commande 
 `git rebase -i <commit>` où `<commit>` est le commit précédent celui que vous voulez modifier. 
 
-{% highlight git %}
+{% highlight shell %}
 git rebase -i HEAD~3
 {% endhighlight %}
 

@@ -78,7 +78,7 @@ distributions, making this guide useful for a wide range of Linux users.
 
 - **1. Install UFW**: To install UFW, run:
 
-{% highlight bash %}
+{% highlight shell %}
 sudo apt-get update
 sudo apt-get install ufw
 {% endhighlight %}
@@ -87,7 +87,7 @@ sudo apt-get install ufw
 
 - **1. Install Fail2ban**: Execute the following commands to install Fail2ban on your Ubuntu server:
 
-{% highlight bash %}
+{% highlight shell %}
 sudo apt-get update
 sudo apt-get install fail2ban
 {% endhighlight %}
@@ -95,20 +95,20 @@ sudo apt-get install fail2ban
 - **2. Activate the Fail2ban service**: To start the service and enable it automatically at system startup,
   run the following commands:
 
-{% highlight bash %}
+{% highlight shell %}
 sudo systemctl start fail2ban
 sudo systemctl enable fail2ban
 {% endhighlight %}
 
 - **3. Verify the installation**: To ensure that the service has started and is functioning correctly, launch:
 
-{% highlight bash %}
+{% highlight shell %}
 sudo systemctl status fail2ban
 {% endhighlight %}
 
 You should see:
 
-{% highlight bash %}
+{% highlight output %}
 ● fail2ban.service - Fail2Ban Service
 Loaded: loaded (/lib/systemd/system/fail2ban.service; enabled; vendor preset: enabled)
 Active: active (running) since Fri 2023-12-22 00:16:31 CET; 1 day 9h ago
@@ -154,7 +154,7 @@ three main components located in different directories: jails, filters, and acti
 - **1. Create a dedicated configuration file**: To do this, open your favorite editor, here nano, by executing
   the command:
 
-{% highlight bash %}
+{% highlight shell %}
 sudo nano /etc/fail2ban/jail.d/custom.conf
 {% endhighlight %}
 
@@ -171,7 +171,7 @@ sudo nano /etc/fail2ban/jail.d/custom.conf
   Here is an example of a drastic configuration, banning any first intrusion attempt for 1 day. We also define
   the use of UFW, (note the local IP addresses that you may need to adjust according to your local network configuration):
 
-{% highlight bash %}
+{% highlight conf %}
 [DEFAULT]
 bantime = 1d
 findtime = 1d
@@ -185,19 +185,19 @@ banaction_allports = ufw
 - **3. Restart the Fail2ban service**: To apply your modifications, restart the Fail2ban service by launching
   the command:
 
-{% highlight bash %}
+{% highlight shell %}
 sudo systemctl restart fail2ban
 {% endhighlight %}
 
 - **4. Verify the service status**:
 
-{% highlight bash %}
+{% highlight shell %}
 sudo fail2ban-client status
 {% endhighlight %}
 
 Which should give you:
 
-{% highlight bash %}
+{% highlight output %}
 $ sudo fail2ban-client status
 Status
 |- Number of jail:	1
@@ -225,7 +225,7 @@ Let's see how to configure the firewall rules with UFW:
 
 - **Setting default rules**: Block all incoming and outgoing connections by default:
 
-{% highlight bash %}
+{% highlight shell %}
 sudo ufw default deny incoming
 sudo ufw default deny outgoing
 {% endhighlight %}
@@ -234,27 +234,27 @@ sudo ufw default deny outgoing
 
   - Allow incoming connections for the web (HTTP and HTTPS):
 
-{% highlight bash %}
+{% highlight shell %}
 sudo ufw allow in 80/tcp
 sudo ufw allow in 443/tcp
 {% endhighlight %}
 
   - Allow outgoing connections for the web:
 
-{% highlight bash %}
+{% highlight shell %}
 sudo ufw allow out 80/tcp
 sudo ufw allow out 443/tcp
 {% endhighlight %}
 
   - Allow SSH connections (for remote management):
 
-{% highlight bash %}
+{% highlight shell %}
 sudo ufw allow in 22/tcp
 {% endhighlight %}
 
   - Allow outgoing DNS connections (for domain name resolution):
 
-{% highlight bash %}
+{% highlight shell %}
 sudo ufw allow out 53/udp
 {% endhighlight %}
 
@@ -262,13 +262,13 @@ sudo ufw allow out 53/udp
 
 - **Activating the UFW firewall**: Enable UFW with:
 
-{% highlight bash %}
+{% highlight shell %}
 sudo ufw enable
 {% endhighlight %}
 
 - **Checking the configured rules**: Recheck the status and rules of the firewall with:
 
-{% highlight bash %}
+{% highlight shell %}
 sudo ufw status verbose
 {% endhighlight %}
 
@@ -276,7 +276,7 @@ sudo ufw status verbose
 
 - **Mail**: Allow outgoing SMTP connections for sending emails:
 
-{% highlight bash %}
+{% highlight shell %}
 sudo ufw allow out 25/tcp
 {% endhighlight %}
 
@@ -284,13 +284,13 @@ sudo ufw allow out 25/tcp
 
   - Limit SSH connection attempts to enhance security:
 
-{% highlight bash %}
+{% highlight shell %}
 sudo ufw limit 22/tcp comment 'Allow 6 connections over 30 seconds'
 {% endhighlight %}
 
   - Restrict SSH access to certain IP addresses:
 
-{% highlight bash %}
+{% highlight shell %}
 sudo ufw delete allow in 22/tcp
 sudo ufw allow from 192.168.0.0/16 to any port 22 proto tcp
 {% endhighlight %}
@@ -309,8 +309,8 @@ sudo ufw allow from 192.168.0.0/16 to any port 22 proto tcp
 
 - **Nginx Filters**: List existing filters (may differ on your server):
 
-{% highlight bash %}
-sudo ls -alt /etc/fail2ban/filter.d/nginx*
+{% highlight output %}
+$ sudo ls -alt /etc/fail2ban/filter.d/nginx*
 
 -rw-r--r-- 1 root root  327 Nov 23  2020 /etc/fail2ban/filter.d/nginx-sslerror.conf
 -rw-r--r-- 1 root root  232 Nov 23  2020 /etc/fail2ban/filter.d/nginx-4xx.conf
@@ -325,7 +325,7 @@ sudo ls -alt /etc/fail2ban/filter.d/nginx*
   - For the `nginx-sslerror.conf` filter: This filter protects against SSL handshake failure attacks, where an
     attacker tries to negotiate an SSL/TLS connection with incorrect or malicious parameters.
 
-{% highlight bash %}
+{% highlight shell %}
 sudo bash -c 'cat > /etc/fail2ban/filter.d/nginx-sslerror.conf <<EOF
 [Definition]
 failregex = SSL_do_handshake\(\) failed .+ while SSL handshaking, client: <HOST>, server: .+
@@ -342,7 +342,7 @@ EOF'
   400), often the result of attempts to access unauthorized or non-existent resources, indicating malicious
   probing.
 
-{% highlight bash %}
+{% highlight shell %}
 sudo bash -c 'cat > /etc/fail2ban/filter.d/nginx-4xx.conf <<EOF
 [Definition]
 failregex = ^<HOST>.*"(GET|POST).*" (404|444|403|400) .*$
@@ -354,7 +354,7 @@ EOF'
 - For the `nginx-forbidden.conf` filter: This filter targets attempts to access forbidden directories. It is
   useful for blocking directory scans attempting to discover hidden files or folders on the server.
 
-{% highlight bash %}
+{% highlight shell %}
 sudo bash -c 'cat > /etc/fail2ban/filter.d/nginx-forbidden.conf <<EOF
 [Definition]
 failregex = directory index of .+ is forbidden, client: <HOST>, server: .+
@@ -366,7 +366,7 @@ EOF'
 - For the `nginx-botsearch.conf` filter: This filter focuses on requests for URLs that do not exist (404 errors),
   often a sign of a bot or scanner trying to find vulnerabilities or hidden pages.
 
-{% highlight bash %}
+{% highlight shell %}
 sudo bash -c 'cat > /etc/fail2ban/filter.d/nginx-botsearch.conf <<EOF
 # Fail2Ban filter to match web requests for selected URLs that don't exist
 #
@@ -397,7 +397,7 @@ EOF'
 - For the `nginx-http-auth.conf` filter: This filter is used to detect and block repeated failed authentication
   attempts, indicating a possible brute-force attack on password-protected areas.
 
-{% highlight bash %}
+{% highlight shell %}
 sudo bash -c 'cat > /etc/fail2ban/filter.d/nginx-http-auth.conf <<EOF
 # fail2ban filter configuration for nginx
 
@@ -422,7 +422,7 @@ EOF'
 - For the `nginx-limit-req.conf` filter: This filter aims to block IP addresses that exceed the request limits
   defined in Nginx (limit_req), typical of a distributed denial of service (DDoS) attack or aggressive bot behavior.
 
-{% highlight bash %}
+{% highlight shell %}
 sudo bash -c 'cat > /etc/fail2ban/filter.d/nginx-limit-req.conf <<EOF
 # Fail2ban filter configuration for nginx :: limit_req
 # used to ban hosts, that were failed through nginx by limit request processing rate
@@ -480,13 +480,13 @@ To add these jails to the Fail2Ban configuration in the `custom.conf` file, foll
 
 - **Open the configuration file**: Use the command to open the file in a text editor:
 
-{% highlight bash %}
+{% highlight shell %}
 sudo nano /etc/fail2ban/jail.d/custom.conf
 {% endhighlight %}
 
 - **Add jail configurations**: Copy and paste the following configurations at the end of the file:
 
-{% highlight bash %}
+{% highlight conf %}
 [sshd]
 enabled = true
 
@@ -530,7 +530,7 @@ logpath = /var/log/ufw.log
 
 - **Restart Fail2Ban**: To apply the changes, restart Fail2Ban with:
 
-{% highlight bash %}
+{% highlight shell %}
 sudo systemctl restart fail2ban
 {% endhighlight %}
 
@@ -542,13 +542,13 @@ This configuration will add and activate the specified jails for SSH, various Ng
 After configuring, it is essential to test and verify that everything is working correctly.
 - **Checking Fail2ban**: Use this command to list the active jails and check that Fail2ban is functioning properly.
 
-{% highlight bash %}
+{% highlight shell %}
 sudo fail2ban-client status
 {% endhighlight %}
 
 Which returns:
 
-{% highlight bash %}
+{% highlight output %}
 $ sudo fail2ban-client status
 
 Status
@@ -577,7 +577,7 @@ To effectively understand and analyze Fail2Ban's security actions, it's useful t
 
 The following script provides this visibility, categorized by jail:
 
-{% highlight bash %}
+{% highlight shell %}
 for jail in $(sudo fail2ban-client status | grep 'Jail list:' | sed 's/.*://;s/,//g'); do
   echo "Jail: $jail";
   sudo fail2ban-client status $jail | grep 'Banned IP';
@@ -586,7 +586,7 @@ done
 
 Here is an example of all the IPs that have been blocked on my server:
 
-{% highlight bash %}
+{% highlight output %}
 Jail: nginx-4xx
 `- Banned IP list:
 Jail: nginx-botsearch
@@ -692,7 +692,7 @@ cat "$CITY_FILE" | count_occurrences | sort_occurrences
 
 #### Results
 
-{% highlight bash %}
+{% highlight output %}
 1055 US
 361 CN
 252 GB
@@ -805,7 +805,7 @@ access attempts.
 
 #### Results
 
-{% highlight bash %}
+{% highlight output %}
 590 AS396982 Google LLC
 384 AS14061 DigitalOcean, LLC
 165 AS6939 Hurricane Electric LLC
@@ -1238,7 +1238,7 @@ illustrates the complexity of the online security ecosystem.
 
 #### Results
 
-{% highlight bash %}
+{% highlight output %}
     314 San Francisco
     218 London
     210 North Charleston

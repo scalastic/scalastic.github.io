@@ -756,29 +756,28 @@ facilitant l'adaptation aux formats de données spécifiques à chaque couche.
     *Exemple* : Un **`UserDto`** utilisé pour transmettre les données d'un utilisateur via une API REST ne contient que 
     les informations nécessaires (ID, nom, adresse), tandis que l'objet métier **`User`** encapsule des comportements et des règles 
     métier plus complexes.
-    
 
-  {% highlight java %}
-  public class User {
-      private Long id;
-      private String name;
-      private String email;
-      private Address address; // Classe qui contient les informations d'adresse de l'utilisateur
-      private List<Order> orders; // Liste des commandes passées par l'utilisateur
-    
-      // Constructeurs, getters et setters...
-  }
-  {% endhighlight %}
+{% highlight java %}
+public class User {
+  private Long id;
+  private String name;
+  private String email;
+  private Address address; // Classe qui contient les informations d'adresse de l'utilisateur
+  private List<Order> orders; // Liste des commandes passées par l'utilisateur
 
-  {% highlight java %}
-  public class UserDto {
-      private Long id;
-      private String name;
-      private String address; // Adresse représentée sous forme de chaîne de caractères (ex: "123 Main St, City, Country")
-    
-      // Constructeurs, getters et setters...
-  }
-  {% endhighlight %}
+  // Constructeurs, getters et setters...
+}
+{% endhighlight %}
+
+{% highlight java %}
+public class UserDto {
+  private Long id;
+  private String name;
+  private String address; // Adresse représentée sous forme de chaîne de caractères (ex: "123 Main St, City, Country")
+
+  // Constructeurs, getters et setters...
+}
+{% endhighlight %}
 
 - **Adaptation aux Formats de Données** :
 
@@ -788,33 +787,33 @@ facilitant l'adaptation aux formats de données spécifiques à chaque couche.
 
     *Exemple* : Un **`UserDtoMapper`** peut convertir un `UserDto` en objet métier `User` et vice-versa.
     
-  {% highlight java %}
-  public class UserDtoMapper {
-    // Méthode pour convertir un DTO en objet de domaine
-    public User toDomain(UserDto dto) {
-        Address address = parseAddress(dto.getAddress()); // Conversion de l'adresse sous forme de String vers un objet Address
-        return new User(dto.getId(), dto.getName(), dto.getEmail(), address, new ArrayList<>());
-    }
+{% highlight java %}
+public class UserDtoMapper {
+// Méthode pour convertir un DTO en objet de domaine
+public User toDomain(UserDto dto) {
+    Address address = parseAddress(dto.getAddress()); // Conversion de l'adresse sous forme de String vers un objet Address
+    return new User(dto.getId(), dto.getName(), dto.getEmail(), address, new ArrayList<>());
+}
 
-    // Méthode pour convertir un objet de domaine en DTO
-    public UserDto toDto(User user) {
-        String address = formatAddress(user.getAddress()); // Conversion de l'objet Address en String
-        return new UserDto(user.getId(), user.getName(), user.getEmail(), address);
-    }
+// Méthode pour convertir un objet de domaine en DTO
+public UserDto toDto(User user) {
+    String address = formatAddress(user.getAddress()); // Conversion de l'objet Address en String
+    return new UserDto(user.getId(), user.getName(), user.getEmail(), address);
+}
 
-    // Méthode utilitaire pour transformer une chaîne d'adresse en objet Address
-    private Address parseAddress(String address) {
-        // Suppose que l'adresse est sous forme de "123 Main St, City, Country"
-        String[] parts = address.split(", ");
-        return new Address(parts[0], parts[1], parts[2]);
-    }
+// Méthode utilitaire pour transformer une chaîne d'adresse en objet Address
+private Address parseAddress(String address) {
+    // Suppose que l'adresse est sous forme de "123 Main St, City, Country"
+    String[] parts = address.split(", ");
+    return new Address(parts[0], parts[1], parts[2]);
+}
 
-    // Méthode utilitaire pour formater un objet Address en une chaîne de caractères
-    private String formatAddress(Address address) {
-        return String.format("%s, %s, %s", address.getStreet(), address.getCity(), address.getCountry());
-    }
-  }
-  {% endhighlight %}
+// Méthode utilitaire pour formater un objet Address en une chaîne de caractères
+private String formatAddress(Address address) {
+    return String.format("%s, %s, %s", address.getStreet(), address.getCity(), address.getCountry());
+}
+}
+{% endhighlight %}
 
 - **Protection du Domaine** :
 
@@ -877,7 +876,7 @@ et facilite la transformation de fonctionnalités en services autonomes.
 
 #### Un Exemple de Structure des Packages pour le cas d'utilisation "user"
 
-{% highlight txt %}
+{% highlight ascii %}
 domain/
 ├── common/
 │   └── exceptions/
