@@ -9,20 +9,26 @@ jobs:
   build_and_deploy:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v3
+      - uses: ConorMacBride/install-package@v1
+        with:
+          apt: rolldice bcal
+
+      - uses: actions/checkout@v4
         with:
           lfs: 'true'
 
       # Use GitHub Actions' cache to cache dependencies on servers
-      - uses: actions/cache@v3
+      - uses: actions/cache@v4
         with:
-          path: vendor/bundle
-          key: ${{ runner.os }}-gems-${{ hashFiles('**/Gemfile.lock') }}
+          path: |
+            .asdf/**
+            vendor/bundle
+          key: ${{ runner.os }}-cache-${{ hashFiles('**/cache.key') }}
           restore-keys: |
-            ${{ runner.os }}-gems-
+            ${{ runner.os }}-cache-
 
       # Use GitHub Deploy Action to build and deploy to GitHub
-      - uses: jeffreytse/jekyll-deploy-action@v0.5.1
+      - uses: jeffreytse/jekyll-deploy-action@v0.6.0
         with:
           provider: 'github'
           token: ${{ secrets.GITHUB_TOKEN }} # It's your Personal Access Token(PAT)
@@ -31,7 +37,9 @@ jobs:
           jekyll_src: './'           # Default is root directory
           jekyll_cfg: '_config.yml'  # Default is _config.yml
           jekyll_baseurl: ''         # Default is according to _config.yml
-          bundler_ver: ''            # Default is compatible bundler version (~>2.4.0)
+          ruby_ver: '3.3.5'          # Default is 3.2.0 version
+          bundler_ver: '2.5.21'      # Default is compatible bundler version (~>2.5.0)
           cname: 'scalastic.io'      # Default is to not use a cname
           actor: ''                  # Default is the GITHUB_ACTOR
-          pre_build_commands: pacman-key --init; pacman -S --noconfirm git-lfs libvips lcms2 openjpeg2 libpng libwebp libheif imagemagick openslide libjxl poppler-glib
+          pre_build_commands: pacman -S --noconfirm git-lfs lcms2 openjpeg2 libpng libwebp libheif imagemagick openslide libjxl poppler-glib
+
