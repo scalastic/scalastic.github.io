@@ -1,0 +1,78 @@
+{% if page.metadata != false -%}
+<div>
+  <div class="page-metadata">
+    <ul>
+      <li><span><svg width="16.625" height="19" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!-- Font Awesome Free 5.15.3 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) --><path d="M148 288h-40c-6.6 0-12-5.4-12-12v-40c0-6.6 5.4-12 12-12h40c6.6 0 12 5.4 12 12v40c0 6.6-5.4 12-12 12zm108-12v-40c0-6.6-5.4-12-12-12h-40c-6.6 0-12 5.4-12 12v40c0 6.6 5.4 12 12 12h40c6.6 0 12-5.4 12-12zm96 0v-40c0-6.6-5.4-12-12-12h-40c-6.6 0-12 5.4-12 12v40c0 6.6 5.4 12 12 12h40c6.6 0 12-5.4 12-12zm-96 96v-40c0-6.6-5.4-12-12-12h-40c-6.6 0-12 5.4-12 12v40c0 6.6 5.4 12 12 12h40c6.6 0 12-5.4 12-12zm-96 0v-40c0-6.6-5.4-12-12-12h-40c-6.6 0-12 5.4-12 12v40c0 6.6 5.4 12 12 12h40c6.6 0 12-5.4 12-12zm192 0v-40c0-6.6-5.4-12-12-12h-40c-6.6 0-12 5.4-12 12v40c0 6.6 5.4 12 12 12h40c6.6 0 12-5.4 12-12zm96-260v352c0 26.5-21.5 48-48 48H48c-26.5 0-48-21.5-48-48V112c0-26.5 21.5-48 48-48h48V12c0-6.6 5.4-12 12-12h40c6.6 0 12 5.4 12 12v52h128V12c0-6.6 5.4-12 12-12h40c6.6 0 12 5.4 12 12v52h48c26.5 0 48 21.5 48 48zm-48 346V160H48v298c0 3.3 2.7 6 6 6h340c3.3 0 6-2.7 6-6z"/></svg></span> {{ page.date | i18n_date: site.active_lang }}</li>
+      <li><span><svg width="19" height="19" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!-- Font Awesome Free 5.15.3 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) --><path d="M256 8C119 8 8 119 8 256s111 248 248 248 248-111 248-248S393 8 256 8zm0 448c-110.5 0-200-89.5-200-200S145.5 56 256 56s200 89.5 200 200-89.5 200-200 200zm61.8-104.4l-84.9-61.7c-3.1-2.3-4.9-5.9-4.9-9.7V116c0-6.6 5.4-12 12-12h32c6.6 0 12 5.4 12 12v141.7l66.8 48.6c5.4 3.9 6.5 11.4 2.6 16.8L334.6 349c-3.9 5.3-11.4 6.5-16.8 2.6z"/></svg></span> {% capture words %}{{ page.content | number_of_words }}{% endcapture %}{% unless words contains "-" %}{{ words | plus: 250 | divided_by: 250 | append: " minutes" }}{% endunless %}</li>
+      <li><span><svg width="23.75" height="19" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 512"><!-- Font Awesome Free 5.15.3 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) --><path d="M497.941 225.941L286.059 14.059A48 48 0 0 0 252.118 0H48C21.49 0 0 21.49 0 48v204.118a48 48 0 0 0 14.059 33.941l211.882 211.882c18.744 18.745 49.136 18.746 67.882 0l204.118-204.118c18.745-18.745 18.745-49.137 0-67.882zM112 160c-26.51 0-48-21.49-48-48s21.49-48 48-48 48 21.49 48 48-21.49 48-48 48zm513.941 133.823L421.823 497.941c-18.745 18.745-49.137 18.745-67.882 0l-.36-.36L527.64 323.522c16.999-16.999 26.36-39.6 26.36-63.64s-9.362-46.641-26.36-63.64L331.397 0h48.721a48 48 0 0 1 33.941 14.059l211.882 211.882c18.745 18.745 18.745 49.137 0 67.882z"/></svg></span></li>
+      {%- for tag in page.tags %}
+      <li><a class="tag" href="{{site.baseurl}}{% if site.active_lang == 'en' %}/en{% endif %}/tags#{{ tag | cgi_escape }}" rel="tag">{{ tag }}</a></li>
+      {% endfor -%}
+    </ul>
+  </div>
+</div>
+{%- endif %}
+{% assign maxRelated = 3 %}
+{% assign minCommonTags =  1 %}
+{% assign maxRelatedCounter = 0 %}
+{%- for post in site.posts -%}
+  {% assign sameTagCount = 0 %}
+  {% assign commonTags = '' %}
+  {%- for tag in post.tags -%}
+    {%- if post.url != page.url -%}
+      {%- if page.tags contains tag -%}
+        {% assign sameTagCount = sameTagCount | plus: 1 %}
+        {%- capture tagmarkup %} <span class="label label-default">{{ tag }}</span> {% endcapture -%}
+        {%- assign commonTags = commonTags | append: tagmarkup -%}
+      {%- endif -%}
+    {%- endif -%}
+  {%- endfor -%}
+  {%- if sameTagCount >= minCommonTags -%}
+    {%- if maxRelatedCounter == 0 -%}
+    <div>
+    <h3>{{ site.data.i18n.related-article }}</h3>
+    <div class="page-recomm">
+    {%- endif -%}
+    <div class="recomm">
+      <a class="recomm-link" href="{{ site.baseurl }}{{ post.url }}" aria-label="{{ post.title }}">
+        <h5>{{ post.title }}</h5>
+        <div class="image-container">
+          {%- picture
+            thumbnail-article
+            {{ "/assets/img/" | prepend: site.baseurl | append : post.img}} 6:5 center
+            --alt {{ post.title }}
+            --img width="300" height="250"
+          -%}
+        </div>
+      </a>
+    </div>
+    {%- assign maxRelatedCounter = maxRelatedCounter | plus: 1 -%}
+    {%- if maxRelatedCounter >= maxRelated -%}
+    </div>
+    </div>
+      {%- break -%}
+    {%- endif -%}
+  {%- endif -%}
+{%- endfor -%}
+{%- if maxRelatedCounter < maxRelated -%}
+  </div>
+</div>
+{%- endif -%}
+<!-- Nouveaux contenus -->
+<div class="popular-posts">
+  <h3>Articles Populaires</h3>
+  <ul>
+    <li><a href="/article1">Introduction à l'Architecture Microservices</a></li>
+    <li><a href="/article2">Comment Optimiser les Performances de Votre Application</a></li>
+    <!-- Ajoutez d'autres liens populaires ici -->
+  </ul>
+</div>
+
+<div class="recommended-authors">
+  <h3>Auteurs Recommandés</h3>
+  <ul>
+    <li><a href="/author1">Jean Dupont</a></li>
+    <li><a href="/author2">Marie Martin</a></li>
+    <!-- Ajoutez d'autres auteurs ici -->
+  </ul>
+</div>

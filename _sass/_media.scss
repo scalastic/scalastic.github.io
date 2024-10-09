@@ -1,30 +1,140 @@
+/* Large Screens */
+@media only screen and (min-width: 1600px) {
+
+  .wrapper:has(.article-page) {
+    max-width: 1600px;
+    width: 100%;
+    position: relative;
+    .post, .article-page {
+      max-width: 970px;
+    }
+
+    .sidebar-right {
+        .page-metadata {
+          color: var(--discreet-color);
+          fill: var(--discreet-color);
+          margin-left: auto;
+          margin-right: auto;
+          margin-top: 25px;
+          margin-bottom: 50px;
+          ul {
+            text-align: center;
+            padding: 0;
+            margin: 0;
+          }
+          li {
+            display: inline;
+            list-style: none;
+            padding: 10px 5px 10px 5px;
+          }
+        }
+      .page-recomm {
+        display: flex;
+        flex-direction: column; // Chaque article est sur une ligne
+        gap: 10px; // Espace entre les articles
+
+        .recomm {
+          display: flex;
+          flex-direction: row; // Aligner l'image et le titre horizontalement
+          align-items: center; // Aligner l'image et le titre verticalement
+          gap: 10px; // Espace entre l'image et le titre
+          width: 100%; // Assurer que l'article occupe toute la largeur
+        }
+
+        .recomm-link {
+          display: flex;
+          flex-direction: row; // Aligner le contenu du lien horizontalement
+          align-items: center;
+          gap: 10px; // Espace entre le titre et l'image
+          text-decoration: none;
+        }
+
+        .image-container {
+          width: 60px; // Taille de l'image
+          height: 60px;
+          flex-shrink: 0; // Empêcher l'image de se redimensionner
+        }
+
+        .image-container img {
+          width: 100%;
+          height: auto; // Ajuste automatiquement la hauteur selon l'image
+          object-fit: cover; // Maintient les proportions de l'image
+        }
+
+        h5 {
+          font-size: 1rem; // Taille du texte
+          font-weight: bold;
+          flex-grow: 1; // Le titre prend l'espace restant
+          margin: 0; // Supprimer les marges par défaut
+        }
+      }
+    .popular-posts, .recommended-authors {
+          background-color: #f9f9f9;
+          padding: 15px;
+          border-radius: 8px;
+
+          h3 {
+            font-size: 1.2rem;
+            margin-bottom: 10px;
+          }
+
+          ul {
+            list-style-type: none;
+            padding: 0;
+
+            li {
+              margin-bottom: 8px;
+
+              a {
+                text-decoration: none;
+                color: #007bff;
+                font-size: 1rem;
+
+                &:hover {
+                  text-decoration: underline;
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+
+  .content-box:has(.article-page) {
+    padding: 20px;
+    padding-left: 260px;
+    display: flex;
+    flex-wrap: nowrap;
+   }
+
+  .sidebar-right {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 350px;
+    position: relative;
+  }
+
+  .sticky-section {
+    position: sticky;
+    top: 0px;
+    max-width: 300px;
+    margin: 0 auto;
+    z-index: 10;
+  }
+}
+
 /* Medium Devices, Desktops */
-@media only screen and (min-width: 1120) {
+@media only screen and (max-width: 1599px) and (min-width: 1120px) {
   .post-container {
     display: grid;
     grid-template-columns: 1fr;
   }
-  .post {
-    width: 48%;
-    max-width: 100%;
-    margin: 0 0.9% 1.5%;
-    flex-direction: column;
-    .post-thumbnail {
-      width: 100%;
-    }
-    .post-content {
-      width: 100%;
-      .post-title {
-        margin: 0 0 5px;
-        line-height: 1em;
-        a {
-          font-size: 21px;
-        }
-      }
-    }
-  }
   img.page-image {
-    aspect-ratio: 16/9;
+     aspect-ratio: 16/9;
+   }
+  .sidebar-right {
+    display: none;
   }
 }
 
@@ -109,6 +219,9 @@
       text-align: left;
     }
   }
+    .sidebar-right {
+      display: none;
+    }
 }
 
 /* Phone */
@@ -174,6 +287,10 @@
     footer {
       margin-bottom: 10px;
     }
+  }
+
+  .sidebar-right {
+    display: none;
   }
 
   img.page-image {
