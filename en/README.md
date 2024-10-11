@@ -86,7 +86,8 @@ The website integrates the following layouts:
 - [Font Awesome 5](https://fontawesome.com/v5.15/how-to-use/on-the-web/setup/using-package-managers): A widely-used icon set and toolkit.
 - [Google Fonts](https://fonts.google.com): A library of 1,000 free, open-source fonts.
 - [Compress HTML](https://github.com/penibelst/jekyll-compress-html): A plugin for HTML compression.
-- Code snippet highlighting (Jekyll integrated syntax highlighter, styled like [Carbon Now](https://carbon.now.sh/) images).
+- Code snippet highlighting: A Jekyll integrated syntax highlighter, styled like [Carbon Now](https://carbon.now.sh/) images.
+- GitHub Card: A Jekyll tag, displaying GitHub repo details as GitHub does.
 
 ## Utilizes Jekyll Themes
 
