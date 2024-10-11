@@ -94,7 +94,8 @@ and enrich human capabilities rather than merely replace them.
 
 ### Source Code
 
-You can find the source code for this project in the GitHub repo [https://github.com/jeanjerome/ai-agile-team](https://github.com/jeanjerome/ai-agile-team){:target="_blank" rel="noopener noreferrer nofollow"}
+You can find the source code for this project in this GitHub repo:
+{% github_card jeanjerome/ai-agile-team %}
 
 <hr class="hr-text" data-content="Agents">
 

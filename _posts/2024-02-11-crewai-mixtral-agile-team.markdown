@@ -100,7 +100,8 @@ remplacer.
 
 ### Code Source 
 
-Vous trouverez le code source de ce projet dans le repo GitHub [https://github.com/jeanjerome/ai-agile-team](https://github.com/jeanjerome/ai-agile-team){:target="_blank" rel="noopener noreferrer nofollow"}
+Vous trouverez le code source de ce projet dans ce repo GitHub :
+{% github_card jeanjerome/ai-agile-team %}
 
 <hr class="hr-text" data-content="Agents">
 

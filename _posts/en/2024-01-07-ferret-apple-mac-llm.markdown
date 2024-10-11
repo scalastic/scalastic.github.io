@@ -61,7 +61,8 @@ git lfs install
 ### Step 2: Download Ferret's Source Code
 
 I've adapted the Ferret code for Silicon processors and Apple's Metal Performance Shaders (MPS) framework. It
-is available at [https://github.com/jeanjerome/ml-ferret/tree/silicon](https://github.com/jeanjerome/ml-ferret/tree/silicon){:target="_blank" rel="noopener noreferrer nofollow"} :
+is available on this repo:
+{% github_card jeanjerome/ml-ferret %}
 
 - The **_main_** branch contains the original code from Apple.
 - The **_silicon_** branch contains my adapted version.

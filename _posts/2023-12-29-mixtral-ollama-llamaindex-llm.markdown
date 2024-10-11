@@ -88,7 +88,8 @@ une démocratisation de ces technologies.
 
 Pour installer Ollama sur votre poste :
 
-- Allez sur le projet Github et suivez les instructions [https://github.com/jmorganca/ollama](https://github.com/jmorganca/ollama){:target="_blank" rel="noopener noreferrer nofollow"}.
+- Allez sur le projet Github et suivez les instructions :
+  {% github_card ollama/ollama %}
 - Ou bien téléchargez directement le binaire d'installation de Ollama [https://ollama.ai/download](https://ollama.ai/download){:target="_blank" rel="noopener noreferrer nofollow"}
 et lancez son installation sur votre poste.
 

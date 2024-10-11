@@ -90,7 +90,8 @@ the democratization of these technologies.
 
 To install Ollama on your computer:
 
-- Go to the GitHub project and follow the instructions [https://github.com/jmorganca/ollama](https://github.com/jmorganca/ollama){:target="_blank" rel="noopener noreferrer nofollow"}.
+- Go to the GitHub project and follow the instructions:
+  {% github_card ollama/ollama %}
 - Or download the Ollama installation binary directly from [https://ollama.ai/download](https://ollama.ai/download){:target="_blank" rel="noopener noreferrer nofollow"}
   and start the installation on your computer.
 
