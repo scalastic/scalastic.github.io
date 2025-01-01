@@ -22,9 +22,16 @@
   "isAccessibleForFree": "True",
   "isPartOf": {
     "@type": ["CreativeWork", "Product", "WebSite"],
+    {% if page.series %}
+    "name": "{{ page.series }}",
+    {% else %}
     "name": "Scalastic",
+    {% endif %}
     "productID": "scalastic.io"
   },
+  {% if page.progression %}
+  "position": "{{ page.progression }}",
+  {% endif %}
   "inLanguage": "{% if site.active_lang == site.default_lang %}fr-FR{% else %}en-US{% endif %}",
   "license": "https://creativecommons.org/licenses/by-nc-nd/4.0/",
   "author": {

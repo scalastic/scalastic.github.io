@@ -12,8 +12,9 @@ This repository contains the source code for the Scalastic website, a project bu
 
 To work with this project, ensure you have the following installed:
 
-- Ruby 3.2.2
-- Bundler 2.4.10
+- Ruby >= 3 (latest recommended, also bundler included)
+- glib 2
+- libvips
 
 ## Installation
 

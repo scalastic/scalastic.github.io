@@ -11,6 +11,7 @@ group :jekyll_plugins do
   gem 'jekyll-polyglot', '= 1.8.1'
   gem 'jekyll_picture_tag', '= 2.1.0'
   gem 'addressable', '= 2.8.7'
+  gem 'csv', '= 3.3.2'
 end
 
 gem 'webrick', '= 1.8.2'

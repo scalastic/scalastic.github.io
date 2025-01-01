@@ -1,5 +1,23 @@
-{%- capture pageTitle %}{% if page.title %}{{ page.title }}{% else %}{{ site.data.i18n.site-description }}{% endif %}{% endcapture -%}
-{%- capture pageDescription %}{% if page.description %}{{ page.description }}{% else %}{{ site.data.i18n.site-description }}{% endif %}{% endcapture -%}
+{%- capture pageTitle -%}
+  {%- if page.seo_title -%}
+    {{ page.seo_title }}
+  {%- elsif page.title -%}
+    {{ page.title }}
+  {%- else -%}
+    {{ site.data.i18n.site-description }}
+  {%- endif -%}
+{%- endcapture -%}
+
+{%- capture pageDescription -%}
+  {%- if page.seo_description -%}
+    {{ page.seo_description }}
+  {%- elsif page.description -%}
+    {{ page.description }}
+  {%- else -%}
+    {{ site.data.i18n.site-description }}
+  {%- endif -%}
+{%- endcapture -%}
+
 {%- capture pageUrl -%}
   {%- if site.active_lang == site.default_lang -%}
     {{ site.url | append: page.url | replace:'index.html','' }}
@@ -57,9 +75,15 @@
     <meta property="article:modified_time" content="{{ page.last_modified_at | date_to_xmlschema }}">
     {% endif -%}
     <meta property="article:section" content="Technology">
+    {%- if page.series -%}
+    <meta property="article:series" content="{{ page.series }}">
+    {%- endif -%}
     {%- for tag in page.tags %}
     <meta property="article:tag" content="{{ tag }}">
     {%- endfor %}
+    {%- if page.progression -%}
+    <meta property="article:tag" content="{{ page.progression }}">
+    {%- endif -%}
   {%- endif %}
   <!-- Meta twitter -->
   <meta name="twitter:card" content="summary_large_image">
