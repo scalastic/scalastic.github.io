@@ -479,13 +479,14 @@
 .hr-text {
   line-height: 1em;
   position: relative;
-  margin-top: 50px !important;
+  margin-top: 80px !important;
+  margin-bottom: 40px;
   outline: 0;
   border: 0;
   color: black;
   text-align: center;
-  height: 1.5em;
-  opacity: .7;
+  height: 2.5em;
+  opacity: .8;
   &:before {
     content: '';
     // use the linear-gradient for the fading effect
@@ -502,7 +503,8 @@
     position: relative;
     display: inline-block;
     color: black;
-
+    font-size: 1.5em; /* Texte agrandi */
+    font-weight: bold; /* Met le texte en valeur */
     padding: 0 .5em;
     line-height: 1.5em;
     // this is really the only tricky part, you need to specify the background color of the container element...
