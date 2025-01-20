@@ -1,10 +1,74 @@
+/* ------- Very desktops ------- */
+@media only screen and (min-width: 1580px) {
+  .wrapper {
+    max-width: 1250px;
+    display: flex; 
+    flex-direction: row;
+    gap: 20px;
+  }
+
+  .sidebar {
+    flex: 0 0 250px;
+  }
+
+  .content-box {
+    flex: 0 0 1250px; 
+  }
+
+  .right-sidebar {
+    display: block;
+    flex: 1 1 auto;
+    max-width: 400px;
+  }
+
+/*   .share-links {
+    flex-direction: row; 
+    align-items: center;
+    justify-content: flex-start;
+  } */
+}
+/* ------- Large desktops ------- */
+@media only screen and (min-width: 1360px) and (max-width: 1579px) {
+  .wrapper {
+    max-width: 1250px;
+    display: flex; 
+    flex-direction: row;
+    gap: 20px;
+  }
+
+  .sidebar {
+    flex: 0 0 250px;
+  }
+
+  .content-box {
+    flex: 0 0 1250px; 
+  }
+
+  .right-sidebar {
+    display: block;
+    flex: 1 1 auto;
+    max-width: 400px;
+  }
+}
+
 /* Medium Devices, Desktops */
-@media only screen and (min-width: 1120) {
+@media only screen and (min-width: 1120px) and (max-width: 1359px) {
+
+  .wrapper {
+    max-width: 1250px;
+    width: 100%;
+    position: relative;
+  }
+
+  .right-sidebar {
+    display: none;
+  }
+
   .post-container {
     display: grid;
     grid-template-columns: 1fr;
   }
-  .post {
+/*   .post {
     width: 48%;
     max-width: 100%;
     margin: 0 0.9% 1.5%;
@@ -22,14 +86,22 @@
         }
       }
     }
-  }
+  } */
   img.page-image {
     aspect-ratio: 16/9;
   }
 }
 
 /* Tablets */
-@media only screen and (max-width: 1119px) and (min-width: 770px) {
+@media only screen and (min-width: 770px) and (max-width: 1119px) {
+  .wrapper {
+    max-width: 1250px;
+    width: 100%;
+    position: relative;
+  }
+  .right-sidebar {
+    display: none;
+  }
   .sidebar {
     position: relative;
     display: flex;
@@ -113,6 +185,14 @@
 
 /* Phone */
 @media only screen and (max-width: 769px) {
+  .wrapper {
+    max-width: 1250px;
+    width: 100%;
+    position: relative;
+  }
+  .right-sidebar {
+    display: none;
+  }
   h1, h2, h3, h4, h5, h6, h7 {
     text-align: center;
   }

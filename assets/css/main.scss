@@ -192,11 +192,11 @@ table.scrollable {
 }
 
 // Wrapper
-.wrapper {
+/* .wrapper {
   max-width: 1250px;
   width: 100%;
   position: relative;
-}
+} */
 
 // Post
 .post, .article-page {
@@ -350,6 +350,35 @@ table.scrollable {
     }
   }
 }
+
+// Right Bar
+.share-links {
+  display: flex;
+  flex-direction: column; // Default vertical layout
+  align-items: flex-start;
+  gap: 10px;
+  padding: 20px;
+}
+
+.share-item {
+  svg {
+    width: 40px; // Customize dimension if needed
+    height: auto;
+    vertical-align: middle; // Ensures icon aligns with text
+    color: var(--discreet-color);
+    fill: var(--discreet-color);
+    padding-right: 6px;
+    display: inline;
+    font-size: 25px;
+
+    &:hover {
+      path {
+        fill: var(--body-color);
+      }
+    }
+  }
+}
+
 
 /* - - - - - - - - - - Home Page Styles - - - - - - - - - - */
 @import 'parts/home-page';
