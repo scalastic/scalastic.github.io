@@ -1,42 +1,44 @@
 ---
 # Front matter comment to ensure Jekyll properly reads file.
 sitemap:
-  exclude: 'yes'
+  exclude: "yes"
 ---
 
 // Imports
 //@import 'variables';
-@import 'normalize';
-@import 'highlight';
+@import "normalize";
+@import "highlight";
 
 // Variables
 :root {
-    --body-background: #fbfbfb;
-    --body-color: #515151;
-    --inset-background: #E0E0E0;
-    --emphasis-color: #333030;
-    --discreet-color: #b4b4b4;
-    --shadow-color-flashy: 10, 16, 34;
-    --shadow-color: #0a1022;
-    --link-color: #3e64ff;
-    --code-background: #747474;
-    --code-color: #fbfbfb;
+  --body-background: #fbfbfb;
+  --body-color: #515151;
+  --inset-background: #e0e0e0;
+  --emphasis-color: #333030;
+  --discreet-color: #b4b4b4;
+  --shadow-color-flashy: 10, 16, 34;
+  --shadow-color: #0a1022;
+  --link-color: #3e64ff;
+  --code-background: #747474;
+  --code-color: #fbfbfb;
 }
-html[data-mode='dark'] {
-    --body-background: #515151;
-    --body-color: #fbfbfb;
-    --inset-background: #747474;
-    --emphasis-color: #a0a0a0;
-    --discreet-color: #b4b4b4;
-    --shadow-color-flashy: 245, 239, 245;
-    --shadow-color: #4974f6;
-    --link-color: #ae81ff; /* #3e8bff; */
-    --code-background: #747474;
-    --code-color: #fbfbfb;
+html[data-mode="dark"] {
+  --body-background: #515151;
+  --body-color: #fbfbfb;
+  --inset-background: #747474;
+  --emphasis-color: #a0a0a0;
+  --discreet-color: #b4b4b4;
+  --shadow-color-flashy: 245, 239, 245;
+  --shadow-color: #4974f6;
+  --link-color: #ae81ff; /* #3e8bff; */
+  --code-background: #747474;
+  --code-color: #fbfbfb;
 }
 
 // Reset
-*, *::after, *::before {
+*,
+*::after,
+*::before {
   box-sizing: border-box;
 }
 
@@ -48,7 +50,7 @@ html {
 // Body
 body {
   color: var(--body-color);
-  font-family: 'Mulish',sans-serif;
+  font-family: "Mulish", sans-serif;
   font-size: 1rem;
   font-size: 19px;
   font-weight: 400;
@@ -59,7 +61,8 @@ body {
 }
 
 // Clearfix
-.clearfix::before, .clearfix::after {
+.clearfix::before,
+.clearfix::after {
   content: "";
   display: table;
 }
@@ -69,16 +72,20 @@ body {
 }
 
 // Headings
-h1, h2, h3, h4, h4, h6 {
-  font-family: 'Mulish',sans-serif;
+h1,
+h2,
+h3,
+h4,
+h4,
+h6 {
+  font-family: "Mulish", sans-serif;
   font-weight: 800;
 }
 
-
 h1.img {
-    fill: var(--body-color);
-    stroke: var(--body-color);
-  }
+  fill: var(--body-color);
+  stroke: var(--body-color);
+}
 
 h1.logo {
   margin-top: 0px;
@@ -111,12 +118,12 @@ img + em {
 }
 
 #map img {
-    border-radius: 0px;
-  }
+  border-radius: 0px;
+}
 
 #map {
-    width: 100%;
-    height: 600px;
+  width: 100%;
+  height: 600px;
 }
 
 // Blockquote
@@ -187,69 +194,70 @@ table.scrollable {
 }
 
 // Hide
-.hide{
-  display:none;
+.hide {
+  display: none;
 }
 
 // Wrapper
-/* .wrapper {
+.wrapper {
   max-width: 1250px;
   width: 100%;
   position: relative;
-} */
+}
 
 // Post
-.post, .article-page {
+.post,
+.article-page {
   background-color: var(--body-background);
   width: 100%;
 }
 
 // Lang Switcher
 .language-switcher {
-	display: flex;
-	align-content: center;
-	overflow: hidden;
-	flex-wrap: wrap;
+  display: flex;
+  align-content: center;
+  overflow: hidden;
+  flex-wrap: wrap;
   justify-content: center;
   margin-bottom: 25px;
 }
 
 .language-switcher input {
-	position: absolute !important;
-	clip: rect(0, 0, 0, 0);
-	height: 1px;
-	width: 1px;
-	border: 0;
-	overflow: hidden;
+  position: absolute !important;
+  clip: rect(0, 0, 0, 0);
+  height: 1px;
+  width: 1px;
+  border: 0;
+  overflow: hidden;
 }
 
 .language-switcher label {
-	border: 1px solid var(--body-color);
+  border: 1px solid var(--body-color);
   background-color: var(--body-background);
   color: var(--body-color);
-	line-height: 1.1;
-	text-align: center;
-	padding: 6px 10px;
-	margin-right: -1px;
-	transition: all 0.1s ease-in-out;
+  line-height: 1.1;
+  text-align: center;
+  padding: 6px 10px;
+  margin-right: -1px;
+  transition: all 0.1s ease-in-out;
 }
 
 .language-switcher label:hover {
-	cursor: pointer;
+  cursor: pointer;
 }
 
 .language-switcher input:checked + label {
   color: var(--body-background);
-	background-color: var(--body-color);
-	cursor: default;
+  background-color: var(--body-color);
+  cursor: default;
 }
 
 .language-switcher label:first-of-type {
-	border-radius: 15px 0 0 15px;
+  border-radius: 15px 0 0 15px;
 }
 
 .language-switcher label:last-of-type {
-	border-radius: 0 15px 15px 0;
+  border-radius: 0 15px 15px 0;
 }
 
 // Dark Mode Switcher
@@ -321,7 +329,7 @@ table.scrollable {
     visibility: visible;
     opacity: 1;
     bottom: 30px;
-    transition: all .5s ease;
+    transition: all 0.5s ease;
   }
 
   &.launch {
@@ -334,7 +342,7 @@ table.scrollable {
   svg {
     width: 50px;
     height: 50px;
-    transition: all .3s ease;
+    transition: all 0.3s ease;
 
     path {
       fill: var(--discreet-color);
@@ -352,6 +360,72 @@ table.scrollable {
 }
 
 // Right Bar
+.right-sidebar {
+  display: none;
+}
+
+.right-toc {
+  display: none;
+}
+
+// Tocbot
+.right-toc {
+  overflow-y: auto;
+}
+.right-toc > .toc-list {
+  overflow: hidden;
+  position: relative;
+}
+.node-name--H1 {
+  font-size: larger;
+  padding-bottom: 10px;
+}
+.right-toc > .toc-list li {
+  list-style: none;
+}
+.toc-list {
+  margin: 0;
+  padding-left: 10px;
+}
+a.toc-link {
+  color: currentColor;
+  height: 100%;
+  text-decoration: none;
+}
+.is-collapsible {
+  max-height: 1000px;
+  overflow: hidden;
+  transition: all 300ms ease-in-out;
+}
+.is-collapsed {
+  max-height: 0;
+}
+.is-position-fixed {
+  position: fixed !important;
+  top: 0;
+}
+.is-active-li {
+  color: var(--link-color);
+}
+.is-active-link {
+  font-weight: 700;
+  color: var(--link-color);
+}
+.toc-link::before {
+  background-color: #eee;
+  content: " ";
+  display: inline-block;
+  height: inherit;
+  left: 0;
+  margin-top: -1px;
+  position: absolute;
+  width: 4px;
+}
+.is-active-link::before {
+  background-color: var(--link-color);
+} 
+// Tocbot
+
 .share-links {
   display: flex;
   flex-direction: column; // Default vertical layout
@@ -362,7 +436,7 @@ table.scrollable {
 
 .share-item {
   svg {
-    width: 40px; // Customize dimension if needed
+    width: 40px;
     height: auto;
     vertical-align: middle; // Ensures icon aligns with text
     color: var(--discreet-color);
@@ -379,18 +453,17 @@ table.scrollable {
   }
 }
 
-
 /* - - - - - - - - - - Home Page Styles - - - - - - - - - - */
-@import 'parts/home-page';
+@import "parts/home-page";
 
 /* - - - - - - - - - - Post Page Styles - - - - - - - - - - */
-@import 'parts/post-page';
+@import "parts/post-page";
 
 /* - - - - - - - - - - Tag Styles - - - - - - - - - - */
-@import 'parts/tag';
+@import "parts/tag";
 
 /* - - - - - - - - - - Search Styles - - - - - - - - - - */
-@import 'parts/search';
+@import "parts/search";
 
 /* - - - - - - - - - - Review Styles - - - - - - - - - - */
 :root {
@@ -399,9 +472,9 @@ table.scrollable {
   --microlink-color: var(--body-color);
 }
 
-@import 'parts/review';
+@import "parts/review";
 
 /* - - - - - - - - - - Media Styles - - - - - - - - - - */
-@import 'media';
+@import "media";
 
 @import "premonition";

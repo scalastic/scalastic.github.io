@@ -8,6 +8,15 @@ layout: compress
     <div class="wrapper">
       {{ content }}
     </div>
-    <script src="/darkmode.min.js"></script>
+    <script src="/scalastic.min.js"></script>
+    <script>
+      tocbot.init({
+        tocSelector: '.right-toc',
+        contentSelector: '.wrap-content',
+        headingSelector: 'h1, h2, h3',
+        ignoreSelector: '.name',
+        orderedList: false,
+      });
+    </script>
   </body>
 </html>

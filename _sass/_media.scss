@@ -1,12 +1,11 @@
-/* ------- Very desktops ------- */
-@media only screen and (min-width: 1580px) {
+/* ------- Very large desktops ------- */
+@media only screen and (min-width: 1680px) {
+
   .wrapper {
-    max-width: 1250px;
-    display: flex; 
+    display: flex;
     flex-direction: row;
     gap: 20px;
   }
-
   .sidebar {
     flex: 0 0 250px;
   }
@@ -16,22 +15,24 @@
   }
 
   .right-sidebar {
-    display: block;
-    flex: 1 1 auto;
+    display: flex;
+    flex-direction: column;
+    flex: 0 0 400px; 
+    position: fixed;
     max-width: 400px;
+    left: 1250px;
+
+    .right-toc {
+      display: grid;
+    }    
+    
   }
 
-/*   .share-links {
-    flex-direction: row; 
-    align-items: center;
-    justify-content: flex-start;
-  } */
 }
 /* ------- Large desktops ------- */
-@media only screen and (min-width: 1360px) and (max-width: 1579px) {
+@media only screen and (min-width: 1360px) and (max-width: 1679px) {
   .wrapper {
-    max-width: 1250px;
-    display: flex; 
+    display: flex;
     flex-direction: row;
     gap: 20px;
   }
@@ -45,48 +46,32 @@
   }
 
   .right-sidebar {
-    display: block;
-    flex: 1 1 auto;
+    display: flex;
+    flex-direction: column;
+    flex: 0 0 400px; 
+    position: fixed;
     max-width: 400px;
+    left: 1250px;
+    
+    .share-links {
+      display: flex;
+    }
   }
 }
 
 /* Medium Devices, Desktops */
 @media only screen and (min-width: 1120px) and (max-width: 1359px) {
-
   .wrapper {
     max-width: 1250px;
-    width: 100%;
-    position: relative;
-  }
-
-  .right-sidebar {
-    display: none;
+    display: flex;
+    flex-direction: row;
+    gap: 20px;
   }
 
   .post-container {
     display: grid;
     grid-template-columns: 1fr;
   }
-/*   .post {
-    width: 48%;
-    max-width: 100%;
-    margin: 0 0.9% 1.5%;
-    flex-direction: column;
-    .post-thumbnail {
-      width: 100%;
-    }
-    .post-content {
-      width: 100%;
-      .post-title {
-        margin: 0 0 5px;
-        line-height: 1em;
-        a {
-          font-size: 21px;
-        }
-      }
-    }
-  } */
   img.page-image {
     aspect-ratio: 16/9;
   }
@@ -94,14 +79,7 @@
 
 /* Tablets */
 @media only screen and (min-width: 770px) and (max-width: 1119px) {
-  .wrapper {
-    max-width: 1250px;
-    width: 100%;
-    position: relative;
-  }
-  .right-sidebar {
-    display: none;
-  }
+
   .sidebar {
     position: relative;
     display: flex;
@@ -185,14 +163,7 @@
 
 /* Phone */
 @media only screen and (max-width: 769px) {
-  .wrapper {
-    max-width: 1250px;
-    width: 100%;
-    position: relative;
-  }
-  .right-sidebar {
-    display: none;
-  }
+
   h1, h2, h3, h4, h5, h6, h7 {
     text-align: center;
   }
