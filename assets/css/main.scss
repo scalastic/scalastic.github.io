@@ -18,7 +18,7 @@ sitemap:
   --discreet-color: #b4b4b4;
   --shadow-color-flashy: 10, 16, 34;
   --shadow-color: #0a1022;
-  --link-color: #3e64ff;
+  --link-color: #38c341;
   --code-background: #747474;
   --code-color: #fbfbfb;
 }
@@ -391,11 +391,20 @@ a.toc-link {
   color: currentColor;
   height: 100%;
   text-decoration: none;
+  &:hover{
+    color: var(--link-color);
+  }
+}
+.is-active-li {
+  > .toc-link {
+    font-weight: 700;
+    color: var(--link-color);
+  }
 }
 .is-collapsible {
   max-height: 1000px;
   overflow: hidden;
-  transition: all 300ms ease-in-out;
+  transition: all 0.2s ease-in-out;
 }
 .is-collapsed {
   max-height: 0;
@@ -404,26 +413,20 @@ a.toc-link {
   position: fixed !important;
   top: 0;
 }
-.is-active-li {
-  color: var(--link-color);
-}
-.is-active-link {
-  font-weight: 700;
-  color: var(--link-color);
-}
 .toc-link::before {
-  background-color: #eee;
+  background-color: var(--body-color);
   content: " ";
   display: inline-block;
-  height: inherit;
+  height: 100%;
   left: 0;
-  margin-top: -1px;
+  margin-top: 0;
   position: absolute;
-  width: 4px;
+  width: 3px;
+  transition: background-color 0.2s ease, width 0.2s ease;
 }
-.is-active-link::before {
+.is-active-li > .toc-link::before {
   background-color: var(--link-color);
-} 
+}
 // Tocbot
 
 .share-links {
