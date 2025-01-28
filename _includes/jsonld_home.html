@@ -3,8 +3,8 @@
   "@context": "http://schema.org",
   "@type": "WebSite",
   "url": "{{ site.url }}{{ site.baseurl }}{% if site.active_lang != site.default_lang %}/{{ site.active_lang }}{% endif %}/",
-  "headline": "{{ site.title }}",
-  "about": "{{ site.data.i18n.company-desc }}",
+  "headline": "{{ site.data.i18n.page-list-title | replace: ':num', paginator.page }}",
+  "about": "{{ site.data.i18n.page-list-description | replace: ':num', paginator.page }}",
   "image": [
     "{{ site.url }}{{ site.baseurl }}{{ site.image }}"
   ],
@@ -23,7 +23,7 @@
       "https://www.linkedin.com/in/jean-jerome-levy",
       "https://github.com/jeanjerome",
       "https://github.com/scalastic",
-      "https://hub.docker.com/u/jeanjerome"
+      "https://mastodon.social/@jeanjeromelevy"
     ]
   },
   "editor": {
@@ -34,7 +34,7 @@
         "https://www.linkedin.com/in/jean-jerome-levy",
         "https://github.com/jeanjerome",
         "https://github.com/scalastic",
-        "https://hub.docker.com/u/jeanjerome"
+        "https://mastodon.social/@jeanjeromelevy"
       ]
   },
   "inLanguage": "{% if site.active_lang == site.default_lang %}fr-FR{% else %}en-US{% endif %}",
@@ -46,7 +46,10 @@
     "name": "Scalastic",
     "description": "{{ site.data.i18n.company-desc }}",
     "url": "{{ site.url }}",
-    "sameAs": [ "https://github.com/scalastic" ],
+    "sameAs": [ 
+      "https://github.com/scalastic",
+      "https://bsky.app/profile/scalastic.bluesky.scalastic.io"
+    ],
     "logo": {
       "@type": "ImageObject",
       "url": "{{ site.url }}{{ site.baseurl }}{{ site.logo }}"

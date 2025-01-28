@@ -146,6 +146,7 @@ input[type="radio"].toggle {
 .contact {
   .contact-title {
     position: relative;
+    display: block;
     color: var(--emphasis-color);
     font-weight: 400;
     font-size: 12px;

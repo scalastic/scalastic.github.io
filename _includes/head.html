@@ -4,7 +4,11 @@
   {%- elsif page.title -%}
     {{ page.title }}
   {%- else -%}
-    {{ site.data.i18n.site-description }}
+    {%- if paginator.page == 1 -%}
+      {{ site.data.i18n.page-title-homepage }}
+    {%- else -%}
+      {{ site.data.i18n.page-list-title | replace: ':num', paginator.page }}
+    {%- endif -%}
   {%- endif -%}
 {%- endcapture -%}
 
@@ -14,7 +18,7 @@
   {%- elsif page.description -%}
     {{ page.description }}
   {%- else -%}
-    {{ site.data.i18n.site-description }}
+    {{ site.data.i18n.page-list-description | replace: ':num', paginator.page }}
   {%- endif -%}
 {%- endcapture -%}
 
@@ -49,7 +53,7 @@
   <link rel="alternate" hreflang="fr" href="{{ site.url | append: page.url | replace:'index.html','' }}">
   <link rel="alternate" hreflang="en" href="{{ site.url | append: '/en' | append: page.url | replace:'index.html','' }}">
   <!-- Meta html5 -->
-  <title>{{ pageTitle | append: ' | ' | append: site.title }}</title>
+  <title>{{ pageTitle }}</title>
   <meta name="title" content="{{ pageTitle }}">
   <meta name="description" content="{{ pageDescription }}">
   <meta name="url" content="{{ pageUrl }}">
@@ -59,7 +63,7 @@
   <meta name="distribution" content="global">
   <meta name="rating" content="general">
   <meta name="application-name" content="{{ site.title }}">
-  <meta name="generator" content="Jekyll 🎩">
+  <meta name="generator" content="Jekyll">
   <!-- Meta og -->
   <meta property="og:title" content="{{ pageTitle }}">
   <meta property="og:description" content="{{ pageDescription }}">

@@ -1,4 +1,4 @@
-title: 'Scalastic 👨🏻‍💻'
+title: 'Scalastic'
 permalink: ':title/'
 url: https://scalastic.io
 #url: http://localhost:4000
@@ -24,6 +24,8 @@ social:
     - https://www.linkedin.com/in/jean-jerome-levy
     - https://github.com/jeanjerome
     - https://github.com/scalastic
+    - https://mastodon.social/@jeanjeromelevy
+    - https://bsky.app/profile/scalastic.bluesky.scalastic.io
 
 search: true
 
