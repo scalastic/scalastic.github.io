@@ -5,7 +5,14 @@ layout: default
 <aside class="sidebar">
   <header>
     <div class="about">
-      {% if page.url == "/" or page.url contains "/page/" %}{% assign homeTitle = site.title | append: ' - Page ' | append: paginator.page %}<h1 class="logo">{{ homeTitle }}</h1>{% endif %}
+      {% if page.url == "/" or page.url contains "/page/" %}
+        {% if paginator.page == 1 %}
+          {% assign homeTitle = site.data.i18n.page-title-homepage %}
+        {% else %}
+          {% assign homeTitle = site.data.i18n.page-list-title | replace: ':num', paginator.page %}
+        {% endif %}
+        <h1 class="logo">{{ homeTitle }}</h1>
+      {% endif %}
       <div class="cover-logo">
         <a href="{{ site.url }}{{ site.baseurl }}{% if site.active_lang != site.default_lang %}/{{ site.active_lang }}{% endif %}/" aria-label="{{ site.data.i18n.aria-homepage }}">
           <svg class="logo" viewBox="0 0 453 121" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1">
