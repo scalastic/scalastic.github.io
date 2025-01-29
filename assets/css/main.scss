@@ -23,9 +23,6 @@ sitemap:
 
 @use "parts/review";
 
-/* - - - - - - - - - - Media Styles - - - - - - - - - - */
-@use "media";
-
 @use "premonition";
 
 // Variables
@@ -475,11 +472,12 @@ a.toc-link {
   }
 }
 
-
-
 /* - - - - - - - - - - Review Styles - - - - - - - - - - */
 :root {
   --microlink-background-color: var(--body-background);
   --microlink-hover-background-color: var(--body-background);
   --microlink-color: var(--body-color);
 }
+
+/* - - - - - - - - - - Media Styles - - - - - - - - - - */
+@import "media";
