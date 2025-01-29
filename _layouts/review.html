@@ -6,7 +6,9 @@ layout: main
     {% if page.img -%}
     <div class="page-cover-image">
       <figure>
-        {% picture {{ "/assets/img/" | prepend: site.baseurl | append : page.img}} center --alt {{page.title}} --class page-image %}
+        {% picture 
+          thumbnail-article
+          {{ "/assets/img/" | prepend: site.baseurl | append : page.img}} center --alt {{page.title}} --class page-image %}
         {% if page.fig-caption -%}
           <figcaption>{{page.fig-caption}}</figcaption>
         {%- endif %}

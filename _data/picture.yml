@@ -7,13 +7,21 @@ media_queries:
 
 presets:
   default:
-    formats: [ avif, webp, original ]
-    widths: [ 400, 850, 1600]
+    formats: [ avif, original ]
+    format_quality: 
+      avif:
+        980: 70
+        400: 70
+    widths: [ 440, 980]
     link_source: false
     dimension_attributes: true
+    sizes:
+      mobile: 100vw 
+      tablet: 100vw
+      desktop: 980px
 
   top-article:
-    formats: [avif, webp, original]
+    formats: [avif, original]
     widths: [ 400, 970, 1940 ]
     link_source: false
     dimension_attributes: true
@@ -22,21 +30,16 @@ presets:
       tablet: calc(100vw - 20px)
       desktop: 970px
 
-  webp:
-    formats: [webp, original]
-
-  avif:
-    formats: [avif, webp, original]
-
-  loaded:
-    formats: [avif, webp, original]
-    dimension_attributes: true
-
   thumbnail-home:
     widths: [ 220, 480, 960 ]
-    formats: [avif, webp, original]
+    formats: [avif, original]
+    fallback_width: 960
     link_source: true
     dimension_attributes: true
+    sizes: 
+      mobile: 100vw
+      tablet: 50vw
+      desktop: 220px
     attributes:
       a: 'class="post-thumbnail"'
 
@@ -44,7 +47,7 @@ presets:
     base_width: 300
     pixel_ratios: [1,2]
     fallback_width: 300
-    formats: [avif, webp, original]
+    formats: [avif, original]
     link_source: false
     dimension_attributes: false
 
@@ -52,7 +55,7 @@ presets:
     base_width: 100
     pixel_ratios: [1,2]
     fallback_width: 100
-    formats: [avif, webp, original]
+    formats: [avif, original]
     link_source: false
     dimension_attributes: true
     attributes:

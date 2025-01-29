@@ -5,9 +5,28 @@ sitemap:
 ---
 
 // Imports
-//@import 'variables';
-@import "normalize";
-@import "highlight";
+//@use 'variables';
+@use "normalize";
+@use "highlight";
+
+/* - - - - - - - - - - Home Page Styles - - - - - - - - - - */
+@use "parts/home-page";
+
+/* - - - - - - - - - - Post Page Styles - - - - - - - - - - */
+@use "parts/post-page";
+
+/* - - - - - - - - - - Tag Styles - - - - - - - - - - */
+@use "parts/tag";
+
+/* - - - - - - - - - - Search Styles - - - - - - - - - - */
+@use "parts/search";
+
+@use "parts/review";
+
+/* - - - - - - - - - - Media Styles - - - - - - - - - - */
+@use "media";
+
+@use "premonition";
 
 // Variables
 :root {
@@ -456,17 +475,7 @@ a.toc-link {
   }
 }
 
-/* - - - - - - - - - - Home Page Styles - - - - - - - - - - */
-@import "parts/home-page";
 
-/* - - - - - - - - - - Post Page Styles - - - - - - - - - - */
-@import "parts/post-page";
-
-/* - - - - - - - - - - Tag Styles - - - - - - - - - - */
-@import "parts/tag";
-
-/* - - - - - - - - - - Search Styles - - - - - - - - - - */
-@import "parts/search";
 
 /* - - - - - - - - - - Review Styles - - - - - - - - - - */
 :root {
@@ -474,10 +483,3 @@ a.toc-link {
   --microlink-hover-background-color: var(--body-background);
   --microlink-color: var(--body-color);
 }
-
-@import "parts/review";
-
-/* - - - - - - - - - - Media Styles - - - - - - - - - - */
-@import "media";
-
-@import "premonition";
