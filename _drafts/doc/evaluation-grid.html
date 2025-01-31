@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulaire d'évaluation des Cabinets de Recrutement</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            margin: 20px;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 20px;
+        }
+        th, td {
+            border: 1px solid #ddd;
+            padding: 8px;
+            text-align: left;
+        }
+        th {
+            background-color: #f4f4f4;
+        }
+        .section {
+            margin-bottom: 20px;
+        }
+        .section-title {
+            font-size: 1.2em;
+            margin-top: 20px;
+            margin-bottom: 10px;
+            color: #333;
+            border-bottom: 2px solid #ddd;
+            padding-bottom: 5px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Formulaire d'évaluation des Cabinets de Recrutement</h1>
+
+    <div class="section">
+        <div class="section-title">Contact Initial</div>
+        <table>
+            <tr>
+                <th>Critère</th>
+                <th>Description</th>
+                <th>Score</th>
+            </tr>
+            <tr>
+                <td>Message impersonnel ou générique</td>
+                <td>Message standard sans lien avec votre profil ou vos compétences.</td>
+                <td><input type="number" min="0" max="1"></td>
+            </tr>
+            <tr>
+                <td>Contact via une personne non spécialisée</td>
+                <td>Interlocuteur ne maîtrisant pas votre métier ni ses enjeux.</td>
+                <td><input type="number" min="0" max="1"></td>
+            </tr>
+            <tr>
+                <td>Manque de préparation</td>
+                <td>Aucune personnalisation ou recherche préalable sur votre parcours.</td>
+                <td><input type="number" min="0" max="1"></td>
+            </tr>
+            <tr>
+                <td>Utilisation excessive d’outils automatisés</td>
+                <td>Présence de messages ou de réponses automatisés.</td>
+                <td><input type="number" min="0" max="1"></td>
+            </tr>
+        </table>
+    </div>
+
+    <div class="section">
+        <div class="section-title">Transparence</div>
+        <table>
+            <tr>
+                <th>Critère</th>
+                <th>Description</th>
+                <th>Score</th>
+            </tr>
+            <tr>
+                <td>Absence de détails sur le client</td>
+                <td>Refus ou incapacité de fournir des informations sur l’entreprise.</td>
+                <td><input type="number" min="0" max="1"></td>
+            </tr>
+            <tr>
+                <td>Processus flou</td>
+                <td>Pas d’explications claires sur les étapes suivantes.</td>
+                <td><input type="number" min="0" max="1"></td>
+            </tr>
+            <tr>
+                <td>Manque de clarté sur les attentes</td>
+                <td>Critères de sélection ou compétences recherchées non précisés.</td>
+                <td><input type="number" min="0" max="1"></td>
+            </tr>
+        </table>
+    </div>
+
+    <div class="section">
+        <div class="section-title">Suivi et Relationnel</div>
+        <table>
+            <tr>
+                <th>Critère</th>
+                <th>Description</th>
+                <th>Score</th>
+            </tr>
+            <tr>
+                <td>Silence radio après le premier contact</td>
+                <td>Aucun retour malgré des promesses de suivi.</td>
+                <td><input type="number" min="0" max="1"></td>
+            </tr>
+            <tr>
+                <td>Pression pour postuler rapidement</td>
+                <td>Insistance à fournir des documents ou accepter une mission sans délai.</td>
+                <td><input type="number" min="0" max="1"></td>
+            </tr>
+            <tr>
+                <td>Focalisation sur les coûts</td>
+                <td>Discussions centrées uniquement sur la réduction des coûts.</td>
+                <td><input type="number" min="0" max="1"></td>
+            </tr>
+            <tr>
+                <td>Absence de suivi après une mission</td>
+                <td>Aucun contact pour évaluer la satisfaction ou maintenir la relation.</td>
+                <td><input type="number" min="0" max="1"></td>
+            </tr>
+        </table>
+    </div>
+
+    <div>
+        <h3>Total des points :</h3>
+        <input type="number" min="0" readonly>
+    </div>
+
+</body>
+</html>
