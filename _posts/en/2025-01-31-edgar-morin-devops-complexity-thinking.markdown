@@ -185,6 +185,8 @@ By applying Edgar Morin’s insights on complexity thinking, we can strengthen D
 
 ## *References*  
 
-- **Edgar Morin**, [*Introduction à la pensée complexe*](https://www.editionspoints.com/ouvrage/introduction-a-la-pensee-complexe-edgar-morin/9782757842003){:target="_blank" rel="noopener noreferrer nofollow"}, **Points** Editions, **Points Essais** Collection, 2014, 160 pages.  
-  - **EAN**: 9782757842003  
-  - **Format**: Paperback (Pocket Edition)  
+{% reference type="book" image="/assets/img/introduction-a-la-pensee-complexe-edgar-morin.jpg" title="Introduction à la pensée complexe" author="Edgar Morin" collection="Collection Points Essais" publisher="Éditions Points" language="French" date="2014" pages="160" format="Paperback" isbn="978-2757842003" %}
+
+{% reference type="book" image="/assets/img/on-complexity.jpg" title="On Complexity" author="Edgar Morin" publisher="Hampton Press" language="English" format="Paperback" date="2008" pages="127" isbn="978-1572738010" %}
+
+{% reference type="author" image="/assets/img/edgar-morin.jpg" title="Edgar Morin" summary="French philosopher and sociologist, born in Paris in 1921 under the name Edgar Nahoum, into a family of Greek Jewish origin from Salonika. He adopted the pseudonym Morin in 1942 when he joined the communist resistance. The following year, he became a commander of the Fighting French Forces. After the war, he distanced himself from the Communist Party and joined the CNRS in 1950. As an emeritus research director and honorary doctor of twenty-seven universities worldwide, he is the author of a widely commented and translated transdisciplinary work, including the ambitious Method, a six-volume series published by Seuil." %}

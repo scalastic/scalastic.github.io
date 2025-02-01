@@ -269,3 +269,39 @@ $svg-citation-color: "495057";
   }
 
 }
+
+// Reference
+.reference {
+  display: flex;
+  align-items: flex-start;
+  gap: 20px;
+  margin: 20px 0;
+  color: (--emphasis-color);
+  background-color: var(--inset-background);
+  padding: 15px;
+  border-radius: 10px;
+}
+
+.reference-image {
+  width: 120px;
+  height: auto;
+  border-radius: 5px;
+  object-fit: contain;
+  margin-top: 5px;
+}
+
+.reference-title {
+  font-size: 1.4em;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+.reference-details {
+  flex-grow: 1;
+}
+
+.reference-details p {
+  margin: 4px 0;
+  line-height: 1.6;
+}
+

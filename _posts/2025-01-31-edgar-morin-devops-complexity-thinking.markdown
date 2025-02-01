@@ -185,6 +185,6 @@ En appliquant les enseignements d’Edgar Morin sur la pensée complexe, nous po
 
 ## *Références*  
 
-- **Edgar Morin**, [*Introduction à la pensée complexe*](https://www.editionspoints.com/ouvrage/introduction-a-la-pensee-complexe-edgar-morin/9782757842003){:target="_blank" rel="noopener noreferrer nofollow"}, Éditions **Points**, Collection **Points Essais**, 2014, 160 pages.  
-  - **EAN** : 9782757842003  
-  - **Format** : Broché (Poche)  
+{% reference type="book" image="/assets/img/introduction-a-la-pensee-complexe-edgar-morin.jpg" title="Introduction à la pensée complexe" author="Edgar Morin" collection="Collection Points Essais" publisher="Éditions Points" date="2014" pages="160" format="Broché (Poche)" isbn="978-2757842003" %}
+
+{% reference type="author" image="/assets/img/edgar-morin.jpg" title="Edgar Morin" summary="Philosophe et sociologue français, né à Paris en 1921 sous le nom d'Edgar Nahoum, dans une famille d'origine juive grecque de Salonique, il prend le pseudonyme de Morin en 1942 en rejoignant la résistance communiste. L'année suivante, il devient commandant des Forces françaises combattantes. Après la guerre, il s’éloigne du Parti communiste et intègre le CNRS en 1950. Directeur de recherche émérite, docteur honoris causa de vingt-sept universités à travers le monde, il est l’auteur d’une œuvre transdisciplinaire abondamment commentée et traduite, dont l’ambitieuse Méthode, en six tomes, publiée au Seuil." %}
