@@ -27,7 +27,7 @@ In this article, we will explore **the fundamental principles of complexity thin
 {:toc}
 
 
-<hr class="hr-text" data-content="Complexity Thinking and DevOps">
+<hr class="hr-text" data-content="Interconnection">
 
 ## Complexity Thinking: A Necessity for DevOps
 
@@ -68,7 +68,7 @@ By applying these principles to DevOps, we understand that it is not just a **te
 In the next section, we will explore how **the key concepts of complexity thinking** can enhance DevOps and help better address its challenges.
 
 
-<hr class="hr-text" data-content="Contributions of Complexity Thinking">
+<hr class="hr-text" data-content="Complex Approach">
 
 ## What Complexity Thinking Can Bring to DevOps
 
@@ -170,20 +170,20 @@ Applying complexity thinking to DevOps helps overcome simplistic and mechanistic
 
 **DevOps** is much more than just a technical approach focused on automation and tools. It is a **dynamic ecosystem** where **technical, organizational, and human aspects** intersect. Yet, it is often approached too simplistically, which can limit its effectiveness and lead to failures.  
 
-**Edgar Morin's complexity thinking** does not seek to revolutionize DevOps but rather **to reveal and strengthen a dimension that is already intrinsic to it**. By nature, DevOps relies on **team interconnection, continuous adaptation, and uncertainty management**, all of which resonate with complexity thinking. However, in practice, these aspects are sometimes **overlooked or neglected** in favor of a more mechanistic view focused solely on tools and automation. Refocusing on this complexity allows for a more holistic and effective approach to DevOps systems. It also helps avoid common pitfalls, such as reducing DevOps to a mere technology stack, rigidly separating roles, or maintaining the illusion of total control over infrastructure and processes.
+In reality, **Edgar Morin's complex thinking** does not fundamentally change DevOps but rather **reveal and strengthen a dimension that is already intrinsic to it**. By nature, DevOps relies on **team interconnection, continuous adaptation, and uncertainty management**, all of which resonate with complexity thinking. However, in practice, these aspects are sometimes **overlooked or neglected** in favor of a more mechanistic view focused solely on tools and automation. Refocusing on this complexity allows for a more holistic and effective approach to DevOps systems. It also helps avoid common pitfalls, such as reducing DevOps to a mere technology stack, rigidly separating roles, or maintaining the illusion of total control over infrastructure and processes.
 
-- **Towards a More Evolving DevOps Culture**:  
+### Towards a More Evolving DevOps Culture 
 To fully embrace complexity thinking, organizations must foster a **culture of continuous learning**, where experimentation, adaptation, and collaboration are at the heart of practices. This involves:  
   - **Integrating feedback loops** at all levels (development, infrastructure, security, users).  
   - **Accepting uncertainty** as a normal component of the system, with practices like **Chaos Engineering** and **blameless post-mortems**.  
   - **Breaking down silos** by encouraging regular exchanges between Dev, Ops, Sec, and Business teams for better mutual understanding.  
 
-- **And You?**  
+### And You?
 How do you apply **complexity thinking** in your DevOps practices? What mechanisms have you implemented to **manage uncertainty, encourage collaboration, and avoid the pitfalls of a rigid approach**?  
 
 By applying Edgar Morin’s insights on complexity thinking, we can strengthen DevOps' ability to become a truly adaptive system, capable of continuously evolving in response to technological and organizational challenges.
 
-## *References*  
+## *References*
 
 {% reference type="book" image="/assets/img/introduction-a-la-pensee-complexe-edgar-morin.jpg" title="Introduction à la pensée complexe" author="Edgar Morin" collection="Collection Points Essais" publisher="Éditions Points" language="French" date="2014" pages="160" format="Paperback" isbn="978-2757842003" %}
 

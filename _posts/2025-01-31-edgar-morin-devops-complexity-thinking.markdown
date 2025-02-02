@@ -27,7 +27,7 @@ Dans cet article, nous allons explorer **les principes fondamentaux de la pensé
 {:toc}
 
 
-<hr class="hr-text" data-content="Pensée Complexe et DevOps">
+<hr class="hr-text" data-content="Interconnexion">
 
 ## La Pensée Complexe : une Nécessité pour le DevOps
 
@@ -68,7 +68,7 @@ En appliquant ces principes au DevOps, on comprend qu’il ne s’agit pas simpl
 Dans la section suivante, nous verrons comment **les concepts clés de la pensée complexe** peuvent enrichir le DevOps et aider à mieux appréhender ses défis.
 
 
-<hr class="hr-text" data-content="Apports de la Pensée Complexe">
+<hr class="hr-text" data-content="Approche Complexe">
 
 ## Ce que la pensée complexe peut apporter au DevOps
 
@@ -170,20 +170,20 @@ L’application de la pensée complexe au DevOps permet de dépasser les visions
 
 Le **DevOps** est bien plus qu’une simple approche technique centrée sur l’automatisation et les outils. Il s’agit d’un **écosystème dynamique**, où se croisent des aspects **techniques, organisationnels et humains**. Pourtant, il est souvent abordé de manière trop simpliste, ce qui peut limiter son efficacité et conduire à des échecs.  
 
-La **pensée complexe** d’Edgar Morin ne vient pas révolutionner le DevOps, mais plutôt **révéler et renforcer une dimension qui lui est déjà intrinsèque**. Par nature, le DevOps repose sur **l’interconnexion des équipes, l’adaptation continue et la gestion de l’incertitude**, autant de principes en résonance avec la pensée complexe. Pourtant, dans la pratique, ces aspects sont parfois **occultés ou négligés** au profit d’une vision plus mécaniste, axée uniquement sur les outils et l’automatisation. Remettre cette complexité au cœur des réflexions permet d’adopter une approche plus holistique et plus efficace des systèmes DevOps. Cela aide également à éviter certains écueils courants, comme la réduction du DevOps à une simple stack technologique, la séparation rigide des rôles ou encore l’illusion d’un contrôle total sur les infrastructures et processus.
+En réalité, la **pensée complexe** d’Edgar Morin ne vient pas révolutionner le DevOps, mais plutôt **révéler et renforcer une dimension qui lui est déjà intrinsèque**. Par nature, le DevOps repose sur **l’interconnexion des équipes, l’adaptation continue et la gestion de l’incertitude**, autant de principes en résonance avec la pensée complexe. Pourtant, dans la pratique, ces aspects sont parfois **occultés ou négligés** au profit d’une vision plus mécaniste, axée uniquement sur les outils et l’automatisation. Remettre cette complexité au cœur des réflexions permet d’adopter une approche plus holistique et plus efficace des systèmes DevOps. Cela aide également à éviter certains écueils courants, comme la réduction du DevOps à une simple stack technologique, la séparation rigide des rôles ou encore l’illusion d’un contrôle total sur les infrastructures et processus.
 
-- **Vers une culture DevOps plus évolutive**  :  
+### Vers une culture DevOps plus évolutive 
 Pour tirer pleinement parti de la pensée complexe, les organisations doivent encourager une **culture d’apprentissage continu**, où l’expérimentation, l’adaptation et la collaboration sont au cœur des pratiques. Cela passe par :  
   - **L’intégration des boucles de feedback** à tous les niveaux (développement, infrastructure, sécurité, utilisateurs).  
   - **L’acceptation de l’incertitude** comme une composante normale du système, avec des pratiques comme le **Chaos Engineering** et les **post-mortems sans recherche de coupables**.  
   - **Le décloisonnement des équipes**, en favorisant des échanges réguliers entre Dev, Ops, Sec et Business pour une meilleure compréhension mutuelle.  
 
-- **Et vous ?**  
+### Et vous ?
 Comment appliquez-vous la **pensée complexe** dans vos pratiques DevOps ? Quels mécanismes avez-vous mis en place pour **gérer l’incertitude, encourager la collaboration et éviter les pièges d’une approche trop rigide** ?  
 
 En appliquant les enseignements d’Edgar Morin sur la pensée complexe, nous pouvons renforcer la capacité du DevOps à devenir un système véritablement adaptatif, capable d’évoluer en permanence face aux défis technologiques et organisationnels.
 
-## *Références*  
+## *Références*
 
 {% reference type="book" image="/assets/img/introduction-a-la-pensee-complexe-edgar-morin.jpg" title="Introduction à la pensée complexe" author="Edgar Morin" collection="Collection Points Essais" publisher="Éditions Points" date="2014" pages="160" format="Broché (Poche)" isbn="978-2757842003" %}
 
