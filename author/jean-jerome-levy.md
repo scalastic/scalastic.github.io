@@ -1,132 +1,139 @@
 ---
 layout: author
-title: "Bienvenue sur Scalastic.io, Votre Guide DevOps !"
-date: 2023-11-26 13:14:00 +0200
-description: "Explorez le DevOps avec Jean-Jérôme LÉVY, expert informatique basé à Paris. Découvrez ses services, conseils et compétences en Java, architecture logicielle et DevOps sur Scalastic.io. Façonnons ensemble le futur de la livraison logicielle !"
+title: "Jean-Jérôme LÉVY – Coach DevOps & Cloud Native"
+date: 2025-02-03 13:14:00 +0200
+description: "Jean-Jérôme LÉVY, consultant et coach DevOps à Paris, vous accompagne dans votre transformation DevOps. Optimisez vos pipelines CI/CD, maîtrisez Kubernetes et modernisez votre infrastructure grâce à une expertise de plus de 20 ans en architecture logicielle et DevOps."
 img: paris.jpg
 fig-caption: Photo de <a href="https://unsplash.com/fr/@katerryna?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash">Kateryna T</a> sur <a href="https://unsplash.com/fr/photos/tour-eiffel-sous-ciel-bleu-pendant-la-journee-RkyYEVHrRbo?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash">Unsplash</a>
-tags: [Support, DevOps, CI/CD, Docker, Kubernetes, Cloud, Git, Agile, Craftsmanship]
+tags: [Coach DevOps, Docker, Kubernetes, Cloud, Craftsmanship, Formation]
 lang: fr
 permalink: /jean-jerome-levy/
 status: finished
 ---
 
-Bonjour à tous ! Je suis Jean-Jérôme LÉVY, professionnel chevronné dans le domaine de l'informatique, cumulant plus de 20 
-années d'expérience au sein de DSI de grands comptes. Basé à Paris, en France, en tant que consultant indépendant, je suis passionné par l'évolution 
-rapide de la technologie. J'ai créé avec le site Scalastic, vitrine de la société du même nom, un espace dédié aux technologies DevOps. Ce site, répertorié 
-dans la liste "Awesome French DevOps", se veut une contribution de plus, enrichissant ainsi nos connaissances communes 
-et renforçant la vitalité de cette communauté.
+🚀 Bienvenue ! Je suis Jean-Jérôme LÉVY, consultant DevOps et Coach technique, basé à Paris, avec plus de 20 ans d'expérience en architecture logicielle, Cloud et automatisation.
 
-Mon expertise diversifiée m'a permis de jouer un rôle clé dans une multitude de projets, allant du développement 
-d'applications Internet et d'Intelligence Artificielle au pilotage d'infrastructures complexes et à l'implémentation de 
-pratiques DevOps innovantes.
+J’aide les entreprises à adopter les bonnes pratiques DevOps, optimiser leurs pipelines CI/CD et moderniser leur infrastructure.  
 
-<hr class="hr-text" data-content="Sommaire">
+🔹 Besoin de structurer votre transformation DevOps ?  
+🔹 Vous voulez fluidifier vos déploiements et réduire le time-to-market ?  
+🔹 Vous cherchez un coach technique pour accompagner vos équipes ?  
 
-* TOC
-{:toc}
+📢 Discutons ensemble de vos défis et trouvons les solutions adaptées à votre entreprise !
+
+<div class="contact-action">
+    <img src="/assets/img/contact-jean-jerome-levy.jpg" alt="Jean-Jérôme Lévy" class="contact-action-image">
+    
+    <div class="contact-action-details">
+        <div class="contact-action-title"><svg height="28" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512" fill="var(--discreet-color)"><!--!Font Awesome Free 6.7.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2025 Fonticons, Inc.--><path d="M528 32H48C21.5 32 0 53.5 0 80v352c0 26.5 21.5 48 48 48h480c26.5 0 48-21.5 48-48V80c0-26.5-21.5-48-48-48zm0 400H48V80h480v352zM208 256c35.3 0 64-28.7 64-64s-28.7-64-64-64-64 28.7-64 64 28.7 64 64 64zm-89.6 128h179.2c12.4 0 22.4-8.6 22.4-19.2v-19.2c0-31.8-30.1-57.6-67.2-57.6-10.8 0-18.7 8-44.8 8-26.9 0-33.4-8-44.8-8-37.1 0-67.2 25.8-67.2 57.6v19.2c0 10.6 10 19.2 22.4 19.2zM360 320h112c4.4 0 8-3.6 8-8v-16c0-4.4-3.6-8-8-8H360c-4.4 0-8 3.6-8 8v16c0 4.4 3.6 8 8 8zm0-64h112c4.4 0 8-3.6 8-8v-16c0-4.4-3.6-8-8-8H360c-4.4 0-8 3.6-8 8v16c0 4.4 3.6 8 8 8zm0-64h112c4.4 0 8-3.6 8-8v-16c0-4.4-3.6-8-8-8H360c-4.4 0-8 3.6-8 8v16c0 4.4 3.6 8 8 8z"/></svg> Besoin d’un expert DevOps à vos côtés ?</div>
+        <p><strong>Contactez-moi pour discuter de vos projets et trouver ensemble des solutions adaptées à votre entreprise.</strong></p>
+
+        <div class="contact-action-buttons">
+            <a href="https://www.linkedin.com/in/jean-jerome-levy" aria-label="{{ site.data.i18n.aria-linkedin }}" rel="noopener noreferrer nofollow" class="contact-action-button linkedin" target="_blank"><svg height="28" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" fill="white"><!-- Font Awesome Free 5.15.3 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) --><path d="M416 32H31.9C14.3 32 0 46.5 0 64.3v383.4C0 465.5 14.3 480 31.9 480H416c17.6 0 32-14.5 32-32.3V64.3c0-17.8-14.4-32.3-32-32.3zM135.4 416H69V202.2h66.5V416zm-33.2-243c-21.3 0-38.5-17.3-38.5-38.5S80.9 96 102.2 96c21.2 0 38.5 17.3 38.5 38.5 0 21.3-17.2 38.5-38.5 38.5zm282.1 243h-66.4V312c0-24.8-.5-56.7-34.5-56.7-34.6 0-39.9 27-39.9 54.9V416h-66.4V202.2h63.7v29.2h.9c8.9-16.8 30.6-34.5 62.9-34.5 67.2 0 79.7 44.3 79.7 101.9V416z"/></svg></a>
+
+            <a class="contact-action-button email" aria-label="{{ site.data.i18n.aria-mailto }}">
+                <svg height="28" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" fill="white"><!--!Font Awesome Free 6.7.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2025 Fonticons, Inc.--><path d="M48 64C21.5 64 0 85.5 0 112c0 15.1 7.1 29.3 19.2 38.4L236.8 313.6c11.4 8.5 27 8.5 38.4 0L492.8 150.4c12.1-9.1 19.2-23.3 19.2-38.4c0-26.5-21.5-48-48-48L48 64zM0 176L0 384c0 35.3 28.7 64 64 64l384 0c35.3 0 64-28.7 64-64l0-208L294.4 339.2c-22.8 17.1-54 17.1-76.8 0L0 176z"/></svg>
+            </a>
+        </div>
+    </div>
+</div>
 
 <hr class="hr-text" data-content="Mes Services">
 
-## Mes Services
+## Pourquoi faire appel à moi ?
 
-Avec ma vision globale des projets informatiques, j'ai constaté que le DevOps est bien plus qu'une simple méthodologie 
-de développement et de déploiement. C'est une culture, une approche qui transforme fondamentalement la manière dont les 
-équipes travaillent ensemble pour livrer des produits et des services de qualité de manière plus rapide et plus efficace.
+✅ **Expertise DevOps complète** : De l’architecture aux pipelines CI/CD en passant par Kubernetes et le Cloud.  
+✅ **Approche pragmatique et terrain** : Pas de blabla, des résultats concrets et mesurables.  
+✅ **Formation aux Technologies Clés** : Formation approfondies sur des technologies clés telles que Jenkins, GitLab-CI, Git, Docker, Kubernetes, et bien d'autres.  
+✅ **Accompagnement sur-mesure** : Que vous soyez débutant ou avancé, j’adapte ma mission à votre contexte.  
+✅ **Expérience en grandes entreprises & scale-ups** : J’ai travaillé avec des DSI exigeantes et des startups en forte croissance.  
 
-En tant que freelance DevOps passionné, je propose une gamme complète de services visant à accompagner votre entreprise 
-tout au long de sa transformation DevOps :
+📞 Prenez rendez-vous dès maintenant pour discuter de votre projet !
 
-- ### Accompagnement DevOps
-Je vous offre un accompagnement personnalisé dans votre parcours de transformation DevOps. Que vous soyez en phase 
-d'initiation ou de consolidation, je m'engage à fournir un soutien technique et méthodologique pour garantir le succès 
-de votre transition.
+<div class="contact-action">
+    <img src="/assets/img/contact-jean-jerome-levy.jpg" alt="Jean-Jérôme Lévy" class="contact-action-image">
+    
+    <div class="contact-action-details">
+        <div class="contact-action-title"><svg height="28" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512" fill="var(--discreet-color)"><!--!Font Awesome Free 6.7.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2025 Fonticons, Inc.--><path d="M528 32H48C21.5 32 0 53.5 0 80v352c0 26.5 21.5 48 48 48h480c26.5 0 48-21.5 48-48V80c0-26.5-21.5-48-48-48zm0 400H48V80h480v352zM208 256c35.3 0 64-28.7 64-64s-28.7-64-64-64-64 28.7-64 64 28.7 64 64 64zm-89.6 128h179.2c12.4 0 22.4-8.6 22.4-19.2v-19.2c0-31.8-30.1-57.6-67.2-57.6-10.8 0-18.7 8-44.8 8-26.9 0-33.4-8-44.8-8-37.1 0-67.2 25.8-67.2 57.6v19.2c0 10.6 10 19.2 22.4 19.2zM360 320h112c4.4 0 8-3.6 8-8v-16c0-4.4-3.6-8-8-8H360c-4.4 0-8 3.6-8 8v16c0 4.4 3.6 8 8 8zm0-64h112c4.4 0 8-3.6 8-8v-16c0-4.4-3.6-8-8-8H360c-4.4 0-8 3.6-8 8v16c0 4.4 3.6 8 8 8zm0-64h112c4.4 0 8-3.6 8-8v-16c0-4.4-3.6-8-8-8H360c-4.4 0-8 3.6-8 8v16c0 4.4 3.6 8 8 8z"/></svg> Transformons votre approche DevOps ensemble !</div>
+        <p><strong>Discutons de vos défis et trouvons des solutions efficaces pour accélérer vos déploiements et renforcer votre infrastructure.</strong></p>
 
-- ### Formation aux Technologies Clés
-La maîtrise des outils DevOps est essentielle. Je propose des sessions de formation approfondies sur des technologies 
-clés telles que Jenkins, GitLab-CI, Git, Docker, Kubernetes, et bien d'autres. Vous serez ainsi armés pour maximiser 
-l'efficacité de votre Toolchain.
+        <div class="contact-action-buttons">
+            <a href="https://www.linkedin.com/in/jean-jerome-levy" aria-label="{{ site.data.i18n.aria-linkedin }}" rel="noopener noreferrer nofollow" class="contact-action-button linkedin" target="_blank"><svg height="28" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" fill="white"><!-- Font Awesome Free 5.15.3 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) --><path d="M416 32H31.9C14.3 32 0 46.5 0 64.3v383.4C0 465.5 14.3 480 31.9 480H416c17.6 0 32-14.5 32-32.3V64.3c0-17.8-14.4-32.3-32-32.3zM135.4 416H69V202.2h66.5V416zm-33.2-243c-21.3 0-38.5-17.3-38.5-38.5S80.9 96 102.2 96c21.2 0 38.5 17.3 38.5 38.5 0 21.3-17.2 38.5-38.5 38.5zm282.1 243h-66.4V312c0-24.8-.5-56.7-34.5-56.7-34.6 0-39.9 27-39.9 54.9V416h-66.4V202.2h63.7v29.2h.9c8.9-16.8 30.6-34.5 62.9-34.5 67.2 0 79.7 44.3 79.7 101.9V416z"/></svg></a>
 
-- ### Développement d'Outils sur Mesure
-Pour répondre à des besoins spécifiques, je propose le développement d'outils internes novateurs. Mon expérience inclut 
-la création d'outils automatisant le processus de CI/CD multiplateforme, simplifiant ainsi la configuration des 
-pipelines et optimisant les performances globales.
+            <a class="contact-action-button email" aria-label="{{ site.data.i18n.aria-mailto }}">
+                <svg height="28" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" fill="white"><!--!Font Awesome Free 6.7.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2025 Fonticons, Inc.--><path d="M48 64C21.5 64 0 85.5 0 112c0 15.1 7.1 29.3 19.2 38.4L236.8 313.6c11.4 8.5 27 8.5 38.4 0L492.8 150.4c12.1-9.1 19.2-23.3 19.2-38.4c0-26.5-21.5-48-48-48L48 64zM0 176L0 384c0 35.3 28.7 64 64 64l384 0c35.3 0 64-28.7 64-64l0-208L294.4 339.2c-22.8 17.1-54 17.1-76.8 0L0 176z"/></svg>
+            </a>
+        </div>
+    </div>
+</div>
 
-- ### Analyse et Optimisation des Pipelines CI/CD
-Une infrastructure performante est cruciale pour le succès de votre pipeline CI/CD. Je travaille en étroite 
-collaboration avec vos équipes pour analyser les besoins, identifier les goulots d'étranglement, et proposer des 
-améliorations afin d'optimiser la performance et la fiabilité de vos pipelines.
+<hr class="hr-text" data-content="Mon Expérience">
 
-- ### Mise en Place de Bonnes Pratiques DevOps
-Je vous guide dans l'adoption des bonnes pratiques DevOps, telles que les workflows Git, l'intégration continue, le 
-déploiement continu, les tests automatisés, les analyses de qualité et de sécurité. L'objectif est d'assurer une 
-livraison logicielle plus rapide, de meilleure qualité et fiable.
+## 🎯 **Pourquoi me faire confiance ?**  
 
-- ### Participation Active et Collaboration
-En tant que membre actif de votre équipe, je participe aux cérémonies Agile, aux réunions d'équipe, aux revues de code, 
-aux sessions de rétrospective, encourageant ainsi la collaboration, le partage de connaissances, et l'amélioration 
-continue.
+✅ **Expérience solide et diversifiée en DevOps et IT**  
+J’accompagne les entreprises dans leur transformation DevOps en m’appuyant sur un parcours riche, alliant expertise technique et vision stratégique.
 
-Avec mes services, je m'engage à être votre partenaire de confiance dans la réalisation de vos objectifs DevOps. 
-N'hésitez pas à me contacter pour discuter de la manière dont je peux contribuer à votre succès.
+### 🏗️ **Parcours et compétences clés :**  
 
-<hr class="hr-text" data-content="Mes Atouts">
+**🔹 Débuts en tant qu’Expert Java**  
+  - Expérience en **R&D et développement de frameworks** maison.  
+  - Expertise en **architectures orientées services (SOA)**, précurseurs des **microservices** Cloud.  
+  - Intérêt pour les **technologies innovantes** comme **GraalVM et la compilation native** de code Java pour le Cloud.
 
-## Pourquoi me faire confiance
+**🔹 Premier contact avec le DevOps**  
+  - Mise en place d’une **Forge Logicielle** et d’un système de **Build automatisé** basé sur Hudson (précurseur de Jenkins).  
+  - **Vision précoce du DevOps**, participant à son évolution dès ses débuts.
 
-En tant que freelance DevOps, je mets à votre disposition mon expertise dans le domaine en constante évolution du DevOps.
-Offrant mes compétences aux entreprises en quête d'une transformation fluide et réussie, je suis déterminé à apporter 
-une valeur ajoutée substantielle à votre parcours DevOps.
+**🔹 Expertise en Infrastructure Logicielle et Open Source**  
+  - **Conception de solutions Open Source innovantes**.  
+  - Maîtrise de **Linux, Nginx, Apache, MySQL, Redis, MongoDB**, et des outils de monitoring (**Logstash, Elasticsearch**).  
+  - **Pilotage d’une infrastructure haute disponibilité**, garantissant performance et sécurité.
 
-Ma confiance en tant que guide DevOps repose sur une trajectoire professionnelle diversifiée, au cours de laquelle mon 
-expérience unique peut être un atout précieux pour votre projet DevOps :
+<div class="contact-action">
+    <img src="/assets/img/contact-jean-jerome-levy.jpg" alt="Jean-Jérôme Lévy" class="contact-action-image">
+    
+    <div class="contact-action-details">
+        <div class="contact-action-title"><svg height="28" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512" fill="var(--discreet-color)"><!--!Font Awesome Free 6.7.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2025 Fonticons, Inc.--><path d="M528 32H48C21.5 32 0 53.5 0 80v352c0 26.5 21.5 48 48 48h480c26.5 0 48-21.5 48-48V80c0-26.5-21.5-48-48-48zm0 400H48V80h480v352zM208 256c35.3 0 64-28.7 64-64s-28.7-64-64-64-64 28.7-64 64 28.7 64 64 64zm-89.6 128h179.2c12.4 0 22.4-8.6 22.4-19.2v-19.2c0-31.8-30.1-57.6-67.2-57.6-10.8 0-18.7 8-44.8 8-26.9 0-33.4-8-44.8-8-37.1 0-67.2 25.8-67.2 57.6v19.2c0 10.6 10 19.2 22.4 19.2zM360 320h112c4.4 0 8-3.6 8-8v-16c0-4.4-3.6-8-8-8H360c-4.4 0-8 3.6-8 8v16c0 4.4 3.6 8 8 8zm0-64h112c4.4 0 8-3.6 8-8v-16c0-4.4-3.6-8-8-8H360c-4.4 0-8 3.6-8 8v16c0 4.4 3.6 8 8 8zm0-64h112c4.4 0 8-3.6 8-8v-16c0-4.4-3.6-8-8-8H360c-4.4 0-8 3.6-8 8v16c0 4.4 3.6 8 8 8z"/></svg> Accélérez votre transformation DevOps 🚀</div>
+        <p><strong>Discutons de votre stratégie, de vos besoins et des leviers à actionner pour fluidifier vos déploiements et maximiser votre efficacité.</strong></p>
 
-- ### Débuts en tant qu'Expert Java
+        <div class="contact-action-buttons">
+            <a href="https://www.linkedin.com/in/jean-jerome-levy" aria-label="{{ site.data.i18n.aria-linkedin }}" rel="noopener noreferrer nofollow" class="contact-action-button linkedin" target="_blank"><svg height="28" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" fill="white"><!-- Font Awesome Free 5.15.3 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) --><path d="M416 32H31.9C14.3 32 0 46.5 0 64.3v383.4C0 465.5 14.3 480 31.9 480H416c17.6 0 32-14.5 32-32.3V64.3c0-17.8-14.4-32.3-32-32.3zM135.4 416H69V202.2h66.5V416zm-33.2-243c-21.3 0-38.5-17.3-38.5-38.5S80.9 96 102.2 96c21.2 0 38.5 17.3 38.5 38.5 0 21.3-17.2 38.5-38.5 38.5zm282.1 243h-66.4V312c0-24.8-.5-56.7-34.5-56.7-34.6 0-39.9 27-39.9 54.9V416h-66.4V202.2h63.7v29.2h.9c8.9-16.8 30.6-34.5 62.9-34.5 67.2 0 79.7 44.3 79.7 101.9V416z"/></svg></a>
 
-Mon rôle en tant que consultant Java a été marqué par ma capacité à intégrer des équipes de R&D et à contribuer au 
-développement et à l'évolution de frameworks maison. Cette expérience a grandement enrichi ma compréhension des 
-architectures orientées services (SOA), qui, en tant que précurseur, ont jeté les bases des architectures microservices 
-omniprésentes dans le Cloud contemporain. Elle a également renforcé mes compétences techniques pour concevoir des 
-solutions robustes et de haute qualité.
+            <a class="contact-action-button email" aria-label="{{ site.data.i18n.aria-mailto }}">
+                <svg height="28" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" fill="white"><!--!Font Awesome Free 6.7.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2025 Fonticons, Inc.--><path d="M48 64C21.5 64 0 85.5 0 112c0 15.1 7.1 29.3 19.2 38.4L236.8 313.6c11.4 8.5 27 8.5 38.4 0L492.8 150.4c12.1-9.1 19.2-23.3 19.2-38.4c0-26.5-21.5-48-48-48L48 64zM0 176L0 384c0 35.3 28.7 64 64 64l384 0c35.3 0 64-28.7 64-64l0-208L294.4 339.2c-22.8 17.1-54 17.1-76.8 0L0 176z"/></svg>
+            </a>
+        </div>
+    </div>
+</div>
 
-Aujourd'hui, mon intérêt se porte sur des domaines avant-gardistes tels que GraalVM et la compilation native de code 
-Java. Cette orientation revêt une pertinence particulière dans le contexte du Cloud, où l'efficacité et la performance 
-sont cruciales.
+<hr class="hr-text" data-content="Mon Expertise">
 
-- ### Premier Contact avec le DevOps
+## 🚀 **Pourquoi choisir mon expertise ?**  
 
-En tant qu'Architecte Technique, j'ai dirigé la mise en place d'une plateforme de Forge Logicielle et de Builds
-automatisés, basée sur Hudson, le précurseur de Jenkins. Cette initiative a renforcé mon expertise, témoignant de mon
-engagement dans les pratiques DevOps depuis ses débuts et de ma maîtrise des outils associés.
+✅ **Approche pragmatique** : solutions adaptées à votre contexte.  
+✅ **Maîtrise des technologies clés** du DevOps et du Cloud.  
+✅ **Vision stratégique** grâce à un parcours couvrant **développement, infrastructure et automatisation**.  
 
-- ### Prise de Hauteur avec l'Infrastructure Logicielle et l'Open Source
+📞 **Besoin d’un consultant DevOps pour accélérer votre transformation ? Discutons de vos défis !**
 
-Lors de ma période en tant qu'expert technique Open Source, j'ai laissé ma marque en concevant des solutions innovantes.
-L'installation de briques techniques clés a été au cœur de mes réalisations, avec une expertise approfondie dans des 
-technologies telles que Linux, Nginx, Apache, MySQL, PHP/Symfony, Redis, MongoDB, ainsi que des outils de surveillance 
-tels que Logstash et Elasticsearch.
+<div class="contact-action">
+    <img src="/assets/img/contact-jean-jerome-levy.jpg" alt="Jean-Jérôme Lévy" class="contact-action-image">
+    
+    <div class="contact-action-details">
+        <div class="contact-action-title"><svg height="28" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512" fill="var(--discreet-color)"><!--!Font Awesome Free 6.7.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2025 Fonticons, Inc.--><path d="M528 32H48C21.5 32 0 53.5 0 80v352c0 26.5 21.5 48 48 48h480c26.5 0 48-21.5 48-48V80c0-26.5-21.5-48-48-48zm0 400H48V80h480v352zM208 256c35.3 0 64-28.7 64-64s-28.7-64-64-64-64 28.7-64 64 28.7 64 64 64zm-89.6 128h179.2c12.4 0 22.4-8.6 22.4-19.2v-19.2c0-31.8-30.1-57.6-67.2-57.6-10.8 0-18.7 8-44.8 8-26.9 0-33.4-8-44.8-8-37.1 0-67.2 25.8-67.2 57.6v19.2c0 10.6 10 19.2 22.4 19.2zM360 320h112c4.4 0 8-3.6 8-8v-16c0-4.4-3.6-8-8-8H360c-4.4 0-8 3.6-8 8v16c0 4.4 3.6 8 8 8zm0-64h112c4.4 0 8-3.6 8-8v-16c0-4.4-3.6-8-8-8H360c-4.4 0-8 3.6-8 8v16c0 4.4 3.6 8 8 8zm0-64h112c4.4 0 8-3.6 8-8v-16c0-4.4-3.6-8-8-8H360c-4.4 0-8 3.6-8 8v16c0 4.4 3.6 8 8 8z"/></svg> Automatisation, Kubernetes, CI/CD... Vous avez des questions ?</div>
+        <p><strong>Je suis à votre disposition pour vous aider à structurer votre transformation DevOps et optimiser vos processus.</strong></p>
 
-J'ai dirigé avec succès le pilotage de l'infrastructure, orchestrant la mise en place d'un CMS maison basé sur des 
-technologies open source. Cette initiative impliquait la conception d'une architecture robuste, l'installation des 
-composants essentiels, et la configuration minutieuse pour garantir une performance en haute disponibilité et une 
-sécurité optimale.
+        <div class="contact-action-buttons">
+            <a href="https://www.linkedin.com/in/jean-jerome-levy" aria-label="{{ site.data.i18n.aria-linkedin }}" rel="noopener noreferrer nofollow" class="contact-action-button linkedin" target="_blank"><svg height="28" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" fill="white"><!-- Font Awesome Free 5.15.3 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) --><path d="M416 32H31.9C14.3 32 0 46.5 0 64.3v383.4C0 465.5 14.3 480 31.9 480H416c17.6 0 32-14.5 32-32.3V64.3c0-17.8-14.4-32.3-32-32.3zM135.4 416H69V202.2h66.5V416zm-33.2-243c-21.3 0-38.5-17.3-38.5-38.5S80.9 96 102.2 96c21.2 0 38.5 17.3 38.5 38.5 0 21.3-17.2 38.5-38.5 38.5zm282.1 243h-66.4V312c0-24.8-.5-56.7-34.5-56.7-34.6 0-39.9 27-39.9 54.9V416h-66.4V202.2h63.7v29.2h.9c8.9-16.8 30.6-34.5 62.9-34.5 67.2 0 79.7 44.3 79.7 101.9V416z"/></svg></a>
 
-Cette expérience a façonné ma compréhension des nuances de l'architecture logicielle dans un environnement open source, 
-renforçant ainsi ma capacité à créer des solutions durables et performantes. Ces compétences continuent d'insuffler ma 
-pratique en tant que professionnel DevOps, où la maîtrise des briques techniques est cruciale pour le succès des projets.
+            <a class="contact-action-button email" aria-label="{{ site.data.i18n.aria-mailto }}">
+                <svg height="28" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" fill="white"><!--!Font Awesome Free 6.7.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2025 Fonticons, Inc.--><path d="M48 64C21.5 64 0 85.5 0 112c0 15.1 7.1 29.3 19.2 38.4L236.8 313.6c11.4 8.5 27 8.5 38.4 0L492.8 150.4c12.1-9.1 19.2-23.3 19.2-38.4c0-26.5-21.5-48-48-48L48 64zM0 176L0 384c0 35.3 28.7 64 64 64l384 0c35.3 0 64-28.7 64-64l0-208L294.4 339.2c-22.8 17.1-54 17.1-76.8 0L0 176z"/></svg>
+            </a>
+        </div>
+    </div>
+</div>
 
-<hr class="hr-text" data-content="En quelques mots">
-
-## En Conclusion
-
-Mon parcours professionnel est ancré dans la pratique et l'évolution constante. Mes compétences en développement Java, 
-architecture logicielle, et pratiques DevOps forment un ensemble intégré qui me permet de vous guider de manière experte
-dans votre parcours DevOps.
-
-Mais ma passion pour le DevOps va au-delà de la simple expertise technique. En tant que professionnel qui a vu évoluer le 
-paysage informatique au fil des années, je comprends les défis auxquels sont confrontées les équipes et les entreprises.
-Mon objectif est de vous fournir des informations pratiques et des conseils concrets pour vous aider à naviguer avec 
-succès dans votre propre transformation DevOps.
-
-Contactez-moi pour explorer ensemble le passionnant univers du DevOps. Je suis disponible pour discuter de vos prochains
-défis et missions dans le domaine. Ensemble, façonnons le futur de la livraison logicielle !
+<script>
+document.addEventListener("DOMContentLoaded",function(){let t=atob("amVhbmplcm9tZS5sZXZ5QGdtYWlsLmNvbQ==");document.querySelectorAll(".contact-action-button.email").forEach(e=>{e.href="mailto:"+t,e.title=t})});
+</script>

@@ -315,4 +315,21 @@
   .leaflet-control-zoom {
     display: none;
   }
+
+  .contact-action {
+    flex-wrap: wrap;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .contact-action-image {
+    width: 100%;
+    max-width: 200px;
+    margin-bottom: 15px;
+  }
+
+  .contact-action-details {
+    text-align: center;
+  }
+
 }
