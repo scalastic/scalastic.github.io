@@ -609,7 +609,10 @@ a.card-source.microlink_vanilla {
   margin: 10px 0px;
   border-bottom: 1px solid var(--emphasis-color);
   display: flex;
+  flex-wrap: wrap;
   justify-content: space-between;
+  align-items: center;
+
   p { 
     margin: 0;
   }
@@ -670,6 +673,41 @@ a.card-source.microlink_vanilla {
     line-height: 24px;
     color: var(--discreet-color);
     opacity: 0.9;
+  }
+
+  .available-banner {
+    width: 100%;
+    margin: 0;
+    padding: 15px;
+  
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  
+    a {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      padding: 8px 12px;
+      background-color: var(--emphasis-color);
+      color: white;
+      text-decoration: none;
+      border-radius: 5px;
+      font-weight: bold;
+      position: relative;
+      animation: pulse 2s infinite;
+    }
+  
+    @keyframes pulse {
+      0%, 100% {
+        transform: scale(1);
+        background-color: var(--emphasis-color);
+      }
+      50% {
+        transform: scale(1.05);
+        background-color: #3bcf00;
+      }
+    }
   }
 }
 
