@@ -780,3 +780,61 @@ a.card-source.microlink_vanilla {
   border: 3px solid var(--discreet-color);
   border-radius: 5px;
 }
+
+.youtube-placeholder {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  width: 100%;
+  max-width: 800px;
+  margin: 0 auto;
+
+  &::before {
+    content: "";
+    display: block;
+    padding-top: 56.25%;
+  }
+
+  .youtube-thumbnail {
+    width: 100%;
+    height: auto;
+    display: block;
+  }
+
+  .youtube-play-button {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 80px;
+    height: 60px;
+  
+    .youtube-play-button-bg {
+      fill: #ff0000;
+      rx: 10;
+    }
+  
+    .youtube-play-button-icon {
+      fill: white;
+      stroke: white;
+      stroke-width: 2;
+    }
+  }
+
+  iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border: none;
+  }
+}
+
+.youtube-placeholder-description {
+  color: var(--discreet-color);
+  font-style: italic;
+  text-align: center;
+  margin-top: 10px; 
+}

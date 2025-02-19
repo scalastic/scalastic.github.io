@@ -26,8 +26,10 @@ These two examples highlight both the potential and the dual nature of drone swa
 > info "🛠 Experiment with a Drone Swarm Simulation"
 >
 > To better understand how a few simple rules can generate an **autonomous and coordinated drone swarm**, you can explore a **simulation program** I developed. Although basic, this project illustrates how **cohesion, avoidance, and alignment** algorithms can produce an orderly collective behavior.  
-> <br>
-> {% github_card jeanjerome/drone-swarms %}
+<br>
+{% github_card jeanjerome/drone-swarms %}
+<br>
+{% youtube 5PN6R7qeXt8 /assets/img/drone-swarms.png %}
 
 <hr class="hr-text" data-content="Table of Contents">
 

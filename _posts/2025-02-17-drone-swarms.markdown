@@ -23,11 +23,15 @@ L’essor des essaims de drones marque une **révolution technologique** dans de
 
 Ces deux exemples mettent en évidence le potentiel et la dualité des essaims de drones : une technologie qui peut être utilisée aussi bien pour la guerre que pour émerveiller les spectateurs à travers des démonstrations artistiques d’une grande précision.
 
+
 > info "🛠 Expérimentez un Essaim de Drones en Simulation"
 >
 > Pour mieux comprendre comment quelques règles simples permettent de générer un **essaim de drones autonome et coordonné**, vous pouvez explorer un **programme de simulation** que j’ai développé. Ce projet, bien que basique, illustre comment des algorithmes de **cohésion, d’évitement et d’alignement** peuvent produire un comportement collectif ordonné.  
-> <br>
-> {% github_card jeanjerome/drone-swarms %}
+<br>
+{% github_card jeanjerome/drone-swarms %}
+<br>
+{% youtube 5PN6R7qeXt8 /assets/img/drone-swarms.png %}
+
 
 <hr class="hr-text" data-content="Sommaire">
 
