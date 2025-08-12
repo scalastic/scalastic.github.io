@@ -9,10 +9,15 @@ sitemap:
     {
       "title"    : "{{ post.title | escape }}",
       "url"      : "{{ site.baseurl }}/en{{ post.url }}",
-      {% assign imagepath = '/assets/img/' | prepend: site.baseurl | append : post.img %}
-      {%- capture picture %}{%- picture thumbnail-article {{imagepath}} 6:5 center --alt {{ post.title }} -%}{% endcapture -%}
-      "img"      : "{{ picture | base64_encode | strip_newlines }}",
-      "isencoded" : "y",
+      {% if post.img %}
+        {% assign imagepath = '/assets/img/' | prepend: site.baseurl | append : post.img %}
+        {%- capture picture %}{%- picture thumbnail-article {{imagepath}} 6:5 center --alt {{ post.title }} -%}{% endcapture -%}
+        "img"      : "{{ picture | base64_encode | strip_newlines }}",
+        "isencoded" : "y",
+      {% else %}
+        "img"      : "",
+        "isencoded" : "n",
+      {% endif %}
       "tags"     : "{{ post.tags | join: ', ' }}",
       "content"  : "{{ post.content | markdownify | strip_html | normalize_whitespace | escape | replace: '\', '--' }}"
     } {% unless forloop.last %},{% endunless %}
