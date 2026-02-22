@@ -18,6 +18,19 @@ On paper, everything seems clear. In the field, however, when applied to real pr
 
 This gap is not always explicit, but it quickly shows in the code, in timelines, and in team fatigue. And it is precisely this paradox that this article explores.
 
+This article introduces **HexaGlue**, an open source tool that tackles this problem. The source code and documentation are available now:
+
+<div class="project-links">
+{% github_card hexaglue/hexaglue %}
+<div class='website-card'>
+  <div class='panel-body'>
+    <div class='name'><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" width="16" height="16"><path d="M8 0a8 8 0 1 1 0 16A8 8 0 0 1 8 0ZM5.78 8.75a9.64 9.64 0 0 0 1.363 4.177c.255.426.542.832.857 1.215.245-.296.551-.705.857-1.215A9.64 9.64 0 0 0 10.22 8.75Zm4.44-1.5a9.64 9.64 0 0 0-1.363-4.177c-.307-.51-.612-.919-.857-1.215a9.927 9.927 0 0 0-.857 1.215A9.64 9.64 0 0 0 5.78 7.25Zm-5.944 1.5H1.543a6.507 6.507 0 0 0 4.666 5.5c-.123-.181-.24-.365-.352-.552-.715-1.192-1.437-2.874-1.581-4.948Zm-2.733-1.5h2.733c.144-2.074.866-3.756 1.58-4.948.12-.197.237-.381.353-.552a6.507 6.507 0 0 0-4.666 5.5Zm10.181 1.5c-.144 2.074-.866 3.756-1.58 4.948-.12.197-.237.381-.353.552a6.507 6.507 0 0 0 4.666-5.5Zm2.733-1.5a6.507 6.507 0 0 0-4.666-5.5c.123.181.24.365.353.552.714 1.192 1.436 2.874 1.58 4.948Z"></path></svg> <a href='https://hexaglue.io' target='_blank' rel='noopener noreferrer nofollow'>hexaglue.io</a>&nbsp;<span class='label'>Official website</span></div>
+    <div class='description'>The official HexaGlue website. Discover the concept, how it works and use cases for the tool. (French only for now)</div>
+    <img class='og-image' src='https://hexaglue.io/og/hexaglue.jpg' alt='HexaGlue - official website'>
+  </div>
+</div>
+</div>
+
 <hr class="hr-text" data-content="ToC">
 
 
@@ -306,9 +319,7 @@ If this question resonates with you:
 Infrastructure won’t disappear.  
 But it can become **far less invasive**.
 
-HexaGlue is exploring that future:
-
-{% github_card hexaglue/hexaglue %}
+HexaGlue is exploring that future.
 
 ### TL;DR
 

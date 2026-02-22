@@ -23,6 +23,18 @@ Quelque chose, dans la mise en œuvre quotidienne, ne tient pas totalement ses p
 Ce décalage n’est pas toujours explicite, mais il se manifeste rapidement dans le code, dans les délais, et dans la fatigue des équipes.
 Et c’est précisément ce paradoxe que cet article explore.
 
+Cet article présente **HexaGlue**, un outil open source qui s'attaque à ce problème. Le code source et la documentation sont disponibles dès maintenant :
+
+<div class="project-links">
+{% github_card hexaglue/hexaglue %}
+<div class='website-card'>
+  <div class='panel-body'>
+    <div class='name'><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" width="16" height="16"><path d="M8 0a8 8 0 1 1 0 16A8 8 0 0 1 8 0ZM5.78 8.75a9.64 9.64 0 0 0 1.363 4.177c.255.426.542.832.857 1.215.245-.296.551-.705.857-1.215A9.64 9.64 0 0 0 10.22 8.75Zm4.44-1.5a9.64 9.64 0 0 0-1.363-4.177c-.307-.51-.612-.919-.857-1.215a9.927 9.927 0 0 0-.857 1.215A9.64 9.64 0 0 0 5.78 7.25Zm-5.944 1.5H1.543a6.507 6.507 0 0 0 4.666 5.5c-.123-.181-.24-.365-.352-.552-.715-1.192-1.437-2.874-1.581-4.948Zm-2.733-1.5h2.733c.144-2.074.866-3.756 1.58-4.948.12-.197.237-.381.353-.552a6.507 6.507 0 0 0-4.666 5.5Zm10.181 1.5c-.144 2.074-.866 3.756-1.58 4.948-.12.197-.237.381-.353.552a6.507 6.507 0 0 0 4.666-5.5Zm2.733-1.5a6.507 6.507 0 0 0-4.666-5.5c.123.181.24.365.353.552.714 1.192 1.436 2.874 1.58 4.948Z"></path></svg> <a href='https://hexaglue.io' target='_blank' rel='noopener noreferrer nofollow'>hexaglue.io</a>&nbsp;<span class='label'>Site officiel</span></div>
+    <div class='description'>Le site officiel du projet HexaGlue. Découvrez le concept, le fonctionnement et les cas d'usage de l'outil.</div>
+    <img class='og-image' src='https://hexaglue.io/og/hexaglue.jpg' alt='HexaGlue - site officiel'>
+  </div>
+</div>
+</div>
 
 <hr class="hr-text" data-content="Sommaire">
 
@@ -316,9 +328,7 @@ Si, pour vous, cette question fait sens :
 L’infrastructure ne disparaîtra pas.<br>
 Mais elle peut devenir **beaucoup moins envahissante**.
 
-HexaGlue explore ce futur :
-
-{% github_card hexaglue/hexaglue %}
+HexaGlue explore ce futur.
 
 ### TL;DR
 
