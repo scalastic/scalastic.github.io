@@ -15,6 +15,9 @@ sitemap:
 /* - - - - - - - - - - Post Page Styles - - - - - - - - - - */
 @use "parts/post-page";
 
+/* - - - - - - - - - - Article Block Styles - - - - - - - - - - */
+@use "parts/article-blocks";
+
 /* - - - - - - - - - - Tag Styles - - - - - - - - - - */
 @use "parts/tag";
 
@@ -37,6 +40,11 @@ sitemap:
   --link-color: #38c341;
   --code-background: #747474;
   --code-color: #fbfbfb;
+  --note-color: var(--link-color);
+  --info-color: #1f6fc4;
+  --warning-color: #a15c00;
+  --error-color: #c0392b;
+  --citation-color: #3a3a3a;
 }
 html[data-mode="dark"] {
   --body-background: #515151;
@@ -49,6 +57,11 @@ html[data-mode="dark"] {
   --link-color: #ae81ff; /* #3e8bff; */
   --code-background: #747474;
   --code-color: #fbfbfb;
+  --note-color: var(--link-color);
+  --info-color: #8fbdf7;
+  --warning-color: #f0ad4e;
+  --error-color: #ef8b85;
+  --citation-color: #e0e0e0;
 }
 
 // Reset
@@ -144,11 +157,14 @@ img + em {
 
 // Blockquote
 blockquote {
-  border-left: 5px solid #000;
-  padding-left: 1.1rem;
-  margin-left: 1rem;
+  margin: 30px 0;
+  padding: 2px 0 2px 22px;
+  border-left: 4px solid var(--link-color);
+  font-size: 1.05em;
   font-style: italic;
-  color: var(--discreet-color);
+  line-height: 1.5;
+  text-align: left;
+  color: var(--body-color);
 }
 
 // Pre

@@ -1,0 +1,184 @@
+/* Blocs de mise en forme longs formats : chapô, chiffres clés, comparaison,
+   glossaire, sources. Tous reprennent les variables de thème du site et
+   basculent donc automatiquement en mode sombre. */
+
+.article-page {
+
+  /* Exposants : interligne nul pour qu'ils n'écartent pas les lignes du
+     paragraphe, et une réduction moins forte pour un exposant imbriqué,
+     sinon une puissance de puissance devient illisible. */
+  sup {
+    font-size: 0.7em;
+    line-height: 0;
+  }
+
+  sup sup {
+    font-size: 0.85em;
+  }
+
+  /* Chapô : rendu par le layout entre le titre et les métadonnées, il suit
+     donc le centrage de l'en-tête. Taille en em pour rester relative au
+     corps du site, qui est à 19px et non à la racine de 16px. */
+  .lede {
+    max-width: 46rem;
+    margin: 22px auto 0;
+    font-size: 1.4em;
+    font-style: italic;
+    line-height: 1.4;
+    color: var(--body-color);
+
+    strong {
+      font-style: normal;
+    }
+  }
+
+  /* Chiffres clés : deux panneaux confrontant deux ordres de grandeur,
+     avec une note en pied qui court sur toute la largeur. */
+  .key-figures {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+    margin: 30px 0;
+    text-align: left;
+
+    .figure {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      padding: 22px 24px 24px;
+      background-color: var(--inset-background);
+      border-radius: 10px;
+    }
+
+    .figure-label {
+      font-size: 0.85em;
+      font-weight: 700;
+      line-height: 1.35;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      opacity: 0.85;
+    }
+
+    /* Les deux nombres portent la même couleur : c'est leur égalité
+       qui est le propos du bloc. */
+    .figure-value {
+      margin: 6px 0 2px;
+      font-size: 2.6em;
+      font-weight: 800;
+      line-height: 1;
+      text-align: center;
+      color: var(--link-color);
+
+      sup {
+        font-size: 0.45em;
+        vertical-align: super;
+      }
+    }
+
+    .figure-note {
+      font-size: 0.9em;
+      line-height: 1.45;
+      opacity: 0.85;
+    }
+
+    .figure-footer {
+      grid-column: 1 / -1;
+      margin: 0;
+      padding: 18px 24px;
+      background-color: var(--inset-background);
+      border-left: 4px solid var(--link-color);
+      border-radius: 0 10px 10px 0;
+      font-size: 0.95em;
+      line-height: 1.5;
+    }
+  }
+
+  /* Comparaison : deux approches mises côte à côte. Même échelle que les
+     chiffres clés, la phrase d'attaque tenant le rôle de la valeur. */
+  .compare {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+    margin: 30px 0;
+    text-align: left;
+
+    > div {
+      padding: 22px 24px 24px;
+      background-color: var(--inset-background);
+      border-radius: 10px;
+    }
+
+    .compare-label {
+      margin: 0 0 12px;
+      font-size: 0.85em;
+      font-weight: 700;
+      line-height: 1.35;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      opacity: 0.85;
+    }
+
+    .compare-lede {
+      margin: 0 0 12px;
+      font-size: 1.2em;
+      font-weight: 800;
+      line-height: 1.3;
+      color: var(--link-color);
+    }
+
+    p {
+      margin: 0;
+      font-size: 0.95em;
+      line-height: 1.5;
+      opacity: 0.9;
+    }
+  }
+
+  /* Glossaire : tableau à deux colonnes, terme à gauche, définition à droite.
+     La table reprend le style général du site ; seules la largeur de la
+     colonne des termes et la traduction anglaise sont ajustées ici. */
+  .glossary {
+    margin: 30px 0;
+
+    td:first-child {
+      width: 16rem;
+      font-weight: 700;
+      line-height: 1.35;
+
+      /* Traduction anglaise du terme, sur sa propre ligne. */
+      span {
+        display: block;
+        margin-top: 2px;
+        font-size: 0.85em;
+        font-weight: 400;
+        font-style: italic;
+        opacity: 0.75;
+      }
+    }
+
+    td:last-child {
+      font-size: 0.95em;
+      line-height: 1.5;
+    }
+  }
+}
+
+@media only screen and (max-width: 769px) {
+  .article-page {
+    .lede {
+      margin-top: 16px;
+      font-size: 1.2em;
+    }
+
+    .key-figures,
+    .compare {
+      grid-template-columns: 1fr;
+    }
+
+    /* Écran étroit : le tableau défile horizontalement, la colonne des
+       termes n'a plus à être réservée. */
+    .glossary td:first-child {
+      width: auto;
+    }
+  }
+}

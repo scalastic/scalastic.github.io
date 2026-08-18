@@ -41,6 +41,17 @@ plugins:
   - jekyll-polyglot
   - jekyll_picture_tag
 
+# Gabarit de citation : l'attribution doit être hors du blockquote pour
+# pouvoir être posée sous la bulle, ce que le gabarit par défaut ne permet pas.
+premonition:
+  types:
+    citation:
+      template: >
+        <figure class="premonition citation">
+        <blockquote class="quote">{{content}}</blockquote>
+        {% if header %}<figcaption class="quote-source">{{title}}</figcaption>{% endif %}
+        </figure>
+
 #Jekyll build
 exclude: ["node_modules", "gulpfile.js", "package.json", "yarn.lock", "archive-posts"]
 
