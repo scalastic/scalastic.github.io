@@ -2,13 +2,21 @@
 
 $background: var(--code-background);
 
-.highlighter-rouge {
-    color: var(--code-color);
+/* Inline code, inside running text */
+code.highlighter-rouge {
+    background-color: var(--inline-code-background);
+    color: var(--inline-code-color);
+    font-size: 0.82em;
     font-weight: 400;
-    border: 1px solid var(--code-background);
-    border-radius: 3px;
-    padding: 0.1rem 0.5rem;
-    word-break: break-all;
+    border: 0;
+    border-radius: 4px;
+    padding: 0.08em 0.32em;
+    word-break: break-word;
+    overflow-wrap: anywhere;
+}
+
+a code.highlighter-rouge {
+    color: inherit;
 }
 
 .code-container {
