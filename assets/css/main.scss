@@ -47,6 +47,19 @@ sitemap:
   --warning-color: #a15c00;
   --error-color: #c0392b;
   --citation-color: #3a3a3a;
+  /* Diagrammes : les SVG produits au build sont inline dans la page et
+     n'utilisent que ces variables, ce qui leur permet de suivre la bascule de
+     thème sans être re-rendus. */
+  --diagram-node-bg: #f0f0f0;
+  --diagram-node-border: #c2c2c2;
+  --diagram-text: #4a4a4a;
+  --diagram-line: #8c8c8c;
+  --diagram-alt-bg: #e8e8e8;
+  --diagram-accent-bg: #e2e2e2;
+  --diagram-bg: transparent;
+  --diagram-cluster-bg: #f5f5f5;
+  --diagram-cluster-border: #d2d2d2;
+  --diagram-label-bg: #fbfbfb;
 }
 html[data-mode="dark"] {
   --body-background: #515151;
@@ -66,6 +79,16 @@ html[data-mode="dark"] {
   --warning-color: #f0ad4e;
   --error-color: #ef8b85;
   --citation-color: #e0e0e0;
+  --diagram-node-bg: #5f5f5f;
+  --diagram-node-border: #8e8e8e;
+  --diagram-text: #f2f2f2;
+  --diagram-line: #aeaeae;
+  --diagram-alt-bg: #6a6a6a;
+  --diagram-accent-bg: #6f6f6f;
+  --diagram-bg: transparent;
+  --diagram-cluster-bg: #5a5a5a;
+  --diagram-cluster-border: #7d7d7d;
+  --diagram-label-bg: #515151;
 }
 
 // Reset

@@ -161,6 +161,46 @@
       line-height: 1.5;
     }
   }
+
+  /* Diagrammes Mermaid rendus en SVG au build et inline dans la page. Le SVG
+     porte sa largeur naturelle en max-width : il occupe la colonne quand elle
+     est plus étroite, sans jamais être étiré au-delà de sa taille de rendu. */
+  .diagram {
+    margin: 30px 0;
+    overflow-x: auto;
+    text-align: center;
+
+    svg {
+      display: block;
+      height: auto;
+      margin: 0 auto;
+    }
+
+    /* Mermaid dimensionne son texte en pixels absolus ; le ramener à l'échelle
+       du corps du site évite un décalage avec les paragraphes voisins. */
+    text {
+      font-family: "Mulish", sans-serif;
+    }
+
+    figcaption {
+      margin-top: 12px;
+      font-size: 0.9em;
+      font-style: italic;
+      line-height: 1.45;
+      opacity: 0.8;
+    }
+  }
+
+  /* Repli affiché lorsque le SVG manque et que mmdc est indisponible : la
+     source reste lisible plutôt que de laisser un trou dans l'article. */
+  .diagram-fallback {
+    overflow-x: auto;
+    padding: 16px 20px;
+    background-color: var(--inset-background);
+    border-radius: 8px;
+    font-size: 0.85em;
+    line-height: 1.4;
+  }
 }
 
 @media only screen and (max-width: 769px) {

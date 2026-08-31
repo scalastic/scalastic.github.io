@@ -1,0 +1,11 @@
+{
+  "name": "scalastic-diagrams",
+  "private": true,
+  "description": "Chaine de rendu locale des diagrammes Mermaid. Les SVG produits sont versionnes, la CI ne rend rien.",
+  "scripts": {
+    "diagrams": "bundle exec jekyll build --destination /tmp/scalastic-diagrams-build"
+  },
+  "devDependencies": {
+    "@mermaid-js/mermaid-cli": "11.4.2"
+  }
+}
