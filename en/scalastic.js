@@ -125,10 +125,13 @@ function scrollToTop() {
 rocket(1000);
 
 // GitHub Card
-document.addEventListener('DOMContentLoaded', async () => {
-  // Sélection de l'élément repoName de manière sécurisée
-  const repoNameElement = document.querySelector('.github-card .name a');
-  const repoName = repoNameElement ? repoNameElement.textContent.trim() : "";
+document.addEventListener('DOMContentLoaded', () => {
+  // Une page peut contenir plusieurs cartes : chacune est complétée à partir du
+  // dépôt nommé dans son propre lien.
+  const cards = document.querySelectorAll('.github-card');
+  if (cards.length === 0) {
+    return;
+  }
 
   // Function to format large numbers (e.g., 92869 -> 92.9k)
   function formatNumber(num) {
@@ -152,70 +155,82 @@ document.addEventListener('DOMContentLoaded', async () => {
     }
   }
 
-  // Complete the existing HTML
-  async function completeGitHubCard() {
+  // Une seule requête par dépôt distinct, même s'il apparaît dans plusieurs
+  // cartes : l'API GitHub anonyme est limitée à 60 appels par heure et par IP.
+  const requests = new Map();
+  function repoData(repo) {
+    if (!requests.has(repo)) {
+      requests.set(repo, fetchRepoData(repo));
+    }
+    return requests.get(repo);
+  }
+
+  // Complete the existing HTML of one card
+  async function completeGitHubCard(card) {
+    const repoNameElement = card.querySelector('.name a');
+    const repoName = repoNameElement ? repoNameElement.textContent.trim() : '';
     if (!repoName) {
-      console.warn("No repository name found. Aborting.");
+      console.warn('No repository name found. Aborting.');
       return;
     }
 
-    const repo = await fetchRepoData(repoName);
-
-    if (repo) {
-      const {
-        full_name: fullName,
-        description,
-        stargazers_count: stars,
-        forks_count: forks,
-        pushed_at: pushedAt,
-        language,
-        license,
-        topics = []
-      } = repo;
-
-      // Date formatter
-      const formattedDate = pushedAt
-        ? new Date(pushedAt).toLocaleDateString('en-US', { month: 'short', day: 'numeric' })
-        : 'Unknown Date';
-
-      // Inject new data into the card
-      const card = document.querySelector('.github-card .panel-body');
-      if (!card) {
-        console.warn("GitHub card panel body not found. Aborting.");
-        return;
-      }
-
-      // Inject description
-      if (description) {
-        const descriptionHtml = document.createElement('div');
-        descriptionHtml.className = 'description';
-        descriptionHtml.textContent = description;
-        card.appendChild(descriptionHtml);
-      }
-
-      // Inject topics
-      if (Array.isArray(topics) && topics.length > 0) {
-        const topicsHtml = document.createElement('div');
-        topicsHtml.className = 'badge-group';
-        topicsHtml.innerHTML = topics.map(topic => `<span class='badge'>${topic}</span>`).join(' ');
-        card.appendChild(topicsHtml);
-      }
-
-      // Inject statistics (language, stars, forks, license, last push as last update)
-      const statsHtml = document.createElement('div');
-      statsHtml.className = 'stats';
-      statsHtml.innerHTML = `
-        <span>${languageIcon()} ${language || 'Unknown Language'}</span>
-        <span>${starIcon()} ${formatNumber(stars || 0)}</span>
-        <span>${forkIcon()} ${formatNumber(forks || 0)}</span>
-        <span>${licenseIcon()} ${license?.name || 'No License'}</span>
-        <span>Updated on ${formattedDate}</span>
-      `;
-      card.appendChild(statsHtml);
+    const body = card.querySelector('.panel-body');
+    if (!body) {
+      console.warn(`GitHub card panel body not found for ${repoName}. Aborting.`);
+      return;
     }
+
+    const repo = await repoData(repoName);
+    if (!repo) {
+      return;
+    }
+
+    const {
+      description,
+      stargazers_count: stars,
+      forks_count: forks,
+      pushed_at: pushedAt,
+      language,
+      license,
+      topics = []
+    } = repo;
+
+    // Date formatter
+    const formattedDate = pushedAt
+      ? new Date(pushedAt).toLocaleDateString('en-US', { month: 'short', day: 'numeric' })
+      : 'Unknown Date';
+
+    // Inject description
+    if (description) {
+      const descriptionHtml = document.createElement('div');
+      descriptionHtml.className = 'description';
+      descriptionHtml.textContent = description;
+      body.appendChild(descriptionHtml);
+    }
+
+    // Inject topics
+    if (Array.isArray(topics) && topics.length > 0) {
+      const topicsHtml = document.createElement('div');
+      topicsHtml.className = 'badge-group';
+      topicsHtml.innerHTML = topics.map(topic => `<span class='badge'>${topic}</span>`).join(' ');
+      body.appendChild(topicsHtml);
+    }
+
+    // Inject statistics (language, stars, forks, license, last push as last update)
+    const statsHtml = document.createElement('div');
+    statsHtml.className = 'stats';
+    statsHtml.innerHTML = `
+      <span>${languageIcon()} ${language || 'Unknown Language'}</span>
+      <span>${starIcon()} ${formatNumber(stars || 0)}</span>
+      <span>${forkIcon()} ${formatNumber(forks || 0)}</span>
+      <span>${licenseIcon()} ${license?.name || 'No License'}</span>
+      <span>Updated on ${formattedDate}</span>
+    `;
+    body.appendChild(statsHtml);
   }
-  // Run the function to complete the card
-  completeGitHubCard();
+
+  // Run the function to complete every card on the page
+  cards.forEach(card => completeGitHubCard(card));
 });
 
 // Icons come from official https://primer.style/foundations/icons
